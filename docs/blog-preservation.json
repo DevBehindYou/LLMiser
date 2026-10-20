@@ -1,0 +1,238 @@
+{
+  "baseline": "MDify ce56f5c",
+  "checkedAt": "2026-10-20",
+  "files": [
+    {
+      "path": "frontend/content/blog/README.md",
+      "sha256": "b5a270b35a04181973a358be488d21d0f94fe66baacb6c869be41f8270a65707"
+    },
+    {
+      "path": "frontend/content/blog/document-to-llm-pipeline.md",
+      "sha256": "6cbb5509efebf73ec3c0cc0ce54e15e455ddd0b2e9329e6eed3983e777ea0766"
+    },
+    {
+      "path": "frontend/content/blog/hidden-token-tax-rag-pipelines.md",
+      "sha256": "fb12115eb5942788603786be774f9bfecaa1939fd874c4a6716251c56a9b630c"
+    },
+    {
+      "path": "frontend/content/blog/markdown-vs-pdf-llm-tokens.md",
+      "sha256": "deb84fc3274386e84008cfc8e713ec187a2ef2eb32ce30638307b89c018226fd"
+    },
+    {
+      "path": "frontend/content/blog/rag-cost-optimization.md",
+      "sha256": "6a148a6be96783d2c3ca93574ff6e1b4be68247745d5bdd62f6e703e820f45ad"
+    },
+    {
+      "path": "frontend/content/blog/reduce-llm-api-costs.md",
+      "sha256": "3a8de9bf4a16fd5f082c75fe117447f7ed5ee3212ed5d11a8d23981c18760a46"
+    },
+    {
+      "path": "frontend/content/blog/reduce-llm-token-usage.md",
+      "sha256": "935736a0761d4f2bc943a27d26c580693290c428e2c01808e03f4220eedd49fb"
+    },
+    {
+      "path": "frontend/content/blog/why-pdfs-are-expensive-for-ai.md",
+      "sha256": "f5fcdbba82503e072cbcdfbe2fc74f8793082ce5b8ae2a82f097b779278e4c54"
+    },
+    {
+      "path": "frontend/content/blog/why-your-llm-bill-is-too-high.md",
+      "sha256": "8f3e32e9349a17450865c6140b9295fd32245121280d8f235b438ae42e799aff"
+    },
+    {
+      "path": "frontend/lib/blogPosts.generated.json",
+      "sha256": "bed91625e308cf0528f317c82d6e4662eec3f8fb4a72454936ba9120685f3f58"
+    },
+    {
+      "path": "frontend/public/blog/document-to-llm-pipeline/banner.svg",
+      "sha256": "b97311ad19e656c77422bed0ab038a25393deddbd1bed3d19ec843508fce3748"
+    },
+    {
+      "path": "frontend/public/blog/document-to-llm-pipeline/chunk-record.svg",
+      "sha256": "039ae12d44b78f8ca8d12f1f0a430bf1b6be6f3a5208ab0e93e9b0f01df6ea74"
+    },
+    {
+      "path": "frontend/public/blog/document-to-llm-pipeline/context-budget.svg",
+      "sha256": "08cdff19f59b8ea117cc5bff0e9caf7e95dcd6057632b3edd0b8e48fff85ec05"
+    },
+    {
+      "path": "frontend/public/blog/document-to-llm-pipeline/mixed-pdf.svg",
+      "sha256": "a296039418f8637c98961c320c6cf16fc22eb4496e0ff2a7a78795ffb53d31b1"
+    },
+    {
+      "path": "frontend/public/blog/document-to-llm-pipeline/naive-vs-pipeline.svg",
+      "sha256": "ba9cb488572c99a3fb96cbc4fd9f3c59e7d13a2fcc77b9c3f6a102a974aebb7f"
+    },
+    {
+      "path": "frontend/public/blog/document-to-llm-pipeline/tokens-per-question.svg",
+      "sha256": "0b738f6943392d3285dd698b63531bd5b1850393e86d841a03b82ac488a2d338"
+    },
+    {
+      "path": "frontend/public/blog/hidden-token-tax-rag-pipelines/banner.svg",
+      "sha256": "a90a482e09e696d3d3ac8ef40ecbf6ed83b8c6534f08a39e4f8802ec4cb7f315"
+    },
+    {
+      "path": "frontend/public/blog/hidden-token-tax-rag-pipelines/budget.svg",
+      "sha256": "f06adaffca7e1bdc98460d075b9b6a7f9a1c34d41020884f589e0bd6e6f4afbd"
+    },
+    {
+      "path": "frontend/public/blog/hidden-token-tax-rag-pipelines/eight-knobs.svg",
+      "sha256": "bc4185422182f98dfc15b64d409be09293d5b55e7795bc2d24c20a07ac86b530"
+    },
+    {
+      "path": "frontend/public/blog/hidden-token-tax-rag-pipelines/one-relevant-sentence.svg",
+      "sha256": "078665a339d23059839cab18855a557bada8d4e8b5c7f2c905cbfd3472a03aa5"
+    },
+    {
+      "path": "frontend/public/blog/hidden-token-tax-rag-pipelines/overlap-inflation.svg",
+      "sha256": "b51b020e09156951581e3d8de139f38919b1d9b1e77b68c7a53ada5a422e01d8"
+    },
+    {
+      "path": "frontend/public/blog/hidden-token-tax-rag-pipelines/tax-funnel.svg",
+      "sha256": "174f5d8ef19641c230ba8938ac84b3af813c94103a4d16b209e19b01e2a3f764"
+    },
+    {
+      "path": "frontend/public/blog/markdown-vs-pdf-llm-tokens/banner.svg",
+      "sha256": "997ae6017c5b717248d175c2396824df7b8dd1f9317a0867464b811eb3100810"
+    },
+    {
+      "path": "frontend/public/blog/markdown-vs-pdf-llm-tokens/chunk-boundaries.svg",
+      "sha256": "93871ec06a23db9310b3ceb7c0840a2880df09e521322298314ab4355c4ebf16"
+    },
+    {
+      "path": "frontend/public/blog/markdown-vs-pdf-llm-tokens/extraction-noise.svg",
+      "sha256": "b1b3e922490f67feb76ea499ed39e793efc84087d93456951f95060c56203736"
+    },
+    {
+      "path": "frontend/public/blog/markdown-vs-pdf-llm-tokens/reading-order.svg",
+      "sha256": "9155ab112d0dd6a902079a6b00a4ecde6afc12fb98de7d28402fa80407e277b8"
+    },
+    {
+      "path": "frontend/public/blog/markdown-vs-pdf-llm-tokens/tokens-per-page.svg",
+      "sha256": "8542ad5d4cc5c19d79c630a00d7fa3f5e24e03e2b875b853a9fc23f389afc431"
+    },
+    {
+      "path": "frontend/public/blog/markdown-vs-pdf-llm-tokens/when-to-send-pdf.svg",
+      "sha256": "7ee29cb995dfaaaaed35fb457223eea9395f32b00c12c8e7737bf7dba5737b30"
+    },
+    {
+      "path": "frontend/public/blog/rag-cost-optimization/banner.svg",
+      "sha256": "d95790b03c682426801fcf895ef64aa1cf9785fda03e476f93cb5cb0ad0457d6"
+    },
+    {
+      "path": "frontend/public/blog/rag-cost-optimization/context-per-question.svg",
+      "sha256": "2231dc9495ffa4532e73d91a000fb5d78248c2c4a6446d082e79394f16170ddd"
+    },
+    {
+      "path": "frontend/public/blog/rag-cost-optimization/contextual-retrieval.svg",
+      "sha256": "bf35bef2a36f4f5c0af9c2a42f7d4b13cf5cdf838739c90cc0657e3f6724f0e4"
+    },
+    {
+      "path": "frontend/public/blog/rag-cost-optimization/once-vs-monthly.svg",
+      "sha256": "3db4e42dc3e3a0cbcb0d4511e3d679919d98ab6d39f03f1182d0da2feae820e3"
+    },
+    {
+      "path": "frontend/public/blog/rag-cost-optimization/rag-cost-map.svg",
+      "sha256": "6c788f8d340f0a1246e4d6bc6ad02b1986059e6f4b51e433d60ce2e7ff499ca2"
+    },
+    {
+      "path": "frontend/public/blog/rag-cost-optimization/where-to-optimize.svg",
+      "sha256": "59f0819118773967c508a259f77df10ab42c3b7022f895b50860e4dd6206ebad"
+    },
+    {
+      "path": "frontend/public/blog/reduce-llm-api-costs/banner.svg",
+      "sha256": "6b79892a67a51c84121f9738dde5dfca78d929c70f00e1b266ba39879e773729"
+    },
+    {
+      "path": "frontend/public/blog/reduce-llm-api-costs/cache-math.svg",
+      "sha256": "1ec7756e25f5c262150303a1ed798ae1c5e9cb1bc6412a5f113a449f801926ff"
+    },
+    {
+      "path": "frontend/public/blog/reduce-llm-api-costs/output-price.svg",
+      "sha256": "3613d536f9863c119a70219451e1ef8bf002a80e3f4ed1e93a452ca9ccd94846"
+    },
+    {
+      "path": "frontend/public/blog/reduce-llm-api-costs/safe-loop.svg",
+      "sha256": "2e8159adb7405fe9d33f8e6f7af9af08cc9c14edf7d3dcb7cb980b10f9793c10"
+    },
+    {
+      "path": "frontend/public/blog/reduce-llm-api-costs/seven-levers.svg",
+      "sha256": "4769f8c147ef988ae1a85edf2dadd459d18aeb2b1e89aac436a4219ff86c9c73"
+    },
+    {
+      "path": "frontend/public/blog/reduce-llm-api-costs/worked-example.svg",
+      "sha256": "9b87553f750f010d2fc72294a83fe6a17ef402701a35353d6bc5aab805ee438c"
+    },
+    {
+      "path": "frontend/public/blog/reduce-llm-token-usage/audit-loop.svg",
+      "sha256": "37d0eaba03ab48b7506abd1e1ec13b78fb77ee596ac6585ba25ae10c0b253143"
+    },
+    {
+      "path": "frontend/public/blog/reduce-llm-token-usage/banner.svg",
+      "sha256": "7a0cab5aa2194741c33846ce81c015b9472946c2172556d56bc18ac454ab5a29"
+    },
+    {
+      "path": "frontend/public/blog/reduce-llm-token-usage/history-growth.svg",
+      "sha256": "896c01a1d3a55add8b2850649715614ff8856b484ecf3ef3305a6d4771f95837"
+    },
+    {
+      "path": "frontend/public/blog/reduce-llm-token-usage/pdf-modes.svg",
+      "sha256": "55ec5ae7ebc2bb2ffa80ba050255d3bf3eb945777df14b8d7e5d28229b0db19a"
+    },
+    {
+      "path": "frontend/public/blog/reduce-llm-token-usage/request-anatomy.svg",
+      "sha256": "931d3d4e77c71574a062126b25f0b6f33beec595dfaf3779a2586108cd77314c"
+    },
+    {
+      "path": "frontend/public/blog/reduce-llm-token-usage/six-fixes.svg",
+      "sha256": "0a7efad5db5443a6d8e19f6089bb97e6c000b0cbd9a9c61ba5917230dc35da41"
+    },
+    {
+      "path": "frontend/public/blog/why-pdfs-are-expensive-for-ai/banner.svg",
+      "sha256": "47ba2a2cd2846739a5cf67650a51d328cead26d216e09fbc82e6d019e743baa1"
+    },
+    {
+      "path": "frontend/public/blog/why-pdfs-are-expensive-for-ai/fix-flow.svg",
+      "sha256": "29118645e30b8d98998798adfee29515c1039ec101918430686300bfafc04e1e"
+    },
+    {
+      "path": "frontend/public/blog/why-pdfs-are-expensive-for-ai/page-anatomy.svg",
+      "sha256": "d9ffe821612469bd28e079e3f95dfe3c1d0d6c7666404d24ea346f9081b400fd"
+    },
+    {
+      "path": "frontend/public/blog/why-pdfs-are-expensive-for-ai/repeats.svg",
+      "sha256": "c73c5e49244e14a1df70370d0858415e3bdd58944d2b153313edbb693fee4ebc"
+    },
+    {
+      "path": "frontend/public/blog/why-pdfs-are-expensive-for-ai/seven-times.svg",
+      "sha256": "e3c7148d0bfc2f2b24fafc2968e49fdc1f11f731a5497ea3e5f3974e1cf2fbe7"
+    },
+    {
+      "path": "frontend/public/blog/why-pdfs-are-expensive-for-ai/table-fragments.svg",
+      "sha256": "02a6791e9561358b03f06ba9ad62017de2a0e3b69cfb1c7a37879a9b1292bbf1"
+    },
+    {
+      "path": "frontend/public/blog/why-your-llm-bill-is-too-high/audit-checklist.svg",
+      "sha256": "40910aa4adf470d244064d9c3a04a9108e591fd82a1a40b5944ecc88e4c84dee"
+    },
+    {
+      "path": "frontend/public/blog/why-your-llm-bill-is-too-high/banner.svg",
+      "sha256": "6b22b00972bc55767a80bc6468404444adc77dd147570ad7d3462b65380d7284"
+    },
+    {
+      "path": "frontend/public/blog/why-your-llm-bill-is-too-high/bloated-request.svg",
+      "sha256": "87de9b9d1313644bcdc7734bede5238a00faf3d2fd4dbda7aa74557e42eaa6d1"
+    },
+    {
+      "path": "frontend/public/blog/why-your-llm-bill-is-too-high/bloated-vs-lean.svg",
+      "sha256": "92cb5d37a03b07f80ed4d2b98fd1c1fb5a125a3e16e51159beef56a359d23c7e"
+    },
+    {
+      "path": "frontend/public/blog/why-your-llm-bill-is-too-high/model-tiers.svg",
+      "sha256": "44467daac9721140ba16f0866f641b2726324fc016247bb6e6d8e280d84e03f9"
+    },
+    {
+      "path": "frontend/public/blog/why-your-llm-bill-is-too-high/six-leaks.svg",
+      "sha256": "1f0164ac178e66f63ec65e5aa9d51356cf2942c6b6e1d9f430207194f9b10c88"
+    }
+  ]
+}

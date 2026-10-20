@@ -1,0 +1,39 @@
+# LLMiser
+
+> LLMiser is a free LLM cost optimizer for document inputs by DevBehindYou, formerly MDify. It turns PDFs, Office documents, images and ZIP projects into editable Markdown so users can remove unnecessary context before sending it to AI assistants or RAG pipelines. Make Every Token Count.
+
+Canonical website: https://llmiser.devbehindyou.com
+Open source: https://github.com/DevBehindYou/LLMiser
+Contact: devbehindyou@gmail.com
+Last updated: 20 October 2026.
+
+## Pages
+
+- [LLMiser app](https://llmiser.devbehindyou.com/): convert documents, review Markdown, copy or download results.
+- [LLM cost optimization](https://llmiser.devbehindyou.com/usecase): how document preparation helps, supported formats, limitations and frequently asked questions.
+- [Privacy Policy](https://llmiser.devbehindyou.com/privacy): server processing, default 48-hour retention and documented exceptions.
+- [Terms of Service](https://llmiser.devbehindyou.com/terms): terms for the free service.
+- [Blog](https://llmiser.devbehindyou.com/blog): guides to LLM token costs, PDF input, RAG context and cost audits. Numbers in them are worked examples or cited figures, with sources and dates.
+
+## Capabilities and limits
+
+- Documents: PDF, DOCX, PPTX, XLSX, XLS, EPUB, HTML, CSV, TSV, JSON, XML, TXT and MD, up to 15 MB each.
+- Images: PNG, JPG, JPEG, WebP, TIFF, BMP and GIF, up to 10 MB each.
+- Scanned PDF text recognition: up to 100 scanned pages per file.
+- ZIP projects: up to 15 MB and 2,000 files, producing combined Markdown, a project index and a manifest.
+- Batch conversion: up to 20 files. Profiles: Standard, Clean, Compact and RAG-ready.
+- Uploads are processed on the service. Review the Privacy Policy before uploading sensitive material.
+- Text token counts are rough character-based estimates, not a model tokenizer or a billing measurement.
+- Potential savings depend on the provider, model, tokenizer, input path and content. There is no guaranteed percentage reduction. Check information loss and answer quality.
+- LLMiser currently prepares document inputs. Model routing, provider billing integration, prompt caching and a browser extension are not offered by this app.
+
+## Blog guides
+
+- [Markdown vs Raw PDFs: Which Uses Fewer LLM Tokens?](https://llmiser.devbehindyou.com/blog/markdown-vs-pdf-llm-tokens): Markdown vs PDF for LLM input: in our worked example, a 500-word page is about 667 tokens as Markdown and 2,235 as a PDF page. See where the gap comes from.
+- [How to Reduce LLM API Costs Without Losing Quality](https://llmiser.devbehindyou.com/blog/reduce-llm-api-costs): Reduce LLM API costs without hurting quality: batch async work, cache repeated prompts, shrink documents, route easy requests and cap output. With real prices.
+- [PDFs Are Expensive for AI: Here's Why](https://llmiser.devbehindyou.com/blog/why-pdfs-are-expensive-for-ai): PDF LLM tokens add up fast: page images, repeated headers, broken columns and flattened tables. See why PDFs cost AI more, and the fix that works.
+- [Stop Sending Whole Documents to AI: Build a Better Pipeline](https://llmiser.devbehindyou.com/blog/document-to-llm-pipeline): Build a document to LLM pipeline that extracts, cleans, chunks and retrieves, so each question sends a few relevant sections instead of the whole file.
+- [The Hidden Token Tax in RAG Pipelines](https://llmiser.devbehindyou.com/blog/hidden-token-tax-rag-pipelines): RAG token optimization starts before generation: oversized chunks, overlap, duplicate retrieval and loose top-K inflate context. Learn to cut the tax.
+- [The Real Cost of RAG: Embeddings, Tokens and Re-Ranking](https://llmiser.devbehindyou.com/blog/rag-cost-optimization): The real RAG cost is rarely embeddings. See where retrieval pipelines spend, from parsing to generation, and how to cut cost without hurting relevance.
+- [Why Your LLM Token Usage Is So High, and How to Fix It](https://llmiser.devbehindyou.com/blog/reduce-llm-token-usage): High LLM token usage rarely comes from your questions. Find the hidden causes: raw PDFs, chat history, big prompts, duplicate text and whole documents.
+- [Why Your LLM Bill Is Too High, and Where the Waste Hides](https://llmiser.devbehindyou.com/blog/why-your-llm-bill-is-too-high): Your LLM API cost is often inflated by repeated prompts, endless history, raw PDFs, off-topic retrieval, wordy output and an overkill model. Find the leaks.
