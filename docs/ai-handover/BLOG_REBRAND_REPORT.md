@@ -96,7 +96,7 @@ Not every one of the 48 SVGs was inspected individually in both themes. The figu
 ## Unresolved items and notes for the owner
 
 - **Prices change.** The cost articles quote Anthropic list prices as of 20 October 2026. When they change, update the specs and the text together.
-- **Public research.** `project-docs/rebranding-research/` (agent prompts, competitor registers) and `project-docs/brand/make-icons.mjs` are untracked in this public repository. Decide whether they should be published before the first commit.
+- **Private research.** `project-docs/` (brand kit, `make-icons.mjs`, agent prompts, competitor registers) is kept out of the public repository through `.git/info/exclude`.
 - **Social cards.** Each article still shares `og-card.png` on social media. A per-article raster card from each banner would be a separate task.
 - **Keyword data.** No keyword volumes were measured for the new LLMiser themes. Primary keywords are unchanged per article.
 - **Session tooling.** For the visual checks, an `llmiser-prod` entry was added to MDify-Pro's local `.claude/launch.json`. It's tooling only and not part of either app.

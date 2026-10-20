@@ -22,7 +22,7 @@ Each backend file can be imported as-is into its new service (Vercel "Import .en
 
 ## Step 0: push LLMiser
 
-Vercel and Render deploy from GitHub, so the code must be on `DevBehindYou/LLMiser` `main` first. Before the first commit, run `git add -A --dry-run` and confirm that no `.env` file, `blog-pipeline/`, `docs/mdify-history/`, `.codex-recovery/` or `.claude/` path appears. Also decide whether `project-docs/` should be public. In Vercel's and Render's GitHub app settings, make sure both can see the LLMiser repository.
+Vercel and Render deploy from GitHub, so the code must be on `DevBehindYou/LLMiser` `main` first. Done on 20 October 2026. Before every commit, run `git add -A --dry-run` and confirm that no `.env` file, `project-docs/`, `blog-pipeline/`, `docs/mdify-history/`, `.codex-recovery/` or `.claude/` path appears. In Vercel's and Render's GitHub app settings, make sure both can see the LLMiser repository.
 
 ## Backends: six new services
 
@@ -154,5 +154,6 @@ Kept out of the public repo through `.git/info/exclude`:
 | `docs/mdify-history/` | MDify-era AI handover, analysis, planning docs, the old `sync-public.ps1` and the original raster icon |
 | `.codex-recovery/` | Recovered earlier agent transcripts |
 | `.claude/` | Local launch configs |
+| `project-docs/` | Prompt L brand kit (SVG, PNG, favicon, manifest, preview), `brand/make-icons.mjs` and the rebranding research archive. The icon test compares the public icons with this kit only when the folder exists. |
 
 Load-test data in `tests/load/.corpus` and `tests/load/results` is ignored by `.gitignore`.

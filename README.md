@@ -42,7 +42,7 @@ This repository starts from MDify commit `ce56f5c` and uses the selected **11 â€
 
 The canonical origin is `https://llmiser.devbehindyou.com`. See [the migration runbook](docs/LLMISER_MIGRATION.md) for deployment, redirects and remaining hosting steps, and [implementation notes](docs/LLMISER_REBRAND.md) for compatibility details.
 
-`npm run brand:images` rebuilds the social card from the approved icon. Brand assets and the supplied research archive are retained in `project-docs/` as reference material.
+`npm run brand:images` rebuilds the social card from the approved icon. The brand kit and research archive are kept in a local, private `project-docs/` folder that is not part of this repository.
 
 ## License
 

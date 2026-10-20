@@ -42,10 +42,15 @@ test('both legacy hosts preserve public paths without redirecting the API or pre
 });
 
 test('install icons use the approved Prompt L kit', () => {
+  // project-docs/ is private (kept out of Git), so the byte comparison runs only
+  // in a checkout that has the brand kit. The manifest checks always run.
   const kit = new URL('../../project-docs/brand/llmiser/', import.meta.url);
-  for (const theme of ['dark', 'light']) {
-    assert.deepEqual(fs.readFileSync(new URL('../public/llmiser-icon-' + theme + '.svg', import.meta.url)), fs.readFileSync(new URL('svg/llmiser-icon-' + theme + '.svg', kit)));
+  if (fs.existsSync(kit)) {
+    for (const theme of ['dark', 'light']) {
+      assert.deepEqual(fs.readFileSync(new URL('../public/llmiser-icon-' + theme + '.svg', import.meta.url)), fs.readFileSync(new URL('svg/llmiser-icon-' + theme + '.svg', kit)));
+    }
   }
+  for (const theme of ['dark', 'light']) assert.ok(fs.existsSync(new URL('../public/llmiser-icon-' + theme + '.svg', import.meta.url)));
   const manifest = JSON.parse(fs.readFileSync(new URL('../public/site.webmanifest', import.meta.url), 'utf8'));
   assert.equal(manifest.name, 'LLMiser'); assert.equal(manifest.start_url, '/');
   for (const icon of manifest.icons) assert.ok(fs.existsSync(new URL('../public' + icon.src, import.meta.url)));

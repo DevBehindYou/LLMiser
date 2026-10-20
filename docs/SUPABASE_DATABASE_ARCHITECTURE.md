@@ -12,7 +12,7 @@ error per OCR health ping; successes kept 1 day, failures 14 days), `keepwarm_pi
 ## Tables
 
 `jobs`, `file_objects`, `job_events`, `audit_logs` — columns as in
-`project-docs/supabase/SUPABASE_SCHEMA.sql`. `jobs.completed_at` is set for COMPLETED,
+`supabase/MDIFY_SETUP.sql`. `jobs.completed_at` is set for COMPLETED,
 FAILED and CANCELLED. `audit_logs` has no foreign key, so it survives a job hard delete.
 
 ## Functions (all SECURITY INVOKER, EXECUTE for `service_role` only)

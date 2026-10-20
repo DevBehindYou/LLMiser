@@ -2,7 +2,7 @@
 
 Uses the Storage REST API over httpx instead of an S3 SDK: backendN ships to
 Vercel, where its dependencies already measure ~300 MB installed, and an S3
-SDK would add ~80 MB more (see project-docs/supabase/REVIEW.md).
+SDK would add ~80 MB more (see the private Supabase review notes).
 
 Credentials: SUPABASE_URL + SUPABASE_SERVICE_ROLE_KEY, bucket from
 SUPABASE_STORAGE_BUCKET (default "mdify-pro-files"). None of these may ever be

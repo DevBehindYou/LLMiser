@@ -84,4 +84,4 @@ real environment variables. Going live, step by step: `docs/GO_LIVE.md`.
 
 Details: `docs/BACKGROUND_JOBS.md`, `docs/SUPABASE_STORAGE_ARCHITECTURE.md`,
 `docs/SUPABASE_DATABASE_ARCHITECTURE.md`, `docs/RETENTION_AND_CLEANUP.md`, `docs/ADMIN_ARCHITECTURE.md`,
-measurements in `docs/testing/`. Planning packages are in `project-docs/`.
+measurements in `docs/testing/`. Planning packages are kept in a private, local `project-docs/` folder.
