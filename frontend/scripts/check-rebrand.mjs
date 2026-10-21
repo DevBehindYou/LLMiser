@@ -30,8 +30,8 @@ for (const url of urls) {
   check(page.status === 200, 'public page: ' + route);
   check(page.body.includes('rel="canonical" href="' + url + '"'), 'self canonical: ' + route);
 }
-for (const host of ['mdify.devbehindyou.com', 'mdify-app.vercel.app']) {
-  for (const route of ['/', '/usecase', '/privacy', '/terms', '/blog/reduce-llm-token-usage', '/sitemap.xml']) {
+for (const host of ['mdify.devbehindyou.com', 'mdify-app.vercel.app', 'llmiser.vercel.app']) {
+  for (const route of [...urls.map(url => new URL(url).pathname), '/sitemap.xml', '/robots.txt', '/llms.txt', '/favicon-32.png', '/icon-maskable-512.png', '/llmiser-icon-dark.svg', '/llmiser-icon.png', '/apple-touch-icon.png']) {
     const response = await request(route + '?ref=rebrand', host);
     check(response.status === 308, host + route + ' permanent redirect');
     check(response.headers.location === canonical + route + '?ref=rebrand', host + route + ' preserves path/query');

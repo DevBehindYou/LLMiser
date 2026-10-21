@@ -18,27 +18,33 @@ test('every published article has a unique canonical, complete metadata and site
  }
  assert.equal(robots().sitemap,SITE_URL+'/sitemap.xml');assert.doesNotMatch(JSON.stringify(siteJsonLd())+llms,/mdify-app.vercel.app/);
 });
-test('both legacy hosts preserve public paths without redirecting the API or previews', async () => {
+test('public aliases consolidate directly without redirecting the API or previews', async () => {
   const { default: config } = await import('../next.config.js');
   const redirects = await config.redirects();
-  const hosts = ['mdify.devbehindyou.com', 'mdify-app.vercel.app'];
+  const hosts = ['mdify.devbehindyou.com', 'mdify-app.vercel.app', 'llmiser.vercel.app'];
   for (const host of hosts) {
-    for (const source of ['/', '/usecase', '/privacy', '/terms', '/blog/:path*', '/sitemap.xml', '/robots.txt', '/llms.txt']) {
+    for (const source of ['/', '/usecase', '/privacy', '/terms', '/blog', '/blog/:path*', '/sitemap.xml', '/robots.txt', '/llms.txt', '/apple-touch-icon.png', '/llmiser-icon.png']) {
       const rule = redirects.find(r => r.source === source && r.has?.[0].value === host);
       assert.ok(rule, host + source);
       assert.equal(rule.destination, SITE_URL + source);
       assert.equal(rule.permanent, true);
     }
+    const rules = redirects.filter(r => r.has?.[0].value === host);
+    assert.ok(rules.findIndex(r => r.source === '/blog') < rules.findIndex(r => r.source === '/blog/:path*'), 'blog index avoids a trailing-slash hop');
   }
   for (const rule of redirects.filter(r => r.has)) {
     assert.ok(hosts.includes(rule.has[0].value));
     assert.ok(!rule.source.startsWith('/api'));
+    assert.notEqual(rule.source, '/:path*', 'unknown URLs must retain real 404 responses');
     assert.ok(!rule.has.some(h => h.value === 'llmiser.devbehindyou.com'));
   }
   const admin = redirects.find(r => r.source === '/mdify-controller');
   assert.equal(admin.destination, '/llmiser-controller');
   const headers = await config.headers();
   assert.ok(headers.some(r => r.source === '/api/:path*' && r.headers.some(h => h.key === 'X-Robots-Tag' && h.value.includes('noindex'))));
+  for (const rule of robots().rules) {
+    assert.ok(!rule.disallow.includes('/'), 'Google must crawl permanent redirects');
+  }
 });
 
 test('install icons use the approved Prompt L kit', () => {
