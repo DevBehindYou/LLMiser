@@ -1,5 +1,10 @@
 # LLMiser validation — 20 October 2026
 
+**21 October migration verification:** production build, lint, eight focused tests and 190 local/live HTTP checks passed. All six GitHub CI jobs passed for deployed commit `e3d563c`. See [search migration evidence](LLMISER_SEARCH_MIGRATION.md) for deployment and Search Console outcomes.
+
+> Historical app-phase record (20 October). Subsequent blog rebranding, commits and Vercel deployment supersede the original local-only state. Read [START_HERE.md](START_HERE.md) and the [21 October deployment review](LLMISER_DEPLOYMENT_REVIEW.md) for current status; retain the dated evidence below as history.
+
+
 ## Passed
 
 - Final production build: Next.js 14.2.35 compiled, linted and generated all 19 static outputs successfully. Home: 16.9 kB route payload / 128 kB first-load JavaScript. Use-case page: 734 B route payload / 108 kB first-load JavaScript. These are current build figures, not a measured before/after performance claim.

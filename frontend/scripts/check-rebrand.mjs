@@ -1,5 +1,6 @@
 // Smoke-test the built application, including real HTTP redirect behavior.
 // Usage: node scripts/check-rebrand.mjs http://localhost:3101
+// Live: node scripts/check-rebrand.mjs https://llmiser.devbehindyou.com
 import assert from 'node:assert/strict';
 import http from 'node:http';
 import https from 'node:https';
@@ -7,9 +8,12 @@ const base = new URL(process.argv[2] || 'http://localhost:3101');
 const canonical = 'https://llmiser.devbehindyou.com';
 let checks = 0;
 function request(path, host) {
-  const url = new URL(path, base);
+  // Local tests simulate aliases with Host; live checks must use each host's
+  // actual DNS/TLS/hosting configuration instead of only the canonical server.
+  const liveAlias = host && base.protocol === 'https:';
+  const url = new URL(path, liveAlias ? 'https://' + host : base);
   return new Promise((resolve, reject) => {
-    const req = (url.protocol === 'https:' ? https : http).get(url, { headers: host ? { Host: host } : {} }, res => {
+    const req = (url.protocol === 'https:' ? https : http).get(url, { headers: host && !liveAlias ? { Host: host } : {} }, res => {
       const chunks = [];
       res.on('data', chunk => chunks.push(chunk));
       res.on('end', () => resolve({ status: res.statusCode, headers: res.headers, body: Buffer.concat(chunks).toString('utf8') }));

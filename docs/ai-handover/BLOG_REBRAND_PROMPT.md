@@ -1,5 +1,8 @@
 # Prompt for the next AI agent — blog, banner and visual rebrand
 
+> Historical brief: this task is complete. Eight articles and 48 SVGs were rebranded on 20 October. Use [BLOG_REBRAND_REPORT.md](BLOG_REBRAND_REPORT.md) for the result and [../LLMISER_DEPLOYMENT_REVIEW.md](../LLMISER_DEPLOYMENT_REVIEW.md) for current next steps. Do not restart the completed rebrand from this archived prompt.
+
+
 Copy the message below into the content agent's chat. This file prepares the handoff; creating it has not sent a message or started another agent.
 
 ---

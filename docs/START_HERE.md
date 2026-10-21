@@ -1,8 +1,10 @@
 # LLMiser — start here
 
-Updated 20 October 2026. This is the entry point for another AI agent or developer.
+Updated 21 October 2026. This is the entry point for another AI agent or developer.
 
-**Current state:** the app rebrand, SEO/GEO implementation and blog rebrand (8 articles, 8 banners, 40 figures) are complete and verified locally. Production deployment and domain activation are still pending.
+**Search migration update:** Google accepted the MDify → LLMiser Change of Address on 21 October 2026, processed the new sitemap (13 discovered pages), and accepted a homepage indexing request. Redirect cleanup is deployed; 190 live HTTP checks passed. The old Vercel alias now redirects directly to LLMiser and the extra `/blog` hop is fixed. See [search migration and indexing policy](LLMISER_SEARCH_MIGRATION.md) before changing robots, redirects or Search Console settings.
+
+**Current state:** the app and blog rebrand (8 articles, 8 banners, 40 figures) are complete and committed. The frontend is live at https://llmiser.vercel.app. The prior deployment agent reports six new backends and successful storage conversions. The selected custom domain now works with valid HTTPS; all 13 sitemap pages and legacy public redirects were checked after the owner's DNS changes. Keep-warm Vault changes, cron cutover, full custom-domain conversion acceptance and old-service retirement remain open. See the [live domain verification](LLMISER_DOMAIN_VERIFICATION.md). See the [21 October deployment review](LLMISER_DEPLOYMENT_REVIEW.md) for evidence and the bounded next-agent task.
 
 ## Read in this order
 
@@ -10,7 +12,7 @@ Updated 20 October 2026. This is the entry point for another AI agent or develop
 2. [Progress and remaining work](ai-handover/PROGRESS.md): all eight articles and 48 SVG assets, phase status and remaining work.
 3. [Blog rebrand report](ai-handover/BLOG_REBRAND_REPORT.md): what changed in the articles and visuals, claim decisions, sources and tests. The original [blog agent prompt](ai-handover/BLOG_REBRAND_PROMPT.md) is kept for reference; its task is done.
 4. [App implementation](LLMISER_REBRAND.md), [validation evidence](LLMISER_VALIDATION.md), and [deployment runbook](LLMISER_MIGRATION.md).
-5. [Environment and services](LLMISER_ENVIRONMENT.md): env files on this machine, frontend variables for the new hosting project, why the backends need no changes, and the cron tick target.
+5. [Environment and services](LLMISER_ENVIRONMENT.md): env files on this machine, frontend variables for the new hosting project, the six new backend deployments, and the cron tick target.
 
 **Working repository (20 October 2026):** LLMiser is now the repo the owner works in. MDify and MDify-Pro are kept for history. Production env files and the private MDify-era material were copied into this checkout and kept out of Git (see the environment doc).
 
@@ -39,10 +41,14 @@ The research archive is reference material. Its proposed `llmiser.com` domain, a
 | Blog text / frontmatter rebrand | **Complete — 8 of 8 articles** (claims re-verified 20 October 2026) |
 | Blog banners | **Complete — 8 of 8 banners** (new LLMiser frame) |
 | Supporting blog visuals | **Complete — 40 of 40 figures** (LLMiser signature, numbers re-checked) |
-| Deployment, credentials, DNS, TLS and real old-host redirects | **Pending** |
-| Live conversion/storage checks and search monitoring | **Pending** |
+| Frontend and six new backend deployments | **Deployed**; public frontend independently checked; backend/conversion details from prior agent |
+| Keep-warm Vault URL cutover | **Pending assigned-agent task**; live Vault state not queried in this review |
+| Custom DNS/TLS and legacy public redirects | **Verified live** on 21 October at 19:33 Asia/Calcutta; minor extra `/blog` redirect hop |
+| Tick cutover and old-service retirement | **Pending inspection/acceptance** |
+| Storage conversion checks on Vercel origin | **Reported passed** for HTML, PNG and ZIP; custom-domain/admin/scanned-PDF/cleanup checks still needed |
+| Search monitoring | **Pending** |
 
-No commit, push, deployment, DNS change, Search Console submission or real hosting redirect activation was performed in the app-rebrand session. The copied app files are currently mostly untracked in Git, on top of LLMiser's original license-only commit. Inspect `git status` before working; do not assume untracked files are disposable.
+The original app-rebrand session was local-only, but subsequent work committed the app/content and deployed services. Local HEAD at this review is `3ed4ded` after `e999388 Publish & Re-branding`; only `docs/LLMISER_ENVIRONMENT.md` was modified before this review began. This review updates documentation only and does not commit, push or change live infrastructure. Inspect current status before working and preserve pre-existing edits.
 
 ## Documentation precedence
 

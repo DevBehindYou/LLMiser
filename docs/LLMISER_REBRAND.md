@@ -1,5 +1,8 @@
 # LLMiser rebrand implementation
 
+> Historical app-phase record (20 October). Subsequent blog rebranding, commits and Vercel deployment supersede the original local-only state. Read [START_HERE.md](START_HERE.md) and the [21 October deployment review](LLMISER_DEPLOYMENT_REVIEW.md) for current status; retain the dated evidence below as history.
+
+
 ## Scope and source
 
 - User-selected identity: LLMiser, positioned as an LLM cost optimizer for document inputs.

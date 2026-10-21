@@ -1,6 +1,27 @@
 # LLMiser environment and deployment
 
-Updated 20 October 2026. LLMiser gets its own deployments of the frontend **and** the six conversion backends, built from `DevBehindYou/LLMiser`. Data stays shared with MDify: the same Supabase project, bucket `mdify-pro-files`, Vault, cron jobs and cleanup function (their `mdify` names are compatibility contracts). The old MDify services keep running until LLMiser is verified. **No secret values are in this file or in Git.**
+Updated 21 October 2026. LLMiser gets its own deployments of the frontend **and** the six conversion backends, built from `DevBehindYou/LLMiser`. Data stays shared with MDify: the same Supabase project, bucket `mdify-pro-files`, Vault, cron jobs and cleanup function (their `mdify` names are compatibility contracts). The old MDify services keep running until LLMiser is verified. **No secret values are in this file or in Git.**
+
+## Current review (21 October 2026)
+
+The public frontend and selected discovery/health responses were independently checked on 21 October. Earlier DNS checks returned ENOTFOUND; after the owner's changes, the custom domain and public redirects were verified at 19:33 Asia/Calcutta. See [live domain verification](LLMISER_DOMAIN_VERIFICATION.md). Six-backend authenticated/readiness checks and HTML/PNG/ZIP storage conversion results in the table below are the prior deployment agent's reported evidence, not repeated tests in this review. Local backend URL hostnames match that report; secret values were not printed or changed. `/api/health` reports configured normal/OCR counts, not backend readiness or archive health.
+
+Provisioning instructions below are retained as reference; do not recreate the already-deployed services. Keep-warm remains assigned to another agent; Vault, cron and DNS were not changed in this review. See [deployment review](LLMISER_DEPLOYMENT_REVIEW.md) for the bounded task, evidence distinctions and launch sequence.
+
+## Deployment status reported on 20 October 2026
+
+| Service | URL | Verified |
+| --- | --- | --- |
+| Frontend | `https://llmiser.vercel.app` | Pages, `/api/health`, `/api/wake` (2 of 2 ready in each pool), Storage flow end to end: HTML via N1, PNG via O1, ZIP via Z2 |
+| N1, N2 | `https://llmiser-api-n1n.vercel.app`, `https://llmiser-api-n2n.vercel.app` | Ready, 401 without the secret, frontend secret accepted, HTML and CSV converted |
+| O1, O2 | `https://llmiser-ocr-o1o.onrender.com`, `https://llmiser-ocr-o2o.onrender.com` | Ready (Tesseract 5.5.0, `eng`, `osd`), 401 without the secret, frontend secret accepted, image text read exactly |
+| Z1, Z2 | `https://llmiser-api-z1z.vercel.app`, `https://llmiser-api-z2z.vercel.app` | Ready, 401 without the secret, frontend secret accepted, ZIP converted |
+
+`frontend/.env.F` holds these three URL lists. Still open:
+- Vault keep-warm URLs still point to the old OCR services. Run the `vault.update_secret` statements in the Supabase section below.
+- Custom-domain DNS/TLS and tested public redirects now work. All 13 sitemap pages returned 200 with matching canonicals; see the live verification record. Full custom-domain conversion acceptance remains separate.
+- Point `mdify-jobs-tick` at the LLMiser domain once it's live (Supabase section below).
+- Retire the old services after the end-to-end checks on the custom domain.
 
 ## Local env files (never committed)
 
@@ -81,7 +102,7 @@ Create the project from `DevBehindYou/LLMiser`:
 - **Framework:** Next.js, pinned by `frontend/vercel.json`
 - **Node:** 22
 
-Import `frontend/.env.F`, then replace the three URL lists with the new backend URLs:
+Import `frontend/.env.F`. Since 20 October 2026 its three URL lists point to the new backends:
 
 | Variable | Value |
 | --- | --- |
@@ -98,13 +119,23 @@ Deploy, then attach `llmiser.devbehindyou.com` and add the DNS record Vercel sho
 
 ## Supabase: point the shared jobs at the LLMiser services
 
-Vault (**Integrations → Vault**), edit two existing secrets:
-- `mdify_keepwarm_url_o1` → the new `llmiser-ocr-o1` base URL (no path)
-- `mdify_keepwarm_url_o2` → the new `llmiser-ocr-o2` base URL
+Vault: change the two keep-warm URLs to the new OCR base URLs (no path). Run in the SQL Editor:
 
-The keep-warm job then pings the new OCR services. Nothing else in Vault changes.
+```sql
+select vault.update_secret(
+  (select id from vault.secrets where name = 'mdify_keepwarm_url_o1'),
+  'https://llmiser-ocr-o1o.onrender.com'
+);
+select vault.update_secret(
+  (select id from vault.secrets where name = 'mdify_keepwarm_url_o2'),
+  'https://llmiser-ocr-o2o.onrender.com'
+);
+select public.keepwarm_ping();
+```
 
-**Tick target.** `mdify-jobs-tick` was created with `https://mdify-app.vercel.app/api/jobs/tick`. That host now answers **308** (redirect to `mdify.devbehindyou.com`), and the database's HTTP client (pg_net) is not expected to follow redirects. Check with `select status_code, created from net._http_response order by created desc limit 10;`. Once LLMiser is live, point the job at it. Running `cron.schedule` with an existing name updates that job in place:
+Thirty seconds is a first check, not a deadline: pings are asynchronous and the checked-in function permits a 90-second cold-start timeout. Record completed outcomes, and inspect the newest post-change row for each of O1 and O2, including `request_id` and `recorded_at`. Both need HTTP 200, no error, and a fresh completed timestamp. See the per-instance query in [deployment review](LLMISER_DEPLOYMENT_REVIEW.md). First inspect all matching Vault entries: every `mdify_keepwarm_url_*` entry is pinged, so an extra old entry could keep an old service warm. Update only the assigned URL values; do not delete unexpected entries or alter the schedule.
+
+**Tick target — inspect live state first.** The original template used `https://mdify-app.vercel.app/api/jobs/tick`; this review did not query the stored live command or verify the earlier assertion about a 308 response. Inspect the single `mdify-jobs-tick` entry and its own correlated HTTP response. Arbitrary recent `net._http_response` rows or a generic page redirect do not prove that this authenticated POST is working. Once the custom domain resolves and passes validation, update the existing named job in place. Keep one target for the shared queue, the existing Vault secret and header, and do not rerun the entire schema/cron setup just to change this URL.
 
 ```sql
 select cron.schedule(
@@ -130,7 +161,7 @@ The cleanup function, its `MDIFY_CRON_SECRET`, the schema and the bucket stay as
 
 ## Retiring the old MDify services
 
-Keep the old frontend and the six old backends until LLMiser has passed end-to-end conversions: a document, a scanned PDF, an image, a ZIP, the admin view and cleanup. Then:
+Keep the old frontend and the six old backends until LLMiser has passed these checks on the custom domain: a document, a scanned PDF, an image, a ZIP, export, authenticated admin and actual cleanup. Audit old frontend/API/scheduler consumers and preserve any required compatibility before retirement. Moving warmup URLs alone is not permission to retire services. Then:
 1. Redirect the old hosts (`docs/LLMISER_MIGRATION.md`).
 2. Delete or pause the old backends: `mdify-api-n1n`, `-n2n`, `-z1z`, `-z2z` on Vercel and `mdify-ocr-o1o`, `-o2o` on Render.
 

@@ -38,7 +38,7 @@ Copy `.env.example` to a local environment file and configure your own services.
 
 ## Rebranding and deployment
 
-This repository starts from MDify commit `ce56f5c` and uses the selected **11 — Prompt L** icon kit. MDify and MDify-Pro remain separate and unchanged. Existing blog article sources and illustrations are preserved for independent editing.
+This repository starts from MDify commit `ce56f5c` and uses the selected **11 — Prompt L** icon kit. MDify and MDify-Pro remain separate and unchanged. All eight blog articles, eight banners and forty supporting figures have since been rebranded; their slugs and original publication dates are preserved.
 
 The canonical origin is `https://llmiser.devbehindyou.com`. See [the migration runbook](docs/LLMISER_MIGRATION.md) for deployment, redirects and remaining hosting steps, and [implementation notes](docs/LLMISER_REBRAND.md) for compatibility details.
 
@@ -52,4 +52,4 @@ GNU General Public License v3.0. See [LICENSE](LICENSE).
 
 Read [docs/START_HERE.md](docs/START_HERE.md) for the current state, decisions and documentation index. The [handover](docs/ai-handover/HANDOVER.md) explains what changed and where. The [progress tracker](docs/ai-handover/PROGRESS.md) records completed and pending work.
 
-The next content agent should use the [blog, banner and visual rebranding prompt](docs/ai-handover/BLOG_REBRAND_PROMPT.md). The app is ready locally; all eight articles, eight banners and forty figures still await their content rebrand. Deployment and live domain activation remain separate pending phases.
+The app and blog rebrand are complete. The frontend is live at [llmiser.vercel.app](https://llmiser.vercel.app). See the [deployment review](docs/LLMISER_DEPLOYMENT_REVIEW.md) for verified/report-based status and the remaining keep-warm, custom-domain and scheduler cutover work. The [original blog prompt](docs/ai-handover/BLOG_REBRAND_PROMPT.md) is historical; that task is done.

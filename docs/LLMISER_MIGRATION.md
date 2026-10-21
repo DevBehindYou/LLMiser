@@ -1,6 +1,8 @@
 # LLMiser deployment and domain migration
 
-Prepared 20 October 2026. Canonical origin: `https://llmiser.devbehindyou.com`.
+**21 October search update:** Change of Address is active in Google Search Console and the new sitemap was processed with 13 discovered pages. See [search migration status](LLMISER_SEARCH_MIGRATION.md), which supersedes older pending Search Console notes below. Keep old public redirects crawlable; do not block the whole legacy host in robots.txt.
+
+Updated 21 October 2026. Canonical origin: `https://llmiser.devbehindyou.com`.
 
 ## What is ready in this repository
 
@@ -11,19 +13,28 @@ Prepared 20 October 2026. Canonical origin: `https://llmiser.devbehindyou.com`.
 - API and controller responses carry `X-Robots-Tag: noindex, nofollow, noarchive`. Authorization remains mandatory.
 - `/llmiser-controller` is the admin entry point; `/mdify-controller` redirects there on this deployment.
 
-## Deployment steps still required
+## Deployment progress
 
-1. Create a separate hosting project from `DevBehindYou/LLMiser`, with `frontend` as its root, Node 22, and the checked-in build configuration. Do not repoint MDify before the new deployment is validated.
-2. Provision the three conversion service roles using their existing configuration and secret templates. Set frontend environment variables in the hosting dashboard, never in committed source. The repository contains no production credentials.
-3. Decide whether the new frontend shares existing services/database or uses separate infrastructure. Do not apply a fresh database setup to an existing production project without reviewing the migrations. Internal database, bucket and header names intentionally remain compatible.
-4. Attach `llmiser.devbehindyou.com` to the new frontend project. Add the DNS record supplied by that host and wait for certificate issuance. No DNS changes were made during local implementation.
-5. Test document, scanned-PDF, image and ZIP conversion; review/edit/copy/download; admin authentication; storage cleanup; and mobile/light/dark operation against the configured services.
-6. Test all URLs in the new sitemap. Each should return 200 with its own canonical on the new origin. Inspect one article, both legal pages, social images, favicon and manifest. Unknown URLs must return 404.
-7. Activate the old-host redirect using one of the approaches below. Keep the old domain registered and serving redirects for at least a year, preferably longer, following Google's migration guidance.
-8. Update the scheduled jobs' frontend target to `https://llmiser.devbehindyou.com/api/jobs/tick` in the hosting/database scheduler. Keep its existing secret and `x-mdify-cron-secret` protocol unless separately migrating it. Avoid double-scheduling the same database.
-9. Verify both domain properties in Google Search Console and Bing Webmaster Tools. Submit the new sitemap, inspect representative URLs and use Change of Address if eligible. Update public repository links and social profiles.
-10. Check errors, conversion completion, indexing and canonical selection after launch and over subsequent weeks.
+- App and blogs are rebranded and committed. Local HEAD at the latest review: `3ed4ded`.
+- Frontend is live at `https://llmiser.vercel.app`; direct public checks passed on 21 October.
+- Six new backend services and HTML/PNG/ZIP storage conversions are reported verified by the deployment agent. They share the existing Supabase project, bucket, queue, cleanup and compatibility names; separate database provisioning is not pending.
+- Local environment files now exist and are Git-excluded. Their URLs match the deployment report; secrets must stay private.
+- The selected custom domain is now live with trusted HTTPS. Public DNS, all 13 canonical sitemap pages and tested legacy redirects were verified after the owner's changes; see [verification record](LLMISER_DOMAIN_VERIFICATION.md).
+- Keep-warm Vault values and live tick target were not queried or changed in this review.
 
+See [deployment review](LLMISER_DEPLOYMENT_REVIEW.md) for independent observations versus reported tests and [environment inventory](LLMISER_ENVIRONMENT.md) for service URLs. Do not recreate completed deployments or apply fresh database setup based on older instructions.
+
+## Remaining cutover steps
+
+1. Assigned agent: inspect and update only the two keep-warm Vault URL values, verify fresh completed O1/O2 results, and provide a screenshot. Follow the bounded task in the deployment review; leave other shared jobs unchanged.
+2. **Completed by owner and verified:** custom-domain DNS and HTTPS work. Preserve the recorded DNS settings; no further domain creation is needed.
+3. Test document, scanned PDF, image, ZIP, review/edit/export, authenticated admin and actual cleanup on the custom domain. Prior Vercel-origin HTML/PNG/ZIP tests do not establish all of these.
+4. **Partially completed:** all 13 sitemap pages return 200 with matching canonicals; discovery files, manifest and both SVG icons also passed. Complete any remaining visual, favicon/social-image and intentional-404 acceptance checks as needed.
+5. Inspect the live `mdify-jobs-tick` entry and update its existing single target to `https://llmiser.devbehindyou.com/api/jobs/tick` after the domain works. Preserve the Vault secret and `x-mdify-cron-secret` protocol. Verify a correlated scheduler POST outcome; the checked-in template alone is not live state.
+6. **Public redirects active and tested:** old home/article paths redirect with 308, preserving the tested query; `/blog` reaches the correct page through an extra slash-normalization hop. Old `/api/health` remains on its origin. Audit remaining API/scheduler consumers before pausing or retiring services; this is not part of the warmup-only task.
+7. Verify both search properties, submit the canonical sitemap, inspect representative URLs and use migration features where eligible. Monitor errors, indexing, canonical selection and conversion completion after launch.
+
+The old host must continue serving redirects after cutover. Existing infrastructure names are compatibility contracts, not unfinished brand copy. No live change in this checklist was executed by the 21 October review.
 ## Redirect activation without editing MDify source
 
 The `frontend/next.config.js` rules take effect only if the legacy host reaches this LLMiser deployment. Merely deploying LLMiser on its new domain does not redirect a domain still attached to the old project.
