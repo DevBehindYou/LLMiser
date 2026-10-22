@@ -1,6 +1,8 @@
 # Progress and remaining work
 
-Updated 21 October 2026 after the deployment-report review. Status distinguishes local checks, prior-agent reports and independently observed public responses. See [deployment review](../LLMISER_DEPLOYMENT_REVIEW.md).
+Updated 23 October 2026. Status distinguishes local checks, prior-agent reports and independently observed public responses. See [deployment review](../LLMISER_DEPLOYMENT_REVIEW.md).
+
+**Supabase update:** OCR Vault and tick targets now use LLMiser. The minute scheduler skips idle HTTP calls and suppresses overlapping requests; the existing recorder captures outcomes every five minutes. [Cron/wake evidence and implementation](../LLMISER_CRON_WAKE.md). Cleanup rules and the four-job count are unchanged; service retirement remains separate.
 
 **Later update:** [Search migration](../LLMISER_SEARCH_MIGRATION.md) is active in Google; the sitemap succeeded (13 pages) and homepage indexing was requested. Redirect cleanup is deployed, including direct Vercel alias redirects and the blog index fix; 190 live checks passed. Actual replacement of old Google results awaits recrawling. Earlier pending/search and extra-hop entries below are historical.
 
@@ -23,9 +25,9 @@ Updated 21 October 2026 after the deployment-report review. Status distinguishes
 | Commit/publication | Complete in subsequent phase | Local commits `e999388`, `3ed4ded`; live frontend observed. Remote branch equality not rechecked |
 | Frontend hosting | Live | `https://llmiser.vercel.app`; 200 and HSTS independently checked 21 October |
 | Six new backend deployments / environment | Reported verified by deployment agent | Hostnames in local env agree; no secret/auth tests repeated in this review |
-| Keep-warm Vault URLs | Pending assigned-agent task | Prior report says old targets remain; live values must be inspected before changing |
+| Keep-warm Vault URLs | Complete live | Both new OCR targets; request IDs correlated to HTTP 200 |
 | Custom domain DNS/TLS | Verified live | Public DNS, trusted certificate, 13 canonical pages; [verification record](../LLMISER_DOMAIN_VERIFICATION.md) |
-| Tick scheduler cutover | Pending | Inspect current live target; move existing single job after the custom domain works |
+| Tick scheduler cutover | Complete live | Canonical LLMiser target via demand-driven dispatcher; idle maintenance stays in Postgres |
 | Legacy public-host redirects | Verified live for tested paths | Home/article one hop; blog listing two hops; old health API not redirected |
 | Old-service retirement | Pending | Complete custom-domain conversion validation and dependency audit first |
 | Live conversion/storage on Vercel origin | Reported passed: HTML, PNG, ZIP | Prior agent timings 4.1 s / 5.3 s / 3.2 s; no new jobs created in this review |

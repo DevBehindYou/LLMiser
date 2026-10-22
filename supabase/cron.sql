@@ -21,8 +21,8 @@
 --                             merges) and retires stale jobs.
 -- mdify-keepwarm-ocr          every 30 minutes, 12:00–23:30 UTC:
 --                             GET /api/v1/health on each OCR backend.
--- mdify-keepwarm-record       00:05 UTC daily: records the outcome of the
---                             window's last pings before pg_net drops them.
+-- mdify-keepwarm-record       every 5 minutes: captures asynchronous outcomes
+--                             before pg_net drops them, even outside the window.
 
 create extension if not exists pg_cron with schema pg_catalog;
 create extension if not exists pg_net with schema extensions;
@@ -50,19 +50,9 @@ select cron.schedule(
   'mdify-jobs-tick',
   '* * * * *',
   $$
-  select net.http_post(
-    url := 'https://llmiser.devbehindyou.com/api/jobs/tick',
-    headers := jsonb_build_object(
-      'Content-Type', 'application/json',
-      'x-mdify-cron-secret', (
-        select decrypted_secret from vault.decrypted_secrets where name = 'mdify_cron_secret'
-      )
-    ),
-    body := '{}'::jsonb,
-    -- One tick can wait on a Render instance waking up (see /api/jobs/tick,
-    -- maxDuration 300 s). Overlapping ticks are safe: claims respect capacity.
-    timeout_milliseconds := 300000
-  );
+  -- Database maintenance always runs; HTTP only when active work exists.
+  -- The dispatcher suppresses overlapping 300s requests and records outcomes.
+  select public.dispatch_jobs_tick();
   $$
 );
 
@@ -79,6 +69,6 @@ select cron.schedule(
 
 select cron.schedule(
   'mdify-keepwarm-record',
-  '5 0 * * *',
-  $$ select public.keepwarm_record(); $$
+  '*/5 * * * *',
+  $$ select public.keepwarm_record(); select public.record_scheduled_http_responses(); $$
 );
