@@ -84,7 +84,7 @@ const failure = (res, data) =>
 // null = unknown until the first attempt; false = server has no Storage.
 let storageAvailable = null;
 
-async function convertViaStorage(file, profile, signal, onProgress) {
+async function convertViaStorage(file, profile, signal, onProgress, onResultReady) {
   const { res: created, data: job } = await request('/api/uploads/create', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -119,9 +119,37 @@ async function convertViaStorage(file, profile, signal, onProgress) {
     throw new ConversionError(status.detail || status.error?.message || 'Conversion failed', { status: 422 });
   }
 
-  const result = status.result || {};
+  const result = { ...status.result, job_id: job.job_id, source_type: status.source_type, items: status.items };
+  // Persist the completed job before reading Storage. A broken/expired download
+  // must not turn the next Retry into another upload and conversion.
+  onResultReady?.(result);
   const content = await fetchResultMarkdown(result, { sourceType: status.source_type, signal });
-  return { ...result, job_id: job.job_id, source_type: status.source_type, items: status.items, content };
+  return { ...result, content };
+}
+
+/** Fetch fresh links for every output, then retrieve the complete Markdown. */
+export async function retrieveResult(jobId, { signal, fetchImpl = fetch } = {}) {
+  let response;
+  let data;
+  try {
+    response = await fetchImpl(`/api/jobs/${encodeURIComponent(jobId)}/download`, { cache: 'no-store', signal });
+    data = await response.json().catch(err => {
+      if (err?.name === 'AbortError') throw err;
+      return {};
+    });
+  } catch (err) {
+    if (err?.name === 'AbortError') throw err;
+    throw new ConversionError('Could not retrieve the saved result. Check your connection and retry.', { network: true });
+  }
+  if (!response.ok) {
+    if (response.status === 410 || response.status === 404) {
+      throw new ConversionError('This saved result is no longer available. Remove this entry and choose the original file to convert it again.', { status: response.status });
+    }
+    throw failure(response, data);
+  }
+  if (!data.result) throw new ConversionError('The saved result could not be retrieved. Please retry.', { status: 409 });
+  const content = await fetchResultMarkdown(data.result, { sourceType: data.source_type, signal, fetchImpl });
+  return { ...data.result, job_id: jobId, source_type: data.source_type, content };
 }
 
 const TERMINAL = new Set(['COMPLETED', 'FAILED', 'CANCELLED', 'DELETED']);
@@ -215,9 +243,9 @@ export async function waitForJob(jobId, first, { signal, onProgress, fetchImpl =
  * a ConversionError for every other failure. `onProgress(percent)` reports
  * upload and processing progress for multi-part jobs.
  */
-export async function convertFile(file, profile, { signal, onProgress } = {}) {
+export async function convertFile(file, profile, { signal, onProgress, onResultReady } = {}) {
   if (storageAvailable !== false) {
-    const result = await convertViaStorage(file, profile, signal, onProgress);
+    const result = await convertViaStorage(file, profile, signal, onProgress, onResultReady);
     if (result) return result;
   }
 

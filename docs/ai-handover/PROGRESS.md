@@ -1,6 +1,8 @@
 # Progress and remaining work
 
-Updated 21 October 2026 after the deployment-report review. Status distinguishes local checks, prior-agent reports and independently observed public responses. See [deployment review](../LLMISER_DEPLOYMENT_REVIEW.md).
+Updated 22 October 2026. Status distinguishes local checks, prior-agent reports and independently observed public responses. See [deployment review](../LLMISER_DEPLOYMENT_REVIEW.md).
+
+**Optimization update:** retained completed-result retrieval is implemented on `codex/result-download-recovery`, without a production feature deployment. [Plan and acceptance evidence](../LLMISER_OPTIMIZATION_PLAN.md). The approved redeploy of production `ae3aa59` activated Web Analytics, verified with one visitor and two test page views. [Controller access and Analytics details](../LLMISER_ANALYTICS_CONTROLLER.md).
 
 **Later update:** [Search migration](../LLMISER_SEARCH_MIGRATION.md) is active in Google; the sitemap succeeded (13 pages) and homepage indexing was requested. Redirect cleanup is deployed, including direct Vercel alias redirects and the blog index fix; 190 live checks passed. Actual replacement of old Google results awaits recrawling. Earlier pending/search and extra-hop entries below are historical.
 
@@ -11,7 +13,7 @@ Updated 21 October 2026 after the deployment-report review. Status distinguishes
 | Source copy and compatibility | Complete locally | MDify `ce56f5c` baseline; infrastructure contracts preserved |
 | App UI, icon and domain constants | Complete locally | Prompt L assets, LLMiser chrome and selected canonical origin |
 | SEO/GEO and cost messaging | Complete locally | Metadata, JSON-LD, sitemap, robots, llms.txt and server copy |
-| Redirect implementation and activation | Verified live | Old homepage/article paths redirect with 308; query preserved. `/blog` has a minor extra hop |
+| Redirect implementation and activation | Verified live | Public aliases redirect directly with 308; query preserved; `/blog` extra hop fixed; 190 checks passed |
 | App validation | Complete for this phase | [Validation report](../LLMISER_VALIDATION.md); 88 HTTP checks |
 | Agent handover | Updated for deployment phase | [Handover](HANDOVER.md), this tracker and [deployment review](../LLMISER_DEPLOYMENT_REVIEW.md); original blog prompt is historical |
 | Blog text and frontmatter | **Complete: 8/8** | [Blog rebrand report](BLOG_REBRAND_REPORT.md) |
@@ -21,16 +23,16 @@ Updated 21 October 2026 after the deployment-report review. Status distinguishes
 | Validation of the blog rebrand | Complete locally | 221/221 tests, lint, build, 88 HTTP checks, dialog and article pages in both themes and at 375 px |
 | Article page banner and inline Markdown | Complete locally | `/blog/{slug}` now renders the banner, bold TL;DR keywords and caption links |
 | Commit/publication | Complete in subsequent phase | Local commits `e999388`, `3ed4ded`; live frontend observed. Remote branch equality not rechecked |
-| Frontend hosting | Live | `https://llmiser.vercel.app`; 200 and HSTS independently checked 21 October |
+| Frontend hosting | Live | Canonical `https://llmiser.devbehindyou.com`; Vercel alias redirects there; Analytics ingestion verified 22 October |
 | Six new backend deployments / environment | Reported verified by deployment agent | Hostnames in local env agree; no secret/auth tests repeated in this review |
 | Keep-warm Vault URLs | Pending assigned-agent task | Prior report says old targets remain; live values must be inspected before changing |
 | Custom domain DNS/TLS | Verified live | Public DNS, trusted certificate, 13 canonical pages; [verification record](../LLMISER_DOMAIN_VERIFICATION.md) |
 | Tick scheduler cutover | Pending | Inspect current live target; move existing single job after the custom domain works |
-| Legacy public-host redirects | Verified live for tested paths | Home/article one hop; blog listing two hops; old health API not redirected |
+| Legacy public-host redirects | Verified live for tested paths | Public paths redirect directly; old health API remains same-origin and noindex |
 | Old-service retirement | Pending | Complete custom-domain conversion validation and dependency audit first |
 | Live conversion/storage on Vercel origin | Reported passed: HTML, PNG, ZIP | Prior agent timings 4.1 s / 5.3 s / 3.2 s; no new jobs created in this review |
 | Full custom-domain acceptance / cleanup | Pending | Include scanned PDF, admin and actual cleanup outcome |
-| Search Console/Bing setup and post-launch monitoring | Pending | Verify properties, submit sitemap, inspect results |
+| Search Console/Bing setup and post-launch monitoring | Google migration submitted | Change of Address accepted and sitemap processed; recrawl monitoring and Bing remain open |
 
 ## Article inventory
 

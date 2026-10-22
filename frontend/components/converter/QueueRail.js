@@ -13,8 +13,9 @@ function QueueRow({ item, hasResult, isSelected, onSelect, onRetry, onRemove }) 
           : 'border-[var(--border-3)] bg-[var(--surface)] hover:border-[var(--text)]'
       }`}
     >
-      <div className="truncate pr-2 font-medium" title={item.name}>
-        {item.name}
+      <div className="min-w-0 pr-2 font-medium">
+        <div className="truncate" title={item.name}>{item.name}</div>
+        {item.status === 'error' && <p role="status" className="text-[10px] text-rose-500 mt-1 mb-0 [overflow-wrap:anywhere]">{item.errorMsg}</p>}
       </div>
       <div className="flex items-center gap-1.5 flex-none font-tech text-[10px]">
         {item.status === 'done' && <span className="text-[#2a78d6] dark:text-[#60a5fa]">✓ done</span>}
@@ -31,7 +32,7 @@ function QueueRow({ item, hasResult, isSelected, onSelect, onRetry, onRemove }) 
             className="tap-target text-rose-500 hover:underline bg-transparent border-0 p-0 cursor-pointer"
             title={item.errorMsg || 'Conversion failed'}
           >
-            retry
+            {item.recovery?.job_id ? 'Retry download' : 'retry'}
           </button>
         )}
         {item.status === 'pending' && <span className="text-[var(--faint)]">queued</span>}

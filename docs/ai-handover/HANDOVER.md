@@ -1,6 +1,8 @@
 # LLMiser agent handover
 
-Updated 21 October 2026. Start with [../START_HERE.md](../START_HERE.md).
+Updated 22 October 2026. Start with [../START_HERE.md](../START_HERE.md).
+
+**Current continuation:** [optimization plan](../LLMISER_OPTIMIZATION_PLAN.md) records the completed-result recovery branch, actual checks and remaining implementation queue. Production remains revision `ae3aa59`; its approved redeploy activated Analytics. See [Analytics and controller access](../LLMISER_ANALYTICS_CONTROLLER.md). Authenticated controller operations have not been accepted by this review. Blogs and their visuals are complete and were not edited in this continuation.
 
 **Search migration completed on 21 October:** Google accepted the Change of Address, processed the 13-page sitemap and accepted homepage indexing. Redirect cleanup is deployed and 190 live HTTP checks passed. Read [current indexing policy and evidence](../LLMISER_SEARCH_MIGRATION.md); it supersedes older pending Search Console and blog-hop notes below. Keep legacy redirects crawlable.
 
