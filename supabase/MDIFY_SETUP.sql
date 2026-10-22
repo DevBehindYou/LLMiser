@@ -2093,6 +2093,9 @@ begin
   perform public.record_scheduled_http_responses();
   perform public.prune_public_admission();
   perform public.sweep_stale_jobs();
+  -- Expired leases can outlive their parent job. Release them even when
+  -- no active job remains, preserving the original tick's maintenance.
+  perform public.requeue_expired_work_items();
   if not exists(select 1 from public.jobs where status in ('QUEUED','PROCESSING','CANCEL_REQUESTED')) then return null; end if;
   if exists(select 1 from public.scheduled_http_requests where recorded_at is null
              and requested_at > now()-interval '330 seconds') then return null; end if;

@@ -27,6 +27,12 @@ test('idle cron runs database maintenance without sending HTTP; active work keep
   assert.equal(await scalar('select public.dispatch_jobs_tick()'), null);
   assert.equal(await scalar('select count(*)::int from net.calls'), 0);
   assert.equal(await scalar('select status from public.jobs'), 'CANCELLED');
+  await db.exec(`insert into public.jobs(status) values('FAILED');
+    insert into public.work_items(job_id,status,task_type,pool,attempt_count,max_attempts,lease_until)
+      select job_id,'RUNNING','CONVERT','normal',1,1,now()-interval '1 minute' from public.jobs where status='FAILED';`);
+  assert.equal(await scalar('select public.dispatch_jobs_tick()'), null);
+  assert.equal(await scalar('select status from public.work_items'), 'FAILED', 'terminal parent cannot strand an expired capacity lease');
+  assert.equal(await scalar('select count(*)::int from net.calls'), 0);
   await db.exec("insert into public.jobs(status) values('QUEUED')");
   const id = await scalar('select public.dispatch_jobs_tick()');
   assert.ok(id);
