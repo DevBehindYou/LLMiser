@@ -1,4 +1,5 @@
 // Recent conversion sessions, persisted in the browser's localStorage.
+import { resultReference } from './resultReference.js';
 
 const STORAGE_KEY = 'llmiser_recent_sessions_v1';
 const LEGACY_STORAGE_KEY = 'markdify_recent_sessions_v1';
@@ -13,6 +14,26 @@ function getStorage() {
   }
 }
 
+function sessionRecord(item) {
+  if (!item || typeof item !== 'object') return null;
+  const reference = resultReference(item);
+  if (typeof item.content !== 'string' && !reference.job_id) return null;
+  const name = typeof item.filename === 'string' ? item.filename : null;
+  const original = typeof item.original_name === 'string' ? item.original_name : null;
+  return {
+    id: typeof item.id === 'string' ? item.id : `sess_${Date.now()}_${Math.random().toString(36).substring(2, 7)}`,
+    timestamp: item.timestamp || Date.now(),
+    filename: name || `${original || 'document'}.md`,
+    original_name: original || name || 'Converted Document',
+    content: typeof item.content === 'string' ? item.content : undefined,
+    tokens_est: item.tokens_est ?? Math.round((item.content?.length || 0) / 4),
+    quality_score: item.quality_score,
+    profile: item.profile || 'Standard',
+    fileSize: item.fileSize || null,
+    ...reference,
+  };
+}
+
 /**
  * Safely retrieve the last 5 conversion sessions from browser local storage
  */
@@ -23,7 +44,7 @@ export function getRecentSessions() {
     const raw = storage.getItem(STORAGE_KEY) || storage.getItem(LEGACY_STORAGE_KEY);
     if (!raw) return [];
     const parsed = JSON.parse(raw);
-    return Array.isArray(parsed) ? parsed.slice(0, MAX_SESSIONS) : [];
+    return Array.isArray(parsed) ? parsed.slice(0, MAX_SESSIONS).map(sessionRecord).filter(Boolean) : [];
   } catch (err) {
     console.warn('Failed to read recent sessions from localStorage:', err);
     return [];
@@ -33,25 +54,15 @@ export function getRecentSessions() {
 /**
  * Save a newly completed conversion session, keeping strictly the last 5.
  * Returns the list as stored. When the storage quota is exceeded the oldest
- * sessions are dropped first; if even the new session alone does not fit,
- * the previously stored list is returned unchanged.
+ * sessions are dropped first. A completed job can fall back to metadata only;
+ * if that also cannot fit, the previously stored list is returned unchanged.
  */
 export function saveRecentSession(item) {
   const current = getRecentSessions();
   const storage = getStorage();
-  if (!storage || !item || !item.content) return current;
-
-  const newSession = {
-    id: item.id || `sess_${Date.now()}_${Math.random().toString(36).substring(2, 7)}`,
-    timestamp: item.timestamp || Date.now(),
-    filename: item.filename || `${item.original_name || 'document'}.md`,
-    original_name: item.original_name || item.filename || 'Converted Document',
-    content: item.content,
-    tokens_est: item.tokens_est || Math.round(item.content.length / 4),
-    quality_score: item.quality_score,
-    profile: item.profile || 'Standard',
-    fileSize: item.fileSize || null,
-  };
+  if (!storage || !item) return current;
+  const newSession = sessionRecord(item);
+  if (!newSession) return current;
 
   // Filter out duplicate by id or identical original_name
   const filtered = current.filter(
@@ -65,6 +76,14 @@ export function saveRecentSession(item) {
       return candidate;
     } catch (err) {
       if (candidate.length === 1) {
+        if (newSession.job_id && typeof newSession.content === 'string') {
+          // Retain retrieval identity even when a large document exceeds quota.
+          const { content: _content, ...metadata } = newSession;
+          try {
+            storage.setItem(STORAGE_KEY, JSON.stringify([metadata]));
+            return [metadata];
+          } catch { /* Preserve the previous history if even metadata cannot fit. */ }
+        }
         console.warn('Session too large to cache in localStorage:', err);
         return current;
       }

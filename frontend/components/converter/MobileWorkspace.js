@@ -6,6 +6,7 @@ import MarkdownViewer from '../MarkdownViewer';
 import Dropzone from './Dropzone';
 import PreviewModeToggle from './PreviewModeToggle';
 import ExportActions from './ExportActions';
+import ResultOutputs from './ResultOutputs';
 import { MAX_QUEUE_FILES } from '../../lib/formats';
 
 const MOBILE_FORMAT_TAGS = ['PDF', 'DOCX', 'PPTX', 'XLSX', 'PNG', 'ZIP'];
@@ -92,15 +93,25 @@ export default function MobileWorkspace({ converter, exporter, ui, onBrowse }) {
                   key={item.id}
                   className="border border-[var(--border-3)] rounded-lg p-2 bg-[var(--surface)] text-[12px] flex items-center justify-between"
                 >
-                  <span className="truncate pr-2 font-medium">{item.name}</span>
-                  <span
+                  <div className="min-w-0 pr-2">
+                    <div className="truncate font-medium">{item.name}</div>
+                    {item.status === 'error' && <p role="status" className="text-[10px] text-rose-500 mt-1 mb-0 [overflow-wrap:anywhere]">{item.errorMsg}</p>}
+                  </div>
+                  {item.status === 'error' ? (
+                    <button type="button" onClick={() => converter.retry(item.id)} title={item.errorMsg}
+                      className="tap-target text-rose-500 underline text-[11px] flex-none bg-transparent border-0">
+                      {item.recovery?.job_id ? 'Retry download' : 'Retry conversion'}
+                    </button>
+                  ) : <span
                     className={`font-tech text-[10px] flex-none ${
                       item.status === 'error' ? 'text-rose-500' : 'text-[#2a78d6]'
                     }`}
                     title={item.errorMsg || undefined}
                   >
                     {queueLabel(item, result)}
-                  </span>
+                  </span>}
+                  <button type="button" onClick={() => converter.removeFile(item.id)} aria-label={`Remove ${item.name}`}
+                    className="tap-target text-[var(--muted)] ml-1 bg-transparent border-0">×</button>
                 </div>
               );
             })}
@@ -172,6 +183,8 @@ export default function MobileWorkspace({ converter, exporter, ui, onBrowse }) {
               </button>
             ))}
           </div>
+
+          <ResultOutputs result={activeResult} />
 
           <div className="w-full">
             <MarkdownViewer
