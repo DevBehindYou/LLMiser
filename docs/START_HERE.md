@@ -1,6 +1,8 @@
 # LLMiser — start here
 
-Updated 21 October 2026. This is the entry point for another AI agent or developer.
+Updated 24 October 2026. This is the entry point for another AI agent or developer.
+
+**Latest extension work:** a development Chrome extension is implemented on `codex/chrome-extension`: one Converter screen, file picker/drag-and-drop conversion to Markdown, automatic ChatGPT/Claude/Gemini destination detection, and manual Paste without sending. Read the [extension handover](LLMISER_CHROME_EXTENSION.md) and [build/install guide](../extension/README.md) first for that task. Native Chrome acceptance and Chrome Web Store release remain pending. Production frontend/backend code and blogs are unchanged by the extension branch. The three earlier optimization PRs remain separate; the handover records their status. The migration snapshot below is dated 21 October and contains historical pending items; consult each task's current handover before treating those as live infrastructure state.
 
 **Search migration update:** Google accepted the MDify → LLMiser Change of Address on 21 October 2026, processed the new sitemap (13 discovered pages), and accepted a homepage indexing request. Redirect cleanup is deployed; 190 live HTTP checks passed. The old Vercel alias now redirects directly to LLMiser and the extra `/blog` hop is fixed. See [search migration and indexing policy](LLMISER_SEARCH_MIGRATION.md) before changing robots, redirects or Search Console settings.
 
