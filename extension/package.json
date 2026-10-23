@@ -1,0 +1,23 @@
+{
+  "name": "llmiser-chrome-extension",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON --test test/*.test.mjs",
+    "build": "node scripts/build.mjs",
+    "check": "node scripts/check.mjs",
+    "pack": "node scripts/pack.mjs",
+    "preview": "node dev/server.mjs"
+  },
+  "dependencies": {
+    "@mozilla/readability": "0.6.0",
+    "turndown": "7.2.4",
+    "turndown-plugin-gfm": "1.0.2"
+  },
+  "devDependencies": {
+    "esbuild": "0.28.2",
+    "jsdom": "29.1.1",
+    "jszip": "3.10.2"
+  }
+}
