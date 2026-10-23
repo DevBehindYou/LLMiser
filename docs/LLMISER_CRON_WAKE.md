@@ -46,4 +46,6 @@ At **02:05 Asia/Calcutta**, the real five-minute recorder job succeeded and pers
 
 Source/review: [PR #2](https://github.com/DevBehindYou/LLMiser/pull/2). Actual CI results are separate from local acceptance. Private proof is retained in `project-docs/cron-evidence/`; no keys or HTTP headers are included.
 
+Resumed verification on **23 October** confirmed the final lease-maintenance definition is live. Both newest OCR outcomes were recorded **200**, with no errors; all four original cron jobs remained enabled. Six tracked tick requests had **zero errors and zero pending responses**. There were **zero failed cron runs in the preceding 12 hours**. The latest minute and five-minute jobs had succeeded. All frontend, backend, PostgreSQL, Edge and Vercel checks passed for source revision **`c827528`**. This confirms sustained operation after the initial cutover, rather than only a manual request.
+
 Official references: [Supabase Cron](https://supabase.com/docs/guides/cron), [pg_net asynchronous requests and response retention](https://supabase.com/docs/guides/database/extensions/pg_net), [Render Free service sleep and hours](https://render.com/docs/free).
