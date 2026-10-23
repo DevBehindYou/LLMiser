@@ -57,6 +57,71 @@ test('wakeBackends skips pools with no instances configured', async () => {
   assert.equal(res.all_ready, true);
 });
 
+test('simultaneous page loads share one wake operation, including partial failures', async () => {
+  let release;
+  const gate = new Promise(resolve => { release = resolve; });
+  let calls = 0;
+  const fetchImpl = async url => {
+    calls++;
+    await gate;
+    if (url.startsWith('http://o2')) throw new TypeError('cold start');
+    return new Response('{}');
+  };
+  const requests = Array.from({ length: 20 }, () => wakeBackends({ pools: POOLS, fetchImpl, now: 1 }));
+  assert.equal(calls, 5, '20 concurrent requests must not send 100 backend pings');
+  release();
+  const results = await Promise.all(requests);
+  assert.equal(results.filter(r => !r.cached).length, 1);
+  assert.ok(results.every(r => !r.all_ready && r.pools.ocr.ready === 1));
+  assert.doesNotMatch(JSON.stringify(results), /http|cold start/);
+});
+
+test('the cache TTL begins when a slow wake completes, then permits another attempt', async () => {
+  let timestamp = 1000;
+  let release;
+  const gate = new Promise(resolve => { release = resolve; });
+  let calls = 0;
+  const fetchImpl = async () => { calls++; await gate; return new Response('{}'); };
+  const options = { pools: POOLS, fetchImpl, now: () => timestamp };
+  const initial = wakeBackends(options);
+  timestamp = 9000; release(); await initial;
+  timestamp = 15000;
+  assert.equal((await wakeBackends(options)).cached, true);
+  assert.equal(calls, 5);
+  timestamp = 19000;
+  assert.equal((await wakeBackends(options)).cached, false);
+  assert.equal(calls, 10);
+});
+
+test('different pool configurations cannot reuse another configuration readiness', async () => {
+  let calls = 0;
+  const fetchImpl = async () => { calls++; return new Response('{}'); };
+  await wakeBackends({ pools: POOLS, fetchImpl, now: 1 });
+  const changed = await wakeBackends({ pools: { ocr: ['http://new-ocr'] }, fetchImpl, now: 2 });
+  assert.equal(calls, 6);
+  assert.equal(changed.cached, false);
+  assert.deepEqual(changed.pools, { ocr: { ready: 1, total: 1 } });
+});
+
+test('an older slow configuration cannot overwrite the current cached result', async () => {
+  let release;
+  const gate = new Promise(resolve => { release = resolve; });
+  let calls = 0;
+  const fetchImpl = async url => {
+    calls++;
+    if (url.includes('old')) { await gate; return new Response('', { status: 503 }); }
+    return new Response('{}');
+  };
+  const older = wakeBackends({ pools: { ocr: ['http://old'] }, fetchImpl, now: 1 });
+  const current = { pools: { normal: ['http://new'] }, fetchImpl, now: 2 };
+  assert.equal((await wakeBackends(current)).all_ready, true);
+  release(); assert.equal((await older).all_ready, false);
+  const cached = await wakeBackends(current);
+  assert.equal(cached.cached, true);
+  assert.equal(cached.all_ready, true);
+  assert.equal(calls, 2);
+});
+
 // ── browser: wake model ─────────────────────────────────────────────────────
 
 function fakeStorage() {
