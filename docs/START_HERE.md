@@ -1,6 +1,8 @@
 # LLMiser — start here
 
-Updated 21 October 2026. This is the entry point for another AI agent or developer.
+Updated 23 October 2026. This is the entry point for another AI agent or developer.
+
+**Optimization continuation:** [current wake implementation and slice status](LLMISER_WAKE_OPTIMIZATION.md) distinguishes recovery PR #1, the live Supabase changes in PR #2 and this branch's app wake optimization. The resumed live cron audit found both OCR receipts at 200, no tracked tick errors and no failed cron runs in 12 hours. Older pending keep-warm/tick notes below are historical. App wake coalescing is not yet a production feature deployment.
 
 **Search migration update:** Google accepted the MDify → LLMiser Change of Address on 21 October 2026, processed the new sitemap (13 discovered pages), and accepted a homepage indexing request. Redirect cleanup is deployed; 190 live HTTP checks passed. The old Vercel alias now redirects directly to LLMiser and the extra `/blog` hop is fixed. See [search migration and indexing policy](LLMISER_SEARCH_MIGRATION.md) before changing robots, redirects or Search Console settings.
 
