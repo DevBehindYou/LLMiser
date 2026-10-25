@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { convertUpload, signedStorageUrl, APP_ORIGIN, STORAGE_ORIGIN } from '../src/uploads.js';
+import { convertUpload, resumeUpload, signedStorageUrl, APP_ORIGIN, STORAGE_ORIGIN } from '../src/uploads.js';
 
 const id='12345678-1234-1234-1234-123456789abc';
 const signed=(path,job=id)=>`${STORAGE_ORIGIN}/storage/v1/object/${path}/mdify-pro-files/jobs/${job}/`;
@@ -80,4 +80,36 @@ test('aborting stops requests and oversized results fail without silent truncati
     if(url.endsWith('/start'))return json({status:'COMPLETED',result:{download_url:output}});
     return new Response('a'.repeat(500_001));
   }}),/too large/);
+});
+
+test('upload checkpoints are persisted before sending bytes and after successful upload',async()=>{
+  const checkpoints=[];
+  await convertUpload(file(),'Standard',{onCheckpoint:async record=>checkpoints.push(record),fetchImpl:async url=>{
+    if(url.endsWith('/api/uploads/create'))return json({job_id:id,upload_url:upload});
+    if(url===upload) { assert.equal(checkpoints[0].phase,'uploading');return json({}); }
+    if(url.endsWith('/start')) { assert.equal(checkpoints[1].phase,'processing');return json({status:'COMPLETED',result:{download_url:output}}); }
+    return new Response('# Complete');
+  }});
+  assert.deepEqual(checkpoints.map(item=>Object.keys(item).sort()),[['filename','jobId','phase'],['filename','jobId','phase']]);
+});
+
+test('popup recovery starts an existing uploaded job and never creates or uploads another file',async()=>{
+  const urls=[];
+  const result=await resumeUpload({jobId:id,filename:'sample.txt',phase:'processing'},{fetchImpl:async url=>{
+    urls.push(url);
+    if(url.endsWith('/start'))return json({status:'COMPLETED',result:{download_url:output}});
+    if(url===output)return new Response('# Recovered');
+    throw new Error('Unexpected request during recovery');
+  }});
+  assert.equal(result.markdown,'# Recovered');assert.equal(urls.length,2);
+  assert.ok(urls.every(url=>!url.includes('/uploads/create')&&!url.includes('/upload/sign/')));
+  await assert.rejects(resumeUpload({jobId:'bad'},{fetchImpl:async()=>{throw new Error('must not fetch');}}),/cannot be resumed/);
+});
+
+test('failure to save recovery data prevents sending file bytes',async()=>{
+  let requests=0;
+  await assert.rejects(convertUpload(file(),'Standard',{onCheckpoint:async()=>{throw new Error('session unavailable');},fetchImpl:async()=>{
+    requests++;return json({job_id:id,upload_url:upload});
+  }}),/session unavailable/);
+  assert.equal(requests,1);
 });

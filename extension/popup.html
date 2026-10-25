@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>LLMiser — Converter</title><link rel="stylesheet" href="sidepanel.css"></head>
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>LLMiser — Converter</title><link rel="stylesheet" href="popup.css"></head>
 <body>
   <header class="brand"><img src="icons/48.png" width="32" height="32" alt=""><strong>LLMiser</strong><span class="local-pill">CONVERTER</span></header>
   <main>
@@ -17,26 +17,19 @@
       <ul id="file-queue" class="file-queue" aria-label="Conversion queue"></ul>
     </section>
     <section class="ai-card" aria-label="AI destination"><div><span class="eyebrow">AI DESTINATION</span><p id="ai-target" role="status">Detecting active tab…</p></div><button id="detect-ai" class="text-button">Detect</button><p class="hint">Open ChatGPT, Claude or Gemini and click the LLMiser toolbar icon there. Paste fills an empty composer; you send the message.</p></section>
-    <details class="page-capture"><summary>Or convert this page / selection locally</summary><section class="capture-card" aria-label="Capture controls">
-      <label for="scope">Page scope</label><select id="scope"><option value="article">Main article</option><option value="page">Page content</option></select>
-      <button class="primary" id="capture-page" disabled>Capture page <span aria-hidden="true">↗</span></button>
-      <button class="secondary" id="capture-selection" disabled>Capture selection</button>
-      <div class="options"><label><input id="include-source" type="checkbox" checked> Include source link</label><label><input id="include-images" type="checkbox"> Include image links</label></div>
-      <p class="hint">Captures only when you click. Form fields and hidden content are excluded.</p>
-    </section></details>
     <div class="status-line"><span id="busy" class="spinner" hidden aria-hidden="true"></span><p id="status" role="status" aria-live="polite">Loading…</p></div>
     <section class="output-card">
       <div class="output-heading"><h2>Your Markdown</h2><button id="clear" class="text-button" disabled>Clear</button></div>
-      <div id="empty" class="empty"><span aria-hidden="true">&gt;_</span><h3>Your useful context starts here.</h3><p>Convert files or capture page text, review the Markdown, then paste it into your AI chat.</p></div>
-      <div id="document" hidden><h3 id="document-title"></h3><a id="source" target="_blank" rel="noopener noreferrer"></a><ul id="warnings" class="warnings"></ul></div>
+      <div id="empty" class="empty"><span aria-hidden="true">&gt;_</span><h3>Your useful context starts here.</h3><p>Convert your files, review the Markdown, then download it or paste it into your AI chat.</p></div>
+      <div id="document" hidden><h3 id="document-title"></h3><ul id="warnings" class="warnings"></ul></div>
       <label class="sr-only" for="editor">Editable Markdown</label><textarea id="editor" spellcheck="false" placeholder="# Your useful context" disabled></textarea>
       <div class="stats"><div><b id="characters">0</b><span>characters</span></div><div><b id="words">0</b><span>words</span></div><div><b>~<span id="tokens">0</span></b><span>est. tokens</span></div></div>
       <p class="estimate-note">Tokens are a rough character-based estimate, not a model-specific count or a billing measurement.</p>
       <div class="exports"><button id="copy" class="primary" disabled>Copy Markdown</button><button id="download" class="secondary" disabled>Download .md</button></div>
       <button id="paste" class="primary paste-button" disabled>Paste into AI</button>
     </section>
-    <aside class="privacy-note"><strong>You control where your content goes.</strong><p>Page / selection capture stays local. File conversion uses LLMiser and its private storage (default 48-hour retention). Paste shares the current Markdown with the AI site you choose; it never sends a chat message.</p><p>One Markdown draft stays in Chrome’s session memory. Clear removes the local draft and queue; it does not delete uploaded files. No browsing history or telemetry.</p></aside>
+    <aside class="privacy-note"><strong>You control where your content goes.</strong><p>File conversion uses LLMiser and its private storage (default 48-hour retention). Paste shares the current Markdown with the detected AI site; it never sends a chat message.</p><p>Keep the popup open while files upload. Reopen it to resume an uploaded job or restore your latest Markdown draft. Files still waiting to upload must be chosen again.</p><p>Clear removes local drafts and recovery records, not server files. No browsing history or telemetry.</p></aside>
   </main>
-  <script src="panel.js"></script>
+  <script src="popup.js"></script>
 </body>
 </html>

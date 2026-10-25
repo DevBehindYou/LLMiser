@@ -24,7 +24,7 @@ Files are uploaded for conversion. Private storage uses a default 48-hour retent
 
 ## Development
 
-A Chrome extension development build lives in [extension/](extension/README.md): a single Converter screen for file uploads, drag and drop, local page capture and editable Markdown, with AI-site detection and a manual Paste button. It is not yet published in the Chrome Web Store; native Chrome acceptance is pending. See the [extension handover](docs/LLMISER_CHROME_EXTENSION.md).
+A Chrome extension development build lives in [extension/](extension/README.md): a single toolbar-popup Converter for file uploads, drag and drop and editable Markdown, with AI-site detection, manual Paste and uploaded-job recovery. It is not yet published in the Chrome Web Store; native Chrome acceptance is pending. See the [extension handover](docs/LLMISER_CHROME_EXTENSION.md).
 
 Requires Node.js 22. From `frontend`:
 

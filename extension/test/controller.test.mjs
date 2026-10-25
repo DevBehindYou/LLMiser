@@ -4,20 +4,19 @@ import fs from 'node:fs';
 import { setImmediate as tick } from 'node:timers/promises';
 import { JSDOM } from 'jsdom';
 import { mountPanel } from '../src/ui/controller.js';
-const html=fs.readFileSync(new URL('../sidepanel.html',import.meta.url),'utf8');
-const draft={markdown:'# Original\n',title:'Sample',sourceUrl:'https://example.com',mode:'page',warnings:[]};
+const html=fs.readFileSync(new URL('../popup.html',import.meta.url),'utf8');
+const draft={markdown:'# Original\n',title:'Sample.txt',mode:'file',warnings:[]};
 
 async function setup(t,overrides={}) {
   const dom=new JSDOM(html,{url:'https://extension.test'});t.after(()=>dom.window.close());
   const calls={saved:[],copied:[],downloads:[],cleared:0,uploads:[],pasted:[]};
-  const api={loadDraft:async()=>null,capture:async()=>draft,saveDraft:async d=>calls.saved.push(d),clearDraft:async()=>calls.cleared++,copy:async text=>calls.copied.push(text),download:(text,name)=>calls.downloads.push({text,name}),authorizeUploads:async()=>true,convertUpload:async file=>{calls.uploads.push(file.name);return {...draft,title:file.name,mode:'file'};},detectAI:async()=>({id:'chatgpt',label:'ChatGPT'}),paste:async text=>{calls.pasted.push(text);return 'ChatGPT';},...overrides};
+  const api={loadDraft:async()=>null,loadPendingJobs:async()=>[],savePendingJob:async()=>{},removePendingJob:async()=>{},saveDraft:async d=>calls.saved.push(d),clearDraft:async()=>calls.cleared++,copy:async text=>calls.copied.push(text),download:(text,name)=>calls.downloads.push({text,name}),authorizeUploads:async()=>true,convertUpload:async file=>{calls.uploads.push(file.name);return {...draft,title:file.name,mode:'file'};},detectAI:async()=>({id:'chatgpt',label:'ChatGPT'}),paste:async text=>{calls.pasted.push(text);return 'ChatGPT';},...overrides};
   const controller=await mountPanel(dom.window.document,api);
   return {doc:dom.window.document,window:dom.window,calls,controller};
 }
 
-test('capture/edit/immediate copy and download use the latest text, including an empty edit',async t=>{
-  const {doc,window,calls,controller}=await setup(t);
-  doc.getElementById('capture-page').click();await tick();
+test('file draft editing and immediate copy/download use the latest text, including an empty edit',async t=>{
+  const {doc,window,calls,controller}=await setup(t,{loadDraft:async()=>draft});
   const editor=doc.getElementById('editor');editor.value='# Edited 漢字🙂\n';editor.dispatchEvent(new window.Event('input'));
   doc.getElementById('copy').click();doc.getElementById('download').click();await tick();
   assert.equal(calls.copied[0],'# Edited 漢字🙂\n');assert.equal(calls.downloads[0].text,calls.copied[0]);
@@ -65,6 +64,7 @@ test('the Converter screen has no secondary navigation or automatic paste contro
   const {doc}=await setup(t);
   assert.equal(doc.querySelectorAll('main').length,1);assert.equal(doc.querySelector('nav'),null);
   assert.equal(doc.getElementById('open-app'),null);
+  for(const id of ['capture-page','capture-selection','include-source','include-images','scope']) assert.equal(doc.getElementById(id),null);
   assert.equal(doc.getElementById('paste').disabled,true);
 });
 
@@ -79,26 +79,41 @@ test('reviewing multiple converted files retains each file edit during this pane
   assert.equal(editor.value,'Edited first file');
 });
 
-test('clearing during extraction cannot restore a late result or saved draft',async t=>{
-  let release;const pending=new Promise(resolve=>{release=resolve;});
-  const {doc,calls}=await setup(t,{capture:()=>pending});
-  doc.getElementById('capture-page').click();doc.getElementById('clear').click();
-  release(draft);await tick();
-  assert.equal(calls.cleared,1);assert.equal(calls.saved.length,0);
-  assert.equal(doc.getElementById('editor').value,'');assert.equal(doc.getElementById('copy').disabled,true);
-});
-
 test('session failure stays visible and leaves the result exportable',async t=>{
-  const {doc}=await setup(t,{saveDraft:async()=>{throw new Error('quota');}});
-  doc.getElementById('capture-page').click();await tick();
-  assert.match(doc.getElementById('status').textContent,/could not be saved/);
+  const {doc,window}=await setup(t,{saveDraft:async()=>{throw new Error('quota');}});
+  dropFiles(doc,window,[new window.File(['test'],'a.txt')]);
+  doc.getElementById('convert-files').click();await tick();await tick();
+  assert.match(doc.getElementById('status').textContent,/session saving failed/);
   assert.equal(doc.getElementById('copy').disabled,false);
 });
 
-test('restored content is text only, and a capture error preserves existing edits',async t=>{
-  const {doc}=await setup(t,{loadDraft:async()=>({...draft,title:'<img src=x onerror=alert(1)>',markdown:'<script>alert(1)</script>'}),capture:async()=>{throw new Error('Select text first');}});
+test('restored content is text only, and a paste error preserves existing edits',async t=>{
+  const {doc}=await setup(t,{loadDraft:async()=>({...draft,title:'<img src=x onerror=alert(1)>',markdown:'<script>alert(1)</script>'}),paste:async()=>{throw new Error('Composer is not empty');}});
   assert.equal(doc.getElementById('document-title').querySelector('img'),null);
-  doc.getElementById('capture-selection').click();await tick();
+  doc.getElementById('paste').click();await tick();
   assert.equal(doc.getElementById('editor').value,'<script>alert(1)</script>');
-  assert.match(doc.getElementById('status').textContent,/Select text first/);
+  assert.match(doc.getElementById('status').textContent,/Composer is not empty/);
+});
+
+test('reopening the popup restores uploaded jobs and resumes without selecting or uploading bytes',async t=>{
+  const checkpoint={jobId:'12345678-1234-1234-1234-123456789abc',filename:'recovered.pdf',phase:'processing'};
+  let resumed=0,removed=0;
+  const {doc,calls}=await setup(t,{loadPendingJobs:async()=>[checkpoint],resumeUpload:async record=>{assert.deepEqual(record,checkpoint);resumed++;return draft;},removePendingJob:async id=>{assert.equal(id,checkpoint.jobId);removed++;}});
+  assert.equal(doc.getElementById('convert-files').textContent,'Resume files');
+  doc.getElementById('convert-files').click();await tick();await tick();
+  assert.equal(resumed,1);assert.equal(removed,1);assert.equal(calls.uploads.length,0);
+  assert.equal(doc.getElementById('editor').value,draft.markdown);
+});
+
+test('closing the popup aborts waiting but preserves its uploaded-job checkpoint',async t=>{
+  let signal,checkpointSaved=0;
+  const checkpoint={jobId:'12345678-1234-1234-1234-123456789abc',filename:'a.txt',phase:'processing'};
+  const {doc,window,calls}=await setup(t,{savePendingJob:async()=>{checkpointSaved++;},convertUpload:async(_file,_profile,options)=>{
+    signal=options.signal;await options.onCheckpoint(checkpoint);
+    return new Promise((_resolve,reject)=>signal.addEventListener('abort',()=>reject(new DOMException('Aborted','AbortError')),{once:true}));
+  }});
+  dropFiles(doc,window,[new window.File(['test'],'a.txt')]);
+  doc.getElementById('convert-files').click();await tick();
+  window.dispatchEvent(new window.Event('pagehide'));await tick();
+  assert.equal(signal.aborted,true);assert.equal(checkpointSaved,1);assert.equal(calls.cleared,0);
 });

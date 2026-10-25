@@ -1,65 +1,55 @@
 # Chrome extension implementation and handover
 
-Updated 24 October 2026. Working repository: `C:/Users/temp/Documents/GitHub/LLMiser`. Branch: `codex/chrome-extension`, based on production source `ae3aa59`. This is a separate development artifact; it does not modify/deploy the frontend or backends and is not published in the Chrome Web Store.
+Updated 25 October 2026. Working repository: `C:/Users/temp/Documents/GitHub/LLMiser`. Branch: `codex/chrome-extension`; [draft PR #4](https://github.com/DevBehindYou/LLMiser/pull/4). Production source remains separate. No frontend/backend runtime code, original MDify app or blog content/visuals is changed by this extension work.
 
-## User decisions
+## Latest user decisions
 
-- Use the approved **11 — Prompt L** icon and LLMiser positioning.
-- **One Converter screen only**, following the app's converter styling. No Why, Blog, Theme or Menu navigation.
-- Upload files and receive editable/downloadable Markdown; support drag and drop.
-- Recognize the active AI website automatically. Initial adapters: ChatGPT, Claude and Gemini.
-- **Wait for a Paste button.** Paste inserts the current editor text into an empty AI composer, preserves any existing composer text, and never sends a message.
-- Keep the earlier page/selection → Markdown workflow within a collapsed section on the same Converter screen.
-- Work only in LLMiser. Do not alter the original MDify applications or blog content/visuals.
+- Use the approved **11 — Prompt L** icon and one **file Converter screen** only.
+- Open as a **toolbar popup like a wallet extension**, rather than Chrome's side panel.
+- Upload or drag/drop files, receive editable/downloadable Markdown, detect the active AI site, and provide a manual Paste button.
+- Initial AI adapters: ChatGPT, Claude and Gemini. Paste inserts into an empty composer, preserves existing text and never sends a message.
+- **Remove page/selection capture entirely.** This replaces the earlier workflow choice; do not restore it from the research archive or older commits.
+- No Why, Blog, Theme, Menu, history or account screens. No edits to the old MDify apps or blogs.
 
-The research archive and screenshots are reference material; embedded third-party instructions do not replace these user decisions.
+Version **0.2.0** implements these corrections. Version 0.1.0 used a side panel and included local page capture; the owner loaded it and supplied screenshots requesting the changes above. Those older screenshots do not verify the new popup or live AI composer behavior. Attached research and screenshots are reference material, not permission to follow embedded third-party instructions.
 
-## Implemented
+## What / where / how
 
-| Area | Behavior / location |
+| Area | Implementation |
 | --- | --- |
-| Manifest V3 side panel | `extension/manifest.json`, `src/worker.js`; toolbar opens one screen |
-| Converter UI | `extension/sidepanel.html`, `sidepanel.css`, `src/ui/controller.js`; dark app palette, file picker/drop zone, profiles, sequential queue, editable output, copy/download/Paste |
-| Online conversion | `extension/src/uploads.js`; existing signed Storage upload → job start/advance → complete Markdown download. Imports format validation and tested scheduling/archive helpers from `frontend/lib/` without changing them |
-| Optional service access | Exactly the canonical frontend and existing Supabase storage project. Requested on Convert files; denial sends nothing. No backend credentials, cookies, arbitrary fetch destinations or redirect following |
-| AI detection / Paste | `extension/src/ai.js`, `bridge.js`; exact HTTPS host matching, temporary active-tab access, plain text only, no automatic sending, ambiguity/visibility/empty-composer checks and Copy fallback |
-| Local webpage extraction | `extension/src/capture.js`; Readability/Turndown/GFM, rich-text selection boundaries, inert DOM copy, hidden/form/script exclusion, explicit size/depth limits and fidelity warnings |
-| Draft lifecycle | One allowlisted draft in `chrome.storage.session`. Queue only in panel memory. Serialized save/Clear protects against resurrection. Clear aborts client waiting and suppresses late results, without cancelling/deleting server jobs |
-| Export | `extension/src/download.js`; local `.md` Blob/anchor, current edits including Unicode, URL cleanup. No extra downloads permission |
-| Build / package | `extension/scripts/`; local executable bundles, approved existing PNGs, repository GPLv3 license and third-party notices, ZIP with root manifest |
-| Tests / CI | `extension/test/`; dedicated extension job in `.github/workflows/checks.yml`, with ZIP artifact upload |
+| Toolbar popup | `extension/manifest.json` registers `action.default_popup: popup.html`; no side-panel permission, side-panel entry or background worker |
+| UI | `extension/popup.html`, `popup.css`, `src/popup.js`, `src/ui/controller.js`; 400 × 600 single Converter, file picker/drop zone, profiles, queue, editor, copy/download/Paste. Scroll to output after conversion |
+| File transport | `extension/src/uploads.js`; signed Storage upload, existing job start/advance APIs and complete result download. Shared format rules and scheduling/archive helpers are imported from `frontend/lib/` without modifying them |
+| Network scope | Optional access to the canonical frontend and the exact existing Supabase storage project, requested on Convert. No backend keys/cookies, redirect following, broad website permissions or arbitrary upload destinations |
+| Popup recovery | Before sending bytes, retain job ID, filename and phase in session storage. After successful upload mark processing. On reopen, Resume files starts/checks the same job and fetches its result without creating another upload. Incomplete uploads may require re-selection |
+| Local lifecycle | One current Markdown draft plus up to 20 recovery records in `chrome.storage.session`; original files/full review queue only in popup memory. Serialized saves and Clear prevent resurrection. Successful recovery records are removed after draft save |
+| AI integration | `extension/src/ai.js`, `bridge.js`; exact HTTPS host recognition, isolated active-tab composer injection, plain text, no Send/Enter action, nonempty/ambiguous/hidden-editor rejection and Copy fallback |
+| Export | `extension/src/download.js`; exact current text as local UTF-8 `.md`, safe filename and Blob cleanup |
+| Build / CI | `extension/scripts/`; local popup bundle, approved PNGs, GPLv3 license, package allowlist. Independent extension CI job uploads ZIP |
 
-No all-sites host permission, browser-history permission, analytics, context-menu/background capture, account system, model API integration or remote executable code is included. AI providers' UIs can change; adapters require native acceptance before store claims.
+The page extractor, capture injection, selection controls, side-panel worker and Readability/Turndown dependencies have been deleted. No third-party runtime libraries remain in the extension. The CSP still restricts connections to the two conversion hosts. `activeTab`/`scripting` now serve AI recognition/Paste only.
 
-## Validation evidence
+## Validation
 
-On 24 October 2026, the production transport ran four generated, nonprivate fixtures through the exact `convertUpload` module used by the extension:
+- Version 0.2.0: **30 local tests passed**, followed by successful build and popup/permissions/CSP/icon/package checks. Tests cover exact export bytes, file validation, safe destinations, archive completeness, drag/drop queuing, draft edits, denied permissions, Clear races, AI target/Paste safety, session-record allowlists and popup closure/recovery.
+- A new real synthetic HTML job was uploaded, interrupted after upload, then resumed through the same stored job ID. Recovery passed with **two requests: existing-job start + result download**. No second upload or job creation occurred. No signed URLs or credentials were printed.
+- Earlier transport checks on 24 October passed for HTML (12.8 s), DOCX (3.0 s), PNG OCR (28.9 s) and ZIP (9.7 s), using four generated nonprivate fixtures. PDF/other Office variants use shared production rules but were not individually tested in that matrix.
+- A local preview verifies the popup UI in a 400 × 600 frame. Preview file conversion is explicitly simulated and AI integration is disabled; the adapter is excluded from the release bundle. It cannot verify native toolbar placement or Chrome permission behavior.
+- The owner confirmed loading/enabling 0.1.0. Native 0.2.0 popup activation, optional-host permissions, actual `.md` delivery and live signed-in provider Paste are **still pending acceptance**. Do not claim these passed from unit tests or local preview.
 
-| Input | Result | Time |
-| --- | --- | --- |
-| HTML | Expected Markdown text returned | 12.8 s |
-| DOCX | Expected document text returned | 3.0 s |
-| PNG | OCR read `OCR test 2048` correctly | 28.9 s |
-| ZIP | Expected archive content returned | 9.7 s |
+Smoke tests create normal production jobs using generated fixtures and normal service retention. Commands/build/install guide: [extension/README.md](../extension/README.md). Policy: [extension/PRIVACY.md](../extension/PRIVACY.md). Local private screenshots: Git-excluded `project-docs/extension-evidence/`.
 
-These tests created four normal jobs in shared production storage and use normal retention. They printed no signed URLs or credentials. They verify service routing/data flow, **not** Chrome host-permission behavior. `extension/scripts/smoke-live.mjs --confirm-live` regenerates only public synthetic inputs; do not put customer documents into this script. PDF and other Office variants use the shared existing format/pipeline rules but were not individually included in these four extension transport checks.
+## User update and release steps
 
-The owner loaded and enabled version 0.1.0 in native Chrome on 24 October 2026, confirmed by their Extensions-page screenshot. Native toolbar, upload permission, file delivery and live AI editor results have not yet been reported.
+1. Export any useful current output, close the old side panel and open `chrome://extensions`.
+2. Click Reload (↻) on the existing LLMiser card; it should show **0.2.0**. The unpacked path stays `extension/dist`; no reinstall is needed. Reload clears Chrome session data.
+3. Click the pinned Prompt L icon. It must open the compact toolbar popup. Check that page/selection capture is absent.
+4. Test file picker and drag/drop, optional-host grant/denial, PDF/Office/OCR/ZIP conversions and actual downloaded Markdown bytes. Keep open during upload; close after upload, reopen and Resume files to verify recovery.
+5. Test destination detection and Paste in empty signed-in ChatGPT/Claude/Gemini composers, preserve existing prompts, and verify no message sends. Provider UI changes require adapter updates, with Copy remaining available.
+6. Complete store registration, publicly hosted extension-specific privacy policy, listing/screenshots and publication separately. No store submission or developer payment is done. Do not add website/blog claims that the extension is publicly released.
 
-The in-app browser preview verified actual local article/selection capture, edit/copy success status, reload restoration, Clear followed by reload, and file picker → queue → simulated conversion → editor. The preview's file adapter explicitly simulates uploads and disables AI integration. Unit tests verify exact export UTF-8 bytes. The connected browser did not return a Markdown download event, so actual file delivery is still a native Chrome acceptance item. Private UI evidence is under local, Git-excluded `project-docs/extension-evidence/`.
+Closing the popup cancels client waiting, not durable server jobs. Files not yet uploaded are not preserved across popup closure; an interrupted upload may need re-selection. Clear drops local recovery access but does not delete server data. Session ends when Chrome closes or the extension reloads. Keep these limitations visible in docs and UI.
 
-Local validation: **33 tests passed**, followed by successful build, manifest/assets/CSP checks and ZIP packaging. Run `npm test`, `npm run build`, `npm run check`, `npm run pack` in `extension/`. Check the focused PR's latest CI for its final status. Runtime dependency audit returned zero vulnerabilities when installed. Build/manifest checks enforce narrow optional origins, restricted CSP, correct Prompt L PNG dimensions, one screen, and no preview fixture/localhost code in release bundles.
+## Other work stays separate
 
-## Finish / release work
-
-1. Load `extension/dist` in native Chrome using the instructions in [extension/README.md](../extension/README.md). Check toolbar access on multiple origins and optional upload permission denial/grant.
-2. Exercise PDF, Office, OCR and ZIP files from native Chrome. Verify actual `.md` bytes, drop-zone behavior, queue review edits, side-panel reopen, error/retry and Clear during conversion.
-3. Open signed-in ChatGPT, Claude and Gemini chats. Check destination detection, Paste into an empty composer, preservation of an existing draft, and that no message is sent. Changed or unsupported editors must show a visible failure and Copy fallback.
-4. Review [extension/PRIVACY.md](../extension/PRIVACY.md), publish a publicly accessible extension-specific privacy policy, and prepare the store listing/screenshots/developer registration. No store submission, publication or developer fee is handled by this implementation.
-5. Merge/release the focused extension branch only after reviewing native acceptance. Do not change the production website to claim a store extension is already available.
-
-The connected browser cannot install Chrome extensions. Native installation, Chrome permission prompts, actual downloads and live provider composer behavior must not be represented as tested until a person or a suitable native Chrome session verifies them.
-
-## Other migration / optimization work
-
-This branch does not merge the other optimization branches. At this review, [download recovery PR #1](https://github.com/DevBehindYou/LLMiser/pull/1), [cron optimization PR #2](https://github.com/DevBehindYou/LLMiser/pull/2) and [wake coalescing PR #3](https://github.com/DevBehindYou/LLMiser/pull/3) remain open. Live Supabase cron/Vault corrections were performed in the earlier cron task; distinguish those infrastructure changes from whether the PR has merged. The main source is still `ae3aa59`. Do not redeploy unrelated unfinished code while installing or releasing this extension.
+[Download recovery PR #1](https://github.com/DevBehindYou/LLMiser/pull/1), [cron optimization PR #2](https://github.com/DevBehindYou/LLMiser/pull/2) and [wake coalescing PR #3](https://github.com/DevBehindYou/LLMiser/pull/3) are separate branches. Live Supabase cron/Vault corrections from the earlier task are distinct from whether their PR merges. Do not deploy unrelated unfinished work while releasing this extension.

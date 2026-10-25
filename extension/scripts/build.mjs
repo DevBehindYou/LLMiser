@@ -11,27 +11,19 @@ export async function buildExtension({ preview = false } = {}) {
   await fs.mkdir(path.join(output, 'icons'), { recursive: true });
   const manifest = JSON.parse(await fs.readFile(path.join(ROOT, 'manifest.json'), 'utf8'));
   await fs.writeFile(path.join(output, 'manifest.json'), JSON.stringify(manifest, null, 2)+'\n');
-  for (const file of ['sidepanel.html','sidepanel.css']) await fs.copyFile(path.join(ROOT,file),path.join(output,file));
+  for (const file of ['popup.html','popup.css']) await fs.copyFile(path.join(ROOT,file),path.join(output,file));
   const iconFiles = { 16:'favicon-16-light.png',32:'favicon-32-light.png',48:'icon-48-light.png',128:'icon-128-light.png' };
   for (const [size,file] of Object.entries(iconFiles)) await fs.copyFile(path.join(ROOT,'..','frontend','public',file),path.join(output,'icons',`${size}.png`));
   const plugins = preview ? [{ name:'preview-adapter',setup(builder) {
     builder.onResolve({filter:/^\.\/bridge\.js$/}, () => ({ path:path.join(ROOT,'dev','adapter.js') }));
   } }] : [];
-  await build({ entryPoints:{ panel:path.join(ROOT,'src/panel.js'),capture:path.join(ROOT,'src/capture-entry.js'),worker:path.join(ROOT,'src/worker.js') },
+  await build({ entryPoints:{ popup:path.join(ROOT,'src/popup.js') },
     outdir:output,bundle:true,format:'iife',platform:'browser',target:'chrome116',minify:true,legalComments:'external',plugins });
-  const notices=[];
-  for (const dependency of ['@mozilla/readability','turndown','turndown-plugin-gfm','@mixmark-io/domino']) {
-    const directory=path.join(ROOT,'node_modules',dependency);
-    const pkg=JSON.parse(await fs.readFile(path.join(directory,'package.json'),'utf8'));
-    const licenseFile=(await fs.readdir(directory)).find(name=>/^licen[cs]e(?:\.|$)/i.test(name));
-    if (!licenseFile) throw new Error(`Missing license: ${dependency}`);
-    notices.push(`${dependency} ${pkg.version}\n${await fs.readFile(path.join(directory,licenseFile),'utf8')}`);
-  }
-  await fs.writeFile(path.join(output,'THIRD_PARTY_NOTICES.txt'),notices.join('\n\n---\n\n'));
+  await fs.writeFile(path.join(output,'THIRD_PARTY_NOTICES.txt'),'The file-only converter bundles LLMiser source under the repository GPLv3 license. No third-party runtime libraries are bundled. Build/test tools are not shipped in this package.\n');
   await fs.copyFile(path.join(ROOT,'PRIVACY.md'),path.join(output,'PRIVACY.md'));
   await fs.copyFile(path.join(ROOT,'..','LICENSE'),path.join(output,'LICENSE'));
   if (preview) {
-    for (const file of ['index.html','fixture.html']) await fs.copyFile(path.join(ROOT,'dev',file),path.join(output,file));
+    await fs.copyFile(path.join(ROOT,'dev','index.html'),path.join(output,'index.html'));
   }
   return output;
 }

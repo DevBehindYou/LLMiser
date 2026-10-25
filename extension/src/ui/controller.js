@@ -13,17 +13,19 @@ export async function mountPanel(doc, api) {
   let target = null;
   let targetRevision = 0;
   let activeItem = null;
+  let clearFailed = false;
   const status = (text, error = false) => { el('status').textContent = text; el('status').dataset.error = String(error); };
   const update = () => {
     const hasDraft = draft !== null;
-    for (const id of ['capture-page','capture-selection']) el(id).disabled = !ready || busy;
-    el('clear').disabled = !hasDraft && !busy && !queue.length;
+    el('clear').disabled = !hasDraft && !busy && !queue.length && !clearFailed;
     el('copy').disabled = !hasDraft; el('download').disabled = !hasDraft;
     el('paste').disabled = busy || !hasDraft || !el('editor').value.trim() || !target;
     el('paste').textContent = target ? `Paste into ${target.label}` : 'Paste into AI';
     el('choose-files').disabled = !ready || busy;
     el('profile').disabled = busy;
-    el('convert-files').disabled = !ready || busy || !queue.some(item => item.state === 'pending');
+    const waiting = queue.filter(item => ['pending','retry'].includes(item.state));
+    el('convert-files').disabled = !ready || busy || !waiting.length;
+    el('convert-files').textContent = waiting.length && waiting.every(item => item.checkpoint) ? 'Resume files' : 'Convert files';
     el('editor').disabled = !hasDraft;
     el('busy').hidden = !busy;
     el('empty').hidden = hasDraft;
@@ -39,21 +41,19 @@ export async function mountPanel(doc, api) {
     const snapshot = current();
     if (!snapshot) return false;
     try { await api.saveDraft(snapshot); return true; }
-    catch { status('The draft could not be saved for this session. Copy or download it before closing the panel.', true); return false; }
+    catch { status('The draft could not be saved for this session. Copy or download it before closing the popup.', true); return false; }
   };
   const showDraft = (value, item = null) => {
     activeItem = item;
     draft = value;
     el('editor').value = value?.markdown || '';
-    el('document-title').textContent = value?.title || 'Untitled page';
-    el('source').textContent = value?.sourceUrl || '';
-    el('source').removeAttribute('href');
-    if (value?.sourceUrl) el('source').href = value.sourceUrl;
+    el('document-title').textContent = value?.title || 'Untitled file';
     el('warnings').replaceChildren();
     for (const warning of value?.warnings || []) {
       const li = doc.createElement('li'); li.textContent = warning; el('warnings').appendChild(li);
     }
     update();
+    if (value) el('document').scrollIntoView?.({ block: 'start' });
   };
   const renderQueue = () => {
     el('file-queue').replaceChildren();
@@ -83,7 +83,7 @@ export async function mountPanel(doc, api) {
   el('files').accept = ACCEPT_ATTRIBUTE;
   el('choose-files').addEventListener('click', () => el('files').click());
   el('files').addEventListener('change', () => { addFiles([...el('files').files]); el('files').value = ''; });
-  // Prevent a dropped file from replacing the panel document.
+  // Prevent a dropped file from replacing the popup document.
   doc.addEventListener('dragover', event => event.preventDefault());
   doc.addEventListener('drop', event => event.preventDefault());
   el('dropzone').addEventListener('dragover', event => { event.preventDefault(); if (!busy) el('dropzone').classList.add('dragging'); });
@@ -106,29 +106,40 @@ export async function mountPanel(doc, api) {
       const granted = await api.authorizeUploads();
       if (attempt !== revision) return;
       if (!granted) { status('File-converter access was not granted. Your files were not uploaded.', true); return; }
-      for (const item of queue.filter(value => value.state === 'pending')) {
+      for (const item of queue.filter(value => ['pending','retry'].includes(value.state))) {
         if (attempt !== revision) break;
         item.state = 'running'; item.message = 'Starting…'; renderQueue();
         status(`Converting ${item.name}…`);
         try {
-          const value = await api.convertUpload(item.file, profile, { signal, onProgress: message => {
+          const options = { signal, onCheckpoint: async checkpoint => {
+            if (attempt !== revision) throw new DOMException('Aborted','AbortError');
+            await api.savePendingJob(checkpoint);
+            if (attempt !== revision) throw new DOMException('Aborted','AbortError');
+            item.checkpoint = checkpoint;
+          }, onProgress: message => {
             if (attempt === revision) { item.message = message; renderQueue(); }
-          } });
+          } };
+          const value = item.checkpoint ? await api.resumeUpload(item.checkpoint, options) : await api.convertUpload(item.file, profile, options);
           if (attempt !== revision) break;
           const validated = draftRecord(value);
           if (!validated) throw new Error('The result is too large for this editor. Use the web app for this file.');
           item.result = validated; item.file = null; item.state = 'done'; item.message = 'Converted — review, download or paste';
-          showDraft(validated, item); if (!await persist()) sessionSaveFailed = true;
+          showDraft(validated, item);
+          if (!await persist()) sessionSaveFailed = true;
+          else if (item.checkpoint) {
+            try { await api.removePendingJob(item.checkpoint.jobId); item.checkpoint = null; }
+            catch { sessionSaveFailed = true; }
+          }
         } catch (error) {
           if (attempt !== revision) break;
-          item.state = 'error'; item.file = null;
+          item.state = item.checkpoint ? 'retry' : 'error'; item.file = null;
           item.message = error.name === 'AbortError' ? 'Stopped waiting. An uploaded job may still finish on the server.' : (error.message || 'Conversion failed.');
         }
         renderQueue();
       }
       if (attempt === revision) {
-        const failed = queue.filter(item => item.state === 'error').length;
-        status(sessionSaveFailed ? 'Converted results are available, but session saving failed. Export them before closing this panel.' : failed ? `${failed} file(s) could not be converted. Review the queue; choose them again to retry.` : 'Files converted. Review your Markdown, then download or paste.', sessionSaveFailed || failed > 0);
+        const failed = queue.filter(item => ['error','retry'].includes(item.state)).length;
+        status(sessionSaveFailed ? 'Converted results are available, but session saving failed. Export them before closing this popup.' : failed ? `${failed} file(s) could not finish. Resume uploaded jobs, or choose interrupted files again.` : 'Files converted. Review your Markdown, then download or paste.', sessionSaveFailed || failed > 0);
       }
     } catch { if (attempt === revision) status('Chrome could not grant file-converter access. No new upload was started.', true); }
     finally { if (attempt === revision) { busy = false; uploadAbort = null; renderQueue(); } }
@@ -151,35 +162,17 @@ export async function mountPanel(doc, api) {
     } catch (error) { status(error.message || 'Could not paste. Copy the Markdown and paste manually.', true); }
     await detectTarget();
   });
-  const capture = async mode => {
-    if (!ready || busy) return;
-    clearTimeout(saveTimer);
-    const attempt = ++revision;
-    busy = true; update(); status('Reading the current page locally…');
-    try {
-      const value = await api.capture({ mode, includeSource: el('include-source').checked, includeImages: el('include-images').checked });
-      if (attempt !== revision) return;
-      const validated = draftRecord(value);
-      if (!validated) throw new Error('The result is too large. Select a smaller section.');
-      showDraft(validated);
-      const saved = await persist();
-      if (attempt === revision && saved) status(mode === 'selection' ? 'Selection captured. Review and edit your Markdown.' : 'Page captured. Review and edit your Markdown.');
-    } catch (error) { if (attempt === revision) status(error.message || 'Capture failed. Try again.', true); }
-    finally { if (attempt === revision) { busy = false; update(); } }
-  };
   el('editor').maxLength = MAX_MARKDOWN;
   el('editor').addEventListener('input', () => {
     if (activeItem) activeItem.result = current();
     update(); clearTimeout(saveTimer); saveTimer = setTimeout(persist, 300);
   });
-  el('capture-page').addEventListener('click', () => capture(el('scope').value));
-  el('capture-selection').addEventListener('click', () => capture('selection'));
   el('clear').addEventListener('click', async () => {
     const wasUploading = Boolean(uploadAbort);
     ++revision; clearTimeout(saveTimer); uploadAbort?.abort(); uploadAbort = null;
-    busy = false; queue = []; renderQueue(); showDraft(null);
+    busy = false; queue = []; clearFailed = false; renderQueue(); showDraft(null);
     try { await api.clearDraft(); status(wasUploading ? 'Local draft and queue cleared. Uploaded jobs may still finish; server retention still applies.' : 'Draft and queue cleared from this browser session.'); }
-    catch { status('The panel was cleared, but Chrome could not clear the saved session draft. Try Clear again before closing Chrome.', true); el('clear').disabled = false; }
+    catch { clearFailed = true; status('The popup was cleared, but Chrome could not clear its saved session data. Try Clear again.', true); update(); }
   });
   el('copy').addEventListener('click', async () => {
     const snapshot = current(); if (!snapshot) return;
@@ -192,11 +185,18 @@ export async function mountPanel(doc, api) {
     catch { status('The download could not start. Copy the Markdown instead.', true); }
   });
   update();
-  try { showDraft(await api.loadDraft()); status(draft ? 'Restored your draft from this browser session.' : 'Choose or drop files to convert, or capture page text below.'); }
-  catch { status('Session storage is unavailable. You can still capture and export from this panel.', true); }
+  try {
+    showDraft(await api.loadDraft());
+    const jobs = await api.loadPendingJobs();
+    queue = jobs.map(checkpoint => ({ checkpoint, name: checkpoint.filename, state: 'pending',
+      message: checkpoint.phase === 'processing' ? 'Uploaded job — ready to resume' : 'Interrupted upload — check or choose this file again', file: null }));
+    renderQueue();
+    status(jobs.length ? 'Restored uploaded jobs. Click Resume files to retrieve them without another upload.' : draft ? 'Restored your draft from this browser session.' : 'Choose or drop files to convert.');
+  }
+  catch { status('Session storage is unavailable. Copy or download any available Markdown before closing.', true); }
   ready = true; update();
   await detectTarget();
   const unsubscribe = api.onTargetChange?.(detectTarget);
-  doc.defaultView?.addEventListener('pagehide', () => { uploadAbort?.abort(); unsubscribe?.(); }, { once: true });
+  doc.defaultView?.addEventListener('pagehide', () => { void persist(); uploadAbort?.abort(); unsubscribe?.(); }, { once: true });
   return { flush: persist };
 }

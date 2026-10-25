@@ -1,6 +1,6 @@
 import { startUploadedJob, waitForJob, fetchResultMarkdown } from '../../frontend/lib/models/conversionService.js';
 import { PROFILES, validateUpload } from '../../frontend/lib/formats.js';
-import { MAX_MARKDOWN } from './model.js';
+import { MAX_MARKDOWN, pendingJobRecord } from './model.js';
 
 export const APP_ORIGIN = 'https://llmiser.devbehindyou.com';
 export const STORAGE_ORIGIN = 'https://ppmbqgecdbrezxedyeur.supabase.co';
@@ -40,12 +40,20 @@ async function boundedText(response, maxBytes) {
 }
 
 // No cookies, authorization keys, arbitrary URLs or redirects. The permission
-// is optional; it is requested only by the Convert files button in the panel.
-export async function convertUpload(file, profile, { signal, onProgress, fetchImpl = fetch,
-  sleepImpl, now } = {}) {
-  const invalid = validateUpload(file);
-  if (invalid) throw new Error(invalid);
-  if (!PROFILES.includes(profile)) throw new Error('Choose a conversion profile.');
+// is optional; it is requested only by the Convert files button in the popup.
+export const convertUpload = (file, profile, options) => runConversion(file, profile, options);
+export async function resumeUpload(checkpoint, options) {
+  const record = pendingJobRecord(checkpoint);
+  if (!record) throw new Error('The saved conversion cannot be resumed. Choose the file again.');
+  return runConversion({ name: record.filename }, null, options, record);
+}
+async function runConversion(file, profile, { signal, onProgress, onCheckpoint, fetchImpl = fetch,
+  sleepImpl, now } = {}, resumeJob = null) {
+  if (!resumeJob) {
+    const invalid = validateUpload(file);
+    if (invalid) throw new Error(invalid);
+    if (!PROFILES.includes(profile)) throw new Error('Choose a conversion profile.');
+  }
   const send = async (url, init = {}) => {
     const controller = new AbortController();
     const abort = () => controller.abort();
@@ -61,18 +69,23 @@ export async function convertUpload(file, profile, { signal, onProgress, fetchIm
       return new Response([204,205,304].includes(response.status) ? null : text, { status: response.status, headers: response.headers });
     } finally { clearTimeout(timer); signal?.removeEventListener('abort', abort); }
   };
-  const created = await send(`${APP_ORIGIN}/api/uploads/create`, {
-    method: 'POST', headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ filename: file.name, size: file.size, content_type: file.type || null, profile }),
-  });
-  const job = await created.json().catch(() => ({}));
-  if (!created.ok) throw new Error(String(job.detail || `Could not start upload (${created.status}).`).slice(0, 400));
-  if (!UUID.test(job.job_id || '')) throw new Error('The converter returned an invalid job. Please retry.');
-  const uploadUrl = signedStorageUrl(job.upload_url, job.job_id, true);
-  const form = new FormData(); form.append('cacheControl', '3600'); form.append('', file);
-  onProgress?.('Uploading…');
-  const uploaded = await send(uploadUrl, { method: 'PUT', body: form });
-  if (!uploaded.ok) throw new Error(`Upload failed (${uploaded.status}). Please retry.`);
+  let job = resumeJob ? { job_id: resumeJob.jobId } : null;
+  if (!resumeJob) {
+    const created = await send(`${APP_ORIGIN}/api/uploads/create`, {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ filename: file.name, size: file.size, content_type: file.type || null, profile }),
+    });
+    job = await created.json().catch(() => ({}));
+    if (!created.ok) throw new Error(String(job.detail || `Could not start upload (${created.status}).`).slice(0, 400));
+    if (!UUID.test(job.job_id || '')) throw new Error('The converter returned an invalid job. Please retry.');
+    const uploadUrl = signedStorageUrl(job.upload_url, job.job_id, true);
+    await onCheckpoint?.({ jobId: job.job_id, filename: file.name, phase: 'uploading' });
+    const form = new FormData(); form.append('cacheControl', '3600'); form.append('', file);
+    onProgress?.('Uploading…');
+    const uploaded = await send(uploadUrl, { method: 'PUT', body: form });
+    if (!uploaded.ok) throw new Error(`Upload failed (${uploaded.status}). Please retry.`);
+    await onCheckpoint?.({ jobId: job.job_id, filename: file.name, phase: 'processing' });
+  }
   const apiFetch = (url, init) => {
     if (![ `/api/jobs/${job.job_id}/start`, `/api/jobs/${job.job_id}/advance` ].includes(url)) {
       throw new Error('Unexpected conversion endpoint.');
@@ -95,6 +108,6 @@ export async function convertUpload(file, profile, { signal, onProgress, fetchIm
     } });
   if (!content.trim()) throw new Error('The conversion returned no readable text.');
   if (content.length > MAX_MARKDOWN) throw new Error('This result is too large for the extension editor. Use the web app for this file.');
-  return { markdown: content, title: file.name, sourceUrl: '', mode: 'file', capturedAt: new Date().toISOString(),
+  return { markdown: content, title: file.name, mode: 'file', capturedAt: new Date().toISOString(),
     warnings: [...(Array.isArray(result.warnings) ? result.warnings : []), ...(result.warning ? [result.warning] : [])] };
 }

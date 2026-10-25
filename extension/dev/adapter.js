@@ -1,12 +1,6 @@
-import { captureDocument } from '../src/capture.js';
 import { draftRecord } from '../src/model.js';
 
-// Included only in .preview, never dist. The fixture stays on localhost and
-// exercises the same extractor against actual browser DOM, without Chrome APIs.
-export async function capture(options) {
-  const frame=parent.document.getElementById('page');
-  return captureDocument(frame.contentDocument,{...options,selection:frame.contentWindow.getSelection()});
-}
+// Preview-only adapter: no Chrome API calls or real file transmission.
 export const loadDraft=async()=>draftRecord(JSON.parse(sessionStorage.getItem('preview-draft')||'null'));
 export const saveDraft=async draft=>sessionStorage.setItem('preview-draft',JSON.stringify(draftRecord(draft)));
 export const clearDraft=async()=>sessionStorage.removeItem('preview-draft');
@@ -19,3 +13,7 @@ export const convertUpload=async(file,_profile,{onProgress}={})=>{
 };
 export const detectAI=async()=>null;
 export const paste=async()=>{throw new Error('AI composer integration must be tested in Chrome.');};
+export const loadPendingJobs=async()=>[];
+export const savePendingJob=async()=>{};
+export const removePendingJob=async()=>{};
+export const resumeUpload=async()=>{throw new Error('Job recovery must be tested in Chrome.');};

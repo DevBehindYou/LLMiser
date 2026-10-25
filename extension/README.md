@@ -1,12 +1,12 @@
 # LLMiser Chrome extension
 
-Development build 0.1.0, 24 October 2026. **One Converter screen** using the approved Prompt L icon. This extension has not been published in the Chrome Web Store.
+Development build **0.2.0**, 24 October 2026. One file Converter screen in a **400 × 600 toolbar popup**, like a wallet extension, using the approved Prompt L icon. No side panel, page/selection capture, Why, Blog, Theme, Menu, history or account screens. This build is not published in the Chrome Web Store.
 
-Choose or drop files → Convert files → review/edit Markdown → download `.md`, copy, or **Paste into ChatGPT / Claude / Gemini**. AI destination detection is automatic; pasting requires its own button and never sends the chat message. An existing composer draft is preserved. Local page/selection capture remains available in a collapsed section of the same screen. There are no Why, Blog, Theme, Menu, history or account screens.
+Choose or drop files → Convert files → review/edit Markdown → download `.md`, copy, or click **Paste into ChatGPT / Claude / Gemini**. AI-site detection is automatic; pasting requires its own button, preserves existing composer text and never sends a chat message.
 
-## Build and install locally
+## Build, install and update
 
-Requires Node.js 22.13 or newer within the Node 22 release line and Chrome 116 or newer. From the repository root:
+Requires Node.js 22.13 or newer in the Node 22 line and Chrome 116 or newer. From the repository root:
 
 ```powershell
 Set-Location extension
@@ -17,45 +17,42 @@ npm run check
 npm run pack
 ```
 
-1. Open `chrome://extensions` in Chrome and enable Developer mode.
-2. Choose **Load unpacked** and select `extension/dist` (the folder containing `manifest.json`). On this machine: `C:\Users\temp\Documents\GitHub\LLMiser\extension\dist`.
-3. Pin LLMiser's Prompt L icon. Open an AI chat or a normal webpage and click the icon to open the Converter side panel.
-4. Choose or drop files, choose a profile and click **Convert files**. Chrome asks for optional access to the LLMiser frontend and its storage host. Denying access sends no upload or job metadata.
-5. Review a completed file. Edit the Markdown, then Download, Copy or Paste. For Paste, open ChatGPT, Claude or Gemini, click the toolbar icon on that tab to grant temporary access, and open an empty chat composer. Use Detect if the destination label has not updated. Press **Paste into [AI]** and review the composer before sending yourself.
+Open `chrome://extensions`, enable Developer mode, choose Load unpacked and select `extension/dist` (the directory containing `manifest.json`). On this machine: `C:\Users\temp\Documents\GitHub\LLMiser\extension\dist`.
 
-The ZIP under `extension/artifacts/llmiser-chrome-0.1.0.zip` contains the same unpacked build, with `manifest.json` at its root. Extract it before Load unpacked. Rebuild and click Reload on Chrome's Extensions page after source changes; this clears Chrome session storage.
+**Already loaded 0.1.0?** Close the old side panel, then click Reload (↻) on LLMiser's card at `chrome://extensions`. The card should show **0.2.0**. Click the pinned Prompt L toolbar icon to open the popup. No new unpacked path or reinstall is needed. Reload clears session drafts and recovery records, so export useful Markdown first.
 
-## File conversion
+The ZIP `extension/artifacts/llmiser-chrome-0.2.0.zip` contains this same build with `manifest.json` at its root; extract before Load unpacked.
 
-Uses the existing production Storage/job APIs and normal/OCR/archive backends; no server change or extension-specific credential is needed. The two optional network origins are exactly `https://llmiser.devbehindyou.com/*` and `https://ppmbqgecdbrezxedyeur.supabase.co/*`. No general website host access is requested. Page capture and AI paste use temporary `activeTab` access.
+## Use the Converter
 
-The shared format rules are imported from `frontend/lib/formats.js`: PDF, DOCX, PPTX, XLSX/XLS, EPUB, HTML, Markdown/text, CSV/TSV, JSON/XML, common images and ZIP. Up to 20 queue entries, documents/ZIP up to 15 MB each, images up to 10 MB each. Conversions run sequentially, with per-file status and errors. Standard, Clean, Compact and RAG-ready match the app. Scanned PDFs and ZIP processing use the existing server limits and scheduling. Multi-part archive Markdown is combined only after all required parts download successfully.
+1. Open an AI chat and click the Prompt L icon. Choose files or drag them onto the drop zone.
+2. Choose Standard, Clean, Compact or RAG-ready and click Convert files. Allow optional access to LLMiser's frontend and storage project. Denial sends no file or job metadata.
+3. Review a completed file and edit its Markdown. Copy or download the current text; use Review to switch files while the popup stays open.
+4. For Paste, open an empty ChatGPT, Claude or Gemini composer and click Prompt L on that tab. Check the AI destination label and click Paste into [AI]. Review the composer and send the message yourself. Existing composer text is never overwritten; Copy is the fallback if the provider changes its UI.
 
-Selecting/dropping files does not upload them. Convert files uploads metadata and bytes to LLMiser's services. Failed items must be explicitly selected again to retry; an already uploaded job may still run, so do not repeatedly retry while a service is busy. Clear or closing the panel stops waiting and releases the local queue; it does **not** cancel/delete server jobs. Normal default 48-hour storage retention and documented administrative exceptions apply. The current draft is restored from session memory; the full multi-file queue is not restored. Edits are retained when reviewing different files while the panel stays open.
+Selecting/dropping does not upload. All file processing uses the existing production signed-upload/job APIs and normal/OCR/archive backends. No frontend/backend runtime code changes or extension-specific credentials are needed. Optional network origins are exactly `https://llmiser.devbehindyou.com/*` and `https://ppmbqgecdbrezxedyeur.supabase.co/*`; active-tab access is used only for AI detection/Paste.
 
-Results above 500,000 UTF-16 code units / 2 MB UTF-8 download budget are rejected visibly rather than truncated. Use the web app for larger outputs. This is an editor limit, separate from upload size limits. Token figures are rough character-based estimates, not provider tokenization or billing measurements.
+Shared format validation comes from `frontend/lib/formats.js`: PDF, DOCX, PPTX, XLSX/XLS, EPUB, HTML, Markdown/text, CSV/TSV, JSON/XML, common images and ZIP. Maximum 20 queue entries; documents/ZIP up to 15 MB each and images up to 10 MB each. Conversion runs sequentially. Existing scanned-PDF/archive limits apply. Multi-part archive Markdown is shown only after all required parts download successfully. Results above 500,000 UTF-16 code units / a 2 MB UTF-8 download budget fail visibly rather than truncate; use the web app for larger outputs. Token figures are rough character-based estimates, not provider tokenization or billing.
 
-## Local page capture and AI paste
+## Popup lifecycle and recovery
 
-Main article, page content and exact selected text are converted locally using Readability, Turndown and GFM. Forms, editables, scripts and hidden content are excluded; this is not guaranteed secret redaction. Selection capture fails visibly if nothing is selected. Links/tables/code/Unicode are retained where representable. Embedded frames, shadow DOM, Chrome internal pages, the Web Store and built-in PDF viewers are unsupported. Upload PDF files through the file picker instead.
+Chrome closes toolbar popups when you click outside them; see the [Chrome popup documentation](https://developer.chrome.com/docs/extensions/develop/ui/add-popup). Keep this popup open while file bytes upload. After upload, reopening restores recovery records and offers **Resume files**, which starts/checks the same job ID and retrieves its result without creating a new upload. An interrupted upload can be checked through Resume; if bytes did not finish, choose that file again. Files still waiting locally must be selected again after closing.
 
-AI recognition uses exact HTTPS hostnames for ChatGPT (`chatgpt.com`, `chat.openai.com`), Claude (`claude.ai`) and Gemini (`gemini.google.com`). Paste uses known composer selectors and plain text, with no model API calls or Send/Enter action. It refuses missing, ambiguous, hidden, disabled or nonempty editors. Provider UI changes may require adapter updates; Copy Markdown remains the fallback. Native Chrome acceptance against signed-in live AI editors is still pending.
+One latest Markdown draft and up to 20 pending-job records are stored in Chrome session memory. File bytes and signed URLs are not retained in recovery records. The full completed-file review queue lives only in the open popup; export files you need. Clear removes local data and aborts client waiting; it does not cancel/delete server jobs. Uploaded files follow normal default 48-hour retention and documented administrative exceptions. Closing Chrome or disabling/updating/reloading the extension clears session storage. Read [PRIVACY.md](PRIVACY.md).
 
-Read [PRIVACY.md](PRIVACY.md) for local storage, upload destinations, clipboard/export and AI composer data handling. Inserting text into an AI composer exposes it to that site even before you send it. All code is bundled; the package includes the repository GPLv3 license and third-party notices.
+## Tests and release status
 
-## Verification and preview
+`npm test` covers file conversion, safe destinations, archive assembly, exact export bytes, drag/drop validation, cancellation/Clear, draft edits, AI recognition/Paste protection, and recovery across popup closure. `npm run check` enforces a popup action, no side-panel/background registration, narrow optional origins, CSP, icon dimensions, removal of page-capture code and the exact release-file allowlist. CI builds/tests/packages the extension and uploads the ZIP.
 
-`npm test` covers extraction, safe selection boundaries, output bounds, isolated Chrome calls, session races, exact export bytes, upload validation/destinations, archive assembly, drag/drop queuing, cancellation, AI recognition and composer preservation. `npm run check` checks MV3 permissions, restricted CSP, asset/icon dimensions, one screen and exclusion of the preview adapter. CI builds/tests/packages the extension independently and uploads the ZIP as an artifact.
+`npm run preview` serves a 400 × 600 UI frame at `http://127.0.0.1:3337`. **Preview file conversion is simulated; AI integration is disabled.** The adapter is absent from release bundles. This preview cannot verify actual toolbar placement, Chrome permission prompts, downloads or signed-in provider editors.
 
-`npm run preview` serves `http://127.0.0.1:3337` with the actual UI/extractor against a synthetic fixture. **File conversion is simulated in this preview and AI integration is disabled.** It does not test Chrome permissions, toolbar activation or provider editors. The development adapter and fixture are absent from the release ZIP.
-
-An explicit production smoke test uploads four generated public fixtures (HTML, DOCX, PNG and ZIP), verifies their returned Markdown, and prints no signed URLs or credentials:
+Explicit production smoke tests use generated, nonprivate fixtures only:
 
 ```powershell
-# Also requires frontend dependencies for the synthetic PNG generator (sharp).
+# One real job: upload, interrupt, resume the original job without re-uploading.
+node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/smoke-recovery.mjs --confirm-live
+# Four real jobs: HTML, DOCX, PNG OCR and ZIP. Requires frontend dependencies for sharp.
 node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/smoke-live.mjs --confirm-live
 ```
 
-All 33 local tests, build, package checks and ZIP generation passed. These four real transport checks passed on 24 October 2026. Browser preview capture/edit/copy status, draft restore/Clear and file-picker queue flow also passed. The owner confirmed loading/enabling version 0.1.0 in native Chrome. Toolbar, upload permission and live AI-editor results remain pending. The connected in-app browser did not return a downloadable file event; actual file delivery remains a native Chrome acceptance item despite exact-byte export unit coverage.
-
-Before publishing, test Load unpacked, toolbar activation on two origins, optional upload permission grant/denial, PDF/Office/OCR/ZIP conversion, actual `.md` download bytes, side-panel reopen, drag/drop, switching reviewed files, existing AI composer preservation and manual Paste on all three signed-in providers. Store listing, developer registration, hosted extension privacy policy, store screenshots and submission are separate unfinished release work.
+The original four transport checks passed on 24 October 2026. The new popup-recovery smoke also passed with only two recovery requests (start + result download). The owner loaded 0.1.0; native 0.2.0 popup activation, optional permission handling, actual `.md` delivery and live provider Paste still require user acceptance. No Chrome Web Store registration, public extension privacy-policy hosting, listing/screenshots or submission is complete. The package includes the repository GPLv3 license; no third-party runtime libraries remain after removal of page extraction.
