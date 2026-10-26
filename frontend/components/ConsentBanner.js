@@ -1,4 +1,6 @@
 'use client';
+import { useI18n } from './i18n/I18nContext';
+
 
 import React, { useState } from 'react';
 import dynamic from 'next/dynamic';
@@ -20,6 +22,8 @@ const linkClass =
  * z-[45] keeps it over the dock (z-40) and under dialogs (z-50).
  */
 export default function ConsentBanner() {
+  const { uiText } = useI18n();
+
   const { accepted, accept } = useConsentViewModel();
   const [legalTab, setLegalTab] = useState(null); // 'terms' | 'privacy' | null
   const pathname = usePathname();
@@ -35,24 +39,15 @@ export default function ConsentBanner() {
         className="fixed z-[45] inset-x-3 bottom-[116px] md:inset-x-auto md:left-5 md:bottom-5 md:w-[400px] max-h-[calc(100dvh-140px)] md:max-h-[calc(100dvh-40px)] overflow-y-auto rounded-xl border-[1.5px] border-[var(--text)] dark:border-[var(--border-3)] bg-[var(--surface)] text-[var(--text)] shadow-2xl animate-fadeIn font-sans"
       >
         <div className="flex items-center justify-between gap-3 px-3.5 py-2 border-b border-[var(--border)] bg-[var(--surface-2)] font-tech text-[10px] tracking-[0.14em] uppercase text-[var(--faint)]">
-          <span>Terms · Privacy</span>
-          <span className="tracking-normal normal-case">Updated {POLICY_VERSION}</span>
+          <span>{uiText("Terms · Privacy")}</span>
+          <span className="tracking-normal normal-case">{uiText("Updated ")}{POLICY_VERSION}</span>
         </div>
 
         <div className="p-3.5 space-y-3">
-          <h2 id="consent-title" className="font-wireframe text-[17px] font-bold leading-snug m-0">
-            Before you convert
-          </h2>
-          <p id="consent-desc" className="text-[12.5px] text-[var(--muted)] leading-relaxed m-0">
-            LLMiser uploads the files you choose to its conversion servers to produce Markdown. To continue, please
-            accept our{' '}
-            <button type="button" onClick={() => setLegalTab('terms')} className={linkClass}>
-              Terms of Service
-            </button>{' '}
-            and{' '}
-            <button type="button" onClick={() => setLegalTab('privacy')} className={linkClass}>
-              Privacy Policy
-            </button>
+          <h2 id="consent-title" className="font-wireframe text-[17px] font-bold leading-snug m-0">{uiText("Before you convert")}</h2>
+          <p id="consent-desc" className="text-[12.5px] text-[var(--muted)] leading-relaxed m-0">{uiText("LLMiser uploads the files you choose to its conversion servers to produce Markdown. To continue, please accept our")}{' '}
+            <button type="button" onClick={() => setLegalTab('terms')} className={linkClass}>{uiText("Terms of Service")}</button>{' '}{uiText("and")}{' '}
+            <button type="button" onClick={() => setLegalTab('privacy')} className={linkClass}>{uiText("Privacy Policy")}</button>
             .
           </p>
 
@@ -61,16 +56,12 @@ export default function ConsentBanner() {
               type="button"
               onClick={() => accept()}
               className="px-4 py-2 rounded-full aurora-btn font-sans text-[13px] font-semibold cursor-pointer shadow-sm"
-            >
-              Accept &amp; continue
-            </button>
+            >{uiText("Accept & continue")}</button>
             <button
               type="button"
               onClick={() => setLegalTab('terms')}
               className="px-3.5 py-2 rounded-full border border-[var(--border-3)] hover:border-[var(--text)] bg-[var(--surface-2)] text-[var(--muted)] hover:text-[var(--text)] font-tech text-[11.5px] cursor-pointer transition-colors"
-            >
-              Read first
-            </button>
+            >{uiText("Read first")}</button>
           </div>
         </div>
       </section>

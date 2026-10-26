@@ -1,4 +1,6 @@
 'use client';
+import { useI18n } from './i18n/I18nContext';
+
 
 import React from 'react';
 
@@ -15,11 +17,13 @@ export default function MarkdownSkeleton({
   filename = '',
   maxHeightClass = 'min-h-[350px] max-h-[420px]',
 }) {
+  const { uiText } = useI18n();
+
   return (
     <div
       className={`w-full ${maxHeightClass} flex flex-col rounded-lg border border-[var(--border-3)] bg-[var(--surface)] overflow-hidden shadow-2xs select-none`}
       role="status"
-      aria-label="Converting document, awaiting markdown response"
+      aria-label={uiText("Converting document, awaiting markdown response")}
     >
       {/* ── Top Converting API Status Banner ─────────────────────────────── */}
       <div className="flex items-center justify-between px-3 py-2 bg-[var(--surface-2)] border-b border-[var(--border)] text-[11px] font-tech text-[var(--muted)]">
@@ -32,24 +36,23 @@ export default function MarkdownSkeleton({
 
           <span className="font-semibold text-[var(--text)] truncate">
             {filename ? (
-              <>
-                Converting <span className="text-amber-600 dark:text-amber-400 font-mono">&ldquo;{filename}&rdquo;</span>…
+              <>{uiText("Converting ")}<span className="text-amber-600 dark:text-amber-400 font-mono">&ldquo;{filename}&rdquo;</span>…
               </>
             ) : (
-              'Converting document…'
+              uiText("Converting document…")
             )}
           </span>
 
           <span className="hidden md:inline-flex items-center gap-1 text-[9.5px] px-1.5 py-0.5 rounded border border-amber-500/20 bg-amber-500/10 text-amber-600 dark:text-amber-400 font-medium">
-            <span>LLMiser engine</span>
+            <span>{uiText("LLMiser engine")}</span>
           </span>
         </div>
 
         {/* Right Status Indicator */}
         <div className="flex items-center gap-2 flex-none text-[10px] text-amber-600 dark:text-amber-400 font-medium">
           <span className="inline-block animate-spin text-[11px]">⚙</span>
-          <span className="hidden sm:inline">Awaiting API response…</span>
-          <span className="sm:hidden">Processing…</span>
+          <span className="hidden sm:inline">{uiText("Awaiting API response…")}</span>
+          <span className="sm:hidden">{uiText("Processing…")}</span>
         </div>
       </div>
 
@@ -68,12 +71,8 @@ export default function MarkdownSkeleton({
               {/* Header */}
               <div className="flex items-center justify-between px-2.5 py-1.5 border-b border-[var(--border)] bg-[var(--surface-2)] text-[10px] font-tech text-[var(--faint)]">
                 <span className="font-semibold uppercase tracking-wider text-[9.5px] text-[var(--muted)] flex items-center gap-1.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-amber-500/70 inline-block" />
-                  RAW MARKDOWN
-                </span>
-                <span className="text-[9.5px] text-amber-600 dark:text-amber-400 font-mono animate-pulse">
-                  streaming syntax…
-                </span>
+                  <span className="w-1.5 h-1.5 rounded-full bg-amber-500/70 inline-block" />{uiText("RAW MARKDOWN")}</span>
+                <span className="text-[9.5px] text-amber-600 dark:text-amber-400 font-mono animate-pulse">{uiText("streaming syntax…")}</span>
               </div>
 
               {/* Code Skeleton Lines with Line Numbers Gutter */}
@@ -129,12 +128,8 @@ export default function MarkdownSkeleton({
               {/* Header */}
               <div className="flex items-center justify-between px-2.5 py-1.5 border-b border-[var(--border)] bg-[var(--surface-2)] text-[10px] font-tech text-[var(--faint)]">
                 <span className="font-semibold uppercase tracking-wider text-[9.5px] text-[var(--muted)] flex items-center gap-1.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 inline-block animate-pulse" />
-                  LIVE PREVIEW
-                </span>
-                <span className="text-[9.5px] text-emerald-600 dark:text-emerald-400 font-mono">
-                  rendering GFM…
-                </span>
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 inline-block animate-pulse" />{uiText("LIVE PREVIEW")}</span>
+                <span className="text-[9.5px] text-emerald-600 dark:text-emerald-400 font-mono">{uiText("rendering GFM…")}</span>
               </div>
 
               {/* Rendered Skeleton Content */}
@@ -187,12 +182,8 @@ export default function MarkdownSkeleton({
           <div className="flex-1 h-full min-h-0 border border-[var(--border-3)] rounded-lg overflow-hidden bg-[var(--surface)] flex flex-col animate-shimmer">
             <div className="flex items-center justify-between px-3 py-1.5 border-b border-[var(--border)] bg-[var(--surface-2)] text-[10.5px] font-tech text-[var(--faint)]">
               <span className="font-semibold uppercase tracking-wider text-[9.5px] text-[var(--muted)] flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 inline-block animate-pulse" />
-                RENDERED MARKDOWN
-              </span>
-              <span className="text-[9.5px] text-emerald-600 dark:text-emerald-400 font-mono">
-                generating formatted document…
-              </span>
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 inline-block animate-pulse" />{uiText("RENDERED MARKDOWN")}</span>
+              <span className="text-[9.5px] text-emerald-600 dark:text-emerald-400 font-mono">{uiText("generating formatted document…")}</span>
             </div>
 
             <div className="flex-1 p-5 overflow-hidden space-y-4 bg-[var(--surface)]">
@@ -248,12 +239,8 @@ export default function MarkdownSkeleton({
         {viewMode === 'raw' && (
           <div className="flex-1 h-full min-h-0 border border-[var(--border-3)] rounded-lg overflow-hidden bg-[var(--surface)] flex flex-col animate-shimmer">
             <div className="flex items-center justify-between px-3 py-1.5 border-b border-[var(--border)] bg-[var(--surface-2)] text-[10.5px] font-tech text-[var(--faint)]">
-              <span className="font-semibold uppercase tracking-wider text-[9.5px] text-[var(--muted)]">
-                RAW SOURCE CODE
-              </span>
-              <span className="text-[9.5px] text-amber-600 dark:text-amber-400 font-mono animate-pulse">
-                formatting monospace source…
-              </span>
+              <span className="font-semibold uppercase tracking-wider text-[9.5px] text-[var(--muted)]">{uiText("RAW SOURCE CODE")}</span>
+              <span className="text-[9.5px] text-amber-600 dark:text-amber-400 font-mono animate-pulse">{uiText("formatting monospace source…")}</span>
             </div>
 
             <div className="flex-1 p-3 overflow-hidden flex font-tech text-[12px] leading-relaxed bg-[var(--surface)]">

@@ -1,4 +1,6 @@
 'use client';
+import { useI18n } from './i18n/I18nContext';
+
 
 import React from 'react';
 import Link from 'next/link';
@@ -11,6 +13,8 @@ export default function MobileDock({
   onOpenBlog,
   onOpenMenu,
 }) {
+  const { uiText } = useI18n();
+
   const router = useRouter();
 
   // Index mapping for lens position:
@@ -64,7 +68,7 @@ export default function MobileDock({
           }`}
         >
           <span className="text-[19px] leading-none">▣</span>
-          <span className="text-[9.5px] font-sans">Convert</span>
+          <span className="text-[9.5px] font-sans">{uiText("Convert")}</span>
         </Link>
 
         {/* Item 2: Why */}
@@ -75,7 +79,7 @@ export default function MobileDock({
           }`}
         >
           <span className="text-[19px] leading-none">?</span>
-          <span className="text-[9.5px] font-sans">Why</span>
+          <span className="text-[9.5px] font-sans">{uiText("Why")}</span>
         </button>
 
         {/* Item 3: Blog */}
@@ -86,7 +90,7 @@ export default function MobileDock({
           }`}
         >
           <span className="text-[19px] leading-none">▤</span>
-          <span className="text-[9.5px] font-sans">Blog</span>
+          <span className="text-[9.5px] font-sans">{uiText("Blog")}</span>
         </button>
 
         {/* Item 4: Theme */}
@@ -97,7 +101,7 @@ export default function MobileDock({
           }`}
         >
           <span className="text-[19px] leading-none">◐</span>
-          <span className="text-[9.5px] font-sans">Theme</span>
+          <span className="text-[9.5px] font-sans">{uiText("Theme")}</span>
         </button>
 
         {/* Item 5: Menu */}
@@ -108,7 +112,7 @@ export default function MobileDock({
           }`}
         >
           <span className="text-[19px] leading-none">≡</span>
-          <span className="text-[9.5px] font-sans">Menu</span>
+          <span className="text-[9.5px] font-sans">{uiText("Menu")}</span>
         </button>
       </div>
 

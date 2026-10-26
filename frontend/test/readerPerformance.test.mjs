@@ -15,8 +15,13 @@ const { transform } = require('next/dist/build/swc');
 const generated = fs.mkdtempSync(path.join(path.dirname(fileURLToPath(import.meta.url)), '.reader-runtime-'));
 after(() => fs.rmSync(generated, { recursive: true, force: true }));
 const components = ['MarkdownViewer', 'RenderedMarkdown', 'PreviewBoundary', 'OutputStatusBar', 'MarkdownSkeleton'];
+const i18nSource = fs.readFileSync(new URL('../components/i18n/I18nContext.js', import.meta.url), 'utf8')
+  .replaceAll("'../../lib/i18n/core'", JSON.stringify(new URL('../lib/i18n/core.js', import.meta.url).href));
+const i18nCompiled = await transform(i18nSource, { filename: 'I18nContext.js', jsc: { parser: { syntax: 'ecmascript', jsx: true }, transform: { react: { runtime: 'automatic' } } }, module: { type: 'es6' } });
+fs.writeFileSync(path.join(generated, 'I18nContext.mjs'), i18nCompiled.code);
 for (const name of components) {
   let source = fs.readFileSync(new URL(`../components/${name}.js`, import.meta.url), 'utf8');
+  source = source.replaceAll("'./i18n/I18nContext'", "'./I18nContext.mjs'");
   for (const component of components) source = source.replaceAll(`'./${component}'`, `'./${component}.mjs'`);
   source = source.replaceAll("'../lib/highlightCode'", JSON.stringify(new URL('../lib/highlightCode.js', import.meta.url).href));
   const compiled = await transform(source, { filename: `${name}.js`, jsc: { parser: { syntax: 'ecmascript', jsx: true }, transform: { react: { runtime: 'automatic' } } }, module: { type: 'es6' } });

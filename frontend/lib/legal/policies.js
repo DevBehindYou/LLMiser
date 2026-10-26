@@ -10,7 +10,7 @@
 // category (Art. 13(1)(e) allows that) and available on request.
 
 export const LEGAL_VERSION = '2026-09-28';
-export const LEGAL_UPDATED_LABEL = '28 September 2026';
+export const LEGAL_UPDATED_LABEL = '26 October 2026';
 
 export const OPERATOR = {
   name: 'DevBehindYou',
@@ -87,6 +87,7 @@ export const PRIVACY_POLICY = {
         { p: 'LLMiser stores a few items in your browser\'s local storage. They stay on your device and are never sent to us:' },
         { ul: [
           'Your light or dark theme choice.',
+          'Your app language choice.',
           'Which version of these documents you accepted, and when.',
           'Your last 5 conversions (the Markdown text and file details), so you can reopen them. Clear them any time from the Recent panel.',
         ] },

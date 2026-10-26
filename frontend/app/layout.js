@@ -4,6 +4,7 @@ import ConsentBanner from '../components/ConsentBanner';
 import WakeOnOpen from '../components/WakeOnOpen';
 import SiteAnalytics from '../components/SiteAnalytics';
 import JsonLd from '../components/JsonLd';
+import LanguageProvider from '../components/i18n/LanguageProvider';
 import { DESCRIPTION, HOME_TITLE, KEYWORDS, SITE_NAME, SITE_URL, TAGLINE, siteJsonLd } from '../lib/siteContent';
 
 // next/font downloads these at build time and serves them from our own
@@ -111,7 +112,7 @@ export const viewport = { themeColor: [
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`h-full ${fontVariables}`} data-theme="dark" suppressHydrationWarning>
+    <html lang="en-US" className={`h-full ${fontVariables}`} data-theme="dark" suppressHydrationWarning>
       <head>
         {/* Apply saved theme before paint (default dark), then point the
             favicon at the matching icon once the head links exist. */}
@@ -124,8 +125,7 @@ export default function RootLayout({ children }) {
       </head>
       <body className="h-full">
         <JsonLd data={siteJsonLd()} />
-        {children}
-        <ConsentBanner />
+        <LanguageProvider>{children}<ConsentBanner /></LanguageProvider>
         <WakeOnOpen />
         <SiteAnalytics />
       </body>

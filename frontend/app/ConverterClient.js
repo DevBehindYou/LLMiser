@@ -1,4 +1,6 @@
 'use client';
+import { useI18n } from '../components/i18n/I18nContext';
+
 
 // View for the converter screen. All state and commands come from
 // useConverterScreenViewModel; this file only lays out views and binds them.
@@ -18,6 +20,7 @@ import { useConverterScreenViewModel } from '../viewmodels/useConverterScreenVie
 import { useMediaQuery } from '../viewmodels/useMediaQuery';
 import { ACCEPT_ATTRIBUTE } from '../lib/formats';
 import { HERO_TITLE } from '../lib/siteContent';
+import { EnglishContent } from '../components/i18n/I18nContext';
 
 // Overlays load on first open instead of shipping in the initial bundle.
 const BlogModal = dynamic(() => import('../components/BlogModal'), { ssr: false });
@@ -27,6 +30,8 @@ const RecentSessionsSidebar = dynamic(() => import('../components/RecentSessions
 const MobileMenu = dynamic(() => import('../components/converter/MobileMenu'), { ssr: false });
 
 export default function ConverterClient({ children }) {
+  const { uiText } = useI18n();
+
   const fileInputRef = useRef(null);
   const openFilePicker = useCallback(() => fileInputRef.current?.click(), []);
 
@@ -46,7 +51,7 @@ export default function ConverterClient({ children }) {
         type="file"
         multiple
         accept={ACCEPT_ATTRIBUTE}
-        aria-label="Choose documents to optimize"
+        aria-label={uiText("Choose documents to optimize")}
         className="hidden"
         onChange={(e) => {
           if (e.target.files?.length) {
@@ -75,7 +80,7 @@ export default function ConverterClient({ children }) {
       )}
 
       <main className="flex-1 w-full max-w-7xl mx-auto p-3 sm:p-5 flex flex-col">
-        <h1 className="sr-only">{HERO_TITLE}</h1>
+        <h1 className="sr-only">{uiText(HERO_TITLE)}</h1>
         {isDesktop !== false && (
           <div className="hidden md:flex flex-col flex-1">
             <LayoutToolbar
@@ -155,7 +160,7 @@ export default function ConverterClient({ children }) {
         />
       )}
 
-      {ui.blogOpen && <BlogModal isOpen onClose={ui.closeBlog} />}
+      {ui.blogOpen && <EnglishContent><BlogModal isOpen onClose={ui.closeBlog} /></EnglishContent>}
       {ui.apiOpen && <ApiModal isOpen onClose={ui.closeApi} />}
       {ui.legalModal && <LegalModal isOpen onClose={ui.closeLegal} initialTab={ui.legalModal} />}
 

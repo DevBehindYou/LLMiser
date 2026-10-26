@@ -475,3 +475,8 @@ body {
 .article-body table { display: block; overflow-x: auto; border-collapse: collapse; margin: 1.5rem 0; }
 .article-body th, .article-body td { border: 1px solid var(--border); padding: .5rem; }
 .article-body pre { overflow-x: auto; padding: 1rem; background: var(--surface); }
+
+/* Readable system fallbacks for scripts outside the handwritten Latin font. */
+html:lang(ja) .font-sans, html:lang(ja) .font-wireframe { font-family: var(--font-inter), 'Yu Gothic UI', 'Hiragino Sans', Meiryo, sans-serif; }
+html:lang(zh-CN) .font-sans, html:lang(zh-CN) .font-wireframe { font-family: var(--font-inter), 'Microsoft YaHei UI', 'PingFang SC', 'Noto Sans CJK SC', sans-serif; }
+html:lang(ru) .font-wireframe { font-family: var(--font-inter), 'Segoe UI', sans-serif; }

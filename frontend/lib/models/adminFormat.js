@@ -1,37 +1,43 @@
 // Display helpers for the admin screens.
 
-export function formatBytes(n) {
+export function formatBytes(n, locale) {
   if (n === null || n === undefined || Number.isNaN(Number(n))) return '—';
   const v = Number(n);
+  if (locale) {
+    const index = v < 1024 ? 0 : v < 1024 ** 2 ? 1 : v < 1024 ** 3 ? 2 : 3;
+    return `${new Intl.NumberFormat(locale, { maximumFractionDigits: index === 3 ? 2 : index ? 1 : 0 }).format(v / 1024 ** index)} ${['B','KB','MB','GB'][index]}`;
+  }
   if (v < 1024) return `${v} B`;
   if (v < 1024 ** 2) return `${(v / 1024).toFixed(1)} KB`;
   if (v < 1024 ** 3) return `${(v / 1024 ** 2).toFixed(1)} MB`;
   return `${(v / 1024 ** 3).toFixed(2)} GB`;
 }
 
-export function formatMs(ms) {
+export function formatMs(ms, locale) {
   if (ms === null || ms === undefined) return '—';
   const v = Number(ms);
+  if (locale) return new Intl.NumberFormat(locale, { style: 'unit', unit: v < 1000 ? 'millisecond' : v < 60_000 ? 'second' : 'minute', unitDisplay: 'short', maximumFractionDigits: 1 }).format(v < 1000 ? v : v < 60_000 ? v / 1000 : v / 60_000);
   if (v < 1000) return `${Math.round(v)} ms`;
   if (v < 60_000) return `${(v / 1000).toFixed(1)} s`;
   return `${Math.floor(v / 60_000)} min ${Math.round((v % 60_000) / 1000)} s`;
 }
 
-export function formatDate(value) {
+export function formatDate(value, locale) {
   if (!value) return '—';
   const d = new Date(value);
   if (Number.isNaN(d.getTime())) return '—';
-  return d.toLocaleString(undefined, { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });
+  return d.toLocaleString(locale, { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });
 }
 
 /** "in 5 h", "3 min ago". */
-export function relativeTime(value, now = Date.now()) {
+export function relativeTime(value, now = Date.now(), locale) {
   if (!value) return '—';
   const diff = new Date(value).getTime() - now;
   if (Number.isNaN(diff)) return '—';
   const abs = Math.abs(diff);
   const unit = abs < 3_600_000 ? [60_000, 'min'] : abs < 172_800_000 ? [3_600_000, 'h'] : [86_400_000, 'd'];
   const n = Math.max(1, Math.round(abs / unit[0]));
+  if (locale) return new Intl.RelativeTimeFormat(locale, { numeric: 'auto', style: 'short' }).format(diff >= 0 ? n : -n, unit[1] === 'min' ? 'minute' : unit[1] === 'h' ? 'hour' : 'day');
   return diff >= 0 ? `in ${n} ${unit[1]}` : `${n} ${unit[1]} ago`;
 }
 

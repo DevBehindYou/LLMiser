@@ -1,4 +1,6 @@
 'use client';
+import { useI18n } from '../i18n/I18nContext';
+
 
 import React, { memo, useState } from 'react';
 
@@ -9,6 +11,8 @@ const DRAG_ACTIVE_CLASS = 'border-[#2a78d6] scale-[0.99] ring-2 ring-[#2a78d6]/3
  * Visual variants pass their own base and idle-border classes.
  */
 function Dropzone({ className, idleClassName, onFiles, onBrowse, children }) {
+  const { uiText } = useI18n();
+
   const [dragActive, setDragActive] = useState(false);
 
   const handleDragOver = (e) => {
@@ -38,7 +42,7 @@ function Dropzone({ className, idleClassName, onFiles, onBrowse, children }) {
     <div
       role="button"
       tabIndex={0}
-      aria-label="Drop files here or choose files to convert"
+      aria-label={uiText("Drop files here or choose files to convert")}
       onDragOver={handleDragOver}
       onDragLeave={handleDragLeave}
       onDrop={handleDrop}

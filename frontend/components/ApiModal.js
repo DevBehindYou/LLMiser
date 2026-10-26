@@ -1,9 +1,13 @@
 'use client';
+import { useI18n } from './i18n/I18nContext';
+
 
 import React, { useState } from 'react';
 import { useModalDialog } from './useModalDialog';
 
 export default function ApiModal({ isOpen, onClose }) {
+  const { uiText } = useI18n();
+
   const [copied, setCopied] = useState(false);
   const dialogRef = useModalDialog(isOpen, onClose);
 
@@ -36,11 +40,11 @@ export default function ApiModal({ isOpen, onClose }) {
             <div className="w-4 h-4 border-[1.5px] border-[var(--text)] rounded-[4px] p-0.5">
               <div className="w-full h-full rounded-[1px] bg-gradient-to-br from-[#8f83d8] to-[#d98fb0]" />
             </div>
-            <b id="api-modal-title" className="text-[15px]">LLMiser Public API</b>
+            <b id="api-modal-title" className="text-[15px]">{uiText("LLMiser Public API")}</b>
           </div>
           <button
             onClick={onClose}
-            aria-label="Close"
+            aria-label={uiText("Close")}
             className="tap-target w-7 h-7 flex items-center justify-center rounded-full border border-[var(--border-3)] hover:bg-[var(--surface)] text-[14px] cursor-pointer bg-transparent"
           >
             ✕
@@ -52,9 +56,7 @@ export default function ApiModal({ isOpen, onClose }) {
 
         <div className="flex-1 min-h-0 overflow-y-auto p-4 sm:p-5 space-y-4 font-sans text-[13px]">
           <div>
-            <div className="font-tech text-[10px] text-[var(--faint)] uppercase tracking-wider mb-1">
-              ENDPOINT
-            </div>
+            <div className="font-tech text-[10px] text-[var(--faint)] uppercase tracking-wider mb-1">{uiText("ENDPOINT")}</div>
             <div className="font-tech text-[12px] p-2 rounded bg-[var(--surface-2)] border border-[var(--border)] text-[var(--text)]">
               POST /api/convert
             </div>
@@ -63,13 +65,13 @@ export default function ApiModal({ isOpen, onClose }) {
           <div>
             <div className="flex items-center justify-between mb-1">
               <span className="font-tech text-[10px] text-[var(--faint)] uppercase tracking-wider">
-                CURL EXAMPLE
+                {uiText('CURL EXAMPLE')}
               </span>
               <button
                 onClick={copyCurl}
                 className="font-tech text-[10.5px] text-[#2a78d6] hover:underline bg-transparent border-0 cursor-pointer p-0"
               >
-                {copied ? '✓ Copied' : 'Copy'}
+                {copied ? uiText("✓ Copied") : uiText("Copy")}
               </button>
             </div>
             <pre className="font-tech text-[11.5px] p-3 rounded-lg bg-[var(--surface-2)] border border-[var(--border)] overflow-x-auto text-[var(--text)] m-0 leading-relaxed">
@@ -78,22 +80,16 @@ export default function ApiModal({ isOpen, onClose }) {
           </div>
 
           <div className="space-y-2">
-            <div className="font-tech text-[10px] text-[var(--faint)] uppercase tracking-wider">
-              SUPPORTED PROFILES
-            </div>
+            <div className="font-tech text-[10px] text-[var(--faint)] uppercase tracking-wider">{uiText("SUPPORTED PROFILES")}</div>
             <div className="grid grid-cols-2 gap-2 font-tech text-[11px]">
               <div className="p-2 rounded border border-[var(--border)] bg-[var(--surface-2)]">
-                <b>Standard:</b> Default clean markdown
-              </div>
+                <b>{uiText("Standard:")}</b>{uiText(" Default clean markdown")}</div>
               <div className="p-2 rounded border border-[var(--border)] bg-[var(--surface-2)]">
-                <b>Clean:</b> Strips metadata & extra lines
-              </div>
+                <b>{uiText("Clean:")}</b>{uiText(" Strips metadata & extra lines")}</div>
               <div className="p-2 rounded border border-[var(--border)] bg-[var(--surface-2)]">
-                <b>Compact:</b> Minimizes token density
-              </div>
+                <b>{uiText("Compact:")}</b>{uiText(" Minimizes token density")}</div>
               <div className="p-2 rounded border border-[var(--border)] bg-[var(--surface-2)]">
-                <b>RAG-ready:</b> Chunk delimiters for retrieval
-              </div>
+                <b>{uiText("RAG-ready:")}</b>{uiText(" Chunk delimiters for retrieval")}</div>
             </div>
           </div>
         </div>
@@ -102,9 +98,7 @@ export default function ApiModal({ isOpen, onClose }) {
           <button
             onClick={onClose}
             className="px-3 py-1 rounded-full border border-[var(--border-3)] hover:bg-[var(--surface)] text-[var(--text)] font-tech text-[11px] cursor-pointer bg-transparent"
-          >
-            Close
-          </button>
+          >{uiText("Close")}</button>
         </div>
       </div>
     </div>

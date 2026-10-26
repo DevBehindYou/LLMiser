@@ -1,9 +1,12 @@
 'use client';
+import { useI18n } from './i18n/I18nContext';
+
 
 import React from 'react';
 import Link from 'next/link';
 import DocStatsWidget from './DocStatsWidget';
 import AppIcon from './AppIcon';
+import LanguageSelector from './i18n/LanguageSelector';
 
 export default function LLMiserHeader({
   activeTab = 'converter',
@@ -19,10 +22,12 @@ export default function LLMiserHeader({
   recentSessionsCount = 0,
   isRecentSidebarOpen = false,
 }) {
+  const { uiText } = useI18n();
+
   return (
     <header className="w-full bg-[var(--surface)] select-none z-30 transition-colors">
       {/* ── Desktop Header (1k) ── */}
-      <div className="hidden md:flex items-center justify-between px-5 py-2.5 font-wireframe">
+      <div className="hidden md:flex items-center justify-between flex-wrap gap-x-3 gap-y-2 px-5 py-2.5 font-wireframe">
         {/* Logo + Nav Left of Centre */}
         <div className="flex items-center gap-4">
           <Link href="/" className="flex items-center gap-2.5 group text-inherit no-underline">
@@ -39,9 +44,7 @@ export default function LLMiserHeader({
               className={`relative pb-1 transition-colors cursor-pointer bg-transparent border-0 no-underline font-medium ${
                 activeTab === 'converter' ? 'text-[var(--text)]' : 'text-[var(--muted)] hover:text-[var(--text)]'
               }`}
-            >
-              Converter
-              {activeTab === 'converter' && (
+            >{uiText("Converter")}{activeTab === 'converter' && (
                 <div className="absolute left-0 right-0 bottom-0 h-[2.5px] rounded-full bg-gradient-to-r from-[#8f83d8] to-[#d98fb0]" />
               )}
             </Link>
@@ -51,21 +54,18 @@ export default function LLMiserHeader({
               className={`pb-1 text-[var(--muted)] hover:text-[var(--text)] transition-colors no-underline font-medium ${
                 activeTab === 'usecase' ? 'text-[var(--text)]' : ''
               }`}
-            >
-              Why Use It
-            </Link>
+            >{uiText("Why Use It")}</Link>
 
             <button
               onClick={onOpenBlog}
               className="pb-1 text-[var(--muted)] hover:text-[var(--text)] transition-colors cursor-pointer bg-transparent border-0 font-medium"
-            >
-              Blog
-            </button>
+            >{uiText("Blog")}</button>
           </nav>
         </div>
 
         {/* Status + Live Doc Stats + Shortcuts + Theme Toggle Right */}
-        <div className="flex items-center gap-2.5 font-tech text-[11px] whitespace-nowrap">
+        <div className="flex flex-wrap justify-end items-center gap-2.5 font-tech text-[11px]">
+          <LanguageSelector compact />
           {/* Live Document Statistics Widget (in Header) */}
           {activeResult?.content && (
             <div className="hidden lg:block">
@@ -80,31 +80,31 @@ export default function LLMiserHeader({
           {/* Keyboard shortcut hint badge */}
           <span
             className="hidden lg:inline-flex items-center gap-1 border border-[var(--border-3)] rounded-full px-2 py-0.5 text-[var(--faint)] text-[9.5px] bg-[var(--surface-2)]"
-            title="Shortcuts: Cmd/Ctrl+O to open file picker, Cmd/Ctrl+Enter to convert"
+            title={uiText("Shortcuts: Cmd/Ctrl+O to open file picker, Cmd/Ctrl+Enter to convert")}
           >
-            <span>⌘O open</span>
+            <span>{uiText("⌘O open")}</span>
             <span>·</span>
-            <span>⌘↵ run</span>
+            <span>{uiText("⌘↵ run")}</span>
           </span>
 
           {serverStatus === 'online' && (
             <span className="border-[1.5px] border-[var(--border-3)] rounded-full px-2.5 py-1 text-[#3a7a4a] dark:text-[#4ade80] flex items-center gap-1.5 bg-[var(--surface-2)]">
               <span className="w-2 h-2 rounded-full bg-[#3a7a4a] dark:bg-[#4ade80] inline-block animate-pulse" />
-              <span>Server Ready</span>
+              <span>{uiText("Server Ready")}</span>
             </span>
           )}
 
           {serverStatus === 'checking' && (
             <span className="border-[1.5px] border-[var(--border-3)] rounded-full px-2.5 py-1 text-[#8a6a2a] dark:text-[#facc15] flex items-center gap-1.5 bg-[var(--surface-2)]">
               <span className="w-2 h-2 rounded-full bg-amber-400 inline-block animate-spin" />
-              <span>Connecting…</span>
+              <span>{uiText("Connecting…")}</span>
             </span>
           )}
 
           {serverStatus === 'waking' && (
             <span className="border-[1.5px] border-[#dcd0b0] dark:border-amber-700/60 rounded-full px-2.5 py-1 text-[#8a6a2a] dark:text-amber-300 flex items-center gap-1.5 bg-amber-50 dark:bg-amber-950/40">
               <span className="animate-spin text-[12px]">◑</span>
-              <span>Waking · {wakeCountdown ?? 24}s</span>
+              <span>{uiText("Waking · ")}{wakeCountdown ?? 24}s</span>
             </span>
           )}
 
@@ -114,7 +114,7 @@ export default function LLMiserHeader({
               className="border-[1.5px] border-[#c98a8a] dark:border-rose-800 rounded-full px-2.5 py-1 text-[#a34a4a] dark:text-rose-300 flex items-center gap-1.5 bg-rose-50 dark:bg-rose-950/40 hover:brightness-95 cursor-pointer"
             >
               <span className="w-2 h-2 rounded-full bg-rose-500 inline-block" />
-              <span>Offline · Retry</span>
+              <span>{uiText("Offline · Retry")}</span>
             </button>
           )}
 
@@ -126,10 +126,10 @@ export default function LLMiserHeader({
                 ? 'border-amber-500 bg-amber-500/10 text-amber-600 dark:text-amber-400 font-semibold shadow-xs'
                 : 'border-[var(--border-3)] hover:border-[var(--text)] text-[var(--text)] bg-[var(--surface-2)]'
             }`}
-            title="Toggle Recent Conversion Sessions Sidebar"
+            title={uiText("Toggle Recent Conversion Sessions Sidebar")}
           >
             <span className="text-amber-500 text-[11.5px]">⏱</span>
-            <span className="font-tech text-[11px]">Recent</span>
+            <span className="font-tech text-[11px]">{uiText("Recent")}</span>
             {recentSessionsCount > 0 && (
               <span className="bg-amber-500 text-black font-bold text-[9px] px-1.5 py-0.2 rounded-full font-tech">
                 {recentSessionsCount}
@@ -140,8 +140,8 @@ export default function LLMiserHeader({
           {/* Theme toggle ◐ */}
           <button
             onClick={onToggleTheme}
-            aria-label="Toggle theme"
-            title={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+            aria-label={uiText("Toggle theme")}
+            title={uiText("Switch to {v0} mode", { v0: uiText(theme === 'dark' ? 'light' : 'dark') })}
             className="border-[1.5px] border-[var(--border-3)] rounded-full px-2.5 py-1 text-[var(--text)] hover:bg-[var(--surface-2)] cursor-pointer transition-colors flex items-center justify-center font-bold"
           >
             ◐
@@ -160,7 +160,7 @@ export default function LLMiserHeader({
         <div className="flex items-center gap-2 font-tech text-[10.5px]">
           <button
             onClick={onToggleRecentSidebar}
-            aria-label="Recent conversions"
+            aria-label={uiText("Recent conversions")}
             className={`tap-target px-2 py-1 rounded-full border flex items-center gap-1 cursor-pointer transition-colors ${
               isRecentSidebarOpen
                 ? 'border-amber-500 bg-amber-500/10 text-amber-500 font-semibold'
@@ -168,7 +168,7 @@ export default function LLMiserHeader({
             }`}
           >
             <span className="text-amber-500">⏱</span>
-            <span>Recent</span>
+            <span>{uiText("Recent")}</span>
             {recentSessionsCount > 0 && (
               <span className="bg-amber-500 text-black font-bold text-[8.5px] px-1 rounded-full">
                 {recentSessionsCount}
@@ -192,7 +192,7 @@ export default function LLMiserHeader({
           {/* 44px tap target theme toggle */}
           <button
             onClick={onToggleTheme}
-            aria-label="Toggle theme"
+            aria-label={uiText("Toggle theme")}
             className="min-w-[44px] min-h-[44px] -my-2 flex items-center justify-center cursor-pointer bg-transparent border-0"
           >
             <span className="border-[1.5px] border-[var(--border-3)] rounded-full px-2.5 py-0.5 text-[var(--text)] font-bold text-[11px]">
@@ -203,6 +203,7 @@ export default function LLMiserHeader({
       </div>
 
       {/* 2.5px Aurora Hairline */}
+      <div className="flex md:hidden justify-end px-3.5 border-t border-[var(--border)]"><LanguageSelector /></div>
       <div className="aurora-hairline w-full" />
     </header>
   );

@@ -1,4 +1,6 @@
 'use client';
+import { useI18n } from '../i18n/I18nContext';
+
 
 import React, { useState } from 'react';
 import { formatBytes } from '../../lib/models/adminFormat';
@@ -19,6 +21,8 @@ const TYPE_LABEL = {
 };
 
 function Row({ entry, depth, defaultOpen }) {
+  const { uiText , locale } = useI18n();
+
   const hasChildren = entry.children.length > 0;
   const [open, setOpen] = useState(defaultOpen);
   const n = entry.node;
@@ -32,7 +36,7 @@ function Row({ entry, depth, defaultOpen }) {
             type="button"
             onClick={() => setOpen(!open)}
             aria-expanded={open}
-            aria-label={open ? `Collapse ${entry.name}` : `Expand ${entry.name}`}
+            aria-label={open ? uiText("Collapse {v0}", { v0: entry.name }) : uiText("Expand {v0}", { v0: entry.name })}
             className="w-4 h-4 shrink-0 flex items-center justify-center text-[10px] text-[var(--faint)] cursor-pointer"
           >
             {open ? '▾' : '▸'}
@@ -45,7 +49,7 @@ function Row({ entry, depth, defaultOpen }) {
         </span>
         {n ? <span className="font-tech text-[10px] text-[var(--faint)] shrink-0">{TYPE_LABEL[n.node_type] || n.node_type?.toLowerCase()}</span> : null}
         <span className="ml-auto flex items-center gap-1.5 shrink-0">
-          {n?.size_bytes ? <span className="font-tech text-[10px] text-[var(--faint)] hidden sm:inline">{formatBytes(n.size_bytes)}</span> : null}
+          {n?.size_bytes ? <span className="font-tech text-[10px] text-[var(--faint)] hidden sm:inline">{formatBytes(n.size_bytes, locale)}</span> : null}
           {status ? <Badge status={status} title={n?.skip_reason || undefined} /> : null}
         </span>
       </div>
@@ -67,12 +71,14 @@ function Row({ entry, depth, defaultOpen }) {
 
 /** Folder tree of a job's content (ZIP entries, PDF pages). */
 export default function ContentTreeView({ tree }) {
+  const { uiText } = useI18n();
+
   if (!tree) return null;
   const { root, counts } = tree;
   return (
     <div>
       <div className="flex flex-wrap gap-1.5 mb-2">
-        <span className="font-tech text-[11px] text-[var(--muted)]">{counts.total} part(s):</span>
+        <span className="font-tech text-[11px] text-[var(--muted)]">{counts.total}{uiText(" part(s):")}</span>
         {['DONE', 'PENDING', 'RUNNING', 'SKIPPED', 'FAILED'].map((s) =>
           counts[s] ? (
             <Badge key={s} status={s}>

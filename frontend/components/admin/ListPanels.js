@@ -1,4 +1,6 @@
 'use client';
+import { useI18n } from '../i18n/I18nContext';
+
 
 import React, { useState } from 'react';
 import { adminApi } from '../../lib/models/adminApi';
@@ -7,14 +9,14 @@ import { useAdminResource, usePagedList } from '../../viewmodels/useAdminViewMod
 import { Badge, Button, Empty, ErrorLine, Select } from './ui';
 
 function LoadMore({ list }) {
+  const { uiText } = useI18n();
+
   return (
     <div className="flex justify-center">
       {list.next ? (
-        <Button onClick={list.loadMore} busy={list.loading}>
-          Load more
-        </Button>
+        <Button onClick={list.loadMore} busy={list.loading}>{uiText("Load more")}</Button>
       ) : list.items.length ? (
-        <span className="text-[11.5px] text-[var(--faint)]">End of list</span>
+        <span className="text-[11.5px] text-[var(--faint)]">{uiText("End of list")}</span>
       ) : null}
     </div>
   );
@@ -30,6 +32,8 @@ const FILE_STATUS = [
 
 /** Files registered in the database (inputs and results), newest first. */
 export function FilesPanel({ handleError }) {
+  const { uiText , locale } = useI18n();
+
   const [status, setStatus] = useState('ACTIVE');
   const list = usePagedList(
     async (cursor) => {
@@ -43,24 +47,21 @@ export function FilesPanel({ handleError }) {
   return (
     <div className="flex flex-col gap-3">
       <div className="flex flex-wrap items-end gap-3">
-        <Select label="Status" value={status} onChange={setStatus} options={FILE_STATUS} />
-        <Button onClick={list.reload}>Refresh</Button>
+        <Select label={uiText("Status")} value={status} onChange={setStatus} options={FILE_STATUS} />
+        <Button onClick={list.reload}>{uiText("Refresh")}</Button>
       </div>
-      <p className="m-0 text-[12px] text-[var(--faint)]">
-        Open a job (Jobs tab) to preview or download its files. Intermediate pieces of scanned PDFs and ZIP files are not listed here; they
-        are deleted together with their job.
-      </p>
+      <p className="m-0 text-[12px] text-[var(--faint)]">{uiText("Open a job (Jobs tab) to preview or download its files. Intermediate pieces of scanned PDFs and ZIP files are not listed here; they are deleted together with their job.")}</p>
       <ErrorLine error={list.error} onRetry={list.reload} />
       <div className="overflow-x-auto rounded-lg border border-[var(--border)] bg-[var(--surface)]">
         <table className="w-full min-w-[640px] text-[12.5px] border-collapse">
           <thead className="bg-[var(--panel)] text-[var(--faint)] font-tech text-[10px] uppercase">
             <tr>
-              <th className="text-left px-2 py-2 font-normal">Job</th>
-              <th className="text-left px-2 py-2 font-normal">Kind</th>
-              <th className="text-left px-2 py-2 font-normal">Object</th>
-              <th className="text-left px-2 py-2 font-normal">Size</th>
-              <th className="text-left px-2 py-2 font-normal">Status</th>
-              <th className="text-left px-2 py-2 font-normal">Created</th>
+              <th className="text-left px-2 py-2 font-normal">{uiText("Job")}</th>
+              <th className="text-left px-2 py-2 font-normal">{uiText("Kind")}</th>
+              <th className="text-left px-2 py-2 font-normal">{uiText("Object")}</th>
+              <th className="text-left px-2 py-2 font-normal">{uiText("Size")}</th>
+              <th className="text-left px-2 py-2 font-normal">{uiText("Status")}</th>
+              <th className="text-left px-2 py-2 font-normal">{uiText("Created")}</th>
             </tr>
           </thead>
           <tbody>
@@ -69,16 +70,16 @@ export function FilesPanel({ handleError }) {
                 <td className="px-2 py-1.5 font-tech text-[11.5px]">{shortId(f.job_id)}</td>
                 <td className="px-2 py-1.5">{f.kind.toLowerCase()}</td>
                 <td className="px-2 py-1.5 font-tech text-[11.5px] truncate max-w-[260px]">{f.object_path.split('/').slice(2).join('/')}</td>
-                <td className="px-2 py-1.5 font-tech text-[11.5px] whitespace-nowrap">{formatBytes(f.size_bytes)}</td>
+                <td className="px-2 py-1.5 font-tech text-[11.5px] whitespace-nowrap">{formatBytes(f.size_bytes, locale)}</td>
                 <td className="px-2 py-1.5">
                   <Badge status={f.storage_status} />
                 </td>
-                <td className="px-2 py-1.5 whitespace-nowrap">{formatDate(f.created_at)}</td>
+                <td className="px-2 py-1.5 whitespace-nowrap">{formatDate(f.created_at, locale)}</td>
               </tr>
             ))}
           </tbody>
         </table>
-        {!list.items.length && !list.loading && !list.error ? <Empty>No files.</Empty> : null}
+        {!list.items.length && !list.loading && !list.error ? <Empty>{uiText("No files.")}</Empty> : null}
       </div>
       <LoadMore list={list} />
     </div>
@@ -87,17 +88,16 @@ export function FilesPanel({ handleError }) {
 
 /** Readiness of N1/N2, O1/O2, Z1/Z2 (a sleeping Render instance shows as timeout). */
 export function ProcessesPanel({ handleError }) {
+  const { uiText, locale } = useI18n();
+
   const { data, loading, error, reload } = useAdminResource(adminApi.processes, { handleError });
   const instances = data?.instances || [];
   return (
     <div className="flex flex-col gap-3">
       <div className="flex flex-wrap items-center justify-between gap-2">
         <p className="m-0 text-[12px] text-[var(--faint)]">
-          {data ? `Checked ${formatDate(data.checked_at)}.` : ' '} Instances on a free plan may need about a minute to wake up.
-        </p>
-        <Button onClick={reload} busy={loading}>
-          Check again
-        </Button>
+          {data ? uiText("Checked {v0}.", { v0: formatDate(data.checked_at, locale) }) : ' '}{uiText(" Instances on a free plan may need about a minute to wake up.")}</p>
+        <Button onClick={reload} busy={loading}>{uiText("Check again")}</Button>
       </div>
       <ErrorLine error={error} onRetry={reload} />
       <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
@@ -108,17 +108,17 @@ export function ProcessesPanel({ handleError }) {
               <Badge status={i.state} />
             </div>
             <div className="font-tech text-[11px] text-[var(--faint)] truncate">
-              {i.pool} pool · {i.host}
+              {i.pool}{uiText(" pool · ")}{i.host}
             </div>
             <div className="text-[12px] text-[var(--muted)]">
-              {i.engine || '—'} · {formatMs(i.ms)}
-              {i.storage_configured === false ? <span className="text-rose-500"> · Storage not configured</span> : null}
+              {i.engine || '—'} · {formatMs(i.ms, locale)}
+              {i.storage_configured === false ? <span className="text-rose-500">{uiText(" · Storage not configured")}</span> : null}
             </div>
             {i.detail ? <div className="font-tech text-[10.5px] text-[var(--faint)] break-words">{i.detail}</div> : null}
           </div>
         ))}
       </div>
-      {data && !instances.length ? <Empty>No backend instances are configured.</Empty> : null}
+      {data && !instances.length ? <Empty>{uiText("No backend instances are configured.")}</Empty> : null}
     </div>
   );
 }
@@ -132,6 +132,8 @@ function auditDetails(details) {
 
 /** The audit log, newest first (append-only). */
 export function AuditPanel({ handleError }) {
+  const { uiText, locale } = useI18n();
+
   const list = usePagedList(
     async (cursor) => {
       const page = await adminApi.audit({ limit: 100, before: cursor?.before, before_id: cursor?.before_id });
@@ -143,24 +145,24 @@ export function AuditPanel({ handleError }) {
   return (
     <div className="flex flex-col gap-3">
       <div className="flex justify-end">
-        <Button onClick={list.reload}>Refresh</Button>
+        <Button onClick={list.reload}>{uiText("Refresh")}</Button>
       </div>
       <ErrorLine error={list.error} onRetry={list.reload} />
       <div className="overflow-x-auto rounded-lg border border-[var(--border)] bg-[var(--surface)]">
         <table className="w-full min-w-[640px] text-[12.5px] border-collapse">
           <thead className="bg-[var(--panel)] text-[var(--faint)] font-tech text-[10px] uppercase">
             <tr>
-              <th className="text-left px-2 py-2 font-normal">When</th>
-              <th className="text-left px-2 py-2 font-normal">Actor</th>
-              <th className="text-left px-2 py-2 font-normal">Action</th>
-              <th className="text-left px-2 py-2 font-normal">Job</th>
-              <th className="text-left px-2 py-2 font-normal">Details</th>
+              <th className="text-left px-2 py-2 font-normal">{uiText("When")}</th>
+              <th className="text-left px-2 py-2 font-normal">{uiText("Actor")}</th>
+              <th className="text-left px-2 py-2 font-normal">{uiText("Action")}</th>
+              <th className="text-left px-2 py-2 font-normal">{uiText("Job")}</th>
+              <th className="text-left px-2 py-2 font-normal">{uiText("Details")}</th>
             </tr>
           </thead>
           <tbody>
             {list.items.map((a) => (
               <tr key={a.audit_id} className="border-t border-[var(--border)] align-top">
-                <td className="px-2 py-1.5 whitespace-nowrap">{formatDate(a.created_at)}</td>
+                <td className="px-2 py-1.5 whitespace-nowrap">{formatDate(a.created_at, locale)}</td>
                 <td className="px-2 py-1.5 font-tech text-[11px] whitespace-nowrap">{a.actor_id || a.actor_type}</td>
                 <td className="px-2 py-1.5 font-tech text-[11px] whitespace-nowrap">{a.action}</td>
                 <td className="px-2 py-1.5 font-tech text-[11px]">{shortId(a.job_id)}</td>
@@ -169,7 +171,7 @@ export function AuditPanel({ handleError }) {
             ))}
           </tbody>
         </table>
-        {!list.items.length && !list.loading && !list.error ? <Empty>No audit entries yet.</Empty> : null}
+        {!list.items.length && !list.loading && !list.error ? <Empty>{uiText("No audit entries yet.")}</Empty> : null}
       </div>
       <LoadMore list={list} />
     </div>

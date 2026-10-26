@@ -1,6 +1,8 @@
 # LLMiser — start here
 
-Updated 21 October 2026. This is the entry point for another AI agent or developer.
+Updated 26 October 2026. This is the entry point for another AI agent or developer.
+
+**Current feature branch:** `codex/app-localization` adds six interface languages to the full web app while keeping blogs English. It also refreshes the public README with screenshots, conversion steps and a language demo. See [localization implementation and validation](LLMISER_LOCALIZATION.md) and [README keyword evidence](README_KEYWORD_RESEARCH.md). This branch is separate from the extension and infrastructure work; the older deployment observations below are dated history, not a fresh live audit.
 
 **Search migration update:** Google accepted the MDify → LLMiser Change of Address on 21 October 2026, processed the new sitemap (13 discovered pages), and accepted a homepage indexing request. Redirect cleanup is deployed; 190 live HTTP checks passed. The old Vercel alias now redirects directly to LLMiser and the extra `/blog` hop is fixed. See [search migration and indexing policy](LLMISER_SEARCH_MIGRATION.md) before changing robots, redirects or Search Console settings.
 
