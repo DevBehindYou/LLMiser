@@ -1,6 +1,6 @@
 # LLMiser
 
-> LLMiser is a free LLM cost optimizer for document inputs by DevBehindYou, formerly MDify. It turns PDFs, Office documents, images and ZIP projects into editable Markdown so users can remove unnecessary context before sending it to AI assistants or RAG pipelines. Make Every Token Count.
+> LLMiser is a free LLM cost optimizer for document inputs by DevBehindYou. It turns PDFs, Office documents, images and ZIP projects into editable Markdown so users can remove unnecessary context before sending it to AI assistants or RAG pipelines. Make Every Token Count.
 
 Canonical website: https://llmiser.devbehindyou.com
 Open source: https://github.com/DevBehindYou/LLMiser

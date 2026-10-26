@@ -52,4 +52,6 @@ Closing the popup cancels client waiting, not durable server jobs. Files not yet
 
 ## Other work stays separate
 
+**26 October release update:** PRs #1–#6 are merged and the integrated app is deployed. The extension source is now on `main`; native acceptance and store publication remain pending. Use [the current handover](ai-handover/HANDOVER.md) and [release record](LLMISER_RELEASE_2026-10-26.md) rather than treating the branch-status paragraph below as current.
+
 [Download recovery PR #1](https://github.com/DevBehindYou/LLMiser/pull/1), [cron optimization PR #2](https://github.com/DevBehindYou/LLMiser/pull/2) and [wake coalescing PR #3](https://github.com/DevBehindYou/LLMiser/pull/3) are separate branches. Live Supabase cron/Vault corrections from the earlier task are distinct from whether their PR merges. Do not deploy unrelated unfinished work while releasing this extension.

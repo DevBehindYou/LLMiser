@@ -4,6 +4,8 @@
 
 The owner explicitly requested merging the open PRs and deploying. [PR #5](https://github.com/DevBehindYou/LLMiser/pull/5) merged at 21:40 Asia/Calcutta, retaining the merge ancestry of PRs #1–#4. GitHub marked all five PRs merged. Initial integrated production revision: `4a9ac2e4846a825e3af25063e8c470c7c71d81dc`.
 
+**Final follow-up:** [PR #6](https://github.com/DevBehindYou/LLMiser/pull/6) merged at 22:07 Asia/Calcutta and deployed `aa0635433bf520bfddc6edb796c14a74430e64f8`. All 252 frontend tests, all other PR checks and the post-merge workflow passed. All five Vercel statuses succeeded. Corrected German preview labels were observed in production; normal/OCR/archive readiness remained 2/2 each. The working tree was synchronized to clean `main`.
+
 - Six web-app interface languages: English (US), German, Japanese, Spanish, Russian and Simplified Chinese. There are 628 messages in every dictionary.
 - Download recovery without repeating a completed conversion; localized recovery/export controls and the updated saved-reference privacy disclosure. Consent version `2026-10-21` is preserved.
 - Backend wake-request coalescing, with its tested configuration and completion-based cache behavior.
