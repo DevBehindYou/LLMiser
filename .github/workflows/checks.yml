@@ -9,6 +9,25 @@ concurrency:
   group: checks-${{ github.ref }}
   cancel-in-progress: true
 jobs:
+  extension:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: extension/package-lock.json
+      - run: npm ci --ignore-scripts --no-audit --no-fund
+        working-directory: extension
+      - run: npm test && npm run build && npm run check && npm run pack
+        working-directory: extension
+      - uses: actions/upload-artifact@v4
+        with:
+          name: llmiser-chrome-extension
+          path: extension/artifacts/llmiser-chrome-*.zip
+          if-no-files-found: error
   frontend:
     runs-on: ubuntu-latest
     timeout-minutes: 15
@@ -23,7 +42,7 @@ jobs:
           cache-dependency-path: frontend/package-lock.json
       - run: npm ci --no-audit --no-fund
         working-directory: frontend
-      - run: npm test && npm run lint && npm run sql:check && npm run blog:check && npm run build
+      - run: npm test && npm run lint && npm run i18n:check && npm run sql:check && npm run blog:check && npm run build
         working-directory: frontend
   backends:
     runs-on: ubuntu-latest

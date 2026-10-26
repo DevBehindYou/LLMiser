@@ -1,6 +1,7 @@
 'use client';
 
 import React, { Fragment, memo } from 'react';
+import { useI18n } from '../i18n/I18nContext';
 
 const VARIANTS = {
   pill: {
@@ -32,6 +33,7 @@ function ExportActions({
   onDownloadZip,
   children,
 }) {
+  const { uiText } = useI18n();
   const style = VARIANTS[variant];
   const actions = [
     { key: 'copy', label: copied ? '✓ Copied' : 'Copy', title: 'Copy to clipboard', onClick: onCopy, disabled: !hasActive },
@@ -49,9 +51,9 @@ function ExportActions({
             onClick={a.onClick}
             disabled={a.disabled}
             className={`tap-target ${style.button}`}
-            title={a.title}
+            title={uiText(a.title)}
           >
-            {a.label}
+            {uiText(a.label)}
           </button>
         </Fragment>
       ))}

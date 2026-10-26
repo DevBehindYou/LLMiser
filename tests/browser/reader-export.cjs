@@ -45,11 +45,11 @@ async function load(page) {
   const readerChunk = await findChunk('Copy code snippet');
   const highlighterChunk = await findChunk('Prism');
   const browser = await chromium.launch(options);
-  const report = { date: '2026-10-18', origin, fixture: 'synthetic persisted result; no conversion/provider access', cases: [] };
+  const report = { checkedAtUtc: new Date().toISOString(), origin, fixture: 'synthetic persisted result; no conversion/provider access', cases: [] };
   try {
     for (const [name, viewport] of [['desktop', { width: 1440, height: 1000 }], ['mobile', { width: 390, height: 844 }]]) {
       const context = await browser.newContext({ viewport, acceptDownloads: true, permissions: ['clipboard-read', 'clipboard-write'] });
-      await context.addInitScript(s => localStorage.setItem('mdify_recent_sessions_v1', JSON.stringify(s)), [session, other]);
+      await context.addInitScript(s => localStorage.setItem('llmiser_recent_sessions_v1', JSON.stringify(s)), [session, other]);
       await context.route('**/api/**', route => route.fulfill({ json: { ok: true, all_ready: true, pools: {} } }));
       const page = await context.newPage();
       const errors = [];
@@ -136,7 +136,7 @@ async function load(page) {
     }
     for (const [failure, chunk] of [['reader', readerChunk], ['highlighter', highlighterChunk]]) {
       const context = await browser.newContext({ viewport: { width: 1440, height: 1000 }, acceptDownloads: true, permissions: ['clipboard-read', 'clipboard-write'] });
-      await context.addInitScript(s => localStorage.setItem('mdify_recent_sessions_v1', JSON.stringify(s)), [session, other]);
+      await context.addInitScript(s => localStorage.setItem('llmiser_recent_sessions_v1', JSON.stringify(s)), [session, other]);
       await context.route('**/api/**', route => route.fulfill({ json: { ok: true, all_ready: true, pools: {} } }));
       let blocked = 0;
       await context.route('**/' + chunk, route => { blocked++; return route.abort('failed'); });

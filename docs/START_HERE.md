@@ -1,6 +1,14 @@
 # LLMiser — start here
 
-Updated 21 October 2026. This is the entry point for another AI agent or developer.
+Updated 26 October 2026. This is the entry point for another AI agent or developer.
+
+**Current release preparation:** the owner requested merging the open PRs and deploying the app. `codex/app-localization` now combines PR #1 (download recovery), #2 (already-applied cron source), #3 (wake coalescing), #4 (extension source) and the six-language web app/README work. Integration is local; CI, merge and production verification are still pending at this writing. Read [localization implementation and validation](LLMISER_LOCALIZATION.md) and [README keyword evidence](README_KEYWORD_RESEARCH.md).
+
+**Scope:** English (US), German, Japanese, Spanish, Russian and Simplified Chinese apply to the full web app, including the recovery controls and complete legal documents. Blogs and their visuals remain English and unchanged. The README includes existing desktop/mobile screenshots, a recorded language demo, conversion steps, profiles and FAQs. Document contents and Markdown are never automatically translated.
+
+**Release boundaries:** the extension source is included under the owner's merge instruction, but native Chrome acceptance and store publication remain pending. The prior cron cutover is recorded in [cron/wake evidence](LLMISER_CRON_WAKE.md); this release does not rerun live SQL. Original MDify apps and service retirement remain outside this release. Existing [recovery](LLMISER_OPTIMIZATION_PLAN.md), [wake optimization](LLMISER_WAKE_OPTIMIZATION.md), [Analytics/controller](LLMISER_ANALYTICS_CONTROLLER.md), and [extension](LLMISER_CHROME_EXTENSION.md) reports retain the checks and limits from their individual branches.
+
+The observations below are dated migration history. Do not interpret older pending items as fresh live-state findings; use the latest feature and release evidence above.
 
 **Search migration update:** Google accepted the MDify → LLMiser Change of Address on 21 October 2026, processed the new sitemap (13 discovered pages), and accepted a homepage indexing request. Redirect cleanup is deployed; 190 live HTTP checks passed. The old Vercel alias now redirects directly to LLMiser and the extra `/blog` hop is fixed. See [search migration and indexing policy](LLMISER_SEARCH_MIGRATION.md) before changing robots, redirects or Search Console settings.
 
@@ -42,11 +50,11 @@ The research archive is reference material. Its proposed `llmiser.com` domain, a
 | Blog banners | **Complete — 8 of 8 banners** (new LLMiser frame) |
 | Supporting blog visuals | **Complete — 40 of 40 figures** (LLMiser signature, numbers re-checked) |
 | Frontend and six new backend deployments | **Deployed**; public frontend independently checked; backend/conversion details from prior agent |
-| Keep-warm Vault URL cutover | **Pending assigned-agent task**; live Vault state not queried in this review |
-| Custom DNS/TLS and legacy public redirects | **Verified live** on 21 October at 19:33 Asia/Calcutta; minor extra `/blog` redirect hop |
-| Tick cutover and old-service retirement | **Pending inspection/acceptance** |
+| Keep-warm Vault URL cutover | **Complete live**; both new OCR URLs, correlated HTTP 200 checks |
+| Custom DNS/TLS and legacy public redirects | **Verified live**; redirect cleanup deployed, including the `/blog` hop fix; 190 checks passed |
+| Tick cutover and old-service retirement | Tick cutover/idle optimization applied; retirement remains pending acceptance |
 | Storage conversion checks on Vercel origin | **Reported passed** for HTML, PNG and ZIP; custom-domain/admin/scanned-PDF/cleanup checks still needed |
-| Search monitoring | **Pending** |
+| Search migration / monitoring | Change of Address accepted, sitemap processed; recrawl monitoring remains open |
 
 The original app-rebrand session was local-only, but subsequent work committed the app/content and deployed services. Local HEAD at this review is `3ed4ded` after `e999388 Publish & Re-branding`; only `docs/LLMISER_ENVIRONMENT.md` was modified before this review began. This review updates documentation only and does not commit, push or change live infrastructure. Inspect current status before working and preserve pre-existing edits.
 

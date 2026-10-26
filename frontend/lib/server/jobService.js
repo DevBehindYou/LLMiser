@@ -173,15 +173,17 @@ async function finalResult(db, jobId) {
   return rows?.[0] || null;
 }
 
-async function finishedResult(db, job) {
+async function finishedResult(db, job, outputName = null) {
   const registered = await db.select('file_objects', { job_id: `eq.${job.job_id}`, kind: 'eq.OUTPUT', select: 'file_id', limit: '1' });
   if (!registered?.length) await db.rpc('finalize_job_outputs', { p_job_id: job.job_id, p_bucket: db.bucket });
   const final = await finalResult(db, job.job_id);
   const r = final?.result || {};
   const outputs = (r.outputs?.length ? r.outputs : [{ path: final?.output_path || outputPath(job.job_id, job.source_type), name: r.filename, kind: 'OUTPUT' }])
     .slice(0, 25);
+  const selected = outputName === null ? outputs : outputs.filter(o => (o.name || o.path.split('/').pop()) === outputName);
+  if (!selected.length) throw new JobError('Output not found', 404);
   const signed = await Promise.all(
-    outputs.map(async (o) => ({
+    selected.map(async (o) => ({
       name: o.name || o.path.split('/').pop(),
       kind: o.kind || 'OUTPUT',
       bytes: o.bytes ?? null,
@@ -205,6 +207,14 @@ async function finishedResult(db, job) {
     download_expires_in: DOWNLOAD_URL_TTL_S,
     outputs: signed.map(({ path, ...rest }) => rest),
   };
+}
+
+/** Re-sign the full output manifest without running workers or creating a job. */
+export async function downloadResult(db, jobId, { outputName = null } = {}) {
+  const job = await loadJob(db, jobId);
+  if (job.files_deleted_at || job.status === 'DELETED') throw new JobError('Files for this job were deleted', 410);
+  if (job.status !== 'COMPLETED') throw new JobError('Job has no result yet', 409);
+  return { job_id: jobId, source_type: job.source_type, result: await finishedResult(db, job, outputName) };
 }
 
 export async function downloadUrl(db, jobId) {

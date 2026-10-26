@@ -1,4 +1,6 @@
 'use client';
+import { useI18n } from '../i18n/I18nContext';
+
 
 import React, { memo } from 'react';
 
@@ -30,9 +32,11 @@ const VARIANTS = {
 
 /** Split / Rendered / Raw segmented control. */
 function PreviewModeToggle({ mode, onChange, variant = 'landing' }) {
+  const { uiText } = useI18n();
+
   const style = VARIANTS[variant];
   return (
-    <div className={style.group} role="group" aria-label="Preview mode">
+    <div className={style.group} role="group" aria-label={uiText("Preview mode")}>
       {MODES.map((m) => (
         <button
           key={m.id}

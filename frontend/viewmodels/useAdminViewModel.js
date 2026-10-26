@@ -1,4 +1,5 @@
 'use client';
+import { useI18n } from '../components/i18n/I18nContext';
 
 // View models for /llmiser-controller. Components render state from these hooks
 // and call their actions; all data comes from lib/models/adminApi.js.
@@ -172,6 +173,7 @@ const CONFIRM = {
 };
 
 export function useAdminJobsViewModel({ handleError, notify }) {
+  const { uiText } = useI18n();
   const [status, setStatus] = useState('');
   const [source, setSource] = useState('');
   const [selected, setSelected] = useState(() => new Set());
@@ -207,7 +209,7 @@ export function useAdminJobsViewModel({ handleError, notify }) {
     async (action, hours) => {
       const ids = [...selected];
       if (!ids.length) return;
-      if (CONFIRM[action] && !window.confirm(CONFIRM[action])) return;
+      if (CONFIRM[action] && !window.confirm(uiText(CONFIRM[action]))) return;
       setWorking(action);
       try {
         const { results } = await adminApi.bulk(ids, action, hours);
@@ -221,7 +223,7 @@ export function useAdminJobsViewModel({ handleError, notify }) {
         setWorking(null);
       }
     },
-    [selected, notify, handleError, list]
+    [selected, notify, handleError, list, uiText]
   );
 
   const closeJob = useCallback(() => setOpenJobId(null), []);
@@ -274,6 +276,7 @@ export function useAdminJobsViewModel({ handleError, notify }) {
 }
 
 export function useAdminJobDetailViewModel(jobId, { handleError, notify, onChanged }) {
+  const { uiText } = useI18n();
   const [detail, setDetail] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -303,7 +306,7 @@ export function useAdminJobDetailViewModel(jobId, { handleError, notify, onChang
 
   const act = useCallback(
     async (action, hours) => {
-      if (CONFIRM[action] && !window.confirm(CONFIRM[action])) return;
+      if (CONFIRM[action] && !window.confirm(uiText(CONFIRM[action]))) return;
       setWorking(action);
       try {
         const r = await adminApi.action(jobId, action, hours);
@@ -317,7 +320,7 @@ export function useAdminJobDetailViewModel(jobId, { handleError, notify, onChang
         setWorking(null);
       }
     },
-    [jobId, notify, handleError, onChanged, load]
+    [jobId, notify, handleError, onChanged, load, uiText]
   );
 
   const showPreview = useCallback(

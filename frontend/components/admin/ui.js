@@ -1,15 +1,18 @@
 'use client';
+import { useI18n } from '../i18n/I18nContext';
+
 
 import React from 'react';
 import { statusTone } from '../../lib/models/adminFormat';
 
 export function Badge({ status, children, title }) {
+  const { uiText } = useI18n();
   return (
     <span
       title={title}
       className={`inline-flex items-center px-1.5 py-[1px] rounded border font-tech text-[10px] leading-4 whitespace-nowrap ${statusTone(status)}`}
     >
-      {children ?? String(status || '—').replace(/_/g, ' ').toLowerCase()}
+      {uiText(children ?? String(status || '—').replace(/_/g, ' ').toLowerCase())}
     </span>
   );
 }
@@ -36,11 +39,12 @@ export function Button({ tone = 'default', className = '', busy = false, childre
 }
 
 export function Card({ title, actions, children, className = '' }) {
+  const { uiText } = useI18n();
   return (
     <section className={`rounded-lg border border-[var(--border)] bg-[var(--surface)] ${className}`}>
       {title || actions ? (
         <header className="flex flex-wrap items-center justify-between gap-2 px-3 py-2 border-b border-[var(--border)]">
-          {title ? <h2 className="m-0 text-[13px] font-semibold tracking-tight">{title}</h2> : <span />}
+          {title ? <h2 className="m-0 text-[13px] font-semibold tracking-tight">{uiText(title)}</h2> : <span />}
           {actions ? <div className="flex flex-wrap items-center gap-2">{actions}</div> : null}
         </header>
       ) : null}
@@ -50,26 +54,27 @@ export function Card({ title, actions, children, className = '' }) {
 }
 
 export function Stat({ label, value, hint, tone }) {
+  const { uiText } = useI18n();
   return (
     <div className="rounded-md border border-[var(--border)] bg-[var(--panel)] px-3 py-2 min-w-0">
-      <div className="font-tech text-[10px] uppercase tracking-wider text-[var(--faint)] truncate">{label}</div>
+      <div className="font-tech text-[10px] uppercase tracking-wider text-[var(--faint)] truncate">{uiText(label)}</div>
       <div className={`text-[20px] font-semibold tabular-nums leading-7 ${tone === 'bad' ? 'text-rose-500' : tone === 'warn' ? 'text-amber-500' : ''}`}>
         {value ?? '—'}
       </div>
-      {hint ? <div className="text-[11px] text-[var(--faint)] truncate">{hint}</div> : null}
+      {hint ? <div className="text-[11px] text-[var(--faint)] truncate">{uiText(hint)}</div> : null}
     </div>
   );
 }
 
 export function ErrorLine({ error, onRetry }) {
+  const { uiText } = useI18n();
+
   if (!error) return null;
   return (
     <div role="alert" className="flex flex-wrap items-center gap-2 rounded-md border border-rose-500/40 bg-rose-500/10 px-3 py-2 text-[12.5px] text-rose-600 dark:text-rose-400">
-      <span>{error}</span>
+      <span>{uiText(error)}</span>
       {onRetry ? (
-        <button type="button" onClick={onRetry} className="underline cursor-pointer">
-          Retry
-        </button>
+        <button type="button" onClick={onRetry} className="underline cursor-pointer">{uiText("Retry")}</button>
       ) : null}
     </div>
   );
@@ -80,9 +85,10 @@ export function Empty({ children }) {
 }
 
 export function Select({ label, value, onChange, options }) {
+  const { uiText } = useI18n();
   return (
     <label className="inline-flex items-center gap-1.5 text-[12px] text-[var(--muted)]">
-      <span>{label}</span>
+      <span>{uiText(label)}</span>
       <select
         value={value}
         onChange={(e) => onChange(e.target.value)}
@@ -90,7 +96,7 @@ export function Select({ label, value, onChange, options }) {
       >
         {options.map((o) => (
           <option key={o.value} value={o.value}>
-            {o.label}
+            {uiText(o.label)}
           </option>
         ))}
       </select>

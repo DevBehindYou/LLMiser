@@ -3,12 +3,14 @@
 import React, { memo, useEffect, useMemo, useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import { useI18n } from './i18n/I18nContext';
 
 /**
  * CodeBlock Component with Prism Syntax Highlighting, language badge,
  * line count, line numbers, and 1-click clipboard copy
  */
 function CodeBlock({ code, language }) {
+  const { uiText } = useI18n();
   const [copied, setCopied] = useState(false);
   const codeString = String(code || '').replace(/\n$/, '');
   const lines = codeString.split('\n');
@@ -48,24 +50,24 @@ function CodeBlock({ code, language }) {
             {displayLang}
           </span>
           <span className="text-[9px] text-[var(--faint)]">
-            {lines.length} {lines.length === 1 ? 'line' : 'lines'}
+            {lines.length} {uiText(lines.length === 1 ? 'line' : 'lines')}
           </span>
         </div>
         <button
           onClick={handleCopy}
           type="button"
           className="flex items-center gap-1 px-2 py-0.5 rounded border border-[var(--border-3)] hover:border-[var(--text)] text-[9.5px] text-[var(--muted)] hover:text-[var(--text)] bg-[var(--surface)] cursor-pointer transition-all active:scale-95"
-          title="Copy code snippet"
+          title={uiText('Copy code snippet')}
         >
           {copied ? (
             <>
               <span className="text-emerald-500 font-bold">✓</span>
-              <span className="text-emerald-500 font-medium">Copied</span>
+              <span className="text-emerald-500 font-medium">{uiText('Copied')}</span>
             </>
           ) : (
             <>
               <span>⧉</span>
-              <span>Copy</span>
+              <span>{uiText('Copy')}</span>
             </>
           )}
         </button>

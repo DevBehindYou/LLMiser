@@ -1,4 +1,6 @@
 'use client';
+import { useI18n } from './i18n/I18nContext';
+
 
 import React, {
   lazy,
@@ -57,6 +59,8 @@ export default function MarkdownViewer({
   isLoading = false,
   loadingFileName = '',
 }) {
+  const { uiText } = useI18n();
+
   const [localContent, setLocalContent] = useState(content);
   const [copiedAll, setCopiedAll] = useState(false);
   const deferredContent = useDeferredValue(localContent);
@@ -160,12 +164,8 @@ export default function MarkdownViewer({
           <div className="w-10 h-10 border-[1.5px] border-dashed border-[var(--border-3)] rounded-lg flex items-center justify-center text-[16px] text-[var(--muted)]">
             ▤
           </div>
-          <div className="font-wireframe text-[15px] font-bold text-[var(--text)]">
-            Your Markdown appears here
-          </div>
-          <div className="text-[11.5px] text-[var(--muted)] font-sans max-w-xs text-center">
-            Upload and convert any document to see live rendered Markdown alongside raw code.
-          </div>
+          <div className="font-wireframe text-[15px] font-bold text-[var(--text)]">{uiText("Your Markdown appears here")}</div>
+          <div className="text-[11.5px] text-[var(--muted)] font-sans max-w-xs text-center">{uiText("Upload and convert any document to see live rendered Markdown alongside raw code.")}</div>
         </div>
 
         {showStatusBar && (
@@ -191,12 +191,9 @@ export default function MarkdownViewer({
           {/* Left: Raw Code Column */}
           <div className="flex flex-col h-full min-h-0 border border-[var(--border-3)] rounded-lg overflow-hidden bg-[var(--surface)]">
             <div className="flex items-center justify-between px-2.5 py-1.5 border-b border-[var(--border)] bg-[var(--surface-2)] text-[10.5px] font-tech text-[var(--faint)]">
-              <span className="font-semibold uppercase tracking-wider text-[9.5px] text-[var(--muted)]">
-                RAW MARKDOWN
-              </span>
+              <span className="font-semibold uppercase tracking-wider text-[9.5px] text-[var(--muted)]">{uiText("RAW MARKDOWN")}</span>
               <span className="text-[9.5px]">
-                {lineCount} lines · editable
-              </span>
+                {lineCount}{uiText(" lines · editable")}</span>
             </div>
             <div className="flex-1 p-2.5 overflow-y-auto font-tech text-[11.5px] leading-relaxed bg-[var(--surface)]">
               <textarea
@@ -204,7 +201,7 @@ export default function MarkdownViewer({
                 onChange={handleTextChange}
                 readOnly={isReadOnly}
                 className="w-full h-full min-h-[260px] font-tech text-[11.5px] bg-transparent border-0 outline-none text-[var(--text)] resize-none leading-relaxed selection:bg-amber-500/20"
-                placeholder="Type or paste Markdown here to see it render live..."
+                placeholder={uiText("Type or paste Markdown here to see it render live...")}
                 spellCheck={false}
               />
             </div>
@@ -214,12 +211,8 @@ export default function MarkdownViewer({
           <div className="flex flex-col h-full min-h-0 border border-[var(--border-3)] rounded-lg overflow-hidden bg-[var(--surface)]">
             <div className="flex items-center justify-between px-2.5 py-1.5 border-b border-[var(--border)] bg-[var(--surface-2)] text-[10.5px] font-tech text-[var(--faint)]">
               <span className="font-semibold uppercase tracking-wider text-[9.5px] text-[var(--muted)] flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 inline-block animate-pulse" />
-                LIVE PREVIEW
-              </span>
-              <span className="text-[9.5px] text-emerald-600 dark:text-emerald-400">
-                Rendered with GFM
-              </span>
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 inline-block animate-pulse" />{uiText("LIVE PREVIEW")}</span>
+              <span className="text-[9.5px] text-emerald-600 dark:text-emerald-400">{uiText("Rendered with GFM")}</span>
             </div>
             <div className="flex-1 p-3.5 overflow-y-auto bg-[var(--surface)]">
               <MarkdownPreview content={deferredContent} docId={docId} />
@@ -233,12 +226,8 @@ export default function MarkdownViewer({
         <div className="flex-1 h-full min-h-0 border border-[var(--border-3)] rounded-lg overflow-hidden bg-[var(--surface)] flex flex-col">
           <div className="flex items-center justify-between px-3 py-1.5 border-b border-[var(--border)] bg-[var(--surface-2)] text-[10.5px] font-tech text-[var(--faint)]">
             <span className="font-semibold uppercase tracking-wider text-[9.5px] text-[var(--muted)] flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 inline-block" />
-              RENDERED MARKDOWN
-            </span>
-            <span className="text-[9.5px] text-[var(--faint)]">
-              Full formatted document
-            </span>
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 inline-block" />{uiText("RENDERED MARKDOWN")}</span>
+            <span className="text-[9.5px] text-[var(--faint)]">{uiText("Full formatted document")}</span>
           </div>
           <div className="flex-1 p-4 overflow-y-auto bg-[var(--surface)]">
             <MarkdownPreview content={deferredContent} docId={docId} />
@@ -250,12 +239,8 @@ export default function MarkdownViewer({
       {viewMode === 'raw' && (
         <div className="flex-1 h-full min-h-0 border border-[var(--border-3)] rounded-lg overflow-hidden bg-[var(--surface)] flex flex-col">
           <div className="flex items-center justify-between px-3 py-1.5 border-b border-[var(--border)] bg-[var(--surface-2)] text-[10.5px] font-tech text-[var(--faint)]">
-            <span className="font-semibold uppercase tracking-wider text-[9.5px] text-[var(--muted)]">
-              RAW SOURCE CODE
-            </span>
-            <span className="text-[9.5px] text-[var(--faint)]">
-              Monospace source code
-            </span>
+            <span className="font-semibold uppercase tracking-wider text-[9.5px] text-[var(--muted)]">{uiText("RAW SOURCE CODE")}</span>
+            <span className="text-[9.5px] text-[var(--faint)]">{uiText("Monospace source code")}</span>
           </div>
           <div className="flex-1 p-3 overflow-y-auto bg-[var(--surface)]">
             <textarea

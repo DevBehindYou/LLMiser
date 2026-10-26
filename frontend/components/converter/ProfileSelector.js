@@ -1,4 +1,6 @@
 'use client';
+import { useI18n } from '../i18n/I18nContext';
+
 
 import React, { memo } from 'react';
 import { PROFILES } from '../../lib/formats';
@@ -11,10 +13,12 @@ const PROFILE_HINTS = {
 };
 
 function ProfileSelector({ profile, onChange }) {
+  const { uiText } = useI18n();
+
   return (
     <div className="border border-[var(--border-3)] rounded-lg p-2.5 text-[12px] text-[var(--muted)] bg-[var(--surface-2)] flex flex-col gap-1.5 font-sans">
       <div className="flex items-center justify-between">
-        <span className="font-tech text-[10px] uppercase text-[var(--faint)]">Profile:</span>
+        <span className="font-tech text-[10px] uppercase text-[var(--faint)]">{uiText("Profile:")}</span>
         <div className="flex gap-1">
           {PROFILES.map((p) => (
             <button
@@ -28,12 +32,12 @@ function ProfileSelector({ profile, onChange }) {
                   : 'border-[var(--border-3)] text-[var(--muted)] hover:border-[var(--text)] bg-[var(--surface)]'
               }`}
             >
-              {p}
+              {uiText(p)}
             </button>
           ))}
         </div>
       </div>
-      <div className="text-[11px] text-[var(--faint)]">{PROFILE_HINTS[profile]}</div>
+      <div className="text-[11px] text-[var(--faint)]">{uiText(PROFILE_HINTS[profile])}</div>
     </div>
   );
 }

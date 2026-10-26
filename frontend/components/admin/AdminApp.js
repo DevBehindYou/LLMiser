@@ -1,4 +1,6 @@
 'use client';
+import { useI18n } from '../i18n/I18nContext';
+
 
 import React, { useState } from 'react';
 import Link from 'next/link';
@@ -10,6 +12,7 @@ import JobsPanel from './JobsPanel';
 import { AuditPanel, FilesPanel, ProcessesPanel } from './ListPanels';
 import OverviewPanel from './OverviewPanel';
 import { Button } from './ui';
+import LanguageSelector from '../i18n/LanguageSelector';
 
 const TABS = [
   { id: 'overview', label: 'Overview', Panel: OverviewPanel },
@@ -25,17 +28,17 @@ function Centered({ children }) {
 
 /** /llmiser-controller: two-key sign-in, then the admin tabs. */
 export default function AdminApp() {
+  const { uiText , locale } = useI18n();
+
   const session = useAdminSessionViewModel();
   const { notice, notify, dismiss } = useAdminNotice();
   const [tab, setTab] = useState('overview');
 
-  if (session.state === 'loading') return <Centered>Loading…</Centered>;
+  if (session.state === 'loading') return <Centered>{uiText("Loading…")}</Centered>;
   if (session.state === 'unconfigured') {
     return (
       <Centered>
-        <p className="max-w-sm text-center m-0">
-          The controller is not configured on this deployment (see docs/GO_LIVE.md).
-        </p>
+        <p className="max-w-sm text-center m-0">{uiText("The controller is not configured on this deployment (see docs/GO_LIVE.md).")}</p>
       </Centered>
     );
   }
@@ -49,14 +52,15 @@ export default function AdminApp() {
         <div className="max-w-6xl mx-auto px-4 h-[52px] flex items-center justify-between gap-3">
           <Link href="/" className="flex items-center gap-2 text-inherit no-underline min-w-0">
             <AppIcon size={28} className="rounded-[7px]" />
-            <b className="text-[15px] tracking-tight truncate">LLMiser controller</b>
+            <b className="text-[15px] tracking-tight truncate">{uiText("LLMiser controller")}</b>
           </Link>
           <div className="flex items-center gap-2">
-            <span className="hidden sm:inline font-tech text-[11px] text-[var(--faint)]">session ends {relativeTime(session.expiresAt)}</span>
-            <Button onClick={session.logout}>Sign out</Button>
+            <LanguageSelector compact />
+            <span className="hidden sm:inline font-tech text-[11px] text-[var(--faint)]">{uiText("session ends ")}{relativeTime(session.expiresAt, Date.now(), locale)}</span>
+            <Button onClick={session.logout}>{uiText("Sign out")}</Button>
           </div>
         </div>
-        <nav className="max-w-6xl mx-auto px-2 sm:px-4 flex gap-1 overflow-x-auto" aria-label="Controller sections">
+        <nav className="max-w-6xl mx-auto px-2 sm:px-4 flex gap-1 overflow-x-auto" aria-label={uiText("Controller sections")}>
           {TABS.map((t) => (
             <button
               key={t.id}
@@ -67,7 +71,7 @@ export default function AdminApp() {
                 tab === t.id ? 'border-amber-500 text-[var(--text)] font-medium' : 'border-transparent text-[var(--muted)] hover:text-[var(--text)]'
               }`}
             >
-              {t.label}
+              {uiText(t.label)}
             </button>
           ))}
         </nav>
@@ -86,8 +90,8 @@ export default function AdminApp() {
               : 'border-emerald-500/50 bg-[var(--surface)] text-emerald-700 dark:text-emerald-400'
           }`}
         >
-          <span>{notice.text}</span>
-          <button type="button" onClick={dismiss} aria-label="Dismiss" className="cursor-pointer text-[var(--faint)]">
+          <span>{uiText(notice.text)}</span>
+          <button type="button" onClick={dismiss} aria-label={uiText("Dismiss")} className="cursor-pointer text-[var(--faint)]">
             ✕
           </button>
         </div>

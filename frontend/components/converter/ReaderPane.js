@@ -4,6 +4,7 @@ import React from 'react';
 import MarkdownViewer from '../MarkdownViewer';
 import PreviewModeToggle from './PreviewModeToggle';
 import ExportActions from './ExportActions';
+import ResultOutputs from './ResultOutputs';
 
 const VARIANTS = {
   landing: {
@@ -39,6 +40,8 @@ export default function ReaderPane({ variant, converter, exporter, previewMode, 
           onDownloadZip={exporter.downloadAll}
         />
       </div>
+
+      <ResultOutputs result={activeResult} />
 
       <div className="flex-1 min-h-[350px] flex flex-col">
         <MarkdownViewer

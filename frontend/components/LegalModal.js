@@ -1,4 +1,6 @@
 'use client';
+import { useI18n } from './i18n/I18nContext';
+
 
 import React, { useState } from 'react';
 import { useModalDialog } from './useModalDialog';
@@ -6,6 +8,8 @@ import LegalDocument from './LegalDocument';
 import { LEGAL_DOCUMENTS } from '../lib/legal/policies';
 
 export default function LegalModal({ isOpen, onClose, initialTab = 'privacy' }) {
+  const { uiText } = useI18n();
+
   const [tab, setTab] = useState(initialTab);
   const dialogRef = useModalDialog(isOpen, onClose);
 
@@ -19,7 +23,7 @@ export default function LegalModal({ isOpen, onClose, initialTab = 'privacy' }) 
         <div className="flex items-center justify-between px-4 py-3 border-b border-[var(--border)] bg-[var(--surface-2)]">
           <div className="flex items-center gap-3">
             <b id="legal-modal-title" className="text-[15px]">
-              {(LEGAL_DOCUMENTS[tab] || LEGAL_DOCUMENTS.privacy).title}
+              {uiText((LEGAL_DOCUMENTS[tab] || LEGAL_DOCUMENTS.privacy).title)}
             </b>
             <div className="flex gap-1 font-tech text-[10px]">
               <button
@@ -29,9 +33,7 @@ export default function LegalModal({ isOpen, onClose, initialTab = 'privacy' }) 
                     ? 'border-[var(--text)] bg-[var(--surface)] font-bold'
                     : 'border-transparent text-[var(--muted)]'
                 }`}
-              >
-                Privacy
-              </button>
+              >{uiText("Privacy")}</button>
               <button
                 onClick={() => setTab('terms')}
                 className={`px-2 py-0.5 rounded-full border cursor-pointer ${
@@ -39,14 +41,12 @@ export default function LegalModal({ isOpen, onClose, initialTab = 'privacy' }) 
                     ? 'border-[var(--text)] bg-[var(--surface)] font-bold'
                     : 'border-transparent text-[var(--muted)]'
                 }`}
-              >
-                Terms
-              </button>
+              >{uiText("Terms")}</button>
             </div>
           </div>
           <button
             onClick={onClose}
-            aria-label="Close"
+            aria-label={uiText("Close")}
             className="w-7 h-7 flex items-center justify-center rounded-full border border-[var(--border-3)] hover:bg-[var(--surface)] text-[14px] cursor-pointer bg-transparent"
           >
             ✕
@@ -65,9 +65,7 @@ export default function LegalModal({ isOpen, onClose, initialTab = 'privacy' }) 
           <button
             onClick={onClose}
             className="px-3 py-1 rounded-full border border-[var(--border-3)] hover:bg-[var(--surface)] text-[var(--text)] font-tech text-[11px] cursor-pointer bg-transparent"
-          >
-            Close
-          </button>
+          >{uiText("Close")}</button>
         </div>
       </div>
     </div>

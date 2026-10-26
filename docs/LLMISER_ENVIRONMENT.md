@@ -1,6 +1,8 @@
 # LLMiser environment and deployment
 
-Updated 21 October 2026. LLMiser gets its own deployments of the frontend **and** the six conversion backends, built from `DevBehindYou/LLMiser`. Data stays shared with MDify: the same Supabase project, bucket `mdify-pro-files`, Vault, cron jobs and cleanup function (their `mdify` names are compatibility contracts). The old MDify services keep running until LLMiser is verified. **No secret values are in this file or in Git.**
+Updated 23 October 2026. LLMiser gets its own deployments of the frontend **and** the six conversion backends, built from `DevBehindYou/LLMiser`. Data stays shared with MDify: the same Supabase project, bucket `mdify-pro-files`, Vault, cron jobs and cleanup function (their `mdify` names are compatibility contracts). The old MDify services keep running until LLMiser is verified. **No secret values are in this file or in Git.**
+
+**Current cron/wake status:** OCR Vault URLs now point to both LLMiser Render services. The existing minute tick uses a demand-driven database dispatcher targeting the canonical LLMiser frontend; the existing recorder runs every five minutes. The four-job count, cleanup job and OCR budget window are preserved. See [implementation, evidence and rollback](LLMISER_CRON_WAKE.md). This supersedes the earlier pending/cutover instructions below; do not replace the dispatcher with the historical unconditional HTTP block.
 
 ## Current review (21 October 2026)
 
@@ -18,9 +20,9 @@ Provisioning instructions below are retained as reference; do not recreate the a
 | Z1, Z2 | `https://llmiser-api-z1z.vercel.app`, `https://llmiser-api-z2z.vercel.app` | Ready, 401 without the secret, frontend secret accepted, ZIP converted |
 
 `frontend/.env.F` holds these three URL lists. Still open:
-- Vault keep-warm URLs still point to the old OCR services. Run the `vault.update_secret` statements in the Supabase section below.
+- Vault keep-warm URL cutover is complete; see the current cron/wake record above.
 - Custom-domain DNS/TLS and tested public redirects now work. All 13 sitemap pages returned 200 with matching canonicals; see the live verification record. Full custom-domain conversion acceptance remains separate.
-- Point `mdify-jobs-tick` at the LLMiser domain once it's live (Supabase section below).
+- `mdify-jobs-tick` now dispatches to the LLMiser domain only for active work; inspect the current dispatcher before editing it.
 - Retire the old services after the end-to-end checks on the custom domain.
 
 ## Local env files (never committed)
@@ -117,7 +119,9 @@ Import `frontend/.env.F`. Since 20 October 2026 its three URL lists point to the
 
 Deploy, then attach `llmiser.devbehindyou.com` and add the DNS record Vercel shows. Check `/api/wake`: it should list 2 of 2 ready in each pool. Changing env vars later needs a redeploy. After the new URLs are known, update `frontend/.env.F` locally too.
 
-## Supabase: point the shared jobs at the LLMiser services
+## Supabase: historical initial cutover instructions
+
+**Superseded by the 23 October optimization.** For an existing production project, use the bounded migration and cutover steps in [LLMISER_CRON_WAKE.md](LLMISER_CRON_WAKE.md). The SQL below explains the initial migration and is not the current desired scheduler definition.
 
 Vault: change the two keep-warm URLs to the new OCR base URLs (no path). Run in the SQL Editor:
 

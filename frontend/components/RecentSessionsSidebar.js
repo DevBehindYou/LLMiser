@@ -1,4 +1,6 @@
 'use client';
+import { useI18n } from './i18n/I18nContext';
+
 
 import React, { useState } from 'react';
 import { useModalDialog } from './useModalDialog';
@@ -6,7 +8,7 @@ import { useModalDialog } from './useModalDialog';
 /**
  * Format relative or short time from timestamp
  */
-function formatTime(timestamp) {
+function formatTime(timestamp, locale) {
   if (!timestamp) return '';
   const now = Date.now();
   const diffMs = now - timestamp;
@@ -21,7 +23,7 @@ function formatTime(timestamp) {
   if (diffDays < 7) return `${diffDays}d ago`;
 
   const d = new Date(timestamp);
-  return d.toLocaleDateString(undefined, { month: 'short', day: 'numeric' });
+  return d.toLocaleDateString(locale, { month: 'short', day: 'numeric' });
 }
 
 /**
@@ -70,12 +72,15 @@ export default function RecentSessionsSidebar({
   onClearAllSessions,
   onLoadSample,
 }) {
+  const { uiText, locale } = useI18n();
+
   const [copiedId, setCopiedId] = useState(null);
   const [confirmClear, setConfirmClear] = useState(false);
   const panelRef = useModalDialog(isOpen, onClose);
 
   const handleCopy = async (e, session) => {
     e.stopPropagation();
+    if (typeof session.content !== 'string') return;
     try {
       await navigator.clipboard.writeText(session.content || '');
       setCopiedId(session.id);
@@ -87,6 +92,7 @@ export default function RecentSessionsSidebar({
 
   const handleDownload = (e, session) => {
     e.stopPropagation();
+    if (typeof session.content !== 'string') return;
     const blob = new Blob([session.content || ''], { type: 'text/markdown;charset=utf-8' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
@@ -122,7 +128,7 @@ export default function RecentSessionsSidebar({
         ref={panelRef}
         role="dialog"
         tabIndex={-1}
-        aria-label="Recent Conversions Sidebar"
+        aria-label={uiText("Recent Conversions Sidebar")}
       >
         {/* Top Header */}
         <div className="p-4 border-b border-[var(--border)] bg-[var(--surface-2)]/50 flex items-center justify-between">
@@ -132,16 +138,12 @@ export default function RecentSessionsSidebar({
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <h2 className="font-wireframe text-[15px] font-bold text-[var(--text)] leading-none">
-                  Recent Conversions
-                </h2>
+                <h2 className="font-wireframe text-[15px] font-bold text-[var(--text)] leading-none">{uiText("Recent Conversions")}</h2>
                 <span className="font-tech text-[10px] px-1.5 py-0.5 rounded-full border border-[var(--border-3)] bg-[var(--surface)] text-[var(--muted)]">
                   {sessions.length}/5
                 </span>
               </div>
-              <p className="font-tech text-[10px] text-[var(--faint)] mt-0.5">
-                Saved in local storage (last 5)
-              </p>
+              <p className="font-tech text-[10px] text-[var(--faint)] mt-0.5">{uiText("Saved in local storage (last 5)")}</p>
             </div>
           </div>
 
@@ -155,34 +157,30 @@ export default function RecentSessionsSidebar({
                       setConfirmClear(false);
                     }}
                     className="px-2 py-1 rounded text-[10px] font-tech font-semibold text-white bg-rose-600 hover:bg-rose-700 cursor-pointer shadow-2xs transition-colors"
-                    title="Confirm clearing all sessions"
-                  >
-                    Clear All
-                  </button>
+                    title={uiText("Confirm clearing all sessions")}
+                  >{uiText("Clear All")}</button>
                   <button
                     onClick={() => setConfirmClear(false)}
                     className="px-1.5 py-1 rounded text-[10px] font-tech text-[var(--muted)] hover:text-[var(--text)] border border-[var(--border-3)] bg-[var(--surface)] cursor-pointer"
-                  >
-                    Cancel
-                  </button>
+                  >{uiText("Cancel")}</button>
                 </div>
               ) : (
                 <button
                   onClick={() => setConfirmClear(true)}
                   className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-[11px] font-tech text-rose-600 dark:text-rose-400 hover:text-white hover:bg-rose-600 bg-rose-500/10 border border-rose-500/30 transition-all cursor-pointer shadow-2xs active:scale-95"
-                  title="Clear all stored conversion sessions"
+                  title={uiText("Clear all stored conversion sessions")}
                 >
                   <span className="text-[11px]">🗑</span>
-                  <span>Clear All</span>
+                  <span>{uiText("Clear All")}</span>
                 </button>
               )
             )}
 
             <button
               onClick={onClose}
-              aria-label="Close"
+              aria-label={uiText("Close")}
               className="w-7 h-7 rounded-md border border-[var(--border-3)] hover:border-[var(--text)] bg-[var(--surface)] flex items-center justify-center text-[12px] text-[var(--muted)] hover:text-[var(--text)] cursor-pointer transition-colors"
-              title="Close sidebar"
+              title={uiText("Close sidebar")}
             >
               ✕
             </button>
@@ -193,11 +191,9 @@ export default function RecentSessionsSidebar({
         <div className="px-4 py-2 bg-[var(--surface-2)] border-b border-[var(--border)] flex items-center justify-between text-[11px] font-tech text-[var(--muted)]">
           <span className="flex items-center gap-1.5">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 inline-block" />
-            <span>Browser Local Cache</span>
+            <span>{uiText("Browser Local Cache")}</span>
           </span>
-          <span className="text-[var(--faint)] text-[10px]">
-            Fast 1-click restore
-          </span>
+          <span className="text-[var(--faint)] text-[10px]">{uiText("Fast 1-click restore")}</span>
         </div>
 
         {/* Sessions List */}
@@ -405,16 +401,12 @@ export default function RecentSessionsSidebar({
               {/* Status pill badge */}
               <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full border border-amber-500/30 bg-amber-500/10 text-[10px] font-tech text-amber-600 dark:text-amber-400 mb-2.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-amber-500 inline-block animate-pulse" />
-                <span>Conversion shelf is clear</span>
+                <span>{uiText("Conversion shelf is clear")}</span>
               </div>
 
               {/* Friendly message */}
-              <h3 className="font-wireframe text-[16px] font-bold text-[var(--text)] mb-1 leading-snug">
-                Ready for your first document!
-              </h3>
-              <p className="font-sans text-[12px] text-[var(--muted)] max-w-[270px] leading-relaxed mb-4">
-                Whenever you convert a document, your last 5 conversions are automatically stored here for instant recall, side-by-side editing, and quick downloads.
-              </p>
+              <h3 className="font-wireframe text-[16px] font-bold text-[var(--text)] mb-1 leading-snug">{uiText("Ready for your first document!")}</h3>
+              <p className="font-sans text-[12px] text-[var(--muted)] max-w-[270px] leading-relaxed mb-4">{uiText("Whenever you convert a document, your last 5 conversions are automatically stored here for instant recall, side-by-side editing, and quick downloads.")}</p>
 
               {/* Action Button */}
               {onLoadSample && (
@@ -423,15 +415,13 @@ export default function RecentSessionsSidebar({
                   className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-amber-500/40 hover:border-amber-500 bg-amber-500/10 hover:bg-amber-500/20 text-[var(--text)] font-tech text-[11px] font-medium cursor-pointer shadow-2xs transition-all active:scale-95 mb-4"
                 >
                   <span className="text-amber-500 font-bold">✨</span>
-                  <span>Load Sample Report</span>
+                  <span>{uiText("Load Sample Report")}</span>
                 </button>
               )}
 
               {/* Supported formats chip bar */}
               <div className="w-full pt-3.5 border-t border-[var(--border)] flex flex-col items-center gap-1.5">
-                <span className="font-tech text-[9.5px] uppercase tracking-wider text-[var(--faint)]">
-                  Formats you can convert
-                </span>
+                <span className="font-tech text-[9.5px] uppercase tracking-wider text-[var(--faint)]">{uiText("Formats you can convert")}</span>
                 <div className="flex flex-wrap items-center justify-center gap-1 max-w-[260px]">
                   {['PDF', 'DOCX', 'XLSX', 'PPTX', 'HTML', 'CSV'].map((ext) => (
                     <span
@@ -447,7 +437,7 @@ export default function RecentSessionsSidebar({
               {/* LocalStorage privacy hint */}
               <div className="mt-3.5 flex items-center gap-1 text-[10px] font-tech text-[var(--faint)]">
                 <span>🔒</span>
-                <span>Saved locally in your browser cache</span>
+                <span>{uiText("Saved locally in your browser cache")}</span>
               </div>
             </div>
           ) : (
@@ -476,58 +466,64 @@ export default function RecentSessionsSidebar({
                         {ext}
                       </span>
                       <span className="font-medium text-[13px] text-[var(--text)] truncate font-sans" title={session.original_name}>
-                        {session.original_name || session.filename || 'Converted Document'}
+                        {session.original_name || session.filename || uiText("Converted Document")}
                       </span>
                     </div>
 
                     <span className="font-tech text-[10px] text-[var(--faint)] shrink-0">
-                      {formatTime(session.timestamp)}
+                      {uiText(formatTime(session.timestamp, locale))}
                     </span>
                   </div>
 
                   {/* Snippet preview */}
                   <div className="font-tech text-[11px] text-[var(--muted)] line-clamp-2 leading-relaxed bg-[var(--surface-2)]/60 rounded p-1.5 my-1.5 border border-[var(--border)] font-mono text-[10px] opacity-85">
-                    {session.content?.slice(0, 140) || 'Empty document content'}
+                    {typeof session.content === 'string'
+                      ? session.content.slice(0, 140) || uiText('Empty document content')
+                      : uiText('Conversion finished. Open this entry to retry downloading the result before automatic deletion.')}
                   </div>
 
                   {/* Metadata Stats */}
                   <div className="flex items-center justify-between pt-1 font-tech text-[10px] text-[var(--faint)]">
-                    <div className="flex items-center gap-2">
+                    {typeof session.content !== 'string' ? <span>{uiText('Download pending')}</span> : <div className="flex items-center gap-2">
                       <span className="text-amber-500 font-medium">
-                        ⚡ {session.tokens_est?.toLocaleString() || Math.round((session.content?.length || 0) / 4)} tok
-                      </span>
+                        ⚡ {session.tokens_est?.toLocaleString() || Math.round((session.content?.length || 0) / 4)}{uiText(" tok")}</span>
                       <span>·</span>
-                      <span>{session.content?.length?.toLocaleString() || 0} ch</span>
+                      <span>{session.content?.length?.toLocaleString() || 0}{uiText(" ch")}</span>
                       {session.quality_score && (
                         <>
                           <span>·</span>
                           <span className="text-emerald-500">Q:{session.quality_score}</span>
                         </>
                       )}
-                    </div>
+                    </div>}
 
                     {/* Action buttons */}
                     <div className="flex items-center gap-1">
+                      {typeof session.content !== 'string' ? (
+                        <button type="button" onClick={e => { e.stopPropagation(); onSelectSession(session); onClose?.(); }}
+                          className="tap-target text-[#2a78d6] underline bg-transparent border-0 text-[10px]">
+                          {uiText('Open recovery')}
+                        </button>
+                      ) : <>
                       <button
                         onClick={(e) => handleCopy(e, session)}
                         className="px-2 py-0.5 rounded border border-[var(--border-3)] hover:border-[var(--text)] bg-[var(--surface)] text-[9.5px] text-[var(--muted)] hover:text-[var(--text)] transition-colors cursor-pointer"
-                        title="Copy Markdown"
+                        title={uiText("Copy Markdown")}
                       >
-                        {copiedId === session.id ? '✓' : 'Copy'}
+                        {copiedId === session.id ? '✓' : uiText("Copy")}
                       </button>
 
                       <button
                         onClick={(e) => handleDownload(e, session)}
                         className="px-2 py-0.5 rounded border border-[var(--border-3)] hover:border-[var(--text)] bg-[var(--surface)] text-[9.5px] text-[var(--muted)] hover:text-[var(--text)] transition-colors cursor-pointer"
-                        title="Download .md file"
-                      >
-                        ↓ .md
-                      </button>
+                        title={uiText("Download .md file")}
+                      >{uiText("↓ .md")}</button>
+                      </>}
 
                       <button
                         onClick={(e) => handleDelete(e, session.id)}
                         className="w-5 h-5 flex items-center justify-center rounded hover:bg-rose-500/15 text-[var(--faint)] hover:text-rose-500 transition-colors cursor-pointer text-[11px]"
-                        title="Remove from history"
+                        title={uiText("Remove from history")}
                       >
                         ✕
                       </button>
@@ -537,7 +533,7 @@ export default function RecentSessionsSidebar({
                   {/* Active Indicator Badge */}
                   {isActive && (
                     <div className="absolute top-2 right-2 flex items-center gap-1 font-tech text-[9px] text-amber-500 font-semibold bg-amber-500/10 px-1.5 py-0.5 rounded border border-amber-500/30">
-                      <span>● Active</span>
+                      <span>{uiText("● Active")}</span>
                     </div>
                   )}
                 </div>
@@ -551,42 +547,37 @@ export default function RecentSessionsSidebar({
           {sessions.length > 0 && (
             <div className="flex items-center justify-between gap-2 pb-2 border-b border-[var(--border)]">
               <span className="text-[11px] text-[var(--muted)]">
-                {sessions.length} of 5 slots used
-              </span>
+                {sessions.length}{uiText(" of 5 slots used")}</span>
               {confirmClear ? (
                 <div className="flex items-center gap-1.5">
-                  <span className="text-[10.5px] text-rose-500 font-medium">Delete all?</span>
+                  <span className="text-[10.5px] text-rose-500 font-medium">{uiText("Delete all?")}</span>
                   <button
                     onClick={() => {
                       if (onClearAllSessions) onClearAllSessions();
                       setConfirmClear(false);
                     }}
                     className="px-2.5 py-1 rounded text-[10.5px] font-semibold text-white bg-rose-600 hover:bg-rose-700 cursor-pointer shadow-2xs transition-colors"
-                  >
-                    Yes, Clear All
-                  </button>
+                  >{uiText("Yes, Clear All")}</button>
                   <button
                     onClick={() => setConfirmClear(false)}
                     className="px-2 py-1 rounded text-[10.5px] text-[var(--muted)] hover:text-[var(--text)] border border-[var(--border-3)] bg-[var(--surface)] cursor-pointer"
-                  >
-                    Cancel
-                  </button>
+                  >{uiText("Cancel")}</button>
                 </div>
               ) : (
                 <button
                   onClick={() => setConfirmClear(true)}
                   className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-rose-500/30 bg-rose-500/10 hover:bg-rose-600 text-rose-600 dark:text-rose-400 hover:text-white font-tech text-[11px] font-medium cursor-pointer transition-all active:scale-95 shadow-2xs"
-                  title="Empty all stored conversion sessions from local storage"
+                  title={uiText("Empty all stored conversion sessions from local storage")}
                 >
                   <span className="text-[11px]">🗑</span>
-                  <span>Clear All History</span>
+                  <span>{uiText("Clear All History")}</span>
                 </button>
               )}
             </div>
           )}
           <div className="flex items-center justify-between text-[10.5px] text-[var(--faint)]">
-            <span>Max 5 sessions stored</span>
-            <span className="text-[var(--muted)]">Click item to open in reader</span>
+            <span>{uiText("Max 5 sessions stored")}</span>
+            <span className="text-[var(--muted)]">{uiText("Click item to open in reader")}</span>
           </div>
         </div>
       </aside>

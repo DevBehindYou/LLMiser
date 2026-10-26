@@ -3,6 +3,7 @@
 // tests drive it directly.
 
 import { MAX_QUEUE_FILES, validateUpload } from '../formats.js';
+import { resultReference } from './resultReference.js';
 
 /**
  * @typedef {'pending'|'converting'|'done'|'error'} ItemStatus
@@ -90,6 +91,9 @@ export function queueReducer(state, action) {
     case 'jobStarted':
       return patchItem(state, action.id, { status: 'converting', progress: 5, errorMsg: null });
 
+    case 'resultRetained':
+      return patchItem(state, action.id, { recovery: { ...resultReference(action.result), profile: action.profile } });
+
     case 'jobProgress': {
       // Only forward, and only while the item is still converting.
       const item = state.items.find((i) => i.id === action.id);
@@ -100,7 +104,7 @@ export function queueReducer(state, action) {
     case 'jobSucceeded': {
       // The file may have been removed while its request was in flight.
       if (!state.items.some((item) => item.id === action.id)) return state;
-      const withItem = patchItem(state, action.id, { status: 'done', progress: 100 });
+      const withItem = patchItem(state, action.id, { status: 'done', progress: 100, errorMsg: null });
       const { results, isNew } = upsertResult(withItem.results, { ...action.result, id: action.id });
       return {
         ...withItem,
@@ -147,6 +151,10 @@ export function queueReducer(state, action) {
       if (state.results.some((r) => r.id === session.id)) {
         return { ...state, activeResultId: session.id };
       }
+      if (state.items.some(item => item.id === session.id) || state.items.length >= MAX_QUEUE_FILES) return state;
+      const reference = resultReference(session);
+      const hasContent = typeof session.content === 'string';
+      if (!hasContent && !reference.job_id) return state;
       const result = {
         id: session.id,
         filename: session.filename,
@@ -154,6 +162,7 @@ export function queueReducer(state, action) {
         content: session.content,
         tokens_est: session.tokens_est,
         quality_score: session.quality_score,
+        ...reference,
       };
       // Mirror the restored result in the queue so the rail lists it.
       const items = state.items.some((item) => item.id === session.id)
@@ -163,14 +172,15 @@ export function queueReducer(state, action) {
             {
               id: session.id,
               name: session.original_name,
-              size: session.fileSize || session.content.length,
+              size: session.fileSize || session.content?.length || 0,
               file: null,
-              status: 'done',
-              progress: 100,
-              errorMsg: null,
+              status: hasContent ? 'done' : 'error',
+              progress: hasContent ? 100 : 0,
+              errorMsg: hasContent ? null : 'Conversion finished. Retry retrieving the saved result.',
+              recovery: reference.job_id ? { ...reference, profile: session.profile } : null,
             },
           ];
-      return { items, results: [...state.results, result], activeResultId: session.id };
+      return { items, results: hasContent ? [...state.results, result] : state.results, activeResultId: hasContent ? session.id : state.activeResultId };
     }
 
     default:
@@ -184,10 +194,10 @@ export function selectActiveResult(state) {
   return state.results.find((r) => r.id === state.activeResultId) || state.results[0] || null;
 }
 
-/** Items that "Convert all" should (re)process. Restored sessions have no file. */
+/** Failed retrievals resume the saved result, including after a browser restart. */
 export function selectConvertible(state) {
   return state.items.filter(
-    (item) => item.file && (item.status === 'pending' || item.status === 'error')
+    (item) => (item.file || item.recovery?.job_id) && (item.status === 'pending' || item.status === 'error')
   );
 }
 

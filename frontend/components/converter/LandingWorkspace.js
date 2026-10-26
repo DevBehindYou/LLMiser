@@ -1,4 +1,6 @@
 'use client';
+import { useI18n } from '../i18n/I18nContext';
+
 
 import React from 'react';
 import Link from 'next/link';
@@ -9,6 +11,8 @@ const FORMAT_TAGS = ['PDF', 'DOCX', 'PPTX', 'XLSX', 'HTML', 'CSV', 'PNG', 'ZIP']
 
 /** Desktop mode 1a: hero band above a 50/50 upload / reader workspace. */
 export default function LandingWorkspace({ theme, converter, exporter, ui, onBrowse }) {
+  const { uiText } = useI18n();
+
   const { items, isBusy, hasConvertible } = converter;
 
   return (
@@ -24,17 +28,11 @@ export default function LandingWorkspace({ theme, converter, exporter, ui, onBro
           }}
         />
 
-        <div className="font-tech text-[10px] tracking-[0.14em] text-[var(--faint)] uppercase">
-          FREE · NO SIGN-UP · OPEN SOURCE
-        </div>
+        <div className="font-tech text-[10px] tracking-[0.14em] text-[var(--faint)] uppercase">{uiText("FREE · NO SIGN-UP · OPEN SOURCE")}</div>
 
-        <h2 className="font-wireframe text-[34px] sm:text-[38px] leading-tight font-bold tracking-tight text-[var(--text)] mt-2 max-w-xl m-0">
-          Optimize LLM costs. Start with your documents.
-        </h2>
+        <h2 className="font-wireframe text-[34px] sm:text-[38px] leading-tight font-bold tracking-tight text-[var(--text)] mt-2 max-w-xl m-0">{uiText("Optimize LLM costs. Start with your documents.")}</h2>
 
-        <p className="text-[13.5px] text-[var(--muted)] leading-relaxed max-w-lg mt-2 mb-0 font-sans">
-          LLMiser turns PDFs, Office files, images and ZIPs into clean Markdown. Trim unnecessary context before sending it to AI. Free, with no sign-up.
-        </p>
+        <p className="text-[13.5px] text-[var(--muted)] leading-relaxed max-w-lg mt-2 mb-0 font-sans">{uiText("LLMiser turns PDFs, Office files, images and ZIPs into clean Markdown. Trim unnecessary context before sending it to AI. Free, with no sign-up.")}</p>
       </div>
 
       {/* 50/50 Workspace Grid */}
@@ -42,8 +40,8 @@ export default function LandingWorkspace({ theme, converter, exporter, ui, onBro
         {/* Left Pane: UPLOAD */}
         <div className="border-r-[1.5px] border-[var(--text)] dark:border-[var(--border-3)] p-4 flex flex-col gap-3">
           <div className="font-tech text-[10.5px] text-[var(--faint)] flex items-center justify-between">
-            <span>UPLOAD DOCUMENTS</span>
-            <span className="text-[var(--muted)]">Profile: {converter.profile}</span>
+            <span>{uiText("UPLOAD DOCUMENTS")}</span>
+            <span className="text-[var(--muted)]">{uiText("Profile: ")}{uiText(converter.profile)}</span>
           </div>
 
           <Dropzone
@@ -55,10 +53,8 @@ export default function LandingWorkspace({ theme, converter, exporter, ui, onBro
             <div className="w-[44px] h-[44px] rounded-full border-[1.5px] border-[#bdb4de] bg-gradient-to-br from-[#cfc8ef] to-[#eec9d6] flex items-center justify-center shadow-sm mb-2">
               <span className="text-[#2d2740] text-[18px]">↓</span>
             </div>
-            <div className="font-wireframe text-[18px] font-bold text-[var(--text)]">Drop files here</div>
-            <div className="text-[12.5px] text-[var(--muted)] font-sans mt-0.5">
-              or click to choose — up to 20 files
-            </div>
+            <div className="font-wireframe text-[18px] font-bold text-[var(--text)]">{uiText("Drop files here")}</div>
+            <div className="text-[12.5px] text-[var(--muted)] font-sans mt-0.5">{uiText("or click to choose — up to 20 files")}</div>
             <div className="flex flex-wrap gap-1.5 justify-center max-w-xs mt-3 font-tech text-[9.5px] text-[var(--faint)]">
               {FORMAT_TAGS.map((tag) => (
                 <span key={tag} className="border border-[var(--border-3)] rounded px-1.5 py-0.5 bg-[var(--surface-2)]">
@@ -75,16 +71,14 @@ export default function LandingWorkspace({ theme, converter, exporter, ui, onBro
               disabled={isBusy || !hasConvertible}
               className="flex-1 py-2 rounded-full aurora-btn font-sans text-[13.5px] font-semibold cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed shadow-sm"
             >
-              {isBusy ? 'Converting…' : `Convert all (${items.length})`}
+              {isBusy ? uiText("Converting…") : uiText("Convert all ({v0})", { v0: items.length })}
             </button>
             <button
               type="button"
               onClick={converter.clearAll}
               disabled={!items.length}
               className="px-4 py-2 rounded-full border border-[var(--border-3)] text-[var(--muted)] hover:text-[var(--text)] font-sans text-[13.5px] cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed bg-transparent"
-            >
-              Clear
-            </button>
+            >{uiText("Clear")}</button>
           </div>
         </div>
 
@@ -100,20 +94,16 @@ export default function LandingWorkspace({ theme, converter, exporter, ui, onBro
 
       {/* Bottom Link Bar (1a) */}
       <div className="px-4 py-2.5 border-t-[1.5px] border-[var(--text)] dark:border-[var(--border-3)] flex items-center gap-3 text-[13px] text-[var(--muted)] font-sans bg-[var(--surface-2)]">
-        <span>How can document preparation reduce LLM input costs?</span>
+        <span>{uiText("How can document preparation reduce LLM input costs?")}</span>
         <Link
           href="/usecase"
           className="border border-[var(--border-3)] rounded-full px-3 py-0.5 text-[var(--text)] hover:bg-[var(--surface)] transition-colors no-underline text-[12px]"
-        >
-          Why Use It
-        </Link>
+        >{uiText("Why Use It")}</Link>
         <button
           type="button"
           onClick={ui.openBlog}
           className="text-[#2a78d6] hover:underline bg-transparent border-0 p-0 cursor-pointer text-[12.5px]"
-        >
-          Blog
-        </button>
+        >{uiText("Blog")}</button>
       </div>
     </div>
   );

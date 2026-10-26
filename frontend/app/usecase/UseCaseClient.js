@@ -6,6 +6,7 @@ import LLMiserHeader from '../../components/LLMiserHeader';
 import LLMiserFooter from '../../components/LLMiserFooter';
 import MobileDock from '../../components/MobileDock';
 import { useThemeViewModel } from '../../viewmodels/useThemeViewModel';
+import { EnglishContent } from '../../components/i18n/I18nContext';
 const BlogModal = dynamic(() => import('../../components/BlogModal'), { ssr: false });
 const ApiModal = dynamic(() => import('../../components/ApiModal'), { ssr: false });
 const LegalModal = dynamic(() => import('../../components/LegalModal'), { ssr: false });
@@ -45,7 +46,7 @@ export default function UseCaseClient({ children }) {
       />
 
       {/* ── Modals ── */}
-      {blogOpen && <BlogModal isOpen onClose={() => setBlogOpen(false)} />}
+      {blogOpen && <EnglishContent><BlogModal isOpen onClose={() => setBlogOpen(false)} /></EnglishContent>}
       {apiOpen && <ApiModal isOpen onClose={() => setApiOpen(false)} />}
       {legalModal && (
         <LegalModal isOpen onClose={() => setLegalModal(null)} initialTab={legalModal} />

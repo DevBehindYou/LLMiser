@@ -43,6 +43,47 @@ test('every public work route denies requests before reading bodies or reaching 
   assert.deepEqual(actions,['upload','convert','start','advance','wake']);
 }));
 
+test('saved-result downloads re-sign all outputs and only redirect to a registered output', async () => isolated(async () => {
+  const handler = await route('jobs/[id]/download');
+  let deleted = false; let processing = false;
+  const signed = [];
+  globalThis.fetch = async (url, init) => {
+    if (url.includes('/rest/v1/jobs?')) return json([{ job_id: params.params.id, status: deleted ? 'DELETED' : processing ? 'PROCESSING' : 'COMPLETED', source_type: 'ARCHIVE', files_deleted_at: deleted ? '2026-10-21T00:00:00Z' : null }]);
+    if (url.includes('/rest/v1/file_objects?')) return json([{ file_id: 'registered' }]);
+    if (url.includes('/rest/v1/work_items?')) return json([{ result: {
+      filename: 'project.md', primary_output: 'jobs/output/part-1.md', outputs: [
+        { name: 'project-part-001.md', path: 'jobs/output/part-1.md' },
+        { name: 'project-part-002.md', path: 'jobs/output/part-2.md' },
+        { name: 'PROJECT_INDEX.md', path: 'jobs/output/index.md' },
+        { name: 'manifest.json', path: 'jobs/output/manifest.json' },
+      ],
+    } }]);
+    assert.match(url, /\/storage\/v1\/object\/sign\//);
+    assert.equal(JSON.parse(init.body).expiresIn, 600);
+    signed.push(url);
+    return json({ signedURL: '/object/sign/test-bucket/output?token=fresh' });
+  };
+  const endpoint = `https://llmiser.test/api/jobs/${params.params.id}/download`;
+  const response = await handler.GET(new Request(endpoint), params);
+  assert.equal(response.status, 200); assert.equal(response.headers.get('cache-control'), 'no-store');
+  const body = await response.json();
+  assert.equal(body.source_type, 'ARCHIVE'); assert.equal(body.result.outputs.length, 4);
+  assert.equal(body.download_url, body.result.download_url, 'legacy primary-link response stays supported');
+  assert.equal(signed.length, 4); assert.doesNotMatch(JSON.stringify(body), /jobs\/output/);
+  const named = await handler.GET(new Request(endpoint + '?output=manifest.json'), params);
+  assert.equal(named.status, 307); assert.match(named.headers.get('location'), /download=manifest.json/);
+  assert.equal(named.headers.get('cache-control'), 'no-store');
+  assert.equal(signed.length, 5, 'a named download signs only the selected output');
+  const unknown = await handler.GET(new Request(endpoint + '?output=https%3A%2F%2Fevil.test'), params);
+  assert.equal(unknown.status, 404); assert.equal(unknown.headers.get('location'), null);
+  assert.equal(signed.length, 5, 'unknown outputs do not create any signed links');
+  deleted = true;
+  const gone = await handler.GET(new Request(endpoint), params);
+  assert.equal(gone.status, 410); assert.equal(gone.headers.get('cache-control'), 'no-store');
+  deleted = false; processing = true;
+  assert.equal((await handler.GET(new Request(endpoint), params)).status, 409);
+}));
+
 test('missing admission migration returns a safe 503 without multipart fallback or dispatch',async()=>isolated(async()=>{
   let calls=0; globalThis.fetch=async()=>{calls++;return json({message:'private database failure'},404);};
   const response=await(await route('uploads/create')).POST(uploadRequest('{}'));

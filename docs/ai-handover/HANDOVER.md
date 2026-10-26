@@ -1,6 +1,10 @@
 # LLMiser agent handover
 
-Updated 21 October 2026. Start with [../START_HERE.md](../START_HERE.md).
+Updated 22 October 2026. Start with [../START_HERE.md](../START_HERE.md).
+
+**Current continuation:** [optimization plan](../LLMISER_OPTIMIZATION_PLAN.md) records the completed-result recovery branch, actual checks and remaining implementation queue. Production remains revision `ae3aa59`; its approved redeploy activated Analytics. See [Analytics and controller access](../LLMISER_ANALYTICS_CONTROLLER.md). Authenticated controller operations have not been accepted by this review. Blogs and their visuals are complete and were not edited in this continuation.
+
+**Current Supabase continuation:** [cron/wake implementation and live evidence](../LLMISER_CRON_WAKE.md) supersedes pending keep-warm/tick cutover instructions below. The four existing jobs are retained; OCR URLs target LLMiser, the minute tick skips idle HTTP calls, and the recorder runs every five minutes. Cleanup retention and old-service retirement were not changed. Source is on `codex/supabase-cron-optimization`, independent of result-recovery PR #1.
 
 **Search migration completed on 21 October:** Google accepted the Change of Address, processed the 13-page sitemap and accepted homepage indexing. Redirect cleanup is deployed and 190 live HTTP checks passed. Read [current indexing policy and evidence](../LLMISER_SEARCH_MIGRATION.md); it supersedes older pending Search Console and blog-hop notes below. Keep legacy redirects crawlable.
 
@@ -8,7 +12,7 @@ Updated 21 October 2026. Start with [../START_HERE.md](../START_HERE.md).
 
 The user requested a full app rebrand from MDify to **LLMiser**, presented as an **LLM cost optimizer**, with the **11 — Prompt L** icon. All implementation work belongs in `C:/Users/temp/Documents/GitHub/LLMiser`. The intended new host is `https://llmiser.devbehindyou.com`, with public MDify URLs redirected to equivalent new paths after deployment.
 
-The app optimizes document preparation: conversion to editable Markdown, Clean/Compact profiles, relevant-context selection and output review. It does not implement a model proxy, API billing integration, model routing, prompt caching or a browser extension. Blog education may discuss these broader techniques, but must distinguish them from LLMiser capabilities.
+The app optimizes document preparation: conversion to editable Markdown, Clean/Compact profiles, relevant-context selection and output review. It does not implement a model proxy, API billing integration, model routing or prompt caching. A separate Chrome extension development build was added on `codex/chrome-extension` on 24 October 2026; see [the extension handover](../LLMISER_CHROME_EXTENSION.md) for scope and pending native/store release checks. It is not publicly released. Blog education may discuss broader techniques, but must distinguish them from shipped LLMiser capabilities.
 
 The original app agent preserved blog content; the subsequent content agent completed all eight articles and 48 SVGs. The owner then supplied a deployment report for analysis. Current work reconciles documentation and independently checks public responses; keep-warm changes remain assigned to a separate agent. See [deployment review](../LLMISER_DEPLOYMENT_REVIEW.md).
 

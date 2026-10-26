@@ -1,4 +1,6 @@
 'use client';
+import { useI18n } from '../i18n/I18nContext';
+
 
 import React, { useMemo } from 'react';
 import Dropzone from './Dropzone';
@@ -8,6 +10,8 @@ import ReaderPane from './ReaderPane';
 
 /** Desktop mode 1c: queue rail / dropzone + profile / reader (densest). */
 export default function ThreeColumnWorkspace({ converter, exporter, ui, onBrowse }) {
+  const { uiText } = useI18n();
+
   const { results } = converter;
   const resultIds = useMemo(() => new Set(results.map((r) => r.id)), [results]);
 
@@ -31,9 +35,7 @@ export default function ThreeColumnWorkspace({ converter, exporter, ui, onBrowse
 
         {/* Col 2: DROPZONE & PROFILE */}
         <div className="min-w-0 border-b-[1.5px] lg:border-b-0 lg:border-r-[1.5px] border-[var(--text)] dark:border-[var(--border-3)] p-4 flex flex-col gap-3">
-          <h2 className="font-wireframe text-[22px] leading-tight font-bold tracking-tight text-[var(--text)] m-0">
-            Turn any document into clean Markdown.
-          </h2>
+          <h2 className="font-wireframe text-[22px] leading-tight font-bold tracking-tight text-[var(--text)] m-0">{uiText("Turn any document into clean Markdown.")}</h2>
 
           <Dropzone
             onFiles={converter.addFiles}
@@ -44,10 +46,8 @@ export default function ThreeColumnWorkspace({ converter, exporter, ui, onBrowse
             <div className="w-[38px] h-[38px] rounded-full border-[1.5px] border-[#bdb4de] bg-gradient-to-br from-[#cfc8ef] to-[#eec9d6] flex items-center justify-center shadow-sm mb-2">
               <span className="text-[#2d2740] text-[16px]">↓</span>
             </div>
-            <div className="font-wireframe text-[16px] font-bold text-[var(--text)]">Drop files here</div>
-            <div className="text-[11.5px] text-[var(--muted)] font-sans mt-0.5">
-              PDF, DOCX, PPTX, XLSX, HTML, CSV, images
-            </div>
+            <div className="font-wireframe text-[16px] font-bold text-[var(--text)]">{uiText("Drop files here")}</div>
+            <div className="text-[11.5px] text-[var(--muted)] font-sans mt-0.5">{uiText("PDF, DOCX, PPTX, XLSX, HTML, CSV, images")}</div>
           </Dropzone>
 
           <ProfileSelector profile={converter.profile} onChange={converter.setProfile} />
