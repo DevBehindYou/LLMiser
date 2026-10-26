@@ -18,7 +18,7 @@ after(() => {
 });
 const require = createRequire(import.meta.url);
 const { transform } = require('next/dist/build/swc');
-const files = { I18nContext:'i18n/I18nContext', LanguageSelector:'i18n/LanguageSelector', ProfileSelector:'converter/ProfileSelector', PreviewBoundary:'PreviewBoundary', LegalDocument:'LegalDocument', ResultOutputs:'converter/ResultOutputs', ExportActions:'converter/ExportActions' };
+const files = { I18nContext:'i18n/I18nContext', LanguageSelector:'i18n/LanguageSelector', ProfileSelector:'converter/ProfileSelector', PreviewBoundary:'PreviewBoundary', LegalDocument:'LegalDocument', ResultOutputs:'converter/ResultOutputs', ExportActions:'converter/ExportActions', PreviewModeToggle:'converter/PreviewModeToggle' };
 for (const [name,relative] of Object.entries(files)) {
   const input = new URL(`../components/${relative}.js`,import.meta.url);
   let source = fs.readFileSync(input,'utf8');
@@ -38,6 +38,7 @@ const { PlainTextPreview } = await load('PreviewBoundary');
 const { default:Legal } = await load('LegalDocument');
 const { default:Outputs } = await load('ResultOutputs');
 const { default:Exports } = await load('ExportActions');
+const { default:Modes } = await load('PreviewModeToggle');
 const dictionaries = readDictionaries();
 const scope = (locale,child) => React.createElement(I18nContext.Provider,{value:{locale,requested:locale,messages:dictionaries[locale],pending:false,blog:false,setLocale:()=>{}}},child);
 
@@ -95,5 +96,13 @@ test('recovery and export labels translate without changing original output name
     const controls = renderToStaticMarkup(scope(locale,React.createElement(Exports,{hasActive:true,hasResults:true,copied:false})));
     assert.ok(controls.includes(dictionaries[locale]['Copy to clipboard']));
     assert.ok(controls.includes(dictionaries[locale]['Download .md file']));
+  }
+});
+
+test('all preview mode labels and tooltips translate while the selected mode stays unchanged',()=>{
+  for (const locale of Object.keys(dictionaries)) {
+    const html = renderToStaticMarkup(scope(locale,React.createElement(Modes,{mode:'raw',onChange:()=>{}})));
+    for (const key of ['Split','Rendered','Raw','Side-by-side Raw and Rendered view','Rendered Markdown view','Raw Markdown code view']) assert.ok(html.includes(dictionaries[locale][key]), `${locale}: ${key}`);
+    assert.equal((html.match(/aria-pressed="true"/g)||[]).length,1);
   }
 });

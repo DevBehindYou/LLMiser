@@ -48,9 +48,9 @@ function PreviewModeToggle({ mode, onChange, variant = 'landing' }) {
               ? 'bg-[var(--text)] text-[var(--bg)] font-medium'
               : 'text-[var(--muted)] bg-transparent'
           }`}
-          title={style.titles ? m.title : undefined}
+          title={style.titles ? uiText(m.title) : undefined}
         >
-          {m.label}
+          {uiText(m.label)}
         </button>
       ))}
     </div>
