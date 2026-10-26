@@ -41,3 +41,7 @@ tests/load/results/
 
 # ── Local AI tooling (machine-specific paths) ─────────────────────────────────
 .claude/
+
+# Reproducible Chrome extension output and local UI preview
+extension/.preview/
+extension/artifacts/

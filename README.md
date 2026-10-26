@@ -189,6 +189,8 @@ LLMiser is maintained by **[DevBehindYou](https://github.com/DevBehindYou)** and
 
 Found a bug or have an idea? [Open an issue](https://github.com/DevBehindYou/LLMiser/issues) or contact [devbehindyou@gmail.com](mailto:devbehindyou@gmail.com). Avoid attaching private documents or credentials to public issues.
 
+The [Chrome extension development build](extension/README.md) offers a single file Converter popup, AI-site detection and a manual Paste button. It is not published in the Chrome Web Store; native acceptance remains pending.
+
 Developer and AI-agent setup notes live in [docs/START_HERE.md](docs/START_HERE.md). Keyword evidence and editorial choices are recorded in [the README research notes](docs/README_KEYWORD_RESEARCH.md).
 
 <p align="center"><a href="https://llmiser.devbehindyou.com"><strong>Drop a document. Review the Markdown. Make every token count. →</strong></a></p>

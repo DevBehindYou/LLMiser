@@ -12,7 +12,7 @@ Updated 22 October 2026. Start with [../START_HERE.md](../START_HERE.md).
 
 The user requested a full app rebrand from MDify to **LLMiser**, presented as an **LLM cost optimizer**, with the **11 — Prompt L** icon. All implementation work belongs in `C:/Users/temp/Documents/GitHub/LLMiser`. The intended new host is `https://llmiser.devbehindyou.com`, with public MDify URLs redirected to equivalent new paths after deployment.
 
-The app optimizes document preparation: conversion to editable Markdown, Clean/Compact profiles, relevant-context selection and output review. It does not implement a model proxy, API billing integration, model routing, prompt caching or a browser extension. Blog education may discuss these broader techniques, but must distinguish them from LLMiser capabilities.
+The app optimizes document preparation: conversion to editable Markdown, Clean/Compact profiles, relevant-context selection and output review. It does not implement a model proxy, API billing integration, model routing or prompt caching. A separate Chrome extension development build was added on `codex/chrome-extension` on 24 October 2026; see [the extension handover](../LLMISER_CHROME_EXTENSION.md) for scope and pending native/store release checks. It is not publicly released. Blog education may discuss broader techniques, but must distinguish them from shipped LLMiser capabilities.
 
 The original app agent preserved blog content; the subsequent content agent completed all eight articles and 48 SVGs. The owner then supplied a deployment report for analysis. Current work reconciles documentation and independently checks public responses; keep-warm changes remain assigned to a separate agent. See [deployment review](../LLMISER_DEPLOYMENT_REVIEW.md).
 
