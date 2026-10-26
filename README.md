@@ -189,7 +189,7 @@ Give the converter time to start after an idle period and watch the status indic
 
 ## Open source, made by DevBehindYou
 
-LLMiser is maintained by **[DevBehindYou](https://github.com/DevBehindYou)** and licensed under the **[GNU General Public License v3.0](LICENSE)**. Previously named MDify, the app now lives at [llmiser.devbehindyou.com](https://llmiser.devbehindyou.com).
+LLMiser is maintained by **[DevBehindYou](https://github.com/DevBehindYou)** and licensed under the **[GNU General Public License v3.0](LICENSE)**. Open the app at [llmiser.devbehindyou.com](https://llmiser.devbehindyou.com).
 
 Found a bug or have an idea? [Open an issue](https://github.com/DevBehindYou/LLMiser/issues) or contact [devbehindyou@gmail.com](mailto:devbehindyou@gmail.com). Avoid attaching private documents or credentials to public issues.
 

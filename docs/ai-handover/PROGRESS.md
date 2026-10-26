@@ -1,79 +1,60 @@
-# Progress and remaining work
+# LLMiser progress and remaining work
 
-Updated 22 October 2026. Status distinguishes local checks, prior-agent reports and independently observed public responses. See [deployment review](../LLMISER_DEPLOYMENT_REVIEW.md).
+Updated 26 October 2026. This is the current tracker. Earlier phase-specific numbers remain in their reports; they are not the current deployment state.
 
-**Optimization update:** retained completed-result retrieval is implemented on `codex/result-download-recovery`, without a production feature deployment. [Plan and acceptance evidence](../LLMISER_OPTIMIZATION_PLAN.md). The approved redeploy of production `ae3aa59` activated Web Analytics, verified with one visitor and two test page views. [Controller access and Analytics details](../LLMISER_ANALYTICS_CONTROLLER.md).
+## Completed and released
 
-**Supabase update:** OCR Vault and tick targets now use LLMiser. The minute scheduler skips idle HTTP calls and suppresses overlapping requests; the existing recorder captures outcomes every five minutes. [Cron/wake evidence and implementation](../LLMISER_CRON_WAKE.md). Cleanup rules and the four-job count are unchanged; service retirement remains separate.
-
-**Later update:** [Search migration](../LLMISER_SEARCH_MIGRATION.md) is active in Google; the sitemap succeeded (13 pages) and homepage indexing was requested. Redirect cleanup is deployed, including direct Vercel alias redirects and the blog index fix; 190 live checks passed. Actual replacement of old Google results awaits recrawling. Earlier pending/search and extra-hop entries below are historical.
-
-## Phase status
-
-| Workstream | Status | Evidence / next action |
-| --- | --- | --- |
-| Source copy and compatibility | Complete locally | MDify `ce56f5c` baseline; infrastructure contracts preserved |
-| App UI, icon and domain constants | Complete locally | Prompt L assets, LLMiser chrome and selected canonical origin |
-| SEO/GEO and cost messaging | Complete locally | Metadata, JSON-LD, sitemap, robots, llms.txt and server copy |
-| Redirect implementation and activation | Verified live | Public aliases redirect directly with 308; query preserved; `/blog` extra hop fixed; 190 checks passed |
-| App validation | Complete for this phase | [Validation report](../LLMISER_VALIDATION.md); 88 HTTP checks |
-| Agent handover | Updated for deployment phase | [Handover](HANDOVER.md), this tracker and [deployment review](../LLMISER_DEPLOYMENT_REVIEW.md); original blog prompt is historical |
-| Blog text and frontmatter | **Complete: 8/8** | [Blog rebrand report](BLOG_REBRAND_REPORT.md) |
-| Blog banners | **Complete: 8/8** | New LLMiser banner frame, rebuilt from specs |
-| Supporting blog figures | **Complete: 40/40** | Rebuilt with the LLMiser signature; numbers re-verified |
-| Generated index and discovery sync after blog edits | Complete | `npm run blog:index`, `blog:check` OK; `llms.txt` blog list updated |
-| Validation of the blog rebrand | Complete locally | 221/221 tests, lint, build, 88 HTTP checks, dialog and article pages in both themes and at 375 px |
-| Article page banner and inline Markdown | Complete locally | `/blog/{slug}` now renders the banner, bold TL;DR keywords and caption links |
-| Commit/publication | Complete in subsequent phase | Local commits `e999388`, `3ed4ded`; live frontend observed. Remote branch equality not rechecked |
-| Frontend hosting | Live | Canonical `https://llmiser.devbehindyou.com`; Vercel alias redirects there; Analytics ingestion verified 22 October |
-| Six new backend deployments / environment | Reported verified by deployment agent | Hostnames in local env agree; no secret/auth tests repeated in this review |
-| Keep-warm Vault URLs | Complete live | Both new OCR targets; request IDs correlated to HTTP 200 |
-| Custom domain DNS/TLS | Verified live | Public DNS, trusted certificate, 13 canonical pages; [verification record](../LLMISER_DOMAIN_VERIFICATION.md) |
-| Tick scheduler cutover | Complete live | Canonical LLMiser target via demand-driven dispatcher; idle maintenance stays in Postgres |
-| Legacy public-host redirects | Verified live for tested paths | Public paths redirect directly; old health API remains same-origin and noindex |
-| Old-service retirement | Pending | Complete custom-domain conversion validation and dependency audit first |
-| Live conversion/storage on Vercel origin | Reported passed: HTML, PNG, ZIP | Prior agent timings 4.1 s / 5.3 s / 3.2 s; no new jobs created in this review |
-| Full custom-domain acceptance / cleanup | Pending | Include scanned PDF, admin and actual cleanup outcome |
-| Search Console/Bing setup and post-launch monitoring | Google migration submitted | Change of Address accepted and sitemap processed; recrawl monitoring and Bing remain open |
-
-## Article inventory
-
-The eight articles keep their slugs, `date: 2026-10-03`, `draft: false` and author `DevBehindYou`. Each has one banner and five supporting figures. Source: `frontend/content/blog/<slug>.md`. Assets: `frontend/public/blog/<slug>/`.
-
-| Slug | Article text | Banner | Supporting figures | New-phase QA |
-| --- | --- | --- | --- | --- |
-| `document-to-llm-pipeline` | Complete: LLMiser, caching rates, 1M-context note, Chroma URL | Complete | Complete: 5 | Check PASS, 0 warnings |
-| `hidden-token-tax-rag-pipelines` | Complete: excerpt claim qualified, Chroma URLs | Complete (sub line shortened) | Complete: 5 | Check PASS, 0 warnings; mobile checked |
-| `markdown-vs-pdf-llm-tokens` | Complete: rewritten around the documented worked example | Complete (hook no longer a % promise) | Complete: 5 | Check PASS, 0 warnings; light 375 px checked |
-| `rag-cost-optimization` | Complete: LLMiser, caching rates, capability limits | Complete (labels moved inside card) | Complete: 5 | Check PASS, 0 warnings; desktop checked |
-| `reduce-llm-api-costs` | Complete: new title, prices and worked example recomputed | Complete (stamp "trimmed", waste lines struck) | Complete: 5 | Check PASS, 0 warnings; desktop checked |
-| `reduce-llm-token-usage` | Complete: token sources, tool-use range, caching rates | Complete | Complete: 5 | Check PASS, 0 warnings |
-| `why-pdfs-are-expensive-for-ai` | Complete: Bedrock context for 7x, tiers, LLMiser | Complete | Complete: 5 | Check PASS, 0 warnings |
-| `why-your-llm-bill-is-too-high` | Complete: new title, no 2x promise, tiers incl. Haiku 5.5 | Complete (2x badge replaced by "leaks" lens) | Complete: 5 | Check PASS, 0 warnings; desktop checked |
-
-### Exact SVG files
-
-Each directory also contains `banner.svg`.
-
-| Directory / slug | Five supporting figures |
+| Workstream | Current evidence |
 | --- | --- |
-| `document-to-llm-pipeline` | `chunk-record.svg`, `context-budget.svg`, `mixed-pdf.svg`, `naive-vs-pipeline.svg`, `tokens-per-question.svg` |
-| `hidden-token-tax-rag-pipelines` | `budget.svg`, `eight-knobs.svg`, `one-relevant-sentence.svg`, `overlap-inflation.svg`, `tax-funnel.svg` |
-| `markdown-vs-pdf-llm-tokens` | `chunk-boundaries.svg`, `extraction-noise.svg`, `reading-order.svg`, `tokens-per-page.svg`, `when-to-send-pdf.svg` |
-| `rag-cost-optimization` | `context-per-question.svg`, `contextual-retrieval.svg`, `once-vs-monthly.svg`, `rag-cost-map.svg`, `where-to-optimize.svg` |
-| `reduce-llm-api-costs` | `cache-math.svg`, `output-price.svg`, `safe-loop.svg`, `seven-levers.svg`, `worked-example.svg` |
-| `reduce-llm-token-usage` | `audit-loop.svg`, `history-growth.svg`, `pdf-modes.svg`, `request-anatomy.svg`, `six-fixes.svg` |
-| `why-pdfs-are-expensive-for-ai` | `fix-flow.svg`, `page-anatomy.svg`, `repeats.svg`, `seven-times.svg`, `table-fragments.svg` |
-| `why-your-llm-bill-is-too-high` | `audit-checklist.svg`, `bloated-request.svg`, `bloated-vs-lean.svg`, `model-tiers.svg`, `six-leaks.svg` |
+| LLMiser app rebrand and Prompt L assets | Released; working source is this repository |
+| Blog content and visuals | Complete: 8 articles, 8 banners, 40 figures; English; unchanged by localization/retirement |
+| Download recovery | PR #1 integrated and released through PR #5 |
+| Cron source and live cutover | PR #2 merged; live URL/idle-dispatch changes were applied in the earlier cron task |
+| Wake request coalescing | PR #3 integrated and released through PR #5 |
+| Extension source 0.2.0 | PR #4 merged; native acceptance and store publication are still pending |
+| Six-language web app | PR #5 released; English US, German, Japanese, Spanish, Russian, Simplified Chinese; 628 messages each |
+| Final display-label fixes | PR #6 merged/deployed; preview labels/tooltips, mobile theme and retention labels |
+| Public README | Screenshots, recorded demo, steps, formats, profiles, privacy and FAQs; separate keyword evidence |
+| Final frontend CI | 252 tests passed; lint, dictionaries, SQL/blog consistency and production build passed |
+| Other CI | Backend N/O/Z, PostgreSQL, edge and extension jobs passed |
+| Production deployment | Revision `aa0635433bf520bfddc6edb796c14a74430e64f8`; all five Vercel statuses successful |
+| Production HTTP audit | 40 passing checks during the integrated release; all 13 sitemap pages; permanent legacy redirects; API noindex/auth boundary |
+| Backend readiness | Normal/OCR/archive each 2/2 ready after final release |
+| Browser acceptance | All six languages, persistence, English-only blogs, translated policy/controller login; German 390px viewport had no horizontal overflow |
+| Search migration | Google accepted Change of Address and canonical sitemap on 21 October; ongoing recrawl/indexing monitoring remains open |
 
-## Known follow-up details
+See [release record](../LLMISER_RELEASE_2026-10-26.md), [localization](../LLMISER_LOCALIZATION.md), [cron/wake](../LLMISER_CRON_WAKE.md) and [search migration](../LLMISER_SEARCH_MIGRATION.md) for exact evidence and limits.
 
-- Prices and model names in the articles are Anthropic list prices checked on 20 October 2026. Recheck them when Anthropic changes its price list, then rebuild the figures from the specs (see the report).
-- `frontend/lib/articleSeo.mjs` still uses the shared raster `og-card.png` for social previews. Per-article social images would need a raster export of each banner. Not done.
-- The public `/blog` listing page still shows text cards without banners. The dialog and article pages show them.
-- `docs/blog-preservation.json` stays as the historical pre-rebrand snapshot. Blog files now differ from it on purpose.
-- The blog generator lives in the local, Git-excluded `blog-pipeline/` folder (see the report). LLMiser is a public repository, so the folder is excluded through `.git/info/exclude`, the same way MDify-Pro kept its pipeline private.
+## Current retirement task
 
-## How the next agent should maintain this tracker
+| Item | State |
+| --- | --- |
+| LLMiser as sole working repository | Owner confirmed; all new source and fallback hosting package live here |
+| Old-repository Git histories | Verified private bundles created for both local repositories |
+| Uncommitted/private working material | Verified ZIP snapshots: MDify 354 files; MDify-Pro 622 files; caches/build outputs/logs excluded |
+| Standalone private assets | Existing LLMiser brand kit, research, historical notes and blog generator confirmed present |
+| Updated entry point and AI handovers | Rewritten for current deployed state and retirement scope |
+| Minimal legacy replacement | `legacy-site/` prepared; static LLMiser-only banner, permanent public redirects, no API/converter |
+| Old frontend hosting cutover | Pending live configuration/deployment verification; do not mark complete from files alone |
+| Old GitHub repository deletion | Not performed; owner plans deletion after backup/dependency checks |
+| Old local checkout deletion | Not performed; private snapshots preserve existing work |
+| Old backend/service retirement | Separate consumer/source audit still required; shared storage/cron must remain |
 
-Edit articles in `frontend/content/blog/`, visuals through `blog-pipeline/Blogs/<slug>/visuals.mjs`, then run `node blog-pipeline/visuals/build.mjs <slug>`, `node blog-pipeline/check.mjs frontend/content/blog/<slug>.md` and `npm run blog:index` from `frontend/`. Record new evidence in [BLOG_REBRAND_REPORT.md](BLOG_REBRAND_REPORT.md) rather than overwriting it.
+[Retirement guide](../LLMISER_LEGACY_RETIREMENT.md) records backup locations, exclusions, hosting distinctions and the no-delete boundary.
+
+## Remaining work
+
+- Finish/verify the static legacy frontend hosting cutover, retaining the domains and immediate permanent redirects.
+- Export any GitHub-only issues, discussions, releases or settings the owner wants to keep; local Git bundles do not contain these or Actions secrets.
+- Keep a verified private backup outside the directories that will be deleted, with an owner-controlled second copy if local disk loss matters. The current snapshots are in LLMiser, not an independent/off-machine backup.
+- Audit provider Git connections and all consumers before retiring old backend services or deleting their source repositories. Do not delete shared data, bucket, Vault entries, cleanup functions or compatibility contracts.
+- Complete native Chrome 0.2.0 acceptance and store publication; source merge does not publish the extension.
+- Native-language review and broader device testing remain useful; UI localization does not expand OCR languages.
+- A new full production upload/scanned-PDF/admin/actual-cleanup acceptance run was not part of the 26 October release. Prior generated-file conversion checks remain dated evidence.
+- Continue Search Console/Bing monitoring and old-domain redirect retention. Do not claim Google has completely replaced old results without current evidence.
+
+## Blog maintenance
+
+Published source: `frontend/content/blog/<slug>.md`; published visuals: `frontend/public/blog/<slug>/`. The eight current slugs are `document-to-llm-pipeline`, `hidden-token-tax-rag-pipelines`, `markdown-vs-pdf-llm-tokens`, `rag-cost-optimization`, `reduce-llm-api-costs`, `reduce-llm-token-usage`, `why-pdfs-are-expensive-for-ai` and `why-your-llm-bill-is-too-high`.
+
+The private generator is already in `blog-pipeline/`, not a sibling repository. Use its local README/specs for future authorized blog work; current app build and published assets do not require that generator. Preserve slugs, original dates and truthful capability boundaries. The retirement task does not authorize article or visual edits.

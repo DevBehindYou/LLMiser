@@ -42,6 +42,12 @@ tests/load/results/
 # ── Local AI tooling (machine-specific paths) ─────────────────────────────────
 .claude/
 
+# Private operator materials and retirement snapshots (portable protection)
+/project-docs/
+/blog-pipeline/
+/docs/mdify-history/
+/.codex-recovery/
+
 # Reproducible Chrome extension output and local UI preview
 extension/.preview/
 extension/artifacts/

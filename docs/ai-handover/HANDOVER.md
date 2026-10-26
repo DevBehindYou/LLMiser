@@ -1,109 +1,74 @@
-# LLMiser agent handover
+# LLMiser AI handover
 
-Updated 22 October 2026. Start with [../START_HERE.md](../START_HERE.md).
+Updated 26 October 2026. Start with [START_HERE](../START_HERE.md). This replaces the earlier deployment-phase handover; historical evidence remains in the linked reports and Git history.
 
-**Current continuation:** [optimization plan](../LLMISER_OPTIMIZATION_PLAN.md) records the completed-result recovery branch, actual checks and remaining implementation queue. Production remains revision `ae3aa59`; its approved redeploy activated Analytics. See [Analytics and controller access](../LLMISER_ANALYTICS_CONTROLLER.md). Authenticated controller operations have not been accepted by this review. Blogs and their visuals are complete and were not edited in this continuation.
+## What the owner wants now
 
-**Current Supabase continuation:** [cron/wake implementation and live evidence](../LLMISER_CRON_WAKE.md) supersedes pending keep-warm/tick cutover instructions below. The four existing jobs are retained; OCR URLs target LLMiser, the minute tick skips idle HTTP calls, and the recorder runs every five minutes. Cleanup retention and old-service retirement were not changed. Source is on `codex/supabase-cron-optimization`, independent of result-recovery PR #1.
+LLMiser must remain independently maintainable after MDify and MDify-Pro are deleted. Update the documentation, preserve necessary private materials and replace the old frontend converter with a minimal LLMiser-only fallback. The owner explicitly chose **immediate permanent redirects on the old public hosts**, with the banner only as fallback. Repository deletion itself is not being executed in this task.
 
-**Search migration completed on 21 October:** Google accepted the Change of Address, processed the 13-page sitemap and accepted homepage indexing. Redirect cleanup is deployed and 190 live HTTP checks passed. Read [current indexing policy and evidence](../LLMISER_SEARCH_MIGRATION.md); it supersedes older pending Search Console and blog-hop notes below. Keep legacy redirects crawlable.
+## Work already shipped
 
-## What we are doing and why
+- Full LLMiser rebrand, Prompt L icons, metadata/canonicals, real blog routes and discovery files.
+- Eight English blog articles, eight banners and forty supporting figures, rebranded previously. Do not edit them for retirement.
+- Download recovery through saved job references without a new upload/conversion; source outputs remain separate from edited exports.
+- Demand-driven cron source and its previously applied live cutover; coalesced wake requests. No fresh SQL setup is required.
+- Six interface languages, 628 messages per pack, local preference persistence, translated complete policies and controller UI. Blog scopes remain English; generated Markdown and source filenames are untouched.
+- Product-focused README with screenshots, recorded language demo, steps, format limits and measured-versus-unmeasured keyword notes.
+- Chrome extension 0.2.0 source: one Converter toolbar popup, file picker/drop, manual Paste into detected AI sites, uploaded-job recovery. No public store release or completed native acceptance is claimed.
 
-The user requested a full app rebrand from MDify to **LLMiser**, presented as an **LLM cost optimizer**, with the **11 — Prompt L** icon. All implementation work belongs in `C:/Users/temp/Documents/GitHub/LLMiser`. The intended new host is `https://llmiser.devbehindyou.com`, with public MDify URLs redirected to equivalent new paths after deployment.
+PRs #1–#6 merged. Released main revision: `aa0635433bf520bfddc6edb796c14a74430e64f8`. Final PR CI: 252 frontend tests and all seven jobs passed. All five Vercel deployment statuses succeeded; the initial integrated release had 40 passing production HTTP checks. All pools were 2/2 ready. See [release record](../LLMISER_RELEASE_2026-10-26.md).
 
-The app optimizes document preparation: conversion to editable Markdown, Clean/Compact profiles, relevant-context selection and output review. It does not implement a model proxy, API billing integration, model routing or prompt caching. A separate Chrome extension development build was added on `codex/chrome-extension` on 24 October 2026; see [the extension handover](../LLMISER_CHROME_EXTENSION.md) for scope and pending native/store release checks. It is not publicly released. Blog education may discuss broader techniques, but must distinguish them from shipped LLMiser capabilities.
+## Repository and private-material boundaries
 
-The original app agent preserved blog content; the subsequent content agent completed all eight articles and 48 SVGs. The owner then supplied a deployment report for analysis. Current work reconciles documentation and independently checks public responses; keep-warm changes remain assigned to a separate agent. See [deployment review](../LLMISER_DEPLOYMENT_REVIEW.md).
+Use `C:/Users/temp/Documents/GitHub/LLMiser` on this machine; fresh clones use their own root. Build/test commands and source must not require sibling repositories.
 
-## Sources and repository boundaries
+| Path | Purpose |
+| --- | --- |
+| `frontend/` | Production Next.js web app, public APIs, reader and controller |
+| `backendN/`, `backendO/`, `backendZ/` | Current normal, OCR and ZIP conversion services |
+| `supabase/` | Existing migrations/setup and scheduler source; legacy identifier names stay compatible |
+| `extension/` | Chrome extension source and independent tests/build/package |
+| `legacy-site/` | Static replacement for the old frontend hosting; never use as the LLMiser app root |
+| `docs/` | Public current runbooks and dated evidence |
+| `blog-pipeline/` | Local/private visual generator, per-article specs and sources; not in a fresh public clone |
+| `project-docs/brand/llmiser/` | Local/private approved brand kit |
+| `project-docs/rebranding-research/` | Local/private reference archive |
+| `project-docs/retirement-backups/` | Private verified snapshots of old repositories; may contain credentials |
+| `docs/mdify-history/` | Local/private historical material, not current operating instructions |
 
-- App baseline: all 354 tracked files from public MDify at `ce56f5c`, with LLMiser's existing LICENSE retained. The public app had newer conversion fixes and real article routes than the MDify-Pro app snapshot.
-- Local HEAD at this review is `3ed4ded`, following `e999388 Publish & Re-branding`. The initial license-only HEAD was `78161e6`; `ce56f5c` identifies the original MDify copy source, not LLMiser history. The app/content are now committed. The environment doc had pre-existing uncommitted changes; preserve them and inspect status before editing.
-- MDify and MDify-Pro source files were not edited. MDify remained clean; MDify-Pro already had local handover/brand changes when this work began.
-- Brand reference: `project-docs/brand/llmiser/`, copied from the supplied MDify-Pro kit. The retained `make-icons.mjs` also contains unrelated icon-generation work; inspect it before running it.
-- Research: `project-docs/rebranding-research/LLMiser_Rebranding_Research/`, plus the companion DOCX in its parent. Original archive: `C:/Users/temp/Downloads/LLMiser_Rebranding_Research_Package.zip`.
-- The content agent copied the private generator into local `blog-pipeline/`, excluded from Git. Edit visual specs there before regeneration when working on this machine; it is not available in a fresh public clone. The local parser/builder and committed content remain authoritative for rendering and validation.
+Private folders are excluded through the tracked `.gitignore` as well as this checkout's existing local exclusions. Never commit backups, environment values, private generator sources or raw operator evidence. A fresh public clone has the complete app and published blog assets, but not the private blog-authoring pipeline. Restore that from the owner's private backup when needed; do not fetch it from a soon-deleted sibling checkout.
 
-## What is complete
+## Retirement implementation
 
-1. Copied the Next.js app, N/O/Z conversion services, database migrations, CI, tests and deployment configuration. Only example environment files were copied; credentials, caches and local deployment identity were excluded.
-2. Rebranded app chrome, mobile navigation, API examples, consent/legal brand names, backend user-facing strings, GitHub links and exported ZIP filenames. Header/footer components are now `LLMiserHeader.js` and `LLMiserFooter.js`.
-3. Installed the exact Prompt L dark/light SVGs, PNG sizes, maskable icons, ICO, manifest and theme-aware favicons. Old icon URLs serve the selected new icon for compatibility.
-4. Rebuilt `frontend/public/og-card.png`, the shared 1200 × 630 social card, with the new descriptor and icon.
-5. Centralized messaging and SEO constants. Updated titles, social metadata, sitemap, crawler rules, JSON-LD and `llms.txt`. Article canonicals, publisher and breadcrumbs use LLMiser; the subsequent content phase also rebranded the article text and assets.
-6. Replaced the app's blanket 70% savings promise with conditional claims and measurement instructions. The blog agent later revised inherited claims and published its decisions and sources in the blog report.
-7. Moved static use-case copy into server components and added server-rendered homepage explanations/FAQs. Kept the converter interactive and overlays lazy-loaded. Removed visible prototype layout labels.
-8. Added 308 host redirects for known public paths, preserving paths and queries, plus the old admin-route alias. Added API/admin noindex headers. Updated the checked-in scheduler target without applying it live.
-9. Verified the local build/UI. Subsequent work deployed the frontend and six new backend services. Custom-domain DNS/TLS and tested legacy public redirects now work; remaining operational acceptance/cutover tasks are tracked below.
+[Retirement guide](../LLMISER_LEGACY_RETIREMENT.md) records snapshot counts and limits. Keep both old source checkouts read-only until the owner deletes them. MDify-Pro contains pre-existing dirty/untracked work; snapshots preserve it. Do not commit or discard that work in the original checkout.
 
-## Where to work
+The old `mdify-app` Vercel project's desired source is this repository, branch `main`, root `legacy-site`, framework Other/static. Public legacy domains continue redirecting directly. The banner can appear on a nonlegacy deployment host or custom 404; it does not intercept the migration redirect. There are no API handlers: old frontend `/api/*` calls stop with 404 and are never forwarded across origins. Audit old API consumers before the hosting cutover. Shared backend/storage/cron resources are not deleted by this replacement.
 
-Paths below are relative to the LLMiser repository root.
+The main `llmiser` project stays root `frontend`. Its domain redirects and compatibility assets remain in `frontend/next.config.js`. The old backend deployment sources must be reviewed separately before deleting their GitHub connections or services. A successful frontend replacement does not certify old-service retirement.
 
-| Area | Files / directories | Role |
-| --- | --- | --- |
-| Brand and messaging | `frontend/lib/siteContent.js` | Domain, name, positioning, tagline, limits, FAQ and site JSON-LD |
-| Global metadata / theme | `frontend/app/layout.js`, `frontend/app/globals.css` | Icons, title template, social card and theme tokens |
-| Homepage | `frontend/app/page.js`, `frontend/app/ConverterClient.js` | Server copy and interactive converter shell |
-| Conversion UI | `frontend/components/converter/`, `frontend/viewmodels/` | Upload, queue, profiles, preview, copy/download |
-| App chrome | `frontend/components/LLMiserHeader.js`, `LLMiserFooter.js`, `AppIcon.js` | Shared rebranded interface |
-| Cost explanation | `frontend/app/usecase/page.js`, `UseCaseClient.js` | Server copy and client navigation/modals |
-| Blog sources | `frontend/content/blog/*.md` | Completed blog sources; edit for future content maintenance |
-| Blog SVG assets | `frontend/public/blog/<slug>/*.svg` | Eight rebranded banners and forty figures |
-| Blog parser / builder | `frontend/lib/blog.mjs`, `frontend/scripts/build-blog-index.mjs` | Frontmatter and SVG validation; index generation |
-| Generated posts | `frontend/lib/blogPosts.generated.json` | Regenerate from Markdown; never hand-edit |
-| Blog renderers | `frontend/components/BlogModal.js`, `BlogVisual.js`, `frontend/app/blog/` | Dialog, listing and dedicated articles |
-| Article SEO | `frontend/lib/articleSeo.mjs` | Canonical, metadata, BlogPosting and breadcrumbs |
-| Discovery | `frontend/app/sitemap.js`, `robots.js`, `frontend/public/llms.txt` | Public discovery; update blog summaries if titles/descriptions change |
-| Redirects / private headers | `frontend/next.config.js` | Effective only on hosts routed to this deployment |
-| App brand assets | `frontend/public/llmiser-*.svg`, PNGs, `site.webmanifest`, `project-docs/brand/llmiser/` | Already selected; reuse rather than redesign |
-| Social generator | `frontend/scripts/build-brand-images.mjs` | `npm run brand:images` rebuilds the shared raster card, not blog assets |
-| Services | `backendN/`, `backendO/`, `backendZ/` | Document/PDF, OCR and ZIP/archive roles |
-| Data / scheduling | `supabase/`, especially `cron.sql` | Schema, queue, cleanup and updated target template |
-| CI / tests | `.github/workflows/checks.yml`, `frontend/test/`, `tests/` | Regression and integration checks |
-
-## Compatibility constraints
-
-Do not globally replace lowercase `mdify` infrastructure strings. `mdify-pro-files`, `x-mdify-admin`, `x-mdify-cron-secret`, `MDIFY_CRON_SECRET`, the admin cookie/signing namespace, Vault/schedule names, SQL identifiers/migration filenames and RPCs intentionally remain compatible. Their presence is not unfinished blog work. Historical references and deliberate migration aliases are also valid.
-
-The admin route is `/llmiser-controller`; `/mdify-controller` is a permanent compatibility alias. Authorization remains necessary independently of robots/noindex.
-
-## Evidence and limits
-
-The app phase passed build and lint. The 221 frontend cases passed across the original run and focused reruns: 218 initially, two Git-fixture permission failures rerun outside the sandbox, and one copy assertion corrected to avoid treating a CSS percentage as marketing. Eight focused SEO/migration cases passed. Local HTTP smoke tests passed 88 checks across 13 public pages. Desktop/mobile, both themes, matching favicons and browser errors were checked.
-
-All 58 protected blog-related files were byte-identical after app rebranding: eight posts, their README, one generated index and 48 SVGs. `docs/blog-preservation.json` records **pre-blog-rebrand** hashes. Preserve this historical snapshot. Intentional next-phase edits will differ; it is not a permanent no-edit rule or evidence validating later edits.
-
-The original app phase did not run Python suites or external database/edge integration checks. Subsequent deployment and HTML/PNG/ZIP storage conversions are reported in the environment doc. On 21 October, this review independently observed public frontend/health/discovery responses and reran 24 focused tests. It did not repeat authenticated backend/conversion tests or inspect live Vault/cron state. After the owner's DNS changes, public DNS, trusted HTTPS, all 13 sitemap pages and tested old-host redirects passed; see [domain verification](../LLMISER_DOMAIN_VERIFICATION.md). Local previews remain temporary.
-
-See [../LLMISER_VALIDATION.md](../LLMISER_VALIDATION.md) for exact evidence and screenshots. Do not report those results as proof of new blog edits.
-
-## Commands
+## Verification commands
 
 Use Node.js 22. From `frontend`:
 
 ```sh
 npm ci
-npm run blog:index
-npm run blog:check
-node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON --test test/blog.test.mjs test/domainMigration.test.mjs test/seo.test.mjs
 npm test
 npm run lint
+npm run i18n:check
 npm run sql:check
+npm run blog:check
 npm run build
-npm start -- -p 3101
-node scripts/check-rebrand.mjs http://localhost:3101
 ```
 
-Regenerate the index after Markdown/asset edits, then check it. Build-time fonts need network access. In the Codex Windows sandbox, temporary Git fixture tests and localhost requests may need host-level execution; prior permission failures were environmental. Keep SVG validation enabled.
+The focused legacy routing test is `node --test test/legacySite.test.mjs`. It checks permanent host-scoped public routing, API exclusion and a static-only output allowlist. Hosting behavior still requires live HTTP checks after deployment. A local static-server preview verifies the banner visually but does not emulate Vercel redirects.
 
-## Blog rebrand — 20 October 2026
+From `extension`, use its documented `npm test`, build and package commands. Do not infer native Chrome behavior from the simulated preview. Do not load production credentials just to run UI/documentation checks.
 
-All eight articles, eight banners and forty figures were rebranded for LLMiser, with every price, token and research claim re-checked against primary sources. The visuals were regenerated from their specs, now kept in the local, Git-excluded `blog-pipeline/` folder (copied from MDify-Pro's private pipeline, which itself was not changed). Article pages now show the banner and render bold TL;DR keywords and caption links. Details, decisions, sources and test results: [BLOG_REBRAND_REPORT.md](BLOG_REBRAND_REPORT.md). The generator is local/private; source repositories remain unchanged.
+## Rules for the next agent
 
-## Next work and ownership
-
-Blog work is done (see above). For future articles or price updates, follow `blog-pipeline/README.md`, rebuild visuals from the specs and keep [PROGRESS.md](PROGRESS.md) and the report current. Preserve slugs, original publish dates, topic identity and truthful capability boundaries. Verify technical/numeric claims with current primary sources.
-
-Deployment is partly complete: Vercel frontend live; six new backends and three storage conversion paths reported verified. Remaining work is keep-warm URL cutover, full custom-domain conversion acceptance, tick target, minor `/blog` redirect-chain cleanup and dependency-aware old-service retirement. Domain DNS/TLS and tested legacy public redirects are now verified. See [deployment review](../LLMISER_DEPLOYMENT_REVIEW.md) and [migration runbook](../LLMISER_MIGRATION.md). Checked-in rules alone do not activate the old domain redirects. Content work is complete; launch remains open.
+1. Inspect Git status and this tracker before working. Current handovers override stale phase notes.
+2. Preserve the old domains/DNS/TLS and crawlable permanent redirects even if the old GitHub repositories are deleted. Do not replace them with a noindex banner, robots block or homepage-only redirect.
+3. Preserve shared infrastructure identifiers, provider state, retention behavior, keys and protocol headers. The presence of `mdify` in an identifier is not permission to remove or rename it.
+4. Do not run an old setup/cutover script again just to remove branding. Do not delete provider services as a side effect of source retirement.
+5. Distinguish checked local code, observed deployment state, prior reported conversions and untested operator actions. No new live upload/admin/cleanup acceptance is implied by the release checks.
+6. Track remaining native extension acceptance, native-language review, search monitoring, private backup custody and old-service consumer audit in [PROGRESS](PROGRESS.md).

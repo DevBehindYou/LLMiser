@@ -7,7 +7,7 @@ export default function HomeAbout(){
   const { uiText } = useI18n();
 return (<section className="mt-8 mb-8 space-y-5 max-w-4xl mx-auto font-sans" aria-labelledby="about-llmiser">
         <div>
-          <p className="text-xs uppercase tracking-widest text-[var(--faint)]">{uiText("MDify is now LLMiser · by DevBehindYou")}</p>
+          <p className="text-xs uppercase tracking-widest text-[var(--faint)]">{uiText("LLMISER · LLM COST OPTIMIZATION")}</p>
           <h2 id="about-llmiser" className="text-2xl font-bold">{uiText("An LLM cost optimizer for your document workflow")}</h2>
           <p className="text-sm leading-relaxed text-[var(--muted)] mt-3">{uiText("Prepare useful context before you spend tokens. LLMiser converts PDFs, Office files, images and ZIP projects to editable Markdown. Choose a profile, review the output, and send only what your AI task needs.")}</p>
         </div>
