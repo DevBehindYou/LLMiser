@@ -2,7 +2,7 @@
 
 Updated 26 October 2026. This is the entry point for another AI agent or developer.
 
-**Current release preparation:** the owner requested merging the open PRs and deploying the app. `codex/app-localization` now combines PR #1 (download recovery), #2 (already-applied cron source), #3 (wake coalescing), #4 (extension source) and the six-language web app/README work. Integration is local; CI, merge and production verification are still pending at this writing. Read [localization implementation and validation](LLMISER_LOCALIZATION.md) and [README keyword evidence](README_KEYWORD_RESEARCH.md).
+**Released 26 October:** PRs #1–#5 are merged and the integrated app is deployed at https://llmiser.devbehindyou.com. All seven CI jobs passed; 251 frontend tests and 40 production HTTP checks passed. The three backend pools each report 2/2 ready. See [the release evidence and remaining boundaries](LLMISER_RELEASE_2026-10-26.md), [localization implementation](LLMISER_LOCALIZATION.md) and [README keyword evidence](README_KEYWORD_RESEARCH.md). A small display-label follow-up accompanies this report.
 
 **Scope:** English (US), German, Japanese, Spanish, Russian and Simplified Chinese apply to the full web app, including the recovery controls and complete legal documents. Blogs and their visuals remain English and unchanged. The README includes existing desktop/mobile screenshots, a recorded language demo, conversion steps, profiles and FAQs. Document contents and Markdown are never automatically translated.
 

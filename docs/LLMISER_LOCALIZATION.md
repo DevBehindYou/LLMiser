@@ -1,6 +1,6 @@
 # LLMiser app localization
 
-Implemented 26 October 2026 on `codex/app-localization`. This describes the branch implementation; production gains it only after release. The original MDify repositories are unchanged. The owner later authorized merging all open PRs and deployment; this branch now integrates recovery, cron source, wake coalescing and extension source before combined validation.
+Released 26 October 2026 through `codex/app-localization` and PR #5. The owner authorized merging all open PRs and deployment; the release integrates recovery, cron source, wake coalescing and extension source. The original MDify repositories are unchanged. See [production release evidence](LLMISER_RELEASE_2026-10-26.md).
 
 ## User scope
 
@@ -51,6 +51,6 @@ The public JSON packs are the maintained translation source. One-time private ge
 - Dictionary coverage: all six packs have 628 messages and matching placeholders.
 - Browser: all six languages switched visibly; reload preserved the selected language; translated help and English-only blog navigation were checked. A compact layout was inspected without horizontal document overflow. The browser preview constrained the actual viewport width, so this is not a claim of exhaustive phone-device coverage.
 - No live conversion upload, operator login or infrastructure mutation was needed for this feature. Local conversion services are not configured; existing conversion regressions remain the validation for unchanged backend behavior.
-- Integrated release checks: lint passed; 37 focused i18n/component/reader/recovery/wake tests passed; six dictionaries contain 628 messages each. The production build and hosted CI are pending at this writing. Authored translations have not been certified by native-language reviewers.
+- Integrated release checks: local lint/build passed; 37 focused i18n/component/reader/recovery/wake tests passed; release CI passed all 251 frontend tests and the other six jobs. Post-merge CI passed. Six dictionaries contain 628 messages each. The live app passed 40 HTTP checks and all six browser language checks. Authored translations have not been certified by native-language reviewers.
 
 The public README was also rewritten for users, with existing desktop/mobile screenshots, a recorded language demo and a format/steps/FAQ guide. See [keyword research](README_KEYWORD_RESEARCH.md) for measured demand versus unmeasured keyword candidates. Extension source is integrated under the owner’s merge instruction; native acceptance and store release remain separate. Blogs remain unchanged. The cron source records the previously applied live changes; no live SQL is rerun by this release.

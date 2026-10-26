@@ -79,7 +79,7 @@ export default function MobileMenu({
         </div>
 
         <div className="pt-2 border-t border-[var(--border)] flex justify-between items-center font-tech text-[11px] text-[var(--muted)]">
-          <span>{uiText("Theme: ")}{theme}</span>
+          <span>{uiText("Theme: ")}{uiText(theme)}</span>
           <button
             type="button"
             onClick={onToggleTheme}

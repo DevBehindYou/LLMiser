@@ -114,7 +114,7 @@ export default function JobDetail({ jobId, onClose, handleError, notify, onChang
                   <Button onClick={() => act('KEEP')} busy={vm.working === 'KEEP'} disabled={filesGone || job.retention_mode === 'KEEP'}>{uiText("Keep")}</Button>
                   {EXTEND_OPTIONS.map((o) => (
                     <Button key={o.hours} onClick={() => act('EXTEND', o.hours)} busy={vm.working === 'EXTEND'} disabled={filesGone}>
-                      +{o.label}
+                      +{uiText(o.label)}
                     </Button>
                   ))}
                   <Button onClick={() => act('AUTO')} busy={vm.working === 'AUTO'} disabled={filesGone || job.retention_mode === 'AUTO'}>{uiText("Back to 48 h")}</Button>
