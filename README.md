@@ -144,7 +144,7 @@ Files are **uploaded to LLMiser for conversion**. Conversion does not happen ent
 - No account is required.
 - Uploads and results use private storage with a **default 48-hour retention period**. Cleanup runs periodically; administrative exceptions are described in the policy.
 - LLMiser does not use your files for advertising or training machine learning models.
-- Your browser keeps your last five conversion sessions, plus language, theme and consent preferences. Clear saved conversions from **Recent**.
+- Your browser keeps your last five conversion sessions (Markdown when it fits, file details and a recovery reference), plus language, theme and consent preferences. Clear saved conversions from **Recent**.
 - Anonymous page-view analytics help us understand app usage.
 
 Read the [Privacy Policy](https://llmiser.devbehindyou.com/privacy) and [Terms of Service](https://llmiser.devbehindyou.com/terms) before uploading sensitive material.
@@ -178,6 +178,10 @@ No. It changes the app interface. Your source content and converted Markdown ret
 ### Can I use the output in Obsidian, Notion or a RAG workflow?
 
 You can copy or import Markdown where those tools support it. Check tables, images and formatting after import. RAG-ready adds section markers for downstream processing; you still choose your own indexing and retrieval workflow.
+
+### Can I recover a finished conversion if its download fails?
+
+Use **Retry download** or reopen the entry in **Recent** while the server result is still available. LLMiser can request fresh download links without uploading and converting the file again. A cached Markdown copy can still open after the server files are deleted. Export your edits separately from the original output files.
 
 ### What should I do if the first conversion is slow?
 

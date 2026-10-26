@@ -502,7 +502,7 @@ export default function RecentSessionsSidebar({
                       {typeof session.content !== 'string' ? (
                         <button type="button" onClick={e => { e.stopPropagation(); onSelectSession(session); onClose?.(); }}
                           className="tap-target text-[#2a78d6] underline bg-transparent border-0 text-[10px]">
-                          Open recovery
+                          {uiText('Open recovery')}
                         </button>
                       ) : <>
                       <button

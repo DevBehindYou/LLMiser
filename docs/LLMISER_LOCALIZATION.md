@@ -1,6 +1,6 @@
 # LLMiser app localization
 
-Implemented 26 October 2026 on `codex/app-localization`. This describes the branch implementation; production gains it only after release. The original MDify repositories and the separate extension work are unchanged.
+Implemented 26 October 2026 on `codex/app-localization`. This describes the branch implementation; production gains it only after release. The original MDify repositories are unchanged. The owner later authorized merging all open PRs and deployment; this branch now integrates recovery, cron source, wake coalescing and extension source before combined validation.
 
 ## User scope
 
@@ -13,7 +13,7 @@ The full web app supports English (US), German, Japanese, Spanish, Russian and *
 | File or directory | Responsibility |
 | --- | --- |
 | `frontend/lib/i18n/core.js` | Six allowlisted locales; preference key; blog segment matching; owned-copy interpolation |
-| `frontend/lib/i18n/messages/*.json` | Six complete dictionaries, currently 608 messages each |
+| `frontend/lib/i18n/messages/*.json` | Six complete dictionaries, currently 628 messages each |
 | `frontend/components/i18n/LanguageProvider.js` | Root state, lazy imports, storage events, document language and display title |
 | `frontend/components/i18n/I18nContext.js` | Pure context/hooks and English-only embedded blog scope |
 | `frontend/components/i18n/LanguageSelector.js` | Native labelled selector, loading announcement and native language names |
@@ -32,7 +32,7 @@ This is interface localization, **not six indexed language sites**. Public paths
 
 UI profile labels may be translated, but API values stay `Standard`, `Clean`, `Compact` and `RAG-ready`. Job states, routing, polling, storage/retention decisions, IDs and server diagnostics retain their existing contracts. Only owned display copy passes through `uiText`; never translate the DOM, Markdown or arbitrary payloads.
 
-The Privacy Policy adds the browser's language preference to its existing local-storage disclosure. The displayed update date is 26 October 2026. The substantive processing/consent version remains `2026-09-28`; this adds a local interface preference, not a new processing purpose or external service.
+The Privacy Policy adds the browser's language preference to its existing local-storage disclosure. The displayed update date is 26 October 2026. The integrated recovery PR advances the processing/consent version to `2026-10-21` for its saved-reference retrieval behavior. Localization preserves that version and adds the local interface-preference disclosure. All recovery disclosure paragraphs are translated; no new external translation service is involved.
 
 ## Editing translations
 
@@ -48,9 +48,9 @@ The public JSON packs are the maintained translation source. One-time private ge
 
 - Full existing frontend suite: **226/226 passed**, including core i18n tests and reader regressions.
 - Focused core/component suite: **9/9 passed** (the four component tests were added after the full-suite run).
-- Dictionary coverage: all six packs have 608 messages and matching placeholders.
+- Dictionary coverage: all six packs have 628 messages and matching placeholders.
 - Browser: all six languages switched visibly; reload preserved the selected language; translated help and English-only blog navigation were checked. A compact layout was inspected without horizontal document overflow. The browser preview constrained the actual viewport width, so this is not a claim of exhaustive phone-device coverage.
 - No live conversion upload, operator login or infrastructure mutation was needed for this feature. Local conversion services are not configured; existing conversion regressions remain the validation for unchanged backend behavior.
-- Final lint/build results and PR/release status should be recorded when completed. Authored translations have not been certified by native-language reviewers.
+- Integrated release checks: lint passed; 37 focused i18n/component/reader/recovery/wake tests passed; six dictionaries contain 628 messages each. The production build and hosted CI are pending at this writing. Authored translations have not been certified by native-language reviewers.
 
-The public README was also rewritten for users, with existing desktop/mobile screenshots, a recorded language demo and a format/steps/FAQ guide. See [keyword research](README_KEYWORD_RESEARCH.md) for measured demand versus unmeasured keyword candidates. Extension, blog and infrastructure release streams remain separate.
+The public README was also rewritten for users, with existing desktop/mobile screenshots, a recorded language demo and a format/steps/FAQ guide. See [keyword research](README_KEYWORD_RESEARCH.md) for measured demand versus unmeasured keyword candidates. Extension source is integrated under the owner’s merge instruction; native acceptance and store release remain separate. Blogs remain unchanged. The cron source records the previously applied live changes; no live SQL is rerun by this release.

@@ -33,7 +33,8 @@ export function translateMessage(messages, value, parameters = {}) {
   let template = Object.hasOwn(messages, key) ? messages[key] : value;
   if (!Object.hasOwn(messages, key) && key.length < 8192) {
     for (const pattern of patterns(messages)) {
-      const match = pattern.expression.exec(key);
+      // Match the original notice so captured filenames retain repeated spaces.
+      const match = pattern.expression.exec(value.trim());
       if (match) { template = pattern.template; parameters = Object.fromEntries(pattern.names.map((name,index) => [name,match[index+1]])); break; }
     }
   }

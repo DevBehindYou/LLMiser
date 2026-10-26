@@ -29,6 +29,7 @@ for (const name of components) {
 }
 const load = async name => (await import(pathToFileURL(path.join(generated, `${name}.mjs`)))).default;
 const outputSource = fs.readFileSync(new URL('../components/converter/ResultOutputs.js', import.meta.url), 'utf8')
+  .replace("'../i18n/I18nContext'", "'./I18nContext.mjs'")
   .replace("'../../lib/models/resultReference'", JSON.stringify(new URL('../lib/models/resultReference.js', import.meta.url).href));
 const outputCompiled = await transform(outputSource, { filename: 'ResultOutputs.js', jsc: { parser: { syntax: 'ecmascript', jsx: true }, transform: { react: { runtime: 'automatic' } } }, module: { type: 'es6' } });
 fs.writeFileSync(path.join(generated, 'ResultOutputs.mjs'), outputCompiled.code);

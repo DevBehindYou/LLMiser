@@ -19,7 +19,7 @@ function QueueRow({ item, hasResult, isSelected, onSelect, onRetry, onRemove }) 
     >
       <div className="min-w-0 pr-2 font-medium">
         <div className="truncate" title={item.name}>{item.name}</div>
-        {item.status === 'error' && <p role="status" className="text-[10px] text-rose-500 mt-1 mb-0 [overflow-wrap:anywhere]">{item.errorMsg}</p>}
+        {item.status === 'error' && <p role="status" className="text-[10px] text-rose-500 mt-1 mb-0 [overflow-wrap:anywhere]">{uiText(item.errorMsg)}</p>}
       </div>
       <div className="flex items-center gap-1.5 flex-none font-tech text-[10px]">
         {item.status === "done" && <span className="text-[#2a78d6] dark:text-[#60a5fa]">{uiText("✓ done")}</span>}

@@ -13,14 +13,14 @@ import { MAX_QUEUE_FILES } from '../../lib/formats';
 
 const MOBILE_FORMAT_TAGS = ['PDF', 'DOCX', 'PPTX', 'XLSX', 'PNG', 'ZIP'];
 
-function queueLabel(item, result) {
-  if (result) return result.tokens_est ? `✓ ${result.tokens_est.toLocaleString()} est.` : '✓ done';
+function queueLabel(item, result, locale) {
+  if (result) return result.tokens_est ? `✓ ${result.tokens_est.toLocaleString(locale)} est.` : '✓ done';
   return item.status;
 }
 
 /** Mobile stack 1e (tool-first) with the 1f reader bottom sheet. */
 export default function MobileWorkspace({ converter, exporter, ui, onBrowse }) {
-  const { uiText } = useI18n();
+  const { uiText, locale } = useI18n();
 
   const { items, results, activeResult, isBusy } = converter;
 
@@ -89,22 +89,22 @@ export default function MobileWorkspace({ converter, exporter, ui, onBrowse }) {
                 >
                   <div className="min-w-0 pr-2">
                     <div className="truncate font-medium">{item.name}</div>
-                    {item.status === 'error' && <p role="status" className="text-[10px] text-rose-500 mt-1 mb-0 [overflow-wrap:anywhere]">{item.errorMsg}</p>}
+                    {item.status === 'error' && <p role="status" className="text-[10px] text-rose-500 mt-1 mb-0 [overflow-wrap:anywhere]">{uiText(item.errorMsg)}</p>}
                   </div>
                   {item.status === 'error' ? (
-                    <button type="button" onClick={() => converter.retry(item.id)} title={item.errorMsg}
+                    <button type="button" onClick={() => converter.retry(item.id)} title={uiText(item.errorMsg)}
                       className="tap-target text-rose-500 underline text-[11px] flex-none bg-transparent border-0">
-                      {item.recovery?.job_id ? 'Retry download' : 'Retry conversion'}
+                      {uiText(item.recovery?.job_id ? 'Retry download' : 'Retry conversion')}
                     </button>
                   ) : <span
                     className={`font-tech text-[10px] flex-none ${
                       item.status === 'error' ? 'text-rose-500' : 'text-[#2a78d6]'
                     }`}
-                    title={item.errorMsg || undefined}
+                    title={uiText(item.errorMsg) || undefined}
                   >
-                    {queueLabel(item, result)}
+                    {uiText(queueLabel(item, result, locale))}
                   </span>}
-                  <button type="button" onClick={() => converter.removeFile(item.id)} aria-label={`Remove ${item.name}`}
+                  <button type="button" onClick={() => converter.removeFile(item.id)} aria-label={uiText('Remove {v0}', { v0: item.name })}
                     className="tap-target text-[var(--muted)] ml-1 bg-transparent border-0">×</button>
                 </div>
               );

@@ -32,6 +32,7 @@ test('interpolation preserves filenames and user values verbatim without transla
 test('app-generated dynamic notices use translated templates while captured names remain unchanged', () => {
   const source = 'Loaded "Choose files.md" from recent sessions';
   assert.equal(translateMessage(dictionaries.de,source),'„Choose files.md“ aus dem Verlauf geladen');
+  assert.equal(translateMessage(dictionaries.de,'Loaded "two  spaces.md" from recent sessions'),'„two  spaces.md“ aus dem Verlauf geladen');
   assert.equal(translateMessage(dictionaries['zh-CN'],'Convert all (20)'),'全部转换（20）');
 });
 
