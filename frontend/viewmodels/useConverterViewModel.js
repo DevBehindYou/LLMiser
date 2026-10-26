@@ -1,7 +1,7 @@
 'use client';
 
 import { useCallback, useEffect, useMemo, useReducer, useRef, useState } from 'react';
-import { convertFile } from '../lib/models/conversionService';
+import { convertFile, retrieveResult } from '../lib/models/conversionService';
 import {
   initialQueueState,
   planAddFiles,
@@ -36,7 +36,7 @@ function describeSkipped({ rejected, duplicates, overflow }) {
  * @param {() => void} [options.onNetworkFailure]
  * @param {(message: string) => void} [options.onNotice]
  */
-export function useConverterViewModel({ onConverted, onNetworkFailure, onNotice } = {}) {
+export function useConverterViewModel({ onConverted, onResultRetained, onNetworkFailure, onNotice } = {}) {
   const [state, dispatch] = useReducer(queueReducer, initialQueueState);
   const [profile, setProfile] = useState('Standard');
   const [isRunning, setRunning] = useState(false);
@@ -47,8 +47,8 @@ export function useConverterViewModel({ onConverted, onNetworkFailure, onNotice 
   stateRef.current = state;
   const profileRef = useRef(profile);
   profileRef.current = profile;
-  const callbacksRef = useRef({ onConverted, onNetworkFailure, onNotice });
-  callbacksRef.current = { onConverted, onNetworkFailure, onNotice };
+  const callbacksRef = useRef({ onConverted, onResultRetained, onNetworkFailure, onNotice });
+  callbacksRef.current = { onConverted, onResultRetained, onNetworkFailure, onNotice };
 
   const controllersRef = useRef(new Map());
   const cancelledRef = useRef(new Set());
@@ -70,14 +70,22 @@ export function useConverterViewModel({ onConverted, onNetworkFailure, onNotice 
     if (controllersRef.current.has(item.id) || cancelledRef.current.has(item.id)) return;
     const controller = new AbortController();
     controllersRef.current.set(item.id, controller);
-    const jobProfile = profileRef.current;
+    const jobProfile = item.recovery?.profile || profileRef.current;
     dispatch({ type: 'jobStarted', id: item.id });
 
     try {
-      const data = await convertFile(item.file, jobProfile, {
+      const options = {
         signal: controller.signal,
         onProgress: (progress) => dispatch({ type: 'jobProgress', id: item.id, progress }),
-      });
+        onResultReady: (result) => {
+          if (controller.signal.aborted) return;
+          dispatch({ type: 'resultRetained', id: item.id, result, profile: jobProfile });
+          callbacksRef.current.onResultRetained?.({ ...result, id: item.id }, { item, profile: jobProfile });
+        },
+      };
+      const data = item.recovery?.job_id
+        ? await retrieveResult(item.recovery.job_id, options)
+        : await convertFile(item.file, jobProfile, options);
       if (controller.signal.aborted) return;
       dispatch({ type: 'jobSucceeded', id: item.id, result: data });
       callbacksRef.current.onConverted?.({ ...data, id: item.id }, { item, profile: jobProfile });
@@ -116,7 +124,7 @@ export function useConverterViewModel({ onConverted, onNetworkFailure, onNotice 
   const retry = useCallback(
     (id) => {
       const item = stateRef.current.items.find((i) => i.id === id);
-      if (item?.file) runJob(item);
+      if (item && (item.file || item.recovery?.job_id)) runJob(item);
     },
     [runJob]
   );

@@ -3,6 +3,7 @@
 Updated 26 October 2026. This is the entry point for another AI agent or developer.
 
 **Current feature branch:** `codex/app-localization` adds six interface languages to the full web app while keeping blogs English. It also refreshes the public README with screenshots, conversion steps and a language demo. See [localization implementation and validation](LLMISER_LOCALIZATION.md) and [README keyword evidence](README_KEYWORD_RESEARCH.md). This branch is separate from the extension and infrastructure work; the older deployment observations below are dated history, not a fresh live audit.
+**Optimization continuation:** completed-result download recovery is implemented on `codex/result-download-recovery`, separately from production `ae3aa59`. See the [current implementation plan and verification](LLMISER_OPTIMIZATION_PLAN.md). [Web Analytics is now collecting page views; controller access and verification limits](LLMISER_ANALYTICS_CONTROLLER.md) are documented. The approved production redeploy used the existing revision, without this branch's feature changes. The canonical frontend is https://llmiser.devbehindyou.com; the Vercel alias redirects there. Older deployment-review snapshots below are historical.
 
 **Search migration update:** Google accepted the MDify → LLMiser Change of Address on 21 October 2026, processed the new sitemap (13 discovered pages), and accepted a homepage indexing request. Redirect cleanup is deployed; 190 live HTTP checks passed. The old Vercel alias now redirects directly to LLMiser and the extra `/blog` hop is fixed. See [search migration and indexing policy](LLMISER_SEARCH_MIGRATION.md) before changing robots, redirects or Search Console settings.
 
@@ -45,10 +46,10 @@ The research archive is reference material. Its proposed `llmiser.com` domain, a
 | Supporting blog visuals | **Complete — 40 of 40 figures** (LLMiser signature, numbers re-checked) |
 | Frontend and six new backend deployments | **Deployed**; public frontend independently checked; backend/conversion details from prior agent |
 | Keep-warm Vault URL cutover | **Pending assigned-agent task**; live Vault state not queried in this review |
-| Custom DNS/TLS and legacy public redirects | **Verified live** on 21 October at 19:33 Asia/Calcutta; minor extra `/blog` redirect hop |
+| Custom DNS/TLS and legacy public redirects | **Verified live**; redirect cleanup deployed, including the `/blog` hop fix; 190 checks passed |
 | Tick cutover and old-service retirement | **Pending inspection/acceptance** |
 | Storage conversion checks on Vercel origin | **Reported passed** for HTML, PNG and ZIP; custom-domain/admin/scanned-PDF/cleanup checks still needed |
-| Search monitoring | **Pending** |
+| Search migration / monitoring | Change of Address accepted, sitemap processed; recrawl monitoring remains open |
 
 The original app-rebrand session was local-only, but subsequent work committed the app/content and deployed services. Local HEAD at this review is `3ed4ded` after `e999388 Publish & Re-branding`; only `docs/LLMISER_ENVIRONMENT.md` was modified before this review began. This review updates documentation only and does not commit, push or change live infrastructure. Inspect current status before working and preserve pre-existing edits.
 

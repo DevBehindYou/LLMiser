@@ -80,6 +80,7 @@ export default function RecentSessionsSidebar({
 
   const handleCopy = async (e, session) => {
     e.stopPropagation();
+    if (typeof session.content !== 'string') return;
     try {
       await navigator.clipboard.writeText(session.content || '');
       setCopiedId(session.id);
@@ -91,6 +92,7 @@ export default function RecentSessionsSidebar({
 
   const handleDownload = (e, session) => {
     e.stopPropagation();
+    if (typeof session.content !== 'string') return;
     const blob = new Blob([session.content || ''], { type: 'text/markdown;charset=utf-8' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
@@ -475,12 +477,14 @@ export default function RecentSessionsSidebar({
 
                   {/* Snippet preview */}
                   <div className="font-tech text-[11px] text-[var(--muted)] line-clamp-2 leading-relaxed bg-[var(--surface-2)]/60 rounded p-1.5 my-1.5 border border-[var(--border)] font-mono text-[10px] opacity-85">
-                    {session.content?.slice(0, 140) || uiText("Empty document content")}
+                    {typeof session.content === 'string'
+                      ? session.content.slice(0, 140) || uiText('Empty document content')
+                      : uiText('Conversion finished. Open this entry to retry downloading the result before automatic deletion.')}
                   </div>
 
                   {/* Metadata Stats */}
                   <div className="flex items-center justify-between pt-1 font-tech text-[10px] text-[var(--faint)]">
-                    <div className="flex items-center gap-2">
+                    {typeof session.content !== 'string' ? <span>{uiText('Download pending')}</span> : <div className="flex items-center gap-2">
                       <span className="text-amber-500 font-medium">
                         ⚡ {session.tokens_est?.toLocaleString() || Math.round((session.content?.length || 0) / 4)}{uiText(" tok")}</span>
                       <span>·</span>
@@ -491,10 +495,16 @@ export default function RecentSessionsSidebar({
                           <span className="text-emerald-500">Q:{session.quality_score}</span>
                         </>
                       )}
-                    </div>
+                    </div>}
 
                     {/* Action buttons */}
                     <div className="flex items-center gap-1">
+                      {typeof session.content !== 'string' ? (
+                        <button type="button" onClick={e => { e.stopPropagation(); onSelectSession(session); onClose?.(); }}
+                          className="tap-target text-[#2a78d6] underline bg-transparent border-0 text-[10px]">
+                          Open recovery
+                        </button>
+                      ) : <>
                       <button
                         onClick={(e) => handleCopy(e, session)}
                         className="px-2 py-0.5 rounded border border-[var(--border-3)] hover:border-[var(--text)] bg-[var(--surface)] text-[9.5px] text-[var(--muted)] hover:text-[var(--text)] transition-colors cursor-pointer"
@@ -508,6 +518,7 @@ export default function RecentSessionsSidebar({
                         className="px-2 py-0.5 rounded border border-[var(--border-3)] hover:border-[var(--text)] bg-[var(--surface)] text-[9.5px] text-[var(--muted)] hover:text-[var(--text)] transition-colors cursor-pointer"
                         title={uiText("Download .md file")}
                       >{uiText("↓ .md")}</button>
+                      </>}
 
                       <button
                         onClick={(e) => handleDelete(e, session.id)}

@@ -30,6 +30,7 @@ export function useConverterScreenViewModel({ openFilePicker }) {
   const handleConverted = useCallback(
     (result, { item, profile }) => {
       saveSession({
+        ...result,
         id: result.id,
         filename: result.filename || `${item.name}.md`,
         original_name: result.original_name || item.name,
@@ -45,6 +46,7 @@ export function useConverterScreenViewModel({ openFilePicker }) {
 
   const converter = useConverterViewModel({
     onConverted: handleConverted,
+    onResultRetained: handleConverted,
     onNetworkFailure: recheck,
     onNotice: showToast,
   });
@@ -108,7 +110,9 @@ export function useConverterScreenViewModel({ openFilePicker }) {
     (session) => {
       setActiveSessionId(session.id);
       loadSession(session);
-      showToast(`Loaded "${session.original_name}" from recent sessions`);
+      showToast(typeof session.content === 'string'
+        ? `Loaded "${session.original_name}" from recent sessions`
+        : 'Conversion finished. Use Retry download to retrieve the saved result.');
     },
     [setActiveSessionId, loadSession, showToast]
   );

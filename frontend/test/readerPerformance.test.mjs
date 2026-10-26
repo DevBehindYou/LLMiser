@@ -28,10 +28,26 @@ for (const name of components) {
   fs.writeFileSync(path.join(generated, `${name}.mjs`), compiled.code);
 }
 const load = async name => (await import(pathToFileURL(path.join(generated, `${name}.mjs`)))).default;
+const outputSource = fs.readFileSync(new URL('../components/converter/ResultOutputs.js', import.meta.url), 'utf8')
+  .replace("'../../lib/models/resultReference'", JSON.stringify(new URL('../lib/models/resultReference.js', import.meta.url).href));
+const outputCompiled = await transform(outputSource, { filename: 'ResultOutputs.js', jsc: { parser: { syntax: 'ecmascript', jsx: true }, transform: { react: { runtime: 'automatic' } } }, module: { type: 'es6' } });
+fs.writeFileSync(path.join(generated, 'ResultOutputs.mjs'), outputCompiled.code);
+const ResultOutputs = await load('ResultOutputs');
 const Viewer = await load('MarkdownViewer');
 const RenderedMarkdown = await load('RenderedMarkdown');
 const { PlainTextPreview } = await import(pathToFileURL(path.join(generated, 'PreviewBoundary.mjs')));
 const render = (Component, props) => renderToStaticMarkup(React.createElement(Component, props));
+
+test('every original output is discoverable with a fresh-link endpoint instead of a cached signed URL', () => {
+  const job_id = '123e4567-e89b-42d3-a456-426614174000';
+  const names = ['project-part-001.md', 'project-part-002.md', 'PROJECT_INDEX.md', 'manifest.json', '資料 & notes.md'];
+  const html = render(ResultOutputs, { result: { job_id, outputs: names.map(name => ({ name, url: 'https://storage.test/expired?token=secret' })) } });
+  assert.equal((html.match(/<a /g) || []).length, names.length);
+  for (const name of names) assert.ok(html.includes(`/api/jobs/${job_id}/download?output=${encodeURIComponent(name)}`));
+  assert.match(html, /original converted files/); assert.match(html, /export your edits/);
+  assert.doesNotMatch(html, /token=|https:\/\/storage/);
+  assert.equal(render(ResultOutputs, { result: { content: 'Legacy cached document' } }), '');
+});
 
 test('empty, busy and raw viewer modes keep their existing shell without starting a formatted preview', () => {
   assert.match(render(Viewer, {}), /Your Markdown appears here/);

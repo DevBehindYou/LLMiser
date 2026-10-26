@@ -9,7 +9,7 @@
 // governing-law country or specific providers: recipients are described by
 // category (Art. 13(1)(e) allows that) and available on request.
 
-export const LEGAL_VERSION = '2026-09-28';
+export const LEGAL_VERSION = '2026-10-21';
 export const LEGAL_UPDATED_LABEL = '26 October 2026';
 
 export const OPERATOR = {
@@ -84,13 +84,14 @@ export const PRIVACY_POLICY = {
       id: 'device',
       title: '5. Data kept on your device',
       blocks: [
-        { p: 'LLMiser stores a few items in your browser\'s local storage. They stay on your device and are never sent to us:' },
+        { p: 'LLMiser stores a few items in your browser\'s local storage. Saved Markdown text stays on your device when you reopen it:' },
         { ul: [
           'Your light or dark theme choice.',
           'Your app language choice.',
           'Which version of these documents you accepted, and when.',
-          'Your last 5 conversions (the Markdown text and file details), so you can reopen them. Clear them any time from the Recent panel.',
+          'Your last 5 conversions: the Markdown text when it fits, file details and a reference to the completed conversion. Clear them any time from the Recent panel.',
         ] },
+        { p: 'If a result download fails, you can use its saved reference to request fresh download links without uploading or converting the file again. This sends the conversion reference to our service. Signed download links are not saved in local storage. Server retrieval stops when its files are deleted. Your cached Markdown copy can still be opened after server deletion.' },
         { p: 'These items are needed for features you use, so the EU ePrivacy rules don\'t require a separate cookie consent for them.' },
       ],
     },
