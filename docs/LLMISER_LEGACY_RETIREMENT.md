@@ -1,6 +1,6 @@
 # Legacy repository and frontend retirement
 
-Updated 26 October 2026. The owner plans to delete MDify and MDify-Pro and explicitly chose **immediate redirects, with a LLMiser-only fallback banner**. This task prepares and verifies the replacement and handovers; it does not delete GitHub repositories, local checkouts, provider services or shared data.
+Updated 27 October 2026. The owner plans to delete MDify and MDify-Pro and explicitly chose **immediate redirects, with a LLMiser-only fallback banner**. The replacement and handovers are deployed and verified. This task does not delete GitHub repositories, local checkouts, provider services or shared data.
 
 ## What changes and what stays
 
@@ -28,9 +28,15 @@ Private snapshots are in `project-docs/retirement-backups/2026-10-26-165137Z/` i
 
 Each repository has a `.bundle` for all locally available refs/history, a working-file ZIP, a private file/hash manifest and a shared explanatory README. MDify-Pro's pre-existing modified/untracked documentation and brand files are preserved without modifying its checkout.
 
-Excluded from working ZIPs: `.git` (covered by the bundle), dependency/virtual-environment/build caches, compiled Python, logs and temporary files. No symlinks were encountered. Locally available refs are not a claim that every remote-only ref was fetched. GitHub issues, PR discussions, releases, Actions secrets, provider settings and external credentials are not exported by this backup. Inspect/export any such material the owner wants to retain before GitHub deletion. These copies are on the same machine, not an independent disaster-recovery backup.
+Excluded from working ZIPs: `.git` (covered by the bundle), dependency/virtual-environment/build caches, compiled Python, logs and temporary files. No symlinks were encountered. These copies are on the same machine, not an independent disaster-recovery backup.
+
+Additional remote mirrors and verified `*-remote.bundle` files preserve the fetched GitHub refs, including pull-request heads: MDify 38 refs/19 pull heads; MDify-Pro 3 refs/1 pull head. Private `github-records/` JSON exports preserve repository metadata, issues/PRs, issue comments, review comments, formal reviews and release listings as returned at export time. MDify has 18 issue/PR records, 18 PR records and 35 issue comments; MDify-Pro has 1 issue/PR record and 1 PR record. Both returned zero formal reviews, review comments and releases. Git refs and API record counts describe different inventories; do not assume they must match.
+
+Actions artifacts/logs/secrets, provider settings, external credentials and linked comment attachments were not exported. Export any additional GitHub-only material the owner needs before deletion. The private manifests and summary JSON files describe the exact scope; none is staged or published.
 
 LLMiser already contains the public app/backends/tests/database source and published blog assets. Its private `blog-pipeline/visuals/build.mjs`, shared visual kit, brand kit, research archive and `docs/mdify-history/` were confirmed present. Fresh public clones do not include these private folders; restore authoring materials from the owner's private copy if needed, never from a deleted sibling checkout. Do not publish the backup to make the public clone self-contained.
+
+The active local tooling audit found zero remaining absolute references to either old checkout after correcting LLMiser's private brand helper to use its local directory. Do not run `project-docs/brand/make-icons.mjs` wholesale: it also targets an unrelated Atomic File Manager project. Approved LLMiser assets were preserved without regenerating them.
 
 ## Hosting cutover
 
@@ -38,7 +44,7 @@ Existing old frontend project: `devbehindyous-projects-369/mdify-app` (owner's f
 
 For the **old frontend project only**, connect Git to `DevBehindYou/LLMiser`, production branch `main`, root `legacy-site`. The package's `vercel.json` selects Other/static, no install/build, and output `public`. Keep existing domains and domain-level redirects. Never change the working LLMiser project's root from `frontend`.
 
-The two known old hosts get permanent redirects for public paths. Existing Vercel redirect settings may take precedence and should remain. Preview/other hosts receive only the static noindex banner. Legacy frontend API paths have no handler and return 404, never a cross-origin redirect or body forwarding. Before cutover, confirm no scheduler or supported client depends on the old frontend API. The live scheduler was moved to LLMiser in the earlier cron task; that does not prove every possible old client has migrated.
+The two known old hosts keep permanent redirects for migrated public paths. Existing Vercel redirect settings may take precedence and should remain. The static package has no API handler and its own routing excludes API paths. Actual public routing is different: the `mdify-app.vercel.app` domain-level redirect also covers API paths; `mdify.devbehindyou.com` is attached to the working LLMiser project and its API remains available there with noindex. This replacement removes the old project's converter, not the canonical app's compatibility API behavior. Do not send sensitive POST bodies to a legacy alias to test redirects. The live scheduler was moved to LLMiser in the earlier cron task; that does not prove every possible old client has migrated.
 
 After deployment, verify old home, legal, usecase, blog index and article paths redirect directly with their query intact; confirm the canonical app and pools stay healthy; open the deployment URL to confirm only the banner remains; verify an old API endpoint does not expose a converter or redirect POST data. Record actual production revision and results in this guide/tracker. Configuration files and local previews alone are not production evidence.
 
@@ -50,6 +56,10 @@ Preserve old-domain DNS/TLS, Search Console verification and crawlable permanent
 
 Repository deletion is an owner-controlled final operation after backups, provider source connections and required GitHub-only exports are checked. GitHub's limited restoration options are not a backup strategy. See [GitHub repository deletion documentation](https://docs.github.com/en/repositories/creating-and-managing-repositories/deleting-a-repository).
 
-## State at preparation
+## Verified deployment and acceptance
 
-Backups and standalone-source checks are complete. Static package and updated handovers are prepared on `codex/legacy-retirement`. Old hosting cutover, its live acceptance and repository deletion are not claimed complete here. Update this state only from observed results.
+PR #7 merged; replacement source revision `c056e180525c4a0fc3c8a4702fe678fd2601a4d4`. The old Vercel project now connects to `DevBehindYou/LLMiser`, branch `main`, root `legacy-site`. Deployment `FraWhBMCH5f3B3VK8QBJrf5JQ4ff` became Ready in 3 seconds on 26 October at 22:53 IST. The main app stays root `frontend`; all six Vercel status contexts for this revision succeeded. PR #7 passed all seven CI jobs, including 255 frontend tests.
+
+On 27 October, the deployment-specific URL showed only the LLMiser banner, expected canonical destination, `noindex,follow`, zero scripts and zero forms. Desktop and 390px local previews were also inspected. Unauthenticated deployment-URL requests retain Vercel's 302 SSO protection with noindex; this protection was not weakened. The public domains immediately redirect, so users do not see an intermediate banner.
+
+The focused public HTTP audit passed 20 checks: migrated home/usecase/privacy/terms/blog/article paths with queries on both old hosts, plus canonical pages/discovery files/health. All normal/OCR/archive pools were 2/2 ready. An unknown old custom-domain path returns 404; the Vercel alias redirects the same unknown path to the equivalent canonical URL. API behavior is recorded above. The private raw results and live screenshot are in `project-docs/retirement-evidence/`. Repository deletion and old backend retirement remain unperformed and require their own checks.
