@@ -4,9 +4,9 @@ Updated 27 October 2026. Work only in LLMiser. This is the current continuation 
 
 ## Current continuation state
 
-PRs #1–#8 are merged. Retained-result recovery, cron cutover and wake coalescing are released; the old frontend is now the static LLMiser fallback and public migration redirects remain live. The 22 October branch/review statements below are historical evidence for that earlier slice, not current release blockers. Use [START_HERE](START_HERE.md) and [PROGRESS](ai-handover/PROGRESS.md) for deployment state.
+PRs #1–#9 are merged. Retained-result recovery, cron cutover, wake coalescing and shared reader statistics are released; the old frontend is now the static LLMiser fallback and public migration redirects remain live. The 22 October branch/review statements below are historical evidence for that earlier slice, not current release blockers. Use [START_HERE](START_HERE.md) and [PROGRESS](ai-handover/PROGRESS.md) for deployment state.
 
-The next bounded slice is shared reader statistics on `codex/shared-document-statistics`: one allocation-bounded helper, one memoized result for reader line/status displays, preserved counting semantics and reproducible before/after measurements. See [reader statistics](LLMISER_READER_STATISTICS.md). Parser/preview profiling and the rest of the queue remain separate; no new production SQL or service retirement is part of this slice.
+Shared reader statistics shipped in PR #9 at `84e510db62ea41f31c131771eb7d32b5e92515f4`: one allocation-bounded helper, one memoized result for reader line/status displays, preserved counting semantics and reproducible before/after measurements. See [reader statistics](LLMISER_READER_STATISTICS.md) for 259-test CI and live verification. Browser long-task/preview profiling is next; the rest of the queue remains separate. No new production SQL or service retirement was part of this slice.
 
 ## Verified starting point
 
@@ -37,7 +37,7 @@ Acceptance: expired link, later-part failure, complete Unicode assembly, restart
 
 | Work | Next bounded change / dependency |
 | --- | --- |
-| Shared statistics and large previews | Shared counting slice implemented with reproducible measurements; finish CI/release, then profile browser rendering before considering a bounded preview/worker |
+| Shared statistics and large previews | Shared counting slice released in PR #9; next profile browser rendering before considering a bounded preview/worker |
 | Backend parser capacity | Audit all parsers beyond the already-shipped PDF/OCR preparation bounds; preserve fidelity and measure synchronized memory before tuning concurrency |
 | Shared deadline | Add an optional, backward-compatible remaining-budget protocol, reserving finalization time; test slow failures/cold starts |
 | Controller detail pagination | Top-level lists already paginate; bound files/tree/events/work-items with stable cursors and truthful totals; query-plan evidence before new indexes |

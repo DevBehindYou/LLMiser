@@ -15,9 +15,10 @@ Updated 27 October 2026. This is the current tracker. Earlier phase-specific num
 | Six-language web app | PR #5 released; English US, German, Japanese, Spanish, Russian, Simplified Chinese; 628 messages each |
 | Final display-label fixes | PR #6 merged/deployed; preview labels/tooltips, mobile theme and retention labels |
 | Public README | Screenshots, recorded demo, steps, formats, profiles, privacy and FAQs; separate keyword evidence |
-| Final frontend CI | PR #7: 255 tests passed; lint, dictionaries, SQL/blog consistency and production build passed |
+| Final frontend CI | PR #9: 259 tests passed; lint, dictionaries, SQL/blog consistency and production build passed |
 | Other CI | Backend N/O/Z, PostgreSQL, edge and extension jobs passed |
-| Production deployment | Revision `c056e180525c4a0fc3c8a4702fe678fd2601a4d4`; all six Vercel statuses successful, including the legacy static shell |
+| Production deployment | Latest runtime change `84e510db62ea41f31c131771eb7d32b5e92515f4`; all six Vercel statuses successful, including the legacy static shell |
+| Shared reader statistics | PR #9 merged/deployed; allocation-bounded counting and shared reader line/status metrics; preserved count semantics; synthetic benchmark and limits documented |
 | Production HTTP audit | 40 passing checks during the integrated release; all 13 sitemap pages; permanent legacy redirects; API noindex/auth boundary |
 | Backend readiness | Normal/OCR/archive each 2/2 ready after final release |
 | Browser acceptance | All six languages, persistence, English-only blogs, translated policy/controller login; German 390px viewport had no horizontal overflow |
@@ -46,7 +47,7 @@ See [release record](../LLMISER_RELEASE_2026-10-26.md), [localization](../LLMISE
 
 ## Remaining work
 
-The owner resumed the implementation plan after the handover was merged in PR #8. The current bounded change is [shared reader statistics](../LLMISER_READER_STATISTICS.md), branch `codex/shared-document-statistics`: local focused acceptance and measurement are recorded there; CI/release verification remain distinct. Browser preview profiling is still open.
+The owner resumed the implementation plan after the handover was merged in PR #8. [Shared reader statistics](../LLMISER_READER_STATISTICS.md) shipped in PR #9 with 259 passing frontend CI tests, all seven CI jobs, all six production deployment statuses and a fresh 20-check HTTP audit. Browser long-task/preview profiling is the next part of that queue; the shared-counting change does not claim to solve large Markdown rendering.
 
 - Retain the domains and immediate permanent redirects after the completed static frontend cutover.
 - Review any additional GitHub-only material the owner needs beyond the completed record exports. Actions artifacts/logs/secrets, provider settings and linked attachments were not exported.
