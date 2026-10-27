@@ -4,43 +4,8 @@ import { useI18n } from './i18n/I18nContext';
 
 import React, { memo, useMemo } from 'react';
 
-/**
- * Calculates live document metrics:
- * - characters
- * - words
- * - lines
- * - estimated tokens (~4 chars per token standard rule of thumb)
- * - reading time (~200 words per min)
- */
-export function calculateDocStats(content = '') {
-  if (!content) {
-    return {
-      characters: 0,
-      words: 0,
-      lines: 0,
-      tokens: 0,
-      readingTime: '0 min',
-    };
-  }
-
-  const characters = content.length;
-  const lines = content.split('\n').length;
-  const trimmed = content.trim();
-  const words = trimmed ? trimmed.split(/\s+/).filter(Boolean).length : 0;
-  // Estimate tokens (~4 chars per token)
-  const tokens = Math.max(1, Math.round(characters / 4));
-  // Reading time at 200 wpm
-  const minutes = Math.max(1, Math.ceil(words / 200));
-  const readingTime = words < 120 ? '< 1 min' : `${minutes} min read`;
-
-  return {
-    characters,
-    words,
-    lines,
-    tokens,
-    readingTime,
-  };
-}
+import { calculateDocStats } from '../lib/documentStats';
+export { calculateDocStats } from '../lib/documentStats';
 
 /**
  * DocStatsWidget

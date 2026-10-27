@@ -13,6 +13,7 @@ import React, {
   useState,
 } from 'react';
 import OutputStatusBar from './OutputStatusBar';
+import { getMarkdownCounts } from '../lib/documentStats';
 import MarkdownSkeleton from './MarkdownSkeleton';
 import PreviewBoundary, { PlainTextPreview } from './PreviewBoundary';
 
@@ -127,7 +128,8 @@ export default function MarkdownViewer({
     }
   }, [localContent]);
 
-  const lineCount = useMemo(() => deferredContent.split('\n').length, [deferredContent]);
+  const documentStats = useMemo(() => getMarkdownCounts(deferredContent), [deferredContent]);
+  const lineCount = Math.max(1, documentStats.lines);
 
   // ── SKELETON LOADING STATE (Waiting for conversion API response)
   if (isLoading) {
@@ -260,6 +262,7 @@ export default function MarkdownViewer({
           <OutputStatusBar
             id={statusBarId}
             content={deferredContent}
+            documentStats={documentStats}
             tokensEst={tokensEst}
             compact={compactStatusBar}
             onCopy={handleCopyAll}

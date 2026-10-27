@@ -1,12 +1,18 @@
 # LLMiser optimization continuation
 
-Updated 22 October 2026. Work only in LLMiser. This is the current continuation map; copied MDify analysis is historical evidence and proposals, not live deployment instructions. Blog rebranding is complete and blog sources/visuals are outside this implementation slice.
+Updated 27 October 2026. Work only in LLMiser. This is the current continuation map; copied MDify analysis is historical evidence and proposals, not live deployment instructions. Blog rebranding is complete and blog sources/visuals are outside this implementation slice.
+
+## Current continuation state
+
+PRs #1–#8 are merged. Retained-result recovery, cron cutover and wake coalescing are released; the old frontend is now the static LLMiser fallback and public migration redirects remain live. The 22 October branch/review statements below are historical evidence for that earlier slice, not current release blockers. Use [START_HERE](START_HERE.md) and [PROGRESS](ai-handover/PROGRESS.md) for deployment state.
+
+The next bounded slice is shared reader statistics on `codex/shared-document-statistics`: one allocation-bounded helper, one memoized result for reader line/status displays, preserved counting semantics and reproducible before/after measurements. See [reader statistics](LLMISER_READER_STATISTICS.md). Parser/preview profiling and the rest of the queue remain separate; no new production SQL or service retirement is part of this slice.
 
 ## Verified starting point
 
 The copied source already contains atomic job startup/finalization, cleanup recovery, upload/active-job/storage-reservation admission, shared archive container checks, bounded PDF page uploads/OCR preparation, lazy Markdown/highlighter loading and current-edit export snapshots. Do not reimplement these based on old “proposed” checklist rows. Their deployment/capacity evidence is distinct from source tests.
 
-Search migration and public redirects are live; see [search migration](LLMISER_SEARCH_MIGRATION.md). Analytics ingestion is verified; controller login/configuration is verified but authenticated operations are not; see [access and analytics](LLMISER_ANALYTICS_CONTROLLER.md). Keep-warm Vault changes remain assigned to another agent. Cron cutover and dependency-aware service retirement are separate operational work.
+Search migration and public redirects are live; see [search migration](LLMISER_SEARCH_MIGRATION.md). Analytics ingestion is verified; controller login/configuration is verified but authenticated operations are not; see [access and analytics](LLMISER_ANALYTICS_CONTROLLER.md). Keep-warm Vault and cron changes were applied and verified in the earlier cron task. Dependency-aware service retirement remains separate operational work.
 
 ## Current slice: retained result recovery
 
@@ -31,7 +37,7 @@ Acceptance: expired link, later-part failure, complete Unicode assembly, restart
 
 | Work | Next bounded change / dependency |
 | --- | --- |
-| Shared statistics and large previews | Measure repeated scans/rendering on representative document sizes; centralize counts, then choose a bounded preview/worker only if measurements justify it |
+| Shared statistics and large previews | Shared counting slice implemented with reproducible measurements; finish CI/release, then profile browser rendering before considering a bounded preview/worker |
 | Backend parser capacity | Audit all parsers beyond the already-shipped PDF/OCR preparation bounds; preserve fidelity and measure synchronized memory before tuning concurrency |
 | Shared deadline | Add an optional, backward-compatible remaining-budget protocol, reserving finalization time; test slow failures/cold starts |
 | Controller detail pagination | Top-level lists already paginate; bound files/tree/events/work-items with stable cursors and truthful totals; query-plan evidence before new indexes |

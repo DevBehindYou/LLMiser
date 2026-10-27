@@ -7,6 +7,7 @@ import React from 'react';
 import { renderToStaticMarkup, renderToString } from 'react-dom/server';
 import { createRequire } from 'node:module';
 import { highlightCode } from '../lib/highlightCode.js';
+import { getMarkdownCounts } from '../lib/documentStats.js';
 
 // Exercise the actual JSX components using Next's already-pinned compiler,
 // without introducing a second renderer or new test dependencies.
@@ -14,7 +15,7 @@ const require = createRequire(import.meta.url);
 const { transform } = require('next/dist/build/swc');
 const generated = fs.mkdtempSync(path.join(path.dirname(fileURLToPath(import.meta.url)), '.reader-runtime-'));
 after(() => fs.rmSync(generated, { recursive: true, force: true }));
-const components = ['MarkdownViewer', 'RenderedMarkdown', 'PreviewBoundary', 'OutputStatusBar', 'MarkdownSkeleton'];
+const components = ['MarkdownViewer', 'RenderedMarkdown', 'PreviewBoundary', 'OutputStatusBar', 'DocStatsWidget', 'MarkdownSkeleton'];
 const i18nSource = fs.readFileSync(new URL('../components/i18n/I18nContext.js', import.meta.url), 'utf8')
   .replaceAll("'../../lib/i18n/core'", JSON.stringify(new URL('../lib/i18n/core.js', import.meta.url).href));
 const i18nCompiled = await transform(i18nSource, { filename: 'I18nContext.js', jsc: { parser: { syntax: 'ecmascript', jsx: true }, transform: { react: { runtime: 'automatic' } } }, module: { type: 'es6' } });
@@ -24,6 +25,7 @@ for (const name of components) {
   source = source.replaceAll("'./i18n/I18nContext'", "'./I18nContext.mjs'");
   for (const component of components) source = source.replaceAll(`'./${component}'`, `'./${component}.mjs'`);
   source = source.replaceAll("'../lib/highlightCode'", JSON.stringify(new URL('../lib/highlightCode.js', import.meta.url).href));
+  source = source.replaceAll("'../lib/documentStats'", JSON.stringify(new URL('../lib/documentStats.js', import.meta.url).href));
   const compiled = await transform(source, { filename: `${name}.js`, jsc: { parser: { syntax: 'ecmascript', jsx: true }, transform: { react: { runtime: 'automatic' } } }, module: { type: 'es6' } });
   fs.writeFileSync(path.join(generated, `${name}.mjs`), compiled.code);
 }
@@ -114,4 +116,21 @@ test('a highlighter failure requests the safe React text fallback', () => {
     Prism.highlight = () => { throw new Error('synthetic optional highlighter failure'); };
     assert.equal(highlightCode('<img src=x onerror=alert(1)>', 'html'), null);
   } finally { Prism.highlight = original; }
+});
+
+test('reader line label and shared status metrics preserve trailing lines and server token overrides', async () => {
+  const content = 'alpha beta\n日本語 🙂\n';
+  const stats = Object.freeze(getMarkdownCounts(content));
+  const html = render(Viewer, { docId: 'metrics', content, viewMode: 'split', tokensEst: 77 });
+  assert.match(html, /3 lines · editable/);
+  assert.match(html, /Total words counted: 4/);
+  assert.match(html, /Total characters: 18 \(without spaces: 14\)/);
+  assert.match(html, /font-semibold">77<\/span>/);
+  const StatusBar = await load('OutputStatusBar');
+  const Widget = await load('DocStatsWidget');
+  for (const Component of [StatusBar, Widget]) {
+    const display = render(Component, { content, documentStats: stats, tokensEst: 0 });
+    assert.match(display, /0<\/span>/);
+  }
+  assert.match(render(Viewer, { docId: 'empty', content: '', viewMode: 'split' }), /1 lines · editable/);
 });
