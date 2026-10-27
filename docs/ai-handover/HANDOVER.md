@@ -1,6 +1,6 @@
 # LLMiser AI handover
 
-Updated 26 October 2026. Start with [START_HERE](../START_HERE.md). This replaces the earlier deployment-phase handover; historical evidence remains in the linked reports and Git history.
+Updated 27 October 2026. Start with [START_HERE](../START_HERE.md). This replaces the earlier deployment-phase handover; historical evidence remains in the linked reports and Git history.
 
 ## What the owner wants now
 
@@ -16,7 +16,7 @@ LLMiser must remain independently maintainable after MDify and MDify-Pro are del
 - Product-focused README with screenshots, recorded language demo, steps, format limits and measured-versus-unmeasured keyword notes.
 - Chrome extension 0.2.0 source: one Converter toolbar popup, file picker/drop, manual Paste into detected AI sites, uploaded-job recovery. No public store release or completed native acceptance is claimed.
 
-PRs #1–#6 merged. Released main revision: `aa0635433bf520bfddc6edb796c14a74430e64f8`. Final PR CI: 252 frontend tests and all seven jobs passed. All five Vercel deployment statuses succeeded; the initial integrated release had 40 passing production HTTP checks. All pools were 2/2 ready. See [release record](../LLMISER_RELEASE_2026-10-26.md).
+PRs #1–#7 merged. Deployed source revision: `c056e180525c4a0fc3c8a4702fe678fd2601a4d4`. PR #7 CI: 255 frontend tests and all seven jobs passed. All six Vercel deployment statuses succeeded; the initial integrated release had 40 passing production HTTP checks. The 27 October retirement audit passed 20 focused checks and all pools were 2/2 ready. See [release record](../LLMISER_RELEASE_2026-10-26.md) and [retirement acceptance](../LLMISER_LEGACY_RETIREMENT.md).
 
 ## Repository and private-material boundaries
 
@@ -42,9 +42,15 @@ Private folders are excluded through the tracked `.gitignore` as well as this ch
 
 [Retirement guide](../LLMISER_LEGACY_RETIREMENT.md) records snapshot counts and limits. Keep both old source checkouts read-only until the owner deletes them. MDify-Pro contains pre-existing dirty/untracked work; snapshots preserve it. Do not commit or discard that work in the original checkout.
 
-The old `mdify-app` Vercel project's desired source is this repository, branch `main`, root `legacy-site`, framework Other/static. Public legacy domains continue redirecting directly. The banner can appear on a nonlegacy deployment host or custom 404; it does not intercept the migration redirect. There are no API handlers: old frontend `/api/*` calls stop with 404 and are never forwarded across origins. Audit old API consumers before the hosting cutover. Shared backend/storage/cron resources are not deleted by this replacement.
+The old `mdify-app` Vercel project now deploys this repository, branch `main`, root `legacy-site`, framework Other/static. Its verified deployment is `FraWhBMCH5f3B3VK8QBJrf5JQ4ff`; the hosted banner has no forms/scripts and remains protected on deployment-specific URLs. Public legacy domains continue redirecting migrated pages directly. The static package has no API handlers, but domain-level routing takes precedence: the old Vercel alias redirects API paths, while the old custom domain still serves the working LLMiser project's API with noindex. Do not claim public API calls all return 404. Shared backend/storage/cron resources are not deleted by this replacement.
 
 The main `llmiser` project stays root `frontend`. Its domain redirects and compatibility assets remain in `frontend/next.config.js`. The old backend deployment sources must be reviewed separately before deleting their GitHub connections or services. A successful frontend replacement does not certify old-service retirement.
+
+Active local tooling now has zero absolute references to either old checkout. LLMiser's private brand helper uses its local directory, but do not run the whole `project-docs/brand/make-icons.mjs`: it also writes to an unrelated Atomic File Manager project. Existing approved icons were not regenerated.
+
+## Prompt for the next retirement agent
+
+> Work only in LLMiser. Read docs/START_HERE.md, this handover, PROGRESS.md and LLMISER_LEGACY_RETIREMENT.md first. The old frontend replacement is already deployed; preserve its Git connection, static root, public redirects, DNS/TLS and deployment protection. Before any separately authorized old repository/backend deletion, audit each provider's source connection and every remaining consumer, verify the private local/remote bundles and dirty-file snapshots, and report exact blockers. Preserve shared storage, database, scheduler, Vault entries and compatibility identifiers. Do not rerun initial provisioning or delete either original checkout's uncommitted work. Blogs/visuals are complete and unchanged. Record observed results and distinguish them from dated conversion evidence. Repository/service deletion requires explicit scope and is not authorized by this handover text.
 
 ## Verification commands
 

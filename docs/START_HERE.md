@@ -1,18 +1,18 @@
 # LLMiser — start here
 
-Updated 26 October 2026. **LLMiser is the sole working repository and the source for future releases.** Do not depend on an MDify or MDify-Pro checkout: the owner plans to delete those repositories.
+Updated 27 October 2026. **LLMiser is the sole working repository and the source for future releases.** Do not depend on an MDify or MDify-Pro checkout: the owner plans to delete those repositories.
 
 ## Current state
 
-The app is live at https://llmiser.devbehindyou.com. PRs #1–#6 are merged; the released revision is `aa0635433bf520bfddc6edb796c14a74430e64f8`. The final release passed 252 frontend tests and all seven CI jobs; all five Vercel deployment statuses succeeded. Forty production HTTP checks passed during the integrated release, with normal/OCR/archive pools each 2/2 ready. See [release evidence](LLMISER_RELEASE_2026-10-26.md).
+The app is live at https://llmiser.devbehindyou.com. PRs #1–#7 are merged; deployed source revision is `c056e180525c4a0fc3c8a4702fe678fd2601a4d4`. PR #7 passed 255 frontend tests and all seven CI jobs; all six Vercel deployment statuses succeeded, including the static legacy frontend. The earlier integrated release passed 40 production HTTP checks; the 27 October retirement audit passed 20 focused checks and all three pools remained 2/2 ready. See [release evidence](LLMISER_RELEASE_2026-10-26.md) and [retirement evidence](LLMISER_LEGACY_RETIREMENT.md).
 
 The full app supports English (US), German, Japanese, Spanish, Russian and Simplified Chinese. The browser remembers the interface language; documents are not translated and OCR languages are unchanged. Blogs remain English. Eight articles, eight banners and forty figures are complete. The Chrome extension source is merged, but native acceptance and store publication remain pending.
 
-## Retirement task now in progress
+## Legacy frontend replacement is deployed
 
 The owner wants the old converter removed from its frontend hosting, permanent public redirects preserved, and a small LLMiser-only banner as fallback. Replacement source is [legacy-site/](../legacy-site/README.md), inside this repository. It has no converter, API or database client. The working LLMiser project continues using `frontend`; only the old frontend project may use `legacy-site`.
 
-Read [legacy retirement and backup evidence](LLMISER_LEGACY_RETIREMENT.md) before deleting a repository or changing old hosting. Private Git bundles and working-file snapshots have been verified, including MDify-Pro's uncommitted work. **Neither old repository has been deleted by this task.** GitHub-only records and external provider settings are not part of those local snapshots. Hosting cutover status must be verified independently before calling retirement complete.
+The old `mdify-app` project now deploys this repository's `legacy-site` root; the hosted banner and immediate public redirects were verified. Read [legacy retirement and backup evidence](LLMISER_LEGACY_RETIREMENT.md) before deleting a repository or changing old hosting. Private Git bundles, remote mirrors, working-file snapshots and GitHub record exports have been verified, including MDify-Pro's uncommitted work. **Neither old repository has been deleted by this task.** Provider settings, Actions data and linked attachments are outside the export scope. Old backend/service consumer audits remain separate.
 
 ## Read next
 

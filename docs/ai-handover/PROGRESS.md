@@ -1,6 +1,6 @@
 # LLMiser progress and remaining work
 
-Updated 26 October 2026. This is the current tracker. Earlier phase-specific numbers remain in their reports; they are not the current deployment state.
+Updated 27 October 2026. This is the current tracker. Earlier phase-specific numbers remain in their reports; they are not the current deployment state.
 
 ## Completed and released
 
@@ -15,9 +15,9 @@ Updated 26 October 2026. This is the current tracker. Earlier phase-specific num
 | Six-language web app | PR #5 released; English US, German, Japanese, Spanish, Russian, Simplified Chinese; 628 messages each |
 | Final display-label fixes | PR #6 merged/deployed; preview labels/tooltips, mobile theme and retention labels |
 | Public README | Screenshots, recorded demo, steps, formats, profiles, privacy and FAQs; separate keyword evidence |
-| Final frontend CI | 252 tests passed; lint, dictionaries, SQL/blog consistency and production build passed |
+| Final frontend CI | PR #7: 255 tests passed; lint, dictionaries, SQL/blog consistency and production build passed |
 | Other CI | Backend N/O/Z, PostgreSQL, edge and extension jobs passed |
-| Production deployment | Revision `aa0635433bf520bfddc6edb796c14a74430e64f8`; all five Vercel statuses successful |
+| Production deployment | Revision `c056e180525c4a0fc3c8a4702fe678fd2601a4d4`; all six Vercel statuses successful, including the legacy static shell |
 | Production HTTP audit | 40 passing checks during the integrated release; all 13 sitemap pages; permanent legacy redirects; API noindex/auth boundary |
 | Backend readiness | Normal/OCR/archive each 2/2 ready after final release |
 | Browser acceptance | All six languages, persistence, English-only blogs, translated policy/controller login; German 390px viewport had no horizontal overflow |
@@ -30,12 +30,14 @@ See [release record](../LLMISER_RELEASE_2026-10-26.md), [localization](../LLMISE
 | Item | State |
 | --- | --- |
 | LLMiser as sole working repository | Owner confirmed; all new source and fallback hosting package live here |
-| Old-repository Git histories | Verified private bundles created for both local repositories |
+| Old-repository Git histories | Verified private local bundles plus fetched remote/PR-head bundles for both repositories |
+| GitHub records | Private repository/issue/PR/comment/review/release JSON exports completed; exact counts and exclusions in retirement guide |
 | Uncommitted/private working material | Verified ZIP snapshots: MDify 354 files; MDify-Pro 622 files; caches/build outputs/logs excluded |
 | Standalone private assets | Existing LLMiser brand kit, research, historical notes and blog generator confirmed present |
 | Updated entry point and AI handovers | Rewritten for current deployed state and retirement scope |
-| Minimal legacy replacement | `legacy-site/` prepared; static LLMiser-only banner, permanent public redirects, no API/converter |
-| Old frontend hosting cutover | Pending live configuration/deployment verification; do not mark complete from files alone |
+| Minimal legacy replacement | `legacy-site/` deployed from LLMiser; static LLMiser-only banner, no API/converter in the package |
+| Old frontend hosting cutover | Complete: old project source LLMiser/main, root legacy-site, deployment FraWhBMCH5f3B3VK8QBJrf5JQ4ff Ready; hosted banner verified |
+| Retirement live audit | 20 passing public checks; both hosts preserve migrated paths/queries through 308 redirects; normal/OCR/archive each 2/2 ready; existing public API/unknown-path routing documented separately |
 | Old GitHub repository deletion | Not performed; owner plans deletion after backup/dependency checks |
 | Old local checkout deletion | Not performed; private snapshots preserve existing work |
 | Old backend/service retirement | Separate consumer/source audit still required; shared storage/cron must remain |
@@ -44,8 +46,8 @@ See [release record](../LLMISER_RELEASE_2026-10-26.md), [localization](../LLMISE
 
 ## Remaining work
 
-- Finish/verify the static legacy frontend hosting cutover, retaining the domains and immediate permanent redirects.
-- Export any GitHub-only issues, discussions, releases or settings the owner wants to keep; local Git bundles do not contain these or Actions secrets.
+- Retain the domains and immediate permanent redirects after the completed static frontend cutover.
+- Review any additional GitHub-only material the owner needs beyond the completed record exports. Actions artifacts/logs/secrets, provider settings and linked attachments were not exported.
 - Keep a verified private backup outside the directories that will be deleted, with an owner-controlled second copy if local disk loss matters. The current snapshots are in LLMiser, not an independent/off-machine backup.
 - Audit provider Git connections and all consumers before retiring old backend services or deleting their source repositories. Do not delete shared data, bucket, Vault entries, cleanup functions or compatibility contracts.
 - Complete native Chrome 0.2.0 acceptance and store publication; source merge does not publish the extension.
