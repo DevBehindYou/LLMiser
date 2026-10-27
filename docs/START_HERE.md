@@ -4,7 +4,7 @@ Updated 27 October 2026. **LLMiser is the sole working repository and the source
 
 ## Current state
 
-The app is live at https://llmiser.devbehindyou.com. PRs #1–#7 are merged; deployed source revision is `c056e180525c4a0fc3c8a4702fe678fd2601a4d4`. PR #7 passed 255 frontend tests and all seven CI jobs; all six Vercel deployment statuses succeeded, including the static legacy frontend. The earlier integrated release passed 40 production HTTP checks; the 27 October retirement audit passed 20 focused checks and all three pools remained 2/2 ready. See [release evidence](LLMISER_RELEASE_2026-10-26.md) and [retirement evidence](LLMISER_LEGACY_RETIREMENT.md).
+The app is live at https://llmiser.devbehindyou.com. PRs #1–#9 are merged; the latest verified runtime change is revision `84e510db62ea41f31c131771eb7d32b5e92515f4`. PR #9 passed 259 frontend tests and all seven CI jobs; all six Vercel deployment statuses succeeded, including the static legacy frontend. A fresh 27 October release audit passed 20 focused HTTP checks and all three pools remained 2/2 ready. See [reader statistics and release evidence](LLMISER_READER_STATISTICS.md), the [earlier integrated release](LLMISER_RELEASE_2026-10-26.md) and [retirement evidence](LLMISER_LEGACY_RETIREMENT.md).
 
 The full app supports English (US), German, Japanese, Spanish, Russian and Simplified Chinese. The browser remembers the interface language; documents are not translated and OCR languages are unchanged. Blogs remain English. Eight articles, eight banners and forty figures are complete. The Chrome extension source is merged, but native acceptance and store publication remain pending.
 

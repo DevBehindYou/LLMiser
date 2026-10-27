@@ -16,7 +16,7 @@ LLMiser must remain independently maintainable after MDify and MDify-Pro are del
 - Product-focused README with screenshots, recorded language demo, steps, format limits and measured-versus-unmeasured keyword notes.
 - Chrome extension 0.2.0 source: one Converter toolbar popup, file picker/drop, manual Paste into detected AI sites, uploaded-job recovery. No public store release or completed native acceptance is claimed.
 
-PRs #1–#7 merged. Deployed source revision: `c056e180525c4a0fc3c8a4702fe678fd2601a4d4`. PR #7 CI: 255 frontend tests and all seven jobs passed. All six Vercel deployment statuses succeeded; the initial integrated release had 40 passing production HTTP checks. The 27 October retirement audit passed 20 focused checks and all pools were 2/2 ready. See [release record](../LLMISER_RELEASE_2026-10-26.md) and [retirement acceptance](../LLMISER_LEGACY_RETIREMENT.md).
+PRs #1–#9 merged. Latest verified runtime revision: `84e510db62ea41f31c131771eb7d32b5e92515f4`. PR #9 shipped allocation-bounded shared reader statistics after 259 frontend tests and all seven CI jobs passed. All six production Vercel statuses succeeded; a fresh 20-check HTTP audit passed and all pools were 2/2 ready. See [reader release evidence](../LLMISER_READER_STATISTICS.md), the [earlier integrated release](../LLMISER_RELEASE_2026-10-26.md) and [retirement acceptance](../LLMISER_LEGACY_RETIREMENT.md).
 
 ## Repository and private-material boundaries
 
@@ -54,7 +54,7 @@ Active local tooling now has zero absolute references to either old checkout. LL
 
 ## Verification commands
 
-The owner asked to continue the optimization plan after the retirement handover. PR #8 completed that handover; the next measured slice is [shared reader statistics](../LLMISER_READER_STATISTICS.md). Continue from [the optimization queue](../LLMISER_OPTIMIZATION_PLAN.md), not the historical unmerged-branch statements in its 22 October evidence. Preserve complete Markdown and exports while profiling large previews.
+The owner asked to continue the optimization plan after the retirement handover. PR #8 completed that handover; PR #9 released [shared reader statistics](../LLMISER_READER_STATISTICS.md). Next, profile browser rendering/long tasks before choosing any preview worker or size bound. Continue from [the optimization queue](../LLMISER_OPTIMIZATION_PLAN.md), not the historical unmerged-branch statements in its 22 October evidence. Preserve complete Markdown and exports while profiling large previews.
 
 Use Node.js 22. From `frontend`:
 
