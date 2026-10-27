@@ -54,6 +54,8 @@ Active local tooling now has zero absolute references to either old checkout. LL
 
 ## Verification commands
 
+The owner asked to continue the optimization plan after the retirement handover. PR #8 completed that handover; the next measured slice is [shared reader statistics](../LLMISER_READER_STATISTICS.md). Continue from [the optimization queue](../LLMISER_OPTIMIZATION_PLAN.md), not the historical unmerged-branch statements in its 22 October evidence. Preserve complete Markdown and exports while profiling large previews.
+
 Use Node.js 22. From `frontend`:
 
 ```sh

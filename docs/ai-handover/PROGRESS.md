@@ -46,6 +46,8 @@ See [release record](../LLMISER_RELEASE_2026-10-26.md), [localization](../LLMISE
 
 ## Remaining work
 
+The owner resumed the implementation plan after the handover was merged in PR #8. The current bounded change is [shared reader statistics](../LLMISER_READER_STATISTICS.md), branch `codex/shared-document-statistics`: local focused acceptance and measurement are recorded there; CI/release verification remain distinct. Browser preview profiling is still open.
+
 - Retain the domains and immediate permanent redirects after the completed static frontend cutover.
 - Review any additional GitHub-only material the owner needs beyond the completed record exports. Actions artifacts/logs/secrets, provider settings and linked attachments were not exported.
 - Keep a verified private backup outside the directories that will be deleted, with an owner-controlled second copy if local disk loss matters. The current snapshots are in LLMiser, not an independent/off-machine backup.

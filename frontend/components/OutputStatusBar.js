@@ -4,39 +4,8 @@ import { useI18n } from './i18n/I18nContext';
 
 import React, { memo, useMemo } from 'react';
 
-/**
- * Calculate live statistics for markdown content
- */
-export function getMarkdownCounts(content = '') {
-  if (!content) {
-    return {
-      characters: 0,
-      charactersNoSpaces: 0,
-      words: 0,
-      lines: 0,
-      tokensEst: 0,
-      readingTime: '0 min',
-    };
-  }
-
-  const characters = content.length;
-  const charactersNoSpaces = content.replace(/\s/g, '').length;
-  const lines = content.split('\n').length;
-  const trimmed = content.trim();
-  const words = trimmed ? trimmed.split(/\s+/).filter(Boolean).length : 0;
-  const tokensEst = Math.max(1, Math.round(characters / 4));
-  const minutes = Math.max(1, Math.ceil(words / 200));
-  const readingTime = words < 120 ? '< 1 min' : `${minutes} min read`;
-
-  return {
-    characters,
-    charactersNoSpaces,
-    words,
-    lines,
-    tokensEst,
-    readingTime,
-  };
-}
+import { getMarkdownCounts } from '../lib/documentStats';
+export { getMarkdownCounts } from '../lib/documentStats';
 
 /**
  * OutputStatusBar Component
@@ -46,6 +15,7 @@ export function getMarkdownCounts(content = '') {
 function OutputStatusBar({
   id = 'output-status-bar',
   content = '',
+  documentStats = null,
   tokensEst = null,
   filename = '',
   className = '',
@@ -56,7 +26,7 @@ function OutputStatusBar({
 }) {
   const { uiText, locale } = useI18n();
 
-  const stats = useMemo(() => getMarkdownCounts(content), [content]);
+  const stats = useMemo(() => documentStats || getMarkdownCounts(content), [content, documentStats]);
   const displayTokens = tokensEst != null ? tokensEst : stats.tokensEst;
   const hasContent = Boolean(content && content.length > 0 && !isLoading);
 
