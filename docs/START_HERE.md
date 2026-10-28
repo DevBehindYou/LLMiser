@@ -4,11 +4,11 @@ Updated 28 October 2026. **LLMiser is the sole working repository and the source
 
 ## Current state
 
-The app is live at https://llmiser.devbehindyou.com. PRs #1–#9 are merged; the latest verified runtime change is revision `84e510db62ea41f31c131771eb7d32b5e92515f4`. PR #9 passed 259 frontend tests and all seven CI jobs; all six Vercel deployment statuses succeeded, including the static legacy frontend. A fresh 27 October release audit passed 20 focused HTTP checks and all three pools remained 2/2 ready. See [reader statistics and release evidence](LLMISER_READER_STATISTICS.md), the [earlier integrated release](LLMISER_RELEASE_2026-10-26.md) and [retirement evidence](LLMISER_LEGACY_RETIREMENT.md).
+The app is live at https://llmiser.devbehindyou.com. PRs #1–#11 are merged; the latest verified runtime change is revision `0501cd0381b4a41e9a9e94abf791ebd4fd8fd188`. PR #11 passed 261 frontend tests and all seven CI jobs; all six production Vercel deployment statuses succeeded, including the static legacy frontend. A fresh 28 October release audit passed 20 focused HTTP checks and all three pools remained 2/2 ready. See [large-preview release evidence](LLMISER_LARGE_PREVIEWS.md), [reader statistics](LLMISER_READER_STATISTICS.md), the [earlier integrated release](LLMISER_RELEASE_2026-10-26.md) and [retirement evidence](LLMISER_LEGACY_RETIREMENT.md).
 
 The full app supports English (US), German, Japanese, Spanish, Russian and Simplified Chinese. The browser remembers the interface language; documents are not translated and OCR languages are unchanged. Blogs remain English. Eight articles, eight banners and forty figures are complete. The Chrome extension source is merged, but native acceptance and store publication remain pending.
 
-The next optimization source is [large-preview control](LLMISER_LARGE_PREVIEWS.md): generated browser profiling supports pausing automatic formatting above 50,000 characters, while retaining complete raw text and exports. Local validation passed 261 frontend tests, a final 20-test selection and a production build. Current CI/merge/deployment status belongs to the optimization PR linked in [the handover](ai-handover/HANDOVER.md); the runtime revision above is the preceding verified release.
+Released [large-preview control](LLMISER_LARGE_PREVIEWS.md) pauses automatic formatting above 50,000 characters while retaining complete raw text and exports. Full formatting is available on request. Local/generated browser checks cover editing, document switching and exact full downloads; representative-device/native textarea profiling and the backend parser-capacity audit remain next boundaries. The six interface dictionaries now contain 631 messages each.
 
 ## Legacy frontend replacement is deployed
 
