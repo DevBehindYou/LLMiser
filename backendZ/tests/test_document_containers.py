@@ -90,3 +90,24 @@ def test_real_documents_keep_conversion_content_inside_archive(converter, ext):
     assert entries[0].status == "DONE"
     assert entries[0].content == direct
     assert direct
+
+
+def test_archive_csv_preserves_upstream_table_and_uses_row_converter(converter, monkeypatch):
+    import io
+    from importlib.metadata import version
+    from markitdown import MarkItDown, StreamInfo
+    from app import csv_converter
+    if version("markitdown") not in csv_converter.VERIFIED_VERSIONS:
+        pytest.skip("unverified upstream retains its original converter")
+    calls = []
+    original = csv_converter.RowStreamingCsvConverter.convert
+    def observed(self, *args, **kwargs):
+        calls.append(True)
+        return original(self, *args, **kwargs)
+    monkeypatch.setattr(csv_converter.RowStreamingCsvConverter, "convert", observed)
+    data = '\nName\n\n"Ada|Lovelace",99\n\n"終わり🙂",100\n\n'.encode()
+    upstream = MarkItDown(enable_plugins=False).convert_stream(io.BytesIO(data), stream_info=StreamInfo(extension=".csv", mimetype="text/csv", filename="ragged.csv")).markdown.strip()
+    entries = archive.process_archive(make_zip({"ragged.csv": data}), converter.documents, ocr_available=False)
+    assert calls
+    assert entries[0].status == "DONE"
+    assert entries[0].content == upstream
