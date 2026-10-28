@@ -4,13 +4,13 @@ Updated 28 October 2026. Work only in LLMiser. This is the current continuation 
 
 ## Current continuation state
 
-PRs #1–#11 are merged. Retained-result recovery, cron cutover, wake coalescing, shared reader statistics and large-preview control are released; the old frontend is now the static LLMiser fallback and public migration redirects remain live. The 22 October branch/review statements below are historical evidence for that earlier slice, not current release blockers. Use [START_HERE](START_HERE.md) and [PROGRESS](ai-handover/PROGRESS.md) for deployment state.
+PRs #1–#13 are merged. Retained-result recovery, cron cutover, wake coalescing, shared reader statistics, large-preview control and CSV allocation reduction are released; the old frontend is now the static LLMiser fallback and public migration redirects remain live. The 22 October branch/review statements below are historical evidence for that earlier slice, not current release blockers. Use [START_HERE](START_HERE.md) and [PROGRESS](ai-handover/PROGRESS.md) for deployment state.
 
 Shared reader statistics shipped in PR #9 at `84e510db62ea41f31c131771eb7d32b5e92515f4`: one allocation-bounded helper, one memoized result for reader line/status displays, preserved counting semantics and reproducible before/after measurements. See [reader statistics](LLMISER_READER_STATISTICS.md) for 259-test CI and live verification. Browser profiling follows below; the rest of the queue remains separate. No new production SQL or service retirement was part of this slice.
 
 PR #11 released [large-preview control](LLMISER_LARGE_PREVIEWS.md) at `0501cd0381b4a41e9a9e94abf791ebd4fd8fd188`. Browser-generated dense Markdown exposed multi-second mount/layout work. Automatic formatting now pauses above 50,000 characters; full formatting is explicitly available, and raw content/exports are complete. Local checks passed 261 tests, the final 20-test selection and production build; all seven CI jobs and all six production deployments passed. The 28 October audit passed 20 HTTP checks with all pools 2/2 ready. Next work should measure native textarea input/representative devices or audit backend parser capacity; a worker alone will not eliminate the observed DOM/layout cost.
 
-The current `codex/csv-parser-memory` candidate contains [a source capacity audit and CSV allocation reduction](LLMISER_PARSER_CAPACITY.md) for N/Z. It preserves output on verified MarkItDown 0.1.8/0.1.9 and falls back unchanged on other versions. Three fresh processes per mode show lower large-fixture peak memory; no concurrency/limit changes are justified by that local evidence. See its PR for release state, then measure workbook/native and final response/merge costs before extending this slice.
+PR #13 released [a source capacity audit and CSV allocation reduction](LLMISER_PARSER_CAPACITY.md) for N/Z at `165d2b01ce8e30dfa09d32292ac911264f18e60d`. It preserves output on verified MarkItDown 0.1.8/0.1.9 and falls back unchanged on other versions. Three fresh processes per mode show lower large-fixture peak memory; no concurrency/limit changes are justified by that local evidence. All seven CI jobs and six production deployment statuses passed. Pre/post-release generated CSV/ZIP probes passed on all four document workers; 20 public HTTP checks passed and a follow-up uncached wake confirmed all pools 2/2 after an initial OCR 0/2 result. Next measure workbook/native and final response/merge costs before extending this slice.
 
 ## Verified starting point
 
@@ -42,7 +42,7 @@ Acceptance: expired link, later-part failure, complete Unicode assembly, restart
 | Work | Next bounded change / dependency |
 | --- | --- |
 | Shared statistics and large previews | Counting released in PR #9; browser profiling and large-preview control released in PR #11; measure native input/devices before deeper editor/worker changes |
-| Backend parser capacity | Source audit and synchronized CSV memory slice implemented on the current branch; check its PR for release. Next measure workbook/native and response/merge memory; preserve fidelity before tuning concurrency |
+| Backend parser capacity | Source audit and synchronized CSV memory slice released in PR #13. Next measure workbook/native and response/merge memory; preserve fidelity before tuning concurrency |
 | Shared deadline | Add an optional, backward-compatible remaining-budget protocol, reserving finalization time; test slow failures/cold starts |
 | Controller detail pagination | Top-level lists already paginate; bound files/tree/events/work-items with stable cursors and truthful totals; query-plan evidence before new indexes |
 | Replay-stable object identities | Fence attempt-specific writes before deterministic IDs; SQL attempt guards alone do not prevent a stale Storage overwrite; additive rollout for new roots only |

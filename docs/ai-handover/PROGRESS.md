@@ -15,11 +15,12 @@ Updated 28 October 2026. This is the current tracker. Earlier phase-specific num
 | Six-language web app | PR #5 released; English US, German, Japanese, Spanish, Russian, Simplified Chinese; now 631 messages each after PR #11 |
 | Final display-label fixes | PR #6 merged/deployed; preview labels/tooltips, mobile theme and retention labels |
 | Public README | Screenshots, recorded demo, steps, formats, profiles, privacy and FAQs; separate keyword evidence |
-| Final frontend CI | PR #11: 261 tests passed; lint, dictionaries, SQL/blog consistency and production build passed |
+| Final frontend CI | PR #13: 261 tests passed; lint, dictionaries, SQL/blog consistency and production build passed |
 | Other CI | Backend N/O/Z, PostgreSQL, edge and extension jobs passed |
-| Production deployment | Latest runtime change `0501cd0381b4a41e9a9e94abf791ebd4fd8fd188`; all six Vercel statuses successful, including the legacy static shell |
+| Production deployment | Latest runtime change `165d2b01ce8e30dfa09d32292ac911264f18e60d`; all six Vercel statuses successful, including the legacy static shell |
 | Shared reader statistics | PR #9 merged/deployed; allocation-bounded counting and shared reader line/status metrics; preserved count semantics; synthetic benchmark and limits documented |
 | Large-preview control | PR #11 merged/deployed; generated browser profiling, explicit formatting above 50,000 characters, complete raw/copy/download acceptance, six-language notices |
+| CSV parser memory | PR #13 merged/deployed; verified-version output preservation in N/Z, synchronized generated measurements, and successful pre/post-release multipart CSV/ZIP probes on all four document workers |
 | Production HTTP audit | 40 passing checks during the integrated release; all 13 sitemap pages; permanent legacy redirects; API noindex/auth boundary |
 | Backend readiness | Normal/OCR/archive each 2/2 ready after final release |
 | Browser acceptance | All six languages, persistence, English-only blogs, translated policy/controller login; German 390px viewport had no horizontal overflow |
@@ -50,7 +51,7 @@ See [release record](../LLMISER_RELEASE_2026-10-26.md), [localization](../LLMISE
 
 The owner resumed the implementation plan after the handover was merged in PR #8. [Shared reader statistics](../LLMISER_READER_STATISTICS.md) shipped in PR #9. [Large-preview control](../LLMISER_LARGE_PREVIEWS.md) shipped in PR #11 at 0501cd0 after 261 frontend CI tests/all seven jobs passed. All six production deployments succeeded; the 28 October 20-check HTTP audit passed and all three pools were 2/2 ready. Actual-component generated browser measurements and exact raw/download acceptance support the preview boundary. Representative-device/native textarea profiling and deeper parser-capacity work remain separate.
 
-Current implementation branch: `codex/csv-parser-memory`. [Parser audit/CSV evidence](../LLMISER_PARSER_CAPACITY.md) records existing bounds, verified-version output preservation and three-run memory measurements. The synchronized large untraced fixture used about 25% less peak process memory, with identical output; the small timing sample regressed, so no universal speedup is claimed. Live pre-release multipart CSV/ZIP probes passed on all four document workers. Final regression/CI/deployment evidence must be checked before treating the candidate as released. No worker/queue tuning or Storage-backed conversion acceptance is implied.
+[Parser audit/CSV evidence](../LLMISER_PARSER_CAPACITY.md) shipped in PR #13 at 165d2b0. The synchronized large untraced fixture used about 25% less peak process memory, with identical output; the small timing sample regressed, so no universal speedup is claimed. Local normal/archive suites and compatibility checks passed, all seven CI jobs and six production deployments succeeded, and pre/post-release multipart CSV/ZIP probes passed on all four document workers. All 20 public HTTP checks passed. OCR initially returned 0/2; direct readiness and a later uncached public wake confirmed all pools 2/2, without an OCR configuration change. No worker/queue tuning or Storage-backed conversion acceptance is implied.
 
 - Retain the domains and immediate permanent redirects after the completed static frontend cutover.
 - Review any additional GitHub-only material the owner needs beyond the completed record exports. Actions artifacts/logs/secrets, provider settings and linked attachments were not exported.
