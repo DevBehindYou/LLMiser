@@ -51,3 +51,4 @@ tests/load/results/
 # Reproducible Chrome extension output and local UI preview
 extension/.preview/
 extension/artifacts/
+frontend/.preview-profile/

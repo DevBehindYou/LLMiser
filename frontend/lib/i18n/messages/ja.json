@@ -626,5 +626,8 @@
   "✓ Markdown Copied": "✓ Markdownコピー済み",
   "✓ done": "✓ 完了",
   "📄 Terms of Service": "📄 利用規約",
-  "🔒 Privacy Policy": "🔒 プライバシーポリシー"
+  "🔒 Privacy Policy": "🔒 プライバシーポリシー",
+  "Large document: formatted preview is paused to keep editing responsive. The complete Markdown is available in Raw mode and exports.": "大きなドキュメントのため、快適に編集できるよう整形プレビューを一時停止しています。Markdown 全文はソースモードとエクスポートで利用できます。",
+  "Render full preview (may take a moment)": "全文のプレビューを表示（時間がかかる場合があります）",
+  "Pause formatted preview": "整形プレビューを一時停止"
 }

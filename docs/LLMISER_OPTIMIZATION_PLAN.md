@@ -1,12 +1,14 @@
 # LLMiser optimization continuation
 
-Updated 27 October 2026. Work only in LLMiser. This is the current continuation map; copied MDify analysis is historical evidence and proposals, not live deployment instructions. Blog rebranding is complete and blog sources/visuals are outside this implementation slice.
+Updated 28 October 2026. Work only in LLMiser. This is the current continuation map; copied MDify analysis is historical evidence and proposals, not live deployment instructions. Blog rebranding is complete and blog sources/visuals are outside this implementation slice.
 
 ## Current continuation state
 
 PRs #1–#9 are merged. Retained-result recovery, cron cutover, wake coalescing and shared reader statistics are released; the old frontend is now the static LLMiser fallback and public migration redirects remain live. The 22 October branch/review statements below are historical evidence for that earlier slice, not current release blockers. Use [START_HERE](START_HERE.md) and [PROGRESS](ai-handover/PROGRESS.md) for deployment state.
 
-Shared reader statistics shipped in PR #9 at `84e510db62ea41f31c131771eb7d32b5e92515f4`: one allocation-bounded helper, one memoized result for reader line/status displays, preserved counting semantics and reproducible before/after measurements. See [reader statistics](LLMISER_READER_STATISTICS.md) for 259-test CI and live verification. Browser long-task/preview profiling is next; the rest of the queue remains separate. No new production SQL or service retirement was part of this slice.
+Shared reader statistics shipped in PR #9 at `84e510db62ea41f31c131771eb7d32b5e92515f4`: one allocation-bounded helper, one memoized result for reader line/status displays, preserved counting semantics and reproducible before/after measurements. See [reader statistics](LLMISER_READER_STATISTICS.md) for 259-test CI and live verification. Browser profiling follows below; the rest of the queue remains separate. No new production SQL or service retirement was part of this slice.
+
+The next source slice is [large-preview control](LLMISER_LARGE_PREVIEWS.md), branch `codex/large-preview-profiling`. Browser-generated dense Markdown exposed multi-second mount/layout work. Automatic formatting now pauses above 50,000 characters; full formatting is explicitly available, and raw content/exports are complete. Local checks passed 261 tests, the final 20-test selection and production build. Check its PR for release state. Next work should measure native textarea input/representative devices or audit backend parser capacity; a worker alone will not eliminate the observed DOM/layout cost.
 
 ## Verified starting point
 
@@ -37,7 +39,7 @@ Acceptance: expired link, later-part failure, complete Unicode assembly, restart
 
 | Work | Next bounded change / dependency |
 | --- | --- |
-| Shared statistics and large previews | Shared counting slice released in PR #9; next profile browser rendering before considering a bounded preview/worker |
+| Shared statistics and large previews | Counting released in PR #9; browser profiling and large-preview control implemented on the current branch; check its PR for release status, then measure native input/devices before deeper editor/worker changes |
 | Backend parser capacity | Audit all parsers beyond the already-shipped PDF/OCR preparation bounds; preserve fidelity and measure synchronized memory before tuning concurrency |
 | Shared deadline | Add an optional, backward-compatible remaining-budget protocol, reserving finalization time; test slow failures/cold starts |
 | Controller detail pagination | Top-level lists already paginate; bound files/tree/events/work-items with stable cursors and truthful totals; query-plan evidence before new indexes |
