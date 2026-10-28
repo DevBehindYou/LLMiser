@@ -66,6 +66,10 @@ Local final checks:
 - The shared three-pool `common/` integrity checks stay intact; OCR has no new parser dependency. No runtime requirements changed.
 - Before release, tiny generated authenticated multipart CSV/ZIP probes returned 200 on **N1, N2, Z1 and Z2**, each preserving the expected widest-row table, pipe escape, interior blank row and final Unicode marker. They created no Storage jobs.
 
-The candidate branch is `codex/csv-parser-memory`. CI/merge/deployment and the matching post-release probe must be checked on its PR before calling it released. Local logs, package copies, raw benchmark JSON and operator probes remain ignored under `project-docs/parser-audit/`; no credentials are included in public evidence.
+[PR #13](https://github.com/DevBehindYou/LLMiser/pull/13) merged and deployed runtime revision `165d2b01ce8e30dfa09d32292ac911264f18e60d` on 28 October 2026. All seven CI jobs passed, including the frontend's 261 tests and the normal/archive/OCR regressions. All six production Vercel status contexts succeeded. Post-release generated multipart CSV/ZIP probes passed on N1/N2/Z1/Z2, all still running MarkItDown 0.1.9, preserving exactly the same expected table as before release. They created no Storage jobs; no fresh browser/Storage-backed or cleanup acceptance is claimed.
+
+All 20 public-page/discovery/health and permanent-redirect checks passed. The first bounded public wake check reported OCR 0/2; both OCR readiness endpoints subsequently returned 200/ready with Tesseract 5.5.0, and a fresh uncached wake returned 2/2 for normal/OCR/archive. No OCR, cron or queue configuration was changed to obtain that recovery. Legacy API/unknown-path routing retained its documented behavior.
+
+Local logs, package copies, raw benchmark JSON and operator probes remain ignored under `project-docs/parser-audit/`; no credentials are included in public evidence. Later documentation-only commits do not change the verified parser runtime revision.
 
 Next: profile realistic workbook/native parser memory and full response/merge costs on representative hosts, then evaluate admission/deadlines before any concurrency increase. The CSV reduction alone does not justify raising queue or worker limits.
