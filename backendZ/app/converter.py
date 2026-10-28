@@ -38,6 +38,9 @@ class DocumentEngine:
             self._md, self._stream_info, self.error = None, None, str(err)
             return
         self._md = MarkItDown(enable_plugins=False)
+        from app.csv_converter import register_csv_converter
+
+        register_csv_converter(self._md)
         self._stream_info = StreamInfo
         self.error = ""
 

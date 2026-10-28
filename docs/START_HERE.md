@@ -10,6 +10,8 @@ The full app supports English (US), German, Japanese, Spanish, Russian and Simpl
 
 Released [large-preview control](LLMISER_LARGE_PREVIEWS.md) pauses automatic formatting above 50,000 characters while retaining complete raw text and exports. Full formatting is available on request. Local/generated browser checks cover editing, document switching and exact full downloads; representative-device/native textarea profiling and the backend parser-capacity audit remain next boundaries. The six interface dictionaries now contain 631 messages each.
 
+The next bounded backend slice is [parser capacity and CSV memory reduction](LLMISER_PARSER_CAPACITY.md), on `codex/csv-parser-memory`. It preserves verified upstream CSV output while reducing retained row allocations in both document pools. The audit distinguishes source limits, local generated measurements and live-worker acceptance; check that branch's PR for merge/deployment state before treating it as released. No concurrency increase follows from the benchmark.
+
 ## Legacy frontend replacement is deployed
 
 The owner wants the old converter removed from its frontend hosting, permanent public redirects preserved, and a small LLMiser-only banner as fallback. Replacement source is [legacy-site/](../legacy-site/README.md), inside this repository. It has no converter, API or database client. The working LLMiser project continues using `frontend`; only the old frontend project may use `legacy-site`.

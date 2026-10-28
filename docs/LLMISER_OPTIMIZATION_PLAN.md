@@ -10,6 +10,8 @@ Shared reader statistics shipped in PR #9 at `84e510db62ea41f31c131771eb7d32b5e9
 
 PR #11 released [large-preview control](LLMISER_LARGE_PREVIEWS.md) at `0501cd0381b4a41e9a9e94abf791ebd4fd8fd188`. Browser-generated dense Markdown exposed multi-second mount/layout work. Automatic formatting now pauses above 50,000 characters; full formatting is explicitly available, and raw content/exports are complete. Local checks passed 261 tests, the final 20-test selection and production build; all seven CI jobs and all six production deployments passed. The 28 October audit passed 20 HTTP checks with all pools 2/2 ready. Next work should measure native textarea input/representative devices or audit backend parser capacity; a worker alone will not eliminate the observed DOM/layout cost.
 
+The current `codex/csv-parser-memory` candidate contains [a source capacity audit and CSV allocation reduction](LLMISER_PARSER_CAPACITY.md) for N/Z. It preserves output on verified MarkItDown 0.1.8/0.1.9 and falls back unchanged on other versions. Three fresh processes per mode show lower large-fixture peak memory; no concurrency/limit changes are justified by that local evidence. See its PR for release state, then measure workbook/native and final response/merge costs before extending this slice.
+
 ## Verified starting point
 
 The copied source already contains atomic job startup/finalization, cleanup recovery, upload/active-job/storage-reservation admission, shared archive container checks, bounded PDF page uploads/OCR preparation, lazy Markdown/highlighter loading and current-edit export snapshots. Do not reimplement these based on old “proposed” checklist rows. Their deployment/capacity evidence is distinct from source tests.
@@ -40,7 +42,7 @@ Acceptance: expired link, later-part failure, complete Unicode assembly, restart
 | Work | Next bounded change / dependency |
 | --- | --- |
 | Shared statistics and large previews | Counting released in PR #9; browser profiling and large-preview control released in PR #11; measure native input/devices before deeper editor/worker changes |
-| Backend parser capacity | Audit all parsers beyond the already-shipped PDF/OCR preparation bounds; preserve fidelity and measure synchronized memory before tuning concurrency |
+| Backend parser capacity | Source audit and synchronized CSV memory slice implemented on the current branch; check its PR for release. Next measure workbook/native and response/merge memory; preserve fidelity before tuning concurrency |
 | Shared deadline | Add an optional, backward-compatible remaining-budget protocol, reserving finalization time; test slow failures/cold starts |
 | Controller detail pagination | Top-level lists already paginate; bound files/tree/events/work-items with stable cursors and truthful totals; query-plan evidence before new indexes |
 | Replay-stable object identities | Fence attempt-specific writes before deterministic IDs; SQL attempt guards alone do not prevent a stale Storage overwrite; additive rollout for new roots only |
