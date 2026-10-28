@@ -20,13 +20,40 @@ import PreviewBoundary, { PlainTextPreview } from './PreviewBoundary';
 // Do not load the Markdown parser until a populated rendered/split preview is
 // requested. Empty, busy and raw viewers retain the lightweight editing shell.
 const RenderedMarkdown = lazy(() => import('./RenderedMarkdown'));
+// A convenience threshold, not a guarantee about parse duration: dense GFM
+// can be expensive even below it. Never slice the underlying document.
+export const AUTOMATIC_PREVIEW_LIMIT = 50000;
 function MarkdownPreview({ content, docId }) {
+  const { uiText } = useI18n();
+  // Approval belongs to this exact document value. Edits pause the expensive
+  // renderer immediately when the deferred buffer advances; no effect must
+  // run before deciding whether to parse the new text.
+  const [requestedContent, setRequestedContent] = useState(null);
+  // Release the previously requested text after an edit, and require a fresh
+  // request even when the user later undoes back to that old value.
+  useEffect(() => { setRequestedContent(previous => previous === content ? previous : null); }, [content]);
+  const large = content.length > AUTOMATIC_PREVIEW_LIMIT;
+  if (large && requestedContent !== content) {
+    return (
+      <div className="min-w-0 p-3 border border-[var(--border-3)] rounded-lg bg-[var(--surface-2)]">
+        <p role="status" className="text-[12px] text-[var(--muted)] mb-3">
+          {uiText('Large document: formatted preview is paused to keep editing responsive. The complete Markdown is available in Raw mode and exports.')}
+        </p>
+        <button type="button" onClick={() => setRequestedContent(content)} className="px-3 py-2 rounded border border-[var(--border-3)] text-[12px] text-[var(--text)] bg-[var(--surface)] hover:border-[var(--text)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 cursor-pointer">
+          {uiText('Render full preview (may take a moment)')}
+        </button>
+      </div>
+    );
+  }
   return (
-    <PreviewBoundary key={docId} content={content}>
-      <Suspense fallback={<PlainTextPreview content={content} loading />}>
-        <RenderedMarkdown content={content} />
-      </Suspense>
-    </PreviewBoundary>
+    <>
+      {large && <button type="button" onClick={() => setRequestedContent(null)} className="mb-2 px-3 py-2 rounded border border-[var(--border-3)] text-[12px] text-[var(--muted)] hover:text-[var(--text)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 cursor-pointer">{uiText('Pause formatted preview')}</button>}
+      <PreviewBoundary key={docId} content={content}>
+        <Suspense fallback={<PlainTextPreview content={content} loading />}>
+          <RenderedMarkdown content={content} />
+        </Suspense>
+      </PreviewBoundary>
+    </>
   );
 }
 
@@ -217,7 +244,7 @@ export default function MarkdownViewer({
               <span className="text-[9.5px] text-emerald-600 dark:text-emerald-400">{uiText("Rendered with GFM")}</span>
             </div>
             <div className="flex-1 p-3.5 overflow-y-auto bg-[var(--surface)]">
-              <MarkdownPreview content={deferredContent} docId={docId} />
+              <MarkdownPreview key={docId} content={deferredContent} docId={docId} />
             </div>
           </div>
         </div>
@@ -232,7 +259,7 @@ export default function MarkdownViewer({
             <span className="text-[9.5px] text-[var(--faint)]">{uiText("Full formatted document")}</span>
           </div>
           <div className="flex-1 p-4 overflow-y-auto bg-[var(--surface)]">
-            <MarkdownPreview content={deferredContent} docId={docId} />
+            <MarkdownPreview key={docId} content={deferredContent} docId={docId} />
           </div>
         </div>
       )}

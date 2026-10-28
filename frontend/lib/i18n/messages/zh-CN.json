@@ -626,5 +626,8 @@
   "✓ Markdown Copied": "✓ Markdown已复制",
   "✓ done": "✓ 完成",
   "📄 Terms of Service": "📄 服务条款",
-  "🔒 Privacy Policy": "🔒 隐私政策"
+  "🔒 Privacy Policy": "🔒 隐私政策",
+  "Large document: formatted preview is paused to keep editing responsive. The complete Markdown is available in Raw mode and exports.": "文档较大：为保持编辑流畅，已暂停格式化预览。完整 Markdown 可在源码模式和导出文件中查看。",
+  "Render full preview (may take a moment)": "显示完整预览（可能需要一些时间）",
+  "Pause formatted preview": "暂停格式化预览"
 }

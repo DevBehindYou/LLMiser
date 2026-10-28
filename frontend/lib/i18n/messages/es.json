@@ -626,5 +626,8 @@
   "✓ Markdown Copied": "✓ Markdown copiado",
   "✓ done": "✓ listo",
   "📄 Terms of Service": "📄 Términos de servicio",
-  "🔒 Privacy Policy": "🔒 Política de privacidad"
+  "🔒 Privacy Policy": "🔒 Política de privacidad",
+  "Large document: formatted preview is paused to keep editing responsive. The complete Markdown is available in Raw mode and exports.": "Documento grande: la vista previa con formato está en pausa para mantener la edición fluida. El Markdown completo está disponible en el modo Código y en las exportaciones.",
+  "Render full preview (may take a moment)": "Mostrar la vista previa completa (puede tardar un momento)",
+  "Pause formatted preview": "Pausar la vista previa con formato"
 }

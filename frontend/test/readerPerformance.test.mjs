@@ -75,6 +75,29 @@ test('the first formatted/split preview preserves selectable escaped text while 
   }
 });
 
+test('large formatted previews wait for a request while raw mode retains the complete escaped document', () => {
+  const content = '# Large\n' + 'text 日本語 🙂\n'.repeat(5000) + '<script>sentinel-end</script>';
+  for (const viewMode of ['split', 'rendered']) {
+    const html = renderToString(React.createElement(Viewer, { docId: 'large', viewMode, content }));
+    assert.match(html, /formatted preview is paused/);
+    assert.match(html, /Render full preview/);
+    assert.doesNotMatch(html, /Loading formatted preview|<h1/);
+    assert.equal(html.includes('&lt;script&gt;sentinel-end&lt;/script&gt;'), viewMode === 'split');
+    assert.doesNotMatch(html, /<script>sentinel/);
+  }
+  const raw = render(Viewer, { docId: 'large', content, viewMode: 'raw' });
+  assert.match(raw, /&lt;script&gt;sentinel-end&lt;\/script&gt;/);
+  assert.doesNotMatch(raw, /formatted preview is paused|Render full preview/);
+});
+
+test('automatic preview includes the threshold and pauses immediately above it', () => {
+  for (const [size, paused] of [[50000, false], [50001, true]]) {
+    const html = renderToString(React.createElement(Viewer, { docId: 'boundary', content: 'x'.repeat(size), viewMode: 'rendered' }));
+    assert.equal(html.includes('formatted preview is paused'), paused);
+    assert.equal(html.includes('x'.repeat(size)), !paused);
+  }
+});
+
 test('loaded renderer preserves headings, GFM tables, strikethrough, links and Unicode code text', () => {
   const html = render(RenderedMarkdown, { content: '# Heading\n\n~~removed~~\n\n| A | B |\n| - | - |\n| 漢字 | 🙂 |\n\n[link](https://example.test)\n\n```python\nprint("漢字 🙂")\n```' });
   assert.match(html, /<h1[^>]*>Heading<\/h1>/);

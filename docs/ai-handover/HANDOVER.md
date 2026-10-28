@@ -1,6 +1,6 @@
 # LLMiser AI handover
 
-Updated 27 October 2026. Start with [START_HERE](../START_HERE.md). This replaces the earlier deployment-phase handover; historical evidence remains in the linked reports and Git history.
+Updated 28 October 2026. Start with [START_HERE](../START_HERE.md). This replaces the earlier deployment-phase handover; historical evidence remains in the linked reports and Git history.
 
 ## What the owner wants now
 
@@ -54,7 +54,9 @@ Active local tooling now has zero absolute references to either old checkout. LL
 
 ## Verification commands
 
-The owner asked to continue the optimization plan after the retirement handover. PR #8 completed that handover; PR #9 released [shared reader statistics](../LLMISER_READER_STATISTICS.md). Next, profile browser rendering/long tasks before choosing any preview worker or size bound. Continue from [the optimization queue](../LLMISER_OPTIMIZATION_PLAN.md), not the historical unmerged-branch statements in its 22 October evidence. Preserve complete Markdown and exports while profiling large previews.
+The owner asked to continue the optimization plan after the retirement handover. PR #8 completed that handover; PR #9 released [shared reader statistics](../LLMISER_READER_STATISTICS.md). The current branch `codex/large-preview-profiling` adds [large-preview control and reproducible browser profiling](../LLMISER_LARGE_PREVIEWS.md): above 50,000 UTF-16 characters, formatting waits for an explicit request. Editing/document switching resets the request; complete raw text/copy/exports remain available. All six packs contain 631 messages. Local evidence: 261 full tests, final 20 focused tests, lint/consistency checks and production build passed; generated browser fixtures verify full rendering, edit re-pause, identical-text document switching and exact current-edit download. Check the branch's PR for CI/merge/deployment state before calling it released. The earlier 84e510d runtime remains the last verified production revision until that release is checked.
+
+Next investigate native textarea/input behavior and representative devices before workers/editor virtualization, or take the separately bounded backend parser-capacity audit from [the optimization queue](../LLMISER_OPTIMIZATION_PLAN.md). Do not repeat the initial profiling, silently truncate source/exports, or mistake a local component benchmark for production conversion/storage acceptance. The optimization plan's 22 October unmerged-branch statements are historical.
 
 Use Node.js 22. From `frontend`:
 

@@ -1,6 +1,6 @@
 # LLMiser progress and remaining work
 
-Updated 27 October 2026. This is the current tracker. Earlier phase-specific numbers remain in their reports; they are not the current deployment state.
+Updated 28 October 2026. This is the current tracker. Earlier phase-specific numbers remain in their reports; they are not the current deployment state.
 
 ## Completed and released
 
@@ -47,7 +47,7 @@ See [release record](../LLMISER_RELEASE_2026-10-26.md), [localization](../LLMISE
 
 ## Remaining work
 
-The owner resumed the implementation plan after the handover was merged in PR #8. [Shared reader statistics](../LLMISER_READER_STATISTICS.md) shipped in PR #9 with 259 passing frontend CI tests, all seven CI jobs, all six production deployment statuses and a fresh 20-check HTTP audit. Browser long-task/preview profiling is the next part of that queue; the shared-counting change does not claim to solve large Markdown rendering.
+The owner resumed the implementation plan after the handover was merged in PR #8. [Shared reader statistics](../LLMISER_READER_STATISTICS.md) shipped in PR #9 with 259 passing frontend CI tests, all seven CI jobs, all six production deployment statuses and a fresh 20-check HTTP audit. The current `codex/large-preview-profiling` source now includes [large-preview control](../LLMISER_LARGE_PREVIEWS.md), supported by actual-component browser measurements and exact raw/download acceptance. Local checks passed 261 full tests, final 20 focused tests and a production build; CI/merge/deployment must be checked on its PR. Representative-device/native textarea profiling and deeper parser-capacity work remain separate.
 
 - Retain the domains and immediate permanent redirects after the completed static frontend cutover.
 - Review any additional GitHub-only material the owner needs beyond the completed record exports. Actions artifacts/logs/secrets, provider settings and linked attachments were not exported.
