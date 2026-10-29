@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import { timingSafeEqual } from 'node:crypto';
 import { createSupabase, supabaseConfig } from '../../../../lib/server/supabaseRest';
 import { runTick } from '../../../../lib/server/jobQueue';
+import { DeadlineExceededError, routeDeadline } from '../../../../lib/server/timeBudget';
 
 export const dynamic = 'force-dynamic';
 export const maxDuration = 300; // Vercel Hobby maximum
@@ -17,6 +18,7 @@ function authorized(request) {
 // retires stale jobs, requeues expired leases and runs one scheduling pass
 // across all jobs, so work continues when nobody's browser is waiting.
 export async function POST(request) {
+  const deadlineMs = routeDeadline();
   const config = supabaseConfig();
   const secret = process.env.BACKEND_SHARED_SECRET;
   if (!config || !secret || !process.env.CRON_SECRET) {
@@ -24,17 +26,18 @@ export async function POST(request) {
   }
   if (!authorized(request)) return NextResponse.json({ detail: 'Unauthorized' }, { status: 401 });
 
-  const db = createSupabase(config);
+  const db = createSupabase(config, fetch, { deadlineMs });
   try {
     await db.rpc('prune_public_admission', {});
     const stale = await db.rpc('sweep_stale_jobs', {});
-    const { claimed, results } = await runTick(db, { secret });
+    const { claimed, results } = await runTick(db, { secret, deadlineMs });
     return NextResponse.json({
       stale: Array.isArray(stale) ? stale.length : 0,
       claimed,
       outcomes: results.reduce((acc, r) => ({ ...acc, [r.outcome]: (acc[r.outcome] || 0) + 1 }), {}),
     });
   } catch (err) {
+    if (err instanceof DeadlineExceededError) return NextResponse.json({ detail: err.message }, { status: err.status });
     console.error('[jobs/tick]', err.message);
     return NextResponse.json({ detail: 'Tick failed' }, { status: 502 });
   }

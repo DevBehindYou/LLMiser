@@ -23,6 +23,7 @@ from bisect import bisect_right
 from dataclasses import asdict, dataclass, field
 
 from app.common.errors import ConversionRejected
+from app.common.deadlines import DeadlineExceeded, compute_checkpoint
 
 
 def _env_int(name: str, default: int) -> int:
@@ -221,6 +222,7 @@ def process_archive(data: bytes, convert_document, *, ocr_available: bool) -> li
 
 def _walk(archive, infos, prefix, depth, state, out, convert_document, ocr_available):
     for info in sorted(infos, key=lambda i: i.filename.casefold()):
+        compute_checkpoint()
         state.entries_seen += 1
         rel = normalize(info.filename)
         if rel is None:
@@ -312,6 +314,7 @@ def _walk(archive, infos, prefix, depth, state, out, convert_document, ocr_avail
             continue
 
         text = _convert(entry, raw, convert_document)
+        compute_checkpoint()
         if text is None:
             continue
         size = len(text.encode("utf-8"))
@@ -327,6 +330,8 @@ def _convert(entry: Entry, raw: bytes, convert_document) -> str | None:
     if entry.node_type == "DOCUMENT":
         try:
             markdown = (convert_document(raw, ext, entry.path.rsplit("/", 1)[-1]) or "").strip()
+        except DeadlineExceeded:
+            raise
         except Exception as err:  # noqa: BLE001 - one bad file must not fail the archive
             entry.status, entry.skip_reason = "FAILED", f"could not be converted ({type(err).__name__})"
             return None

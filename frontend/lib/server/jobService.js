@@ -14,6 +14,7 @@
 import { maxFileSizeFor, OCR_EXTENSIONS, poolForExtension, sizeLimitMessage, splitFileName } from '../formats.js';
 import { getPoolConfig } from './dispatcher.js';
 import { runTick } from './jobQueue.js';
+import { routeDeadline } from './timeBudget.js';
 
 export const DOWNLOAD_URL_TTL_S = 600;
 
@@ -101,7 +102,7 @@ async function loadJob(db, jobId) {
   return job;
 }
 
-export async function startJob(db, jobId, { secret, env = process.env, fetchImpl, tick = true } = {}) {
+export async function startJob(db, jobId, { secret, env = process.env, fetchImpl, tick = true, deadlineMs = routeDeadline() } = {}) {
   const job = await loadJob(db, jobId);
   if (TERMINAL.has(job.status) || job.status === 'CANCEL_REQUESTED') {
     return { status: 200, body: await jobStatus(db, jobId) };
@@ -118,15 +119,15 @@ export async function startJob(db, jobId, { secret, env = process.env, fetchImpl
     }
     await db.rpc('start_uploaded_job', { p_job_id: jobId, p_bucket: db.bucket, p_verified_size: size });
   }
-  if (tick) await runTick(db, { jobId, env, secret, fetchImpl });
+  if (tick) await runTick(db, { jobId, env, secret, fetchImpl, deadlineMs });
   const body = await jobStatus(db, jobId);
   return { status: body.status === 'FAILED' ? statusForFailure(body.error?.code) : 200, body };
 }
 
-export async function advanceJob(db, jobId, { secret, env = process.env, fetchImpl } = {}) {
+export async function advanceJob(db, jobId, { secret, env = process.env, fetchImpl, deadlineMs = routeDeadline() } = {}) {
   const job = await loadJob(db, jobId);
   if (!TERMINAL.has(job.status) && job.status !== 'UPLOADING') {
-    await runTick(db, { jobId, env, secret, fetchImpl });
+    await runTick(db, { jobId, env, secret, fetchImpl, deadlineMs });
   }
   return jobStatus(db, jobId);
 }

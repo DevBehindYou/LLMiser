@@ -10,6 +10,7 @@
 // (/api/jobs/tick); both run the same code.
 
 import { getPoolConfig, sendToPool } from './dispatcher.js';
+import { FINALIZATION_RESERVE_MS, MIN_ATTEMPT_MS, remainingMs, routeDeadline } from './timeBudget.js';
 
 export const TASK_ENDPOINTS = {
   CONVERT: '/api/v1/internal/process',
@@ -164,7 +165,7 @@ export function spawnFromResult(item, body) {
 }
 
 /** Sends one claimed item to its pool and records the outcome. */
-export async function executeItem(db, item, { env = process.env, secret, fetchImpl } = {}) {
+export async function executeItem(db, item, { env = process.env, secret, fetchImpl, deadlineMs = routeDeadline() } = {}) {
   const urls = getPoolConfig(env)[item.pool] || [];
   const started = Date.now();
   const body = requestBody(item);
@@ -174,6 +175,7 @@ export async function executeItem(db, item, { env = process.env, secret, fetchIm
     jobId: item.work_item_id, // spreads a job's pieces across both instances
     path: TASK_ENDPOINTS[item.task_type],
     secret,
+    deadlineMs,
     makeInit: () => ({ method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) }),
     ...(fetchImpl ? { fetchImpl } : {}),
   });
@@ -221,11 +223,12 @@ export async function executeItem(db, item, { env = process.env, secret, fetchIm
  * browser advancing its own upload); without it, any job (cron sweep).
  * Items of all pools run concurrently; the call returns when they finish.
  */
-export async function runTick(db, { jobId = null, env = process.env, secret, fetchImpl, limit = ITEMS_PER_TICK } = {}) {
+export async function runTick(db, { jobId = null, env = process.env, secret, fetchImpl, limit = ITEMS_PER_TICK, deadlineMs = routeDeadline() } = {}) {
   await db.rpc('requeue_expired_work_items', {});
   const capacity = poolCapacity(env);
   const claimed = [];
   for (const pool of POOLS) {
+    if (remainingMs(deadlineMs) < FINALIZATION_RESERVE_MS + MIN_ATTEMPT_MS) break;
     if (!capacity[pool]) continue;
     const rows = await db.rpc('claim_work_items', {
       p_pool: pool,
@@ -239,7 +242,7 @@ export async function runTick(db, { jobId = null, env = process.env, secret, fet
   // expires and requeue_expired_work_items() retries it.
   const results = await Promise.all(
     claimed.map((item) =>
-      executeItem(db, item, { env, secret, fetchImpl }).catch((err) => ({
+      executeItem(db, item, { env, secret, fetchImpl, deadlineMs }).catch((err) => ({
         item: item.work_item_id,
         outcome: 'ERROR',
         error: err.message,

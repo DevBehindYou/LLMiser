@@ -26,6 +26,7 @@ from pydantic import BaseModel, Field
 
 from .config import Settings, deployment_revision
 from .errors import ConversionRejected, EngineUnavailable
+from .deadlines import DeadlineExceeded, DeadlineMiddleware, check_budget, compute_checkpoint
 from .files import read_limited, sanitize_filename, split_name, title_from_stem
 from .profiles import PROFILES, count_words, finalize_markdown
 from .security import require_internal_secret
@@ -75,6 +76,7 @@ def create_app(settings: Settings, converter: Converter, storage: StorageClient 
     # No interactive docs or schema: these instances are internal compute,
     # not a public API surface.
     app = FastAPI(title=f"LLMiser backend ({settings.role})", docs_url=None, redoc_url=None, openapi_url=None)
+    app.add_middleware(DeadlineMiddleware)
     app.state.settings = settings
     app.state.converter = converter
     app.state.storage = storage if storage is not None else StorageClient.from_env()
@@ -95,9 +97,12 @@ def create_app(settings: Settings, converter: Converter, storage: StorageClient 
             if profile not in PROFILES:
                 profile = "Standard"
             data = load_bytes()
+            compute_checkpoint()
             converter.validate(data, ext)
             title = title_from_stem(stem)
+            compute_checkpoint()
             markdown, warning = converter.convert(data, ext, filename=original_name, title=title)
+            compute_checkpoint()
             if raw:
                 content = markdown.strip() + "\n"
                 words = count_words(content)
@@ -112,6 +117,9 @@ def create_app(settings: Settings, converter: Converter, storage: StorageClient 
                     profile=profile,
                 )
             outcome = "ok"
+        except DeadlineExceeded:
+            outcome = "deadline"
+            raise
         except ConversionRejected as err:
             outcome = err.code
             raise HTTPException(status_code=err.status_code, detail=err.detail) from None
@@ -214,9 +222,11 @@ def create_app(settings: Settings, converter: Converter, storage: StorageClient 
         )
 
         write_started = time.perf_counter()
+        check_budget()
         body = content.encode("utf-8")
         try:
             storage.upload(req.output_path, body, "text/markdown; charset=utf-8")
+            check_budget()
         except StorageError as err:
             # The conversion worked but the result isn't stored: never report
             # success. Transient → the dispatcher may retry on the peer.
@@ -248,6 +258,7 @@ def create_app(settings: Settings, converter: Converter, storage: StorageClient 
             job_id,
             lambda: read_limited(file.file, settings.max_upload_bytes),
         )
+        check_budget()
         return {**fields, "content": content}
 
     return app

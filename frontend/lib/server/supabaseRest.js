@@ -4,6 +4,8 @@
 //
 // Storage REST shapes follow @supabase/storage-js.
 
+import { boundedTimeout } from './timeBudget.js';
+
 export function supabaseConfig(env = process.env) {
   const url = (env.SUPABASE_URL || '').replace(/\/+$/, '');
   const key = env.SUPABASE_SERVICE_ROLE_KEY || '';
@@ -21,7 +23,7 @@ export class SupabaseError extends Error {
 
 const encodePath = (path) => path.split('/').map(encodeURIComponent).join('/');
 
-export function createSupabase(config, fetchImpl = fetch) {
+export function createSupabase(config, fetchImpl = fetch, { deadlineMs } = {}) {
   const headers = {
     apikey: config.key,
     Authorization: `Bearer ${config.key}`,
@@ -32,7 +34,7 @@ export function createSupabase(config, fetchImpl = fetch) {
       ...init,
       headers: { ...headers, ...(init.headers || {}) },
       cache: 'no-store',
-      signal: AbortSignal.timeout(30_000),
+      signal: AbortSignal.timeout(boundedTimeout(deadlineMs, 30_000)),
     });
     const text = await res.text();
     let data = null;

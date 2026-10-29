@@ -14,6 +14,8 @@ Released [parser capacity and CSV memory reduction](LLMISER_PARSER_CAPACITY.md) 
 
 Released [Excel and final-result memory](LLMISER_EXCEL_ASSEMBLY_MEMORY.md) processes workbook sheets sequentially, bounds temporary word-count allocations and defers ZIP output encoding to the existing upload workers. Local untraced peaks fell about 2% for XLSX, 5% for XLS, 15% for ZIP assembly and 17% for profile finalization, with identical output; timing varies and the XLS median regressed. Production output/recovery equivalence passed. Native/concurrent parser peaks, full normalization/serialization, representative-device input behavior and the shared-deadline queue remain separate work.
 
+Current candidate: [shared conversion deadlines](LLMISER_SHARED_DEADLINES.md), branch `codex/shared-conversion-deadlines`. Retries share each invocation's remaining time; workers receive an optional authenticated deadline and reserve finalization time. Existing job lifetime, queue limits and retention stay compatible. Release checks are pending; the runtime revision above remains the last verified release.
+
 ## Legacy frontend replacement is deployed
 
 The owner wants the old converter removed from its frontend hosting, permanent public redirects preserved, and a small LLMiser-only banner as fallback. Replacement source is [legacy-site/](../legacy-site/README.md), inside this repository. It has no converter, API or database client. The working LLMiser project continues using `frontend`; only the old frontend project may use `legacy-site`.

@@ -14,6 +14,8 @@ PR #13 released [a source capacity audit and CSV allocation reduction](LLMISER_P
 
 ## Verified starting point
 
+Current candidate: [shared conversion deadlines](LLMISER_SHARED_DEADLINES.md), branch `codex/shared-conversion-deadlines`. Backend cooperative checkpoints and remaining-budget propagation are implemented locally; rollout/acceptance remain separate. This is a per-invocation budget and adds no whole-job lifetime, SQL or capacity setting.
+
 Released [Excel and final-result assembly memory](LLMISER_EXCEL_ASSEMBLY_MEMORY.md), PR #15 at `3db41140521d5cfb1bb3bfd12865feca5a8cc95b`: sequential sheet processing, exact bounded word counts and delayed archive output encoding. Three fresh-process trials per mode preserve complete hashes; local peak reductions are qualified by timing variability/XLS regression. All seven CI jobs passed before/after merge; six production Vercel statuses succeeded; all six N/O/Z workers report the exact revision and readiness. Eight generated multipart probes, two production Storage conversion/recovery checks and 20 HTTP checks passed; all pools are 2/2 ready. No SQL, concurrency, retention or blog changes.
 
 The copied source already contains atomic job startup/finalization, cleanup recovery, upload/active-job/storage-reservation admission, shared archive container checks, bounded PDF page uploads/OCR preparation, lazy Markdown/highlighter loading and current-edit export snapshots. Do not reimplement these based on old “proposed” checklist rows. Their deployment/capacity evidence is distinct from source tests.

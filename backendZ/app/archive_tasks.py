@@ -32,6 +32,7 @@ from app.common.errors import ConversionRejected, EngineUnavailable
 from app.common.files import sanitize_filename, split_name, title_from_stem
 from app.common.profiles import PROFILES, finalize_markdown
 from app.common.security import require_internal_secret
+from app.common.deadlines import DeadlineExceeded, budgeted_worker, check_budget, compute_checkpoint
 from app.common.storage import StorageError
 
 logger = logging.getLogger("mdify.archive")
@@ -115,6 +116,7 @@ def partial_blobs(entries: list[archive.Entry]) -> list[bytes]:
 
 def write_outputs(store, *, job_id: str, name: str, profile: str, source_bytes: int,
                   entries: list[archive.Entry], ocr_texts: dict[str, str | None], settings) -> dict:
+    compute_checkpoint()
     if len(entries) > archive.MAX_ENTRIES:
         raise resource_limit()
     stem, _ext = split_name(name)
@@ -154,10 +156,12 @@ def write_outputs(store, *, job_id: str, name: str, profile: str, source_bytes: 
         raise resource_limit()
 
     try:
+        check_budget()
         with ThreadPoolExecutor(max_workers=WORKERS) as pool:
             # Encoding inside the worker bounds live application byte buffers
             # to WORKERS objects instead of retaining every encoded part.
-            list(pool.map(lambda f: store.upload(f[0], f[1].encode("utf-8"), f[2]), files))
+            list(pool.map(budgeted_worker(lambda f: store.upload(f[0], f[1].encode("utf-8"), f[2])), files))
+        check_budget()
     except StorageError as err:
         raise HTTPException(status_code=503 if err.transient else 502, detail="Could not store the project result") from None
 
@@ -208,6 +212,8 @@ def register(app: FastAPI) -> None:
             raise HTTPException(status_code=err.status_code, detail=err.detail) from None
         except EngineUnavailable:
             raise HTTPException(status_code=503, detail="Conversion engine unavailable") from None
+        except DeadlineExceeded:
+            raise
         except Exception:
             logger.exception("archive processing failed job=%s", job_id)
             raise HTTPException(status_code=422, detail="This ZIP file couldn't be processed.") from None
@@ -244,6 +250,7 @@ def register(app: FastAPI) -> None:
 
         # Converted entries wait in Storage for the merge, in parts <= 4 MB.
         parts = partial_blobs(entries)
+        check_budget()
         partial_paths = [f"jobs/{job_id}/nodes/archive-{i}/partial.json" for i in range(1, len(parts) + 1)]
         uploads += [
             (path, chunk, "application/json; charset=utf-8")
@@ -251,7 +258,8 @@ def register(app: FastAPI) -> None:
         ]
         try:
             with ThreadPoolExecutor(max_workers=WORKERS) as pool:
-                list(pool.map(lambda u: store.upload(*u), uploads))
+                list(pool.map(budgeted_worker(lambda u: store.upload(*u)), uploads))
+            check_budget()
         except StorageError as err:
             raise HTTPException(status_code=503 if err.transient else 502, detail="Could not store the archive contents") from None
 
@@ -281,6 +289,7 @@ def register(app: FastAPI) -> None:
 
         def fetch(path: str) -> str | None:
             nonlocal read_bytes
+            compute_checkpoint()
             try:
                 data = store.download(path, PARTIAL_BYTES)
             except StorageError as err:
