@@ -7,6 +7,7 @@ import { useI18n } from '../components/i18n/I18nContext';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { adminApi, downloadFile, downloadZip, previewText } from '../lib/models/adminApi';
 import { buildContentTree } from '../lib/models/contentTree';
+import { collectStoredFiles, mergeDetailPage } from '../lib/models/adminDetail';
 
 // ── Session ────────────────────────────────────────────────────────────────
 
@@ -233,15 +234,7 @@ export function useAdminJobsViewModel({ handleError, notify }) {
     if (!ids.length) return;
     setWorking('ZIP');
     try {
-      const items = [];
-      for (const id of ids) {
-        const detail = await adminApi.job(id);
-        for (const f of detail.files) {
-          if (f.kind === 'OUTPUT' && f.storage_status === 'ACTIVE') {
-            items.push({ jobId: id, fileId: f.file_id, name: `${id.slice(0, 8)}/${f.object_path.split('/').pop()}` });
-          }
-        }
-      }
+      const items = await collectStoredFiles(ids, { loadPage: adminApi.jobPage, outputsOnly: true });
       if (!items.length) {
         notify('The selected jobs have no stored results', 'error');
         return;
@@ -283,26 +276,77 @@ export function useAdminJobDetailViewModel(jobId, { handleError, notify, onChang
   const [preview, setPreview] = useState(null); // { name, text, truncated } | { name, loading }
   const [working, setWorking] = useState(null);
 
+  const generation = useRef(0);
+  const currentJob = useRef(jobId);
+  currentJob.current = jobId;
+  const controllers = useRef(new Set());
+  const inFlight = useRef(new Set());
+  const [pageState, setPageState] = useState({});
+  const previewGeneration = useRef(0);
+
   const load = useCallback(async () => {
-    if (!jobId) return;
+    if (!jobId || currentJob.current !== jobId) return;
+    const gen = ++generation.current;
+    controllers.current.forEach(controller => controller.abort());
+    controllers.current.clear();
+    inFlight.current = new Set();
+    const controller = new AbortController();
+    controllers.current.add(controller);
     setLoading(true);
+    previewGeneration.current += 1;
+    setPreview(null);
+    setPageState({});
     setError(null);
     try {
-      setDetail(await adminApi.job(jobId));
+      const result = await adminApi.job(jobId, controller.signal);
+      if (gen === generation.current && currentJob.current === jobId) setDetail(result);
     } catch (err) {
-      if (!handleError(err)) setError(err.message);
+      if (gen === generation.current && err?.name !== 'AbortError' && !handleError(err)) setError(err.message);
     } finally {
-      setLoading(false);
+      controllers.current.delete(controller);
+      if (gen === generation.current) setLoading(false);
     }
   }, [jobId, handleError]);
 
   useEffect(() => {
     setDetail(null);
     setPreview(null);
+    setWorking(null);
     load();
+    return () => {
+      generation.current += 1;
+      previewGeneration.current += 1;
+      controllers.current.forEach(controller => controller.abort());
+      controllers.current.clear();
+    };
   }, [load]);
 
-  const tree = useMemo(() => (detail ? buildContentTree(detail.nodes, detail.job) : null), [detail]);
+  const visibleDetail = detail?.job?.job_id === jobId ? detail : null;
+  const tree = useMemo(() => (visibleDetail ? buildContentTree(visibleDetail.nodes, visibleDetail.job) : null), [visibleDetail]);
+
+  const loadMore = useCallback(async section => {
+    const next = visibleDetail?.pages?.[section]?.next;
+    const flights = inFlight.current;
+    if (!next || loading || flights.has(section)) return;
+    flights.add(section);
+    const gen = generation.current;
+    const controller = new AbortController();
+    controllers.current.add(controller);
+    setPageState(state => ({ ...state, [section]: { loading: true, error: null } }));
+    try {
+      const page = await adminApi.jobPage(jobId, section, { cursor: next }, controller.signal);
+      if (gen !== generation.current || currentJob.current !== jobId) return;
+      setDetail(previous => previous?.job.job_id === jobId ? mergeDetailPage(previous, section, page) : previous);
+    } catch (err) {
+      if (gen === generation.current && err?.name !== 'AbortError' && !handleError(err)) {
+        setPageState(state => ({ ...state, [section]: { loading: false, error: err.message } }));
+      }
+    } finally {
+      flights.delete(section);
+      controllers.current.delete(controller);
+      if (gen === generation.current) setPageState(state => ({ ...state, [section]: { ...state[section], loading: false } }));
+    }
+  }, [visibleDetail, jobId, loading, handleError]);
 
   const act = useCallback(
     async (action, hours) => {
@@ -317,7 +361,7 @@ export function useAdminJobDetailViewModel(jobId, { handleError, notify, onChang
       } catch (err) {
         if (!handleError(err)) notify(err.message, 'error');
       } finally {
-        setWorking(null);
+        if (currentJob.current === jobId) setWorking(null);
       }
     },
     [jobId, notify, handleError, onChanged, load, uiText]
@@ -325,12 +369,15 @@ export function useAdminJobDetailViewModel(jobId, { handleError, notify, onChang
 
   const showPreview = useCallback(
     async (file) => {
+      const gen = generation.current;
+      const request = ++previewGeneration.current;
       const name = file.object_path.split('/').pop();
       setPreview({ name, loading: true });
       try {
-        setPreview({ name, ...(await previewText(jobId, file.file_id)) });
+        const result = await previewText(jobId, file.file_id);
+        if (gen === generation.current && request === previewGeneration.current) setPreview({ name, ...result });
       } catch (err) {
-        if (!handleError(err)) setPreview({ name, error: err.message });
+        if (gen === generation.current && request === previewGeneration.current && !handleError(err)) setPreview({ name, error: err.message });
       }
     },
     [jobId, handleError]
@@ -348,21 +395,19 @@ export function useAdminJobDetailViewModel(jobId, { handleError, notify, onChang
   );
 
   const downloadAll = useCallback(async () => {
-    const files = (detail?.files || []).filter((f) => f.storage_status === 'ACTIVE');
     setWorking('ZIP');
     try {
-      await downloadZip(
-        files.map((f) => ({ jobId, fileId: f.file_id, name: `${f.kind.toLowerCase()}/${f.object_path.split('/').pop()}` })),
-        { zipName: `llmiser-job-${jobId.slice(0, 8)}.zip` }
-      );
+      const files = await collectStoredFiles([jobId], { loadPage: adminApi.jobPage });
+      await downloadZip(files, { zipName: `llmiser-job-${jobId.slice(0, 8)}.zip` });
     } catch (err) {
       if (!handleError(err)) notify(err.message, 'error');
     } finally {
-      setWorking(null);
+      if (currentJob.current === jobId) setWorking(null);
     }
-  }, [detail, jobId, handleError, notify]);
+  }, [jobId, handleError, notify]);
 
-  return { detail, tree, loading, error, reload: load, act, working, preview, showPreview, closePreview: () => setPreview(null), download, downloadAll };
+  return { detail: visibleDetail, tree, loading, error, reload: load, loadMore, pageState, act, working, preview, showPreview,
+    closePreview: () => { previewGeneration.current += 1; setPreview(null); }, download, downloadAll };
 }
 
 // ── Toasts ─────────────────────────────────────────────────────────────────

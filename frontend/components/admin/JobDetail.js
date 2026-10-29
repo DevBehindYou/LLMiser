@@ -26,6 +26,23 @@ function Section({ title, children }) {
   );
 }
 
+export function DetailPageControl({ section, vm }) {
+  const { uiText, locale } = useI18n();
+  const meta = vm.detail?.pages?.[section];
+  const state = vm.pageState?.[section];
+  const loaded = vm.detail?.[section]?.length || 0;
+  if (!meta) return null;
+  return (
+    <div className="flex flex-col gap-2" data-detail-page={section}>
+      <p className="m-0 text-[11px] text-[var(--faint)]" aria-live="polite">
+        {uiText("Loaded: {v0} · Total: {v1}", { v0: loaded.toLocaleString(locale), v1: meta.total.toLocaleString(locale) })}
+      </p>
+      <ErrorLine error={state?.error} onRetry={() => vm.loadMore(section)} />
+      {meta.next ? <div><Button onClick={() => vm.loadMore(section)} busy={state?.loading} disabled={vm.loading}>{uiText("Load more")}</Button></div> : null}
+    </div>
+  );
+}
+
 /** Side panel (full screen on phones) with one job's details and actions. */
 export default function JobDetail({ jobId, onClose, handleError, notify, onChanged }) {
   const { uiText , locale } = useI18n();
@@ -34,7 +51,7 @@ export default function JobDetail({ jobId, onClose, handleError, notify, onChang
   const panel = useRef(null);
   const job = vm.detail?.job;
   const files = vm.detail?.files || [];
-  const stored = files.filter((f) => f.storage_status === 'ACTIVE');
+  const storedTotal = vm.detail?.pages?.files?.active_total ?? 0;
   const filesGone = Boolean(job?.files_deleted_at);
 
   useEffect(() => {
@@ -62,6 +79,7 @@ export default function JobDetail({ jobId, onClose, handleError, notify, onChang
             <div className="font-tech text-[11px] text-[var(--faint)]">{uiText("Job ")}{jobId}</div>
             <div className="text-[14px] font-semibold truncate">{job?.original_filename || (job ? uiText("(name removed after deletion)") : uiText("Loading…"))}</div>
           </div>
+          <Button onClick={vm.reload} busy={vm.loading}>{uiText("Refresh")}</Button>
           <Button onClick={onClose} aria-label={uiText("Close")}>
             ✕
           </Button>
@@ -69,6 +87,7 @@ export default function JobDetail({ jobId, onClose, handleError, notify, onChang
 
         <div className="p-4 flex flex-col gap-5">
           <ErrorLine error={vm.error} onRetry={vm.reload} />
+          {job ? <p className="m-0 text-[11px] text-[var(--faint)]">{uiText("Totals can change while a job runs. Refresh to update all sections.")}</p> : null}
 
           {job ? (
             <>
@@ -128,7 +147,7 @@ export default function JobDetail({ jobId, onClose, handleError, notify, onChang
                 </div>
               </Section>
 
-              <Section title={uiText("Files ({v0} stored)", { v0: stored.length })}>
+              <Section title={uiText("Files ({v0} stored)", { v0: storedTotal })}>
                 {files.length ? (
                   <ul className="list-none m-0 p-0 flex flex-col gap-1.5">
                     {files.map((f) => {
@@ -153,7 +172,8 @@ export default function JobDetail({ jobId, onClose, handleError, notify, onChang
                 ) : (
                   <p className="m-0 text-[12.5px] text-[var(--faint)]">{uiText("No files registered.")}</p>
                 )}
-                {stored.length > 1 ? (
+                <DetailPageControl section="files" vm={vm} />
+                {storedTotal > 1 ? (
                   <div>
                     <Button onClick={vm.downloadAll} busy={vm.working === 'ZIP'}>{uiText("Download all as ZIP")}</Button>
                   </div>
@@ -183,10 +203,12 @@ export default function JobDetail({ jobId, onClose, handleError, notify, onChang
               </Section>
 
               <Section title={uiText("Content")}>
+                <p className="m-0 text-[11px] text-[var(--faint)]">{uiText("Tree and status counts show loaded records only.")}</p>
                 <ContentTreeView tree={vm.tree} />
+                <DetailPageControl section="nodes" vm={vm} />
               </Section>
 
-              <Section title={uiText("Work items ({v0})", { v0: vm.detail.items.length })}>
+              <Section title={uiText("Work items ({v0})", { v0: vm.detail.pages.items.total })}>
                 <div className="overflow-x-auto rounded-md border border-[var(--border)]">
                   <table className="w-full text-[12px] border-collapse">
                     <thead className="bg-[var(--panel)] text-[var(--faint)] font-tech text-[10px] uppercase">
@@ -215,8 +237,8 @@ export default function JobDetail({ jobId, onClose, handleError, notify, onChang
                     </tbody>
                   </table>
                 </div>
+                <DetailPageControl section="items" vm={vm} />
               </Section>
-
               <Section title={uiText("Events")}>
                 <ol className="list-none m-0 p-0 flex flex-col gap-1">
                   {vm.detail.events.map((e) => (
@@ -228,6 +250,7 @@ export default function JobDetail({ jobId, onClose, handleError, notify, onChang
                     </li>
                   ))}
                 </ol>
+                <DetailPageControl section="events" vm={vm} />
               </Section>
             </>
           ) : vm.loading ? (

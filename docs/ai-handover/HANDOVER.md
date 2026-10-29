@@ -4,6 +4,8 @@ Updated 29 October 2026. Start with [START_HERE](../START_HERE.md). This replace
 
 ## What the owner wants now
 
+Active implementation: [controller detail pagination](../LLMISER_CONTROLLER_PAGINATION.md), branch `codex/controller-detail-pagination`. The owner resumed this task after pausing it. Code and focused acceptance are complete; full validation, PR/merge/deployment and generated authenticated production comparison remain. Keep ZIP exports complete across pages, timestamp precision and job/section/filter cursor binding. Exact counts are live separate reads; Refresh resets all sections. No new SQL/index is needed from the measured existing-index plans. Runtime remains PR #17 until release evidence is recorded.
+
 The owner resumed the optimization queue after the Excel/assembly release. Shared conversion deadlines are now released in PR #17. Continue from the remaining queue rather than repeating either slice. LLMiser must also remain independently maintainable after MDify and MDify-Pro are deleted. Keep immediate permanent redirects on the old public hosts and the minimal LLMiser-only fallback; repository/service deletion is not being executed here.
 
 ## Work already shipped

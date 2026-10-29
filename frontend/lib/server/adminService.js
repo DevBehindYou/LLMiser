@@ -84,18 +84,75 @@ export async function listJobs(db, { limit = 50, before = null, beforeId = null,
   return { jobs, next: jobs.length === n && last ? { before: last.created_at, before_id: last.job_id } : null };
 }
 
+export const DETAIL_PAGE_SIZE = 50;
+export const DETAIL_MAX_PAGE_SIZE = 100;
+const DETAIL_SECTIONS = {
+  files: { table: 'file_objects', id: 'file_id', key: 'created_at', select: 'file_id,kind,object_path,extension,mime_type,size_bytes,storage_status,created_at,deleted_at' },
+  nodes: { table: 'content_nodes', id: 'node_id', key: 'sequence_index', select: 'node_id,parent_node_id,node_type,classification,logical_path,page_from,page_to,sequence_index,archive_depth,size_bytes,status,skip_reason,engine,backend_instance,duration_ms,created_at,completed_at' },
+  items: { table: 'work_items', id: 'work_item_id', key: 'created_at', select: 'work_item_id,node_id,task_type,pool,status,is_root,is_final,sequence_index,attempt_count,max_attempts,assigned_backend,error_code,error_message,duration_ms,created_at,claimed_at,completed_at' },
+  events: { table: 'job_events', id: 'event_id', key: 'created_at', select: 'event_id,event_type,status,stage,backend_role,backend_instance,message,created_at' },
+};
+const JOB_DETAIL_FIELDS = 'job_id,original_filename,source_type,source_extension,profile,status,stage,progress,created_at,completed_at,processing_ms,backend_instance,engine,items_total,items_done,items_failed,items_skipped,error_code,error_message,warnings,files_deleted_at,retention_mode,retention_extended_until,auto_delete_at,cleanup_state,cleanup_last_error';
+
+function detailLimit(limit = DETAIL_PAGE_SIZE) {
+  if (!/^\d{1,3}$/.test(String(limit)) || Number(limit) < 1) throw new AdminError('Invalid page size');
+  return Math.min(Number(limit), DETAIL_MAX_PAGE_SIZE);
+}
+
+function pageCursor(cursor, jobId, section, filter) {
+  if (cursor === null || cursor === undefined) return null;
+  if (typeof cursor !== 'string' || !/^[\w-]{1,512}$/.test(cursor)) throw new AdminError('Bad cursor');
+  let value;
+  try { value = JSON.parse(Buffer.from(cursor, 'base64url').toString('utf8')); } catch { throw new AdminError('Bad cursor'); }
+  if (value?.v !== 1 || value.job !== jobId || value.section !== section || value.filter !== filter || !UUID.test(String(value.id || ''))) throw new AdminError('Bad cursor');
+  if (section === 'nodes') {
+    if (!Number.isInteger(value.key) || value.key < -2147483648 || value.key > 2147483647) throw new AdminError('Bad cursor');
+  } else if (typeof value.key !== 'string'
+      || !/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d{1,6})?(?:Z|[+-]\d{2}:\d{2})$/.test(value.key)
+      || !Number.isFinite(Date.parse(value.key))) throw new AdminError('Bad cursor');
+  return value;
+}
+
+function encodePageCursor(job, section, row, config, filter) {
+  // Preserve PostgreSQL microseconds; Date.toISOString would round them away.
+  return Buffer.from(JSON.stringify({ v: 1, job, section, filter, key: row[config.key], id: row[config.id] })).toString('base64url');
+}
+
+export async function jobDetailPage(db, jobId, section, { limit, cursor = null, stored = null, kind = null, jobKnown = false } = {}) {
+  const id = assertJobId(jobId);
+  const config = DETAIL_SECTIONS[section];
+  if (!Object.hasOwn(DETAIL_SECTIONS, section)) throw new AdminError('Unknown detail section');
+  const n = detailLimit(limit);
+  if (stored !== null && stored !== '1') throw new AdminError('Unknown file filter');
+  if (kind !== null && !['INPUT', 'OUTPUT', 'EXPORT', 'PREVIEW'].includes(kind)) throw new AdminError('Unknown file filter');
+  if (section !== 'files' && (stored !== null || kind !== null)) throw new AdminError('Unknown file filter');
+  const filter = `${stored || ''}:${kind || ''}`;
+  const after = pageCursor(cursor, id, section, filter);
+  if (!jobKnown && !(await db.select('jobs', { job_id: `eq.${id}`, select: 'job_id', limit: '1' }))?.length) throw new AdminError('Unknown job', 404);
+  const base = { job_id: `eq.${id}`, ...(stored ? { storage_status: 'eq.ACTIVE' } : {}), ...(kind ? { kind: `eq.${kind}` } : {}) };
+  const filters = { ...base, select: config.select, order: `${config.key}.asc,${config.id}.asc`, limit: String(n) };
+  if (after) filters.or = `(${config.key}.gt.${after.key},and(${config.key}.eq.${after.key},${config.id}.gt.${after.id}))`;
+  const [page, total, active] = await Promise.all([
+    db.selectPage(config.table, filters),
+    after ? db.count(config.table, { ...base, select: config.id, limit: '1' }) : null,
+    section === 'files' ? db.count('file_objects', { job_id: `eq.${id}`, storage_status: 'eq.ACTIVE', select: 'file_id', limit: '1' }) : null,
+  ]);
+  if (page.rows.length > n || !Number.isSafeInteger(page.total) || page.total < page.rows.length) throw new AdminError('Invalid page response', 502);
+  const last = page.rows.at(-1);
+  return { section, rows: page.rows, total: total ?? page.total,
+    next: last && page.total > page.rows.length ? encodePageCursor(id, section, last, config, filter) : null,
+    ...(section === 'files' ? { active_total: active } : {}),
+  };
+}
+
 export async function jobDetail(db, jobId) {
   const id = assertJobId(jobId);
-  const [tree, files] = await Promise.all([
-    db.rpc('get_job_tree', { p_job_id: id }),
-    db.select('file_objects', {
-      job_id: `eq.${id}`,
-      select: 'file_id,kind,object_path,extension,mime_type,size_bytes,storage_status,created_at,deleted_at',
-      order: 'created_at.asc',
-    }),
-  ]);
-  if (!tree?.job) throw new AdminError('Unknown job', 404);
-  return { ...tree, files: files || [] };
+  const jobs = await db.select('jobs', { job_id: `eq.${id}`, select: JOB_DETAIL_FIELDS, limit: '1' });
+  if (!jobs?.[0]) throw new AdminError('Unknown job', 404);
+  const sections = Object.keys(DETAIL_SECTIONS);
+  const pages = await Promise.all(sections.map(section => jobDetailPage(db, id, section, { jobKnown: true })));
+  return { job: jobs[0], ...Object.fromEntries(pages.map(page => [page.section, page.rows])),
+    pages: Object.fromEntries(pages.map(({ rows, section, ...page }) => [section, page])) };
 }
 
 const FILE_STATUSES = new Set(['PENDING', 'ACTIVE', 'DELETE_PENDING', 'DELETED', 'ERROR']);

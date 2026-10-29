@@ -629,5 +629,11 @@
   "🔒 Privacy Policy": "🔒 Политика конфиденциальности",
   "Large document: formatted preview is paused to keep editing responsive. The complete Markdown is available in Raw mode and exports.": "Большой документ: предпросмотр с форматированием приостановлен, чтобы редактирование оставалось отзывчивым. Полный Markdown доступен в режиме «Исходный» и при экспорте.",
   "Render full preview (may take a moment)": "Показать полный предпросмотр (может занять некоторое время)",
-  "Pause formatted preview": "Приостановить предпросмотр с форматированием"
+  "Pause formatted preview": "Приостановить предпросмотр с форматированием",
+  "Loaded: {v0} · Total: {v1}": "Загружено: {v0} · Всего: {v1}",
+  "Totals can change while a job runs. Refresh to update all sections.": "Итоговые значения могут меняться во время выполнения задания. Обновите все разделы.",
+  "Tree and status counts show loaded records only.": "Дерево и счётчики статусов показывают только загруженные записи.",
+  "Stored files changed. Refresh and try again.": "Сохранённые файлы изменились. Обновите страницу и повторите попытку.",
+  "Could not load the complete file list": "Не удалось загрузить полный список файлов",
+  "Reload the controller to use paginated job details.": "Перезагрузите панель управления для постраничного просмотра задания."
 }

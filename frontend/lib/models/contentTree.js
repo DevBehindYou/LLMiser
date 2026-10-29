@@ -8,7 +8,7 @@
 // After a job's files are deleted, paths are cleared in the database; nodes
 // then show their type and position instead of a name.
 
-const STATUS_ORDER = ['FAILED', 'SKIPPED', 'PENDING', 'RUNNING', 'DONE'];
+const STATUS_ORDER = ['FAILED', 'SKIPPED', 'PENDING', 'RUNNING', 'PROCESSING', 'DONE'];
 
 function folder(name, path) {
   return { key: `dir:${path}`, name, path, node: null, children: new Map() };
@@ -54,7 +54,8 @@ export function buildContentTree(nodes = [], job = {}) {
   root.node = rootNode;
 
   const paged = rest.filter((n) => n.node_type === 'PDF_PAGE' || n.node_type === 'PDF_SEGMENT');
-  const others = rest.filter((n) => !paged.includes(n));
+  const pageSet = new Set(paged);
+  const others = rest.filter((n) => !pageSet.has(n));
 
   for (const n of [...paged].sort((a, b) => (a.page_from ?? 0) - (b.page_from ?? 0))) {
     root.children.set(`page:${n.node_id}`, {

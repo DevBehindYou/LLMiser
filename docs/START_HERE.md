@@ -4,6 +4,8 @@ Updated 29 October 2026. **LLMiser is the sole working repository and the source
 
 ## Current state
 
+Current candidate: [controller detail pagination](LLMISER_CONTROLLER_PAGINATION.md) on `codex/controller-detail-pagination`. Bounded files/tree/work-items/events, exact totals, independent Load more/retry and complete ZIP metadata collection are implemented. Focused PostgreSQL/React/route checks passed; full regression, release and deployed acceptance are pending. No database migration is required. Production remains the revision recorded below until release is verified.
+
 The app is live at https://llmiser.devbehindyou.com. PRs #1–#17 are merged; the latest verified runtime revision is `9131a2ac6163f22b630b008b40accb482ed3e0b3` from PR #17. All seven CI jobs passed before and after merge, including 270 frontend tests and Linux OCR; all six production Vercel statuses succeeded. Release checks confirmed that exact revision and readiness on every N/O/Z worker. Thirty protocol checks, eight workbook/ZIP equivalence checks, four post-release Storage conversion/recovery jobs and 20 public HTTP/redirect checks passed; all pools were 2/2 ready. See [shared deadlines](LLMISER_SHARED_DEADLINES.md), [Excel/assembly](LLMISER_EXCEL_ASSEMBLY_MEMORY.md), [CSV capacity](LLMISER_PARSER_CAPACITY.md) and [retirement evidence](LLMISER_LEGACY_RETIREMENT.md).
 
 The full app supports English (US), German, Japanese, Spanish, Russian and Simplified Chinese. The browser remembers the interface language; documents are not translated and OCR languages are unchanged. Blogs remain English. Eight articles, eight banners and forty figures are complete. The Chrome extension source is merged, but native acceptance and store publication remain pending.

@@ -11,7 +11,7 @@ export class AdminApiError extends Error {
   }
 }
 
-async function call(path, { method = 'GET', body, signal } = {}) {
+async function call(path, { method = 'GET', body, signal, headers = {} } = {}) {
   let res;
   try {
     res = await fetch(`/api/admin${path}`, {
@@ -20,6 +20,7 @@ async function call(path, { method = 'GET', body, signal } = {}) {
       cache: 'no-store',
       signal,
       headers: {
+        ...headers,
         ...(method === 'GET' ? {} : { 'x-mdify-admin': '1' }),
         ...(body === undefined ? {} : { 'Content-Type': 'application/json' }),
       },
@@ -47,7 +48,8 @@ export const adminApi = {
   logout: () => call('/session', { method: 'DELETE' }),
   overview: () => call('/overview'),
   jobs: (params, signal) => call(`/jobs${query(params)}`, { signal }),
-  job: (jobId, signal) => call(`/jobs/${encodeURIComponent(jobId)}`, { signal }),
+  job: (jobId, signal) => call(`/jobs/${encodeURIComponent(jobId)}`, { signal, headers: { 'x-llmiser-detail-paging': '1' } }),
+  jobPage: (jobId, section, params, signal) => call(`/jobs/${encodeURIComponent(jobId)}${query({ section, ...params })}`, { signal, headers: { 'x-llmiser-detail-paging': '1' } }),
   action: (jobId, action, hours) => call(`/jobs/${encodeURIComponent(jobId)}/action`, { method: 'POST', body: { action, hours } }),
   bulk: (jobIds, action, hours) => call('/bulk', { method: 'POST', body: { job_ids: jobIds, action, hours } }),
   signFile: (jobId, fileId, purpose = 'download') =>
