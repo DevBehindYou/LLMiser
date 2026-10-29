@@ -67,6 +67,29 @@ def test_finalize_counts_words_and_tokens():
     assert tokens == round(words * 1.33)
 
 
+def test_health_exposes_only_valid_provider_revision(client, monkeypatch):
+    monkeypatch.delenv("RENDER_GIT_COMMIT", raising=False)
+    monkeypatch.delenv("VERCEL_GIT_COMMIT_SHA", raising=False)
+    assert client.get("/api/v1/health").json() == {"status": "ok", "role": "normal", "instance": "N1", "version": "test"}
+    monkeypatch.setenv("RENDER_GIT_COMMIT", "a" * 40)
+    monkeypatch.setenv("UNRELATED_SECRET", "do-not-expose")
+    assert client.get("/api/v1/health").json() == {"status": "ok", "role": "normal", "instance": "N1", "version": "test", "revision": "a" * 40}
+
+
+def test_deployment_revision_is_limited_to_provider_commit_identifiers(monkeypatch):
+    from app.common.config import deployment_revision
+    monkeypatch.delenv("RENDER_GIT_COMMIT", raising=False)
+    monkeypatch.delenv("VERCEL_GIT_COMMIT_SHA", raising=False)
+    monkeypatch.setenv("UNRELATED_SECRET", "do-not-expose")
+    assert deployment_revision() is None
+    monkeypatch.setenv("RENDER_GIT_COMMIT", "not-a-commit")
+    assert deployment_revision() is None
+    monkeypatch.setenv("VERCEL_GIT_COMMIT_SHA", "A" * 40)
+    assert deployment_revision() == "a" * 40
+    monkeypatch.setenv("RENDER_GIT_COMMIT", "b" * 40)
+    assert deployment_revision() == "b" * 40
+
+
 def test_common_package_in_sync_with_other_backends():
     here = Path(__file__).resolve().parents[1] / "app" / "common"
     root = here.parents[2]

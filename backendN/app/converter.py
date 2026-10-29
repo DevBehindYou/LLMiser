@@ -56,8 +56,10 @@ class NormalConverter:
             return
         self._md = MarkItDown(enable_plugins=False)
         from app.csv_converter import register_csv_converter
+        from app.excel_converter import register_excel_converters
 
         register_csv_converter(self._md)
+        register_excel_converters(self._md)
         self._stream_info = StreamInfo
         self._import_error = ""
 
