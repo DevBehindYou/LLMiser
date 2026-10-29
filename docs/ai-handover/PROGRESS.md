@@ -15,13 +15,14 @@ Updated 29 October 2026. This is the current tracker. Earlier phase-specific num
 | Six-language web app | PR #5 released; English US, German, Japanese, Spanish, Russian, Simplified Chinese; now 631 messages each after PR #11 |
 | Final display-label fixes | PR #6 merged/deployed; preview labels/tooltips, mobile theme and retention labels |
 | Public README | Screenshots, recorded demo, steps, formats, profiles, privacy and FAQs; separate keyword evidence |
-| Final frontend CI | PR #15 and merged main: 261 tests passed; lint, dictionaries, SQL/blog consistency and production build passed |
+| Final frontend CI | PR #17 and merged main: 270 tests passed; lint, dictionaries, SQL/blog consistency and production build passed |
 | Other CI | Backend N/O/Z, PostgreSQL, edge and extension jobs passed |
-| Production deployment | Latest runtime change `3db41140521d5cfb1bb3bfd12865feca5a8cc95b`; all six Vercel statuses successful; exact revision/readiness confirmed on N1/N2/Z1/Z2/O1/O2 |
+| Production deployment | Latest runtime change `9131a2ac6163f22b630b008b40accb482ed3e0b3`; all six Vercel statuses successful; exact revision/readiness confirmed on N1/N2/Z1/Z2/O1/O2 |
 | Shared reader statistics | PR #9 merged/deployed; allocation-bounded counting and shared reader line/status metrics; preserved count semantics; synthetic benchmark and limits documented |
 | Large-preview control | PR #11 merged/deployed; generated browser profiling, explicit formatting above 50,000 characters, complete raw/copy/download acceptance, six-language notices |
 | CSV parser memory | PR #13 merged/deployed; verified-version output preservation in N/Z, synchronized generated measurements, and successful pre/post-release multipart CSV/ZIP probes on all four document workers |
 | Excel and final-result memory | PR #15 merged/deployed; sequential sheets, exact bounded word counts and bounded output encoding; generated multipart and actual Storage/download/recovery acceptance passed |
+| Shared conversion deadlines | PR #17 merged/deployed; shared invocation/attempt time, worker checkpoints and OCR/I/O limits; 30 protocol checks and real multi-stage Storage acceptance passed |
 | Production HTTP audit | 29 October: 20 public-page/discovery/health and permanent-redirect checks passed; documented legacy API routing unchanged |
 | Backend readiness | 29 October: all six workers report the released revision and ready; uncached public wake shows normal/OCR/archive each 2/2 |
 | Browser acceptance | All six languages, persistence, English-only blogs, translated policy/controller login; German 390px viewport had no horizontal overflow |
@@ -50,7 +51,7 @@ See [release record](../LLMISER_RELEASE_2026-10-26.md), [localization](../LLMISE
 
 ## Remaining work
 
-In progress: [shared conversion deadlines](../LLMISER_SHARED_DEADLINES.md). Candidate code and generated tests are complete; production build, CI and deployed protocol/Storage acceptance are pending. This does not replace the released Excel evidence below.
+Released: [shared conversion deadlines](../LLMISER_SHARED_DEADLINES.md), PR #17 at 9131a2a. All seven CI jobs passed before/after merge, all six Vercel statuses succeeded and all six workers reported the exact revision/readiness. Thirty production auth/expired/invalid/valid/legacy protocol requests passed; eight future-header workbook/ZIP comparisons and two Storage baselines retained identical output/counts. Two additional Storage jobs exercised image-ZIP OCR/merge and scanned-PDF OCR/merge with exact recovery. Twenty public HTTP checks passed and all pools were 2/2 ready. Six generated Storage jobs in total across pre/post/multi-stage probes follow existing retention; cleanup was not manually run. Controller detail pagination is next; no whole-job lifetime or exactly-once write guarantee is claimed.
 
 Released: [Excel conversion and final-result assembly memory](../LLMISER_EXCEL_ASSEMBLY_MEMORY.md), explicitly selected by the owner, PR #15 at 3db4114. Local suites: 144 normal/101 archive tests; installed-version checks passed. All seven Linux CI jobs and six Vercel production statuses passed, with exact revision/readiness verified on all six workers including Render. Eight post-release generated multipart probes and two Storage-backed XLSX/ZIP conversions passed, including all four output objects and exact saved-result recovery. Before/after Markdown, counts and index hashes match; manifest job IDs correctly differ. All 20 HTTP checks passed and all pools were 2/2 ready. Four real jobs across before/after tests follow normal retention; cleanup execution itself was not tested. Local Windows OCR readiness-suite failure is preserved in the report; Linux OCR CI passed.
 
@@ -64,7 +65,7 @@ The owner resumed the implementation plan after the handover was merged in PR #8
 - Audit provider Git connections and all consumers before retiring old backend services or deleting their source repositories. Do not delete shared data, bucket, Vault entries, cleanup functions or compatibility contracts.
 - Complete native Chrome 0.2.0 acceptance and store publication; source merge does not publish the extension.
 - Native-language review and broader device testing remain useful; UI localization does not expand OCR languages.
-- The 29 October slice freshly accepted generated XLSX/ZIP production uploads, all output downloads and recovery. Scanned-PDF/live OCR-image/admin/actual-cleanup acceptance was outside this slice; prior evidence for those remains dated.
+- The latest deadline slice accepted actual OCR multipart conversion and generated XLSX/workbook-ZIP/image-ZIP/scanned-PDF Storage downloads/recovery. Authenticated admin and actual cleanup execution remain separate; historical releases retain their own acceptance limits.
 - Continue Search Console/Bing monitoring and old-domain redirect retention. Do not claim Google has completely replaced old results without current evidence.
 
 ## Blog maintenance
