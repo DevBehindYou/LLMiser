@@ -1,5 +1,7 @@
 # LLMiser deployment and retirement runbook
 
+Current release verified 29 October 2026: frontend `efbeab60026b0e77a71a3d16822d81bbe6f81f2b` (PR #19), controller pagination and exact bundled-font build fix. All seven CI jobs/279 frontend tests and six Vercel production statuses passed; authenticated generated-job traversal/complete file retrieval, 16 font hashes/cache headers and 20 public HTTP checks passed. Uncached normal/OCR/archive readiness was 2/2 each. No SQL, cron, retention or backend setting changed. See [release evidence](LLMISER_CONTROLLER_PAGINATION.md); dated provisioning/deployment notes below retain their original scope.
+
 Updated 26 October 2026. The migration is deployed. This runbook supersedes the initial provisioning/cutover checklist; dated evidence remains in the other migration reports.
 
 ## Current deployment

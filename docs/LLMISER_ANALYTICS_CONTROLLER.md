@@ -17,6 +17,10 @@ The dashboard's header can display the old custom domain because it is still one
 
 Reference: [Vercel Web Analytics setup](https://vercel.com/docs/analytics/quickstart). Enabling the feature adds its routes after the next deployment. Do not add another Analytics component or install a duplicate package to fix a hosting activation issue.
 
+## Controller acceptance update — 29 October 2026
+
+[PR #19](LLMISER_CONTROLLER_PAGINATION.md) now verifies authenticated sign-in/sign-out, paginated job detail reads, complete generated-file signing/downloads and expected 401/409/400 responses with private headers on production. All 73 generated content records and four stored files were retrieved. This supplements the dated login-only checks below; destructive actions, bulk operations and cleanup execution were not tested.
+
 ## Controller access
 
 Open [LLMiser controller](https://llmiser.devbehindyou.com/llmiser-controller).

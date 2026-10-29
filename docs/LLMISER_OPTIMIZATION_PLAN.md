@@ -14,7 +14,7 @@ PR #13 released [a source capacity audit and CSV allocation reduction](LLMISER_P
 
 ## Verified starting point
 
-Released [shared conversion deadlines](LLMISER_SHARED_DEADLINES.md), PR #17 at `9131a2ac6163f22b630b008b40accb482ed3e0b3`. Optional authenticated absolute deadlines and monotonic cooperative worker checks preserve legacy callers and durable job/lease rules. All seven CI jobs and six Vercel production statuses passed; all six workers reported the exact revision/readiness. Thirty protocol checks, eight workbook/ZIP comparisons, four post-release Storage conversion/recovery jobs and 20 HTTP checks passed. Native preemption, exact-once writes and capacity tuning remain separate. Controller detail pagination is next.
+Released [shared conversion deadlines](LLMISER_SHARED_DEADLINES.md), PR #17 at `9131a2ac6163f22b630b008b40accb482ed3e0b3`. Optional authenticated absolute deadlines and monotonic cooperative worker checks preserve legacy callers and durable job/lease rules. All seven CI jobs and six Vercel production statuses passed; all six workers reported the exact revision/readiness. Thirty protocol checks, eight workbook/ZIP comparisons, four post-release Storage conversion/recovery jobs and 20 HTTP checks passed. Native preemption, exact-once writes and capacity tuning remain separate. Controller detail pagination is released in PR #19.
 
 Released [Excel and final-result assembly memory](LLMISER_EXCEL_ASSEMBLY_MEMORY.md), PR #15 at `3db41140521d5cfb1bb3bfd12865feca5a8cc95b`: sequential sheet processing, exact bounded word counts and delayed archive output encoding. Three fresh-process trials per mode preserve complete hashes; local peak reductions are qualified by timing variability/XLS regression. All seven CI jobs passed before/after merge; six production Vercel statuses succeeded; all six N/O/Z workers report the exact revision and readiness. Eight generated multipart probes, two production Storage conversion/recovery checks and 20 HTTP checks passed; all pools are 2/2 ready. No SQL, concurrency, retention or blog changes.
 
@@ -22,9 +22,9 @@ The copied source already contains atomic job startup/finalization, cleanup reco
 
 Search migration and public redirects are live; see [search migration](LLMISER_SEARCH_MIGRATION.md). Analytics ingestion is verified; controller login/configuration is verified but authenticated operations are not; see [access and analytics](LLMISER_ANALYTICS_CONTROLLER.md). Keep-warm Vault and cron changes were applied and verified in the earlier cron task. Dependency-aware service retirement remains separate operational work.
 
-## Current slice: controller detail pagination
+## Released slice: controller detail pagination
 
-Candidate: PR #19 on `codex/controller-detail-pagination`; see [implementation and evidence](LLMISER_CONTROLLER_PAGINATION.md). Files, nodes, work items and events load 50 rows each, with stable unique cursors, exact live totals, independent retry and refresh/job-switch guards. ZIP exports fetch every matching stored file page. Existing indexes suffice; no SQL change. Initial source `2f2afb0` passed all seven CI jobs/278 tests/build, but Vercel's Google font URL parser failed. The owner supplied the error; identical bundled fonts remove that build dependency. Updated checks/preview and deployed comparison remain before release.
+Released in PR #19 at `efbeab60026b0e77a71a3d16822d81bbe6f81f2b`; see [implementation and evidence](LLMISER_CONTROLLER_PAGINATION.md). Details load 50 rows per section with stable unique cursors, exact live totals, independent retries and refresh/job-switch guards. ZIP exports collect every matching ACTIVE file page. Generated plans use existing indexes; no SQL change. The unrelated Google font URL parser failure was resolved with identical licensed bundled assets. CI passed all seven jobs/279 frontend tests before and after merge; production pagination, all generated-file retrieval, exact font hashes/cache headers, 20 HTTP checks and uncached 2/2 readiness passed. Native browser layout and destructive admin/cleanup remain separate.
 
 ## Historical slice: retained result recovery
 
@@ -52,7 +52,7 @@ Acceptance: expired link, later-part failure, complete Unicode assembly, restart
 | Shared statistics and large previews | Counting released in PR #9; browser profiling and large-preview control released in PR #11; measure native input/devices before deeper editor/worker changes |
 | Backend parser capacity | CSV released in PR #13; Excel/final-result memory released in PR #15 with production XLSX/ZIP Storage acceptance. Profile native/concurrent parsing and whole-result normalization/serialization on representative hosts before queue tuning |
 | Shared deadline | Released in PR #17; per-invocation propagation/reserves, simulated slow/cold paths and real protocol/OCR/PDF/ZIP Storage acceptance. Preserve cooperative-cancellation and replay-fencing limits |
-| Controller detail pagination | Top-level lists already paginate; bound files/tree/events/work-items with stable cursors and truthful totals; query-plan evidence before new indexes |
+| Controller detail pagination | Released in PR #19; authenticated full traversal/exports accepted, existing-index plans recorded. Measure representative browser/layout behavior before deeper rendering work |
 | Replay-stable object identities | Fence attempt-specific writes before deterministic IDs; SQL attempt guards alone do not prevent a stale Storage overwrite; additive rollout for new roots only |
 | Observability | Allowlisted timing, attempts, cleanup age and cron diagnosis; no content/signed links/secrets; notification destination needs user authorization |
 | Storage reconciliation | Bounded read-only inventory first; protect active/KEEP/reservation ownership and grace periods; destructive cleanup policy remains conditional |

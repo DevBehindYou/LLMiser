@@ -1,6 +1,6 @@
 # Controller detail pagination
 
-Updated 29 October 2026. Candidate in [PR #19](https://github.com/DevBehindYou/LLMiser/pull/19). Initial pagination source `2f2afb0` passed all seven GitHub CI jobs, including 278 frontend tests and build, but failed the Vercel preview in Next.js's Google font loader. The owner supplied the build log; a bundled-font fix is being validated. Do not merge or claim production acceptance until the updated runtime preview passes. Previously released runtime remains PR #17, `9131a2ac6163f22b630b008b40accb482ed3e0b3`.
+Released 29 October 2026 in [PR #19](https://github.com/DevBehindYou/LLMiser/pull/19), production frontend revision **`efbeab60026b0e77a71a3d16822d81bbe6f81f2b`**, source `a156dd7a417b853a1c7cde9d8f604967cfcb4ba9`. All seven CI jobs passed before and after merge, including **279 frontend tests**, lint/consistency checks and production build. All six Vercel production statuses succeeded. Authenticated production pagination, complete generated-file retrieval and bundled-font acceptance passed. No backend runtime revision change is inferred from hosting status alone.
 
 Opening a large job previously returned all content nodes, work items, events and registered files. The controller now starts with 50 records per section, with independent **Load more** and retry controls. Counts distinguish loaded rows from the full section total. The tree and status badges explicitly describe loaded records; Refresh restarts every section. Six interface languages are supported; blogs and their visuals are unchanged.
 
@@ -39,11 +39,25 @@ Production baseline: one generated 72-text-file ZIP completed through the public
 
 Full local regression: 276 of 278 passed in the sandbox; the two deployment-scope tests could not create temporary Git configurations. Both passed when rerun outside the sandbox. Lint, six dictionaries (637 messages each), SQL consistency, blog consistency and diff whitespace checks passed. The initial lint/build attempt also encountered local filesystem restrictions; elevated lint and production build passed. All seven Linux CI jobs passed; its full frontend run passed all 278 tests and build. React/SSR acceptance does not establish native browser layout, mobile overflow or representative-device performance.
 
-## Remaining release steps
+## Hosting fix and deployed acceptance
 
-1. Validate the bundled-font fix in the real frontend preview (`albedo-projects/llmiser`, root `frontend`). The owner's log for the initial failed preview identifies Next.js 14.2.35's Google loader extension regex returning null at `loader.js:112`. Local/CI builds alone did not reproduce it. This is separate from pagination logic.
-2. The app now bundles the exact 16 WOFF2 assets from the successful original build, all 25 face declarations, Unicode ranges, weights, fallback metrics and the same three Latin preloads (93,996 bytes). `frontend/app/fonts.css` and `frontend/public/fonts/` replace the Google loader; official pinned SIL licenses and hash manifest accompany the files. No font/framework upgrade, runtime dependency or blog edit is included. Validate a clean build, font-integrity tests, CI and actual Vercel preview, then merge the pinned passing revision under the owner's auto-merge authorization. A documentation-only skipped build is not acceptance.
-3. Verify the production frontend, then run the generated authenticated comparison described above. Private `verify-live.mjs after` reuses the recorded generated job, traverses every section, collects ACTIVE files through one-row pages, signs/downloads all files and reopens an assembled ZIP; it also tests 401/409/400 and private headers. It reads configured keys into memory and never prints keys, cookies or signed links.
-4. Run the public HTTP/redirect and uncached pool-readiness checks; record actual results and update current handovers to released only after acceptance. No new conversion job is needed if the baseline is still retained; its `auto_delete_at` is 31 October 2026 17:43:53 UTC.
+The owner's log for the first preview identified Next.js 14.2.35's Google loader extension regex returning null at `loader.js:112`. Initial local/CI builds did not reproduce that URL-format failure. The fix bundles the exact 16 existing WOFF2 files, all 25 face declarations, Unicode ranges, weights, fallback metrics and three Latin preloads (93,996 bytes). `frontend/app/fonts.css` and `frontend/public/fonts/` replace the Google loader; official pinned SIL licenses and hashes accompany the files. Versioned `/fonts/v1/` assets retain one-year immutable caching. Changed bytes must use a new version path. No font/framework upgrade or runtime dependency was added.
+
+The final clean local production build passed with invalid HTTP(S) proxies configured and telemetry disabled; there is no Google font import left. Thirteen focused tests passed, including font integrity. Updated CI passed 279/279 frontend tests, all seven jobs and the real Vercel frontend preview. All seven jobs passed again on merged main; all six production Vercel statuses succeeded. The original failed preview remains historical evidence, not an unresolved blocker.
+
+Production acceptance reused one generated public Storage ZIP job, with 72 text entries and normal 48-hour retention:
+
+| Section | Initial rows | Full total | Verified traversal |
+| --- | --- | --- | --- |
+| Registered files | 4 | 4 | 4 one-row pages, exact IDs |
+| Content nodes | 50 | 73 | 6 pages at limit 13, exact IDs without gaps/duplicates |
+| Work items | 1 | 1 | 1 page, exact IDs |
+| Events | 2 | 2 | 2 one-row pages, exact IDs |
+
+All four ACTIVE files were collected through paginated metadata, individually signed and downloaded, then assembled into a ZIP and reopened with all four entries present. This exercises the shipped collection helper and real API/Storage reads; it is not native browser button/layout acceptance. Old authenticated cached clients received 409, unauthenticated clients 401 and an invalid page limit 400; responses retained no-store/noindex. Sign-in/sign-out and audited file signing passed. No deletion, retention change, bulk operation or cleanup execution was tested.
+
+All 16 production font responses matched the pinned hashes and immutable cache headers. Production HTML retained three local preloads; delivered CSS used local font URLs without Google font endpoints. All 20 public HTTP/discovery/permanent-redirect checks passed. An uncached POST wake returned normal/OCR/archive each **2/2 ready**. Worker code and settings were unchanged; this acceptance does not recertify backend revision or capacity.
+
+Private evidence and reproducible operator scripts are in `project-docs/controller-pagination/` (`after.json`, `http-after.json`, `deployment-statuses.json`, CI logs and generated plans). Credentials were read into memory only; no keys, cookies, signed links or user documents were published. The single generated job expires normally on 31 October 2026 at 17:43:53 UTC; no new post-release conversion job or manual cleanup was needed. Native browser/mobile layout acceptance remains separate. Continue the remaining optimization queue rather than reimplementing this slice.
 
 PostgREST documents [pagination/count headers and HEAD](https://docs.postgrest.org/en/stable/references/api/pagination_count.html). PostgreSQL explains why [unique ordering is necessary and large offsets remain costly](https://www.postgresql.org/docs/16/queries-limit.html). These contracts guide the cursor design; production measurements must remain separate from local generated evidence.
