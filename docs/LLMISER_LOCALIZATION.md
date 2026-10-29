@@ -13,7 +13,7 @@ The full web app supports English (US), German, Japanese, Spanish, Russian and *
 | File or directory | Responsibility |
 | --- | --- |
 | `frontend/lib/i18n/core.js` | Six allowlisted locales; preference key; blog segment matching; owned-copy interpolation |
-| `frontend/lib/i18n/messages/*.json` | Six complete dictionaries, currently 628 messages each |
+| `frontend/lib/i18n/messages/*.json` | Six complete dictionaries, currently 637 messages each after PR #19 |
 | `frontend/components/i18n/LanguageProvider.js` | Root state, lazy imports, storage events, document language and display title |
 | `frontend/components/i18n/I18nContext.js` | Pure context/hooks and English-only embedded blog scope |
 | `frontend/components/i18n/LanguageSelector.js` | Native labelled selector, loading announcement and native language names |
