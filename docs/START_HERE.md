@@ -12,6 +12,8 @@ Released [large-preview control](LLMISER_LARGE_PREVIEWS.md) pauses automatic for
 
 Released [parser capacity and CSV memory reduction](LLMISER_PARSER_CAPACITY.md) preserves verified upstream CSV output while reducing retained row allocations in both document pools. The audit distinguishes source limits, local generated measurements and live multipart acceptance. No concurrency increase follows from the benchmark. Workbook/native parser and final response/merge memory remain the next backend investigation.
 
+Current candidate: [Excel and final-result memory](LLMISER_EXCEL_ASSEMBLY_MEMORY.md) is being measured on `codex/excel-assembly-memory`. It processes workbook sheets sequentially, bounds temporary word-count allocations and defers ZIP output encoding to the existing upload workers. The runtime revision above remains the last verified release until CI/deployment and live checks are recorded.
+
 ## Legacy frontend replacement is deployed
 
 The owner wants the old converter removed from its frontend hosting, permanent public redirects preserved, and a small LLMiser-only banner as fallback. Replacement source is [legacy-site/](../legacy-site/README.md), inside this repository. It has no converter, API or database client. The working LLMiser project continues using `frontend`; only the old frontend project may use `legacy-site`.

@@ -7,6 +7,19 @@ import re
 PROFILES = ("Standard", "Clean", "Compact", "RAG-ready")
 
 _H1_BLOCK = re.compile(r"^(# .+\n\n)")
+COUNT_CHUNK_CHARS = 64 * 1024
+
+
+def count_words(content: str) -> int:
+    """Exact str.split() count with bounded temporary strings/word arrays."""
+    count = 0
+    for start in range(0, len(content), COUNT_CHUNK_CHARS):
+        chunk = content[start:start + COUNT_CHUNK_CHARS]
+        count += len(chunk.split())
+        if start and not content[start - 1].isspace() and not chunk[0].isspace():
+            # A word spanning a chunk boundary was counted in both chunks.
+            count -= 1
+    return count
 
 
 def ensure_title(markdown: str, title: str) -> str:
@@ -48,5 +61,5 @@ def finalize_markdown(
             r"(^## [^\n]+)", r"<!-- chunk-boundary -->\n\1", content, flags=re.M
         )
 
-    words = len(content.split())
+    words = count_words(content)
     return content, words, round(words * 1.33)

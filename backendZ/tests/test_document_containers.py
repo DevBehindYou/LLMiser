@@ -111,3 +111,19 @@ def test_archive_csv_preserves_upstream_table_and_uses_row_converter(converter, 
     assert calls
     assert entries[0].status == "DONE"
     assert entries[0].content == upstream
+
+
+@pytest.mark.parametrize("ext", ["xlsx", "xls"])
+def test_archive_excel_keeps_complete_upstream_workbook(converter, ext):
+    import io
+    from markitdown import MarkItDown, StreamInfo
+    fixture_path = Path(__file__).resolve().parents[2] / "backendN/tests/excel_fixtures.py"
+    spec = importlib.util.spec_from_file_location("excel_fixtures", fixture_path)
+    fixtures = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(fixtures)
+    data = fixtures.make_book(ext)
+    expected = MarkItDown(enable_plugins=False).convert_stream(io.BytesIO(data), stream_info=StreamInfo(extension=f".{ext}")).markdown.strip()
+    entries = archive.process_archive(make_zip({f"book.{ext}": data}), converter.documents, ocr_available=False)
+    assert entries[0].status == "DONE"
+    assert entries[0].content == expected
+    assert "終わり🙂" in entries[0].content

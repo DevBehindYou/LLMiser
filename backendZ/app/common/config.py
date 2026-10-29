@@ -3,9 +3,19 @@
 from __future__ import annotations
 
 import os
+import re
 from dataclasses import dataclass
 
 VALID_ROLES = ("normal", "ocr", "archive")
+
+
+def deployment_revision() -> str | None:
+    """Allowlisted public build identity, never arbitrary environment values."""
+    for name in ("RENDER_GIT_COMMIT", "VERCEL_GIT_COMMIT_SHA"):
+        value = os.environ.get(name, "")
+        if re.fullmatch(r"(?:[0-9a-fA-F]{40}|[0-9a-fA-F]{64})", value):
+            return value.lower()
+    return None
 
 # Upload byte limits per role; MAX_UPLOAD_BYTES overrides. Keep in sync with
 # MAX_FILE_SIZE / MAX_IMAGE_FILE_SIZE in frontend/lib/formats.js.

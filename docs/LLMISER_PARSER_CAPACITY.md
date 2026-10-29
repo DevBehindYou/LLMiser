@@ -72,4 +72,4 @@ All 20 public-page/discovery/health and permanent-redirect checks passed. The fi
 
 Local logs, package copies, raw benchmark JSON and operator probes remain ignored under `project-docs/parser-audit/`; no credentials are included in public evidence. Later documentation-only commits do not change the verified parser runtime revision.
 
-Next: profile realistic workbook/native parser memory and full response/merge costs on representative hosts, then evaluate admission/deadlines before any concurrency increase. The CSV reduction alone does not justify raising queue or worker limits.
+Follow-up: [Excel and final-result memory](LLMISER_EXCEL_ASSEMBLY_MEMORY.md) tracks the subsequent candidate, measurements and release state. This CSV report remains the evidence for PR #13. Representative-host native/concurrent parser peaks remain separate; neither reduction alone justifies raising queue or worker limits.

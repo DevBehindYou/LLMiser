@@ -2,3 +2,5 @@
 pytest>=8
 httpx>=0.27
 uvicorn>=0.30
+# Generates real legacy XLS fixtures; not a runtime dependency.
+xlwt==1.3.0

@@ -130,28 +130,34 @@ def write_outputs(store, *, job_id: str, name: str, profile: str, source_bytes: 
     if len(content.encode("utf-8")) > archive.MAX_OUTPUT_BYTES:
         raise resource_limit()
     parts = archive.split_parts(content, title)
+    char_count = len(content)
+    del content
     out = _out_dir(job_id)
-    files: list[tuple[str, bytes, str, str]] = []
+    files: list[tuple[str, str, str, str]] = []
     if len(parts) == 1:
-        files.append((f"{out}combined.md", parts[0].encode("utf-8"), "text/markdown; charset=utf-8", f"{stem}.md"))
+        files.append((f"{out}combined.md", parts[0], "text/markdown; charset=utf-8", f"{stem}.md"))
     else:
         for i, part in enumerate(parts, start=1):
-            files.append((f"{out}combined-{i:03d}.md", part.encode("utf-8"), "text/markdown; charset=utf-8", f"{stem}-part-{i:03d}.md"))
-    files.append((f"{out}PROJECT_INDEX.md", archive.project_index(name, entries, ocr_texts).encode("utf-8"),
+            files.append((f"{out}combined-{i:03d}.md", part, "text/markdown; charset=utf-8", f"{stem}-part-{i:03d}.md"))
+    files.append((f"{out}PROJECT_INDEX.md", archive.project_index(name, entries, ocr_texts),
                   "text/markdown; charset=utf-8", "PROJECT_INDEX.md"))
-    files.append((f"{out}manifest.json", archive.manifest(job_id, name, source_bytes, entries, ocr_texts).encode("utf-8"),
+    files.append((f"{out}manifest.json", archive.manifest(job_id, name, source_bytes, entries, ocr_texts),
                   "application/json; charset=utf-8", "manifest.json"))
 
     # Preflight every final object and their total before the first write. This
     # includes index/manifest bytes and continuation headings, not just source text.
-    if (any(len(f[1]) > archive.PART_BYTES for f in files[:-2])
-            or any(len(f[1]) > METADATA_BYTES for f in files[-2:])
-            or sum(len(f[1]) for f in files) > archive.MAX_OUTPUT_BYTES):
+    # Measure one encoded object at a time; retain text and byte counts only.
+    sizes = [len(f[1].encode("utf-8")) for f in files]
+    if (any(size > archive.PART_BYTES for size in sizes[:-2])
+            or any(size > METADATA_BYTES for size in sizes[-2:])
+            or sum(sizes) > archive.MAX_OUTPUT_BYTES):
         raise resource_limit()
 
     try:
         with ThreadPoolExecutor(max_workers=WORKERS) as pool:
-            list(pool.map(lambda f: store.upload(f[0], f[1], f[2]), files))
+            # Encoding inside the worker bounds live application byte buffers
+            # to WORKERS objects instead of retaining every encoded part.
+            list(pool.map(lambda f: store.upload(f[0], f[1].encode("utf-8"), f[2]), files))
     except StorageError as err:
         raise HTTPException(status_code=503 if err.transient else 502, detail="Could not store the project result") from None
 
@@ -161,15 +167,15 @@ def write_outputs(store, *, job_id: str, name: str, profile: str, source_bytes: 
     return {
         "filename": f"{stem}.md",
         "original_name": name,
-        "char_count": len(content),
+        "char_count": char_count,
         "word_count": words,
         "tokens_est": tokens,
         "engine": archive.ENGINE,
         "backend_role": settings.role,
         "backend_instance": settings.instance,
         "warnings": warnings,
-        "output_bytes": sum(len(f[1]) for f in files),
-        "outputs": [{"path": f[0], "kind": "OUTPUT", "bytes": len(f[1]), "name": f[3]} for f in files],
+        "output_bytes": sum(sizes),
+        "outputs": [{"path": f[0], "kind": "OUTPUT", "bytes": size, "name": f[3]} for f, size in zip(files, sizes)],
         "primary_output": files[0][0],
     }
 

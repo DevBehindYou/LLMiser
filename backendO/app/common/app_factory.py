@@ -24,10 +24,10 @@ from fastapi import Depends, FastAPI, File, Form, HTTPException, UploadFile
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel, Field
 
-from .config import Settings
+from .config import Settings, deployment_revision
 from .errors import ConversionRejected, EngineUnavailable
 from .files import read_limited, sanitize_filename, split_name, title_from_stem
-from .profiles import PROFILES, finalize_markdown
+from .profiles import PROFILES, count_words, finalize_markdown
 from .security import require_internal_secret
 from .storage import StorageClient, StorageError
 
@@ -100,7 +100,7 @@ def create_app(settings: Settings, converter: Converter, storage: StorageClient 
             markdown, warning = converter.convert(data, ext, filename=original_name, title=title)
             if raw:
                 content = markdown.strip() + "\n"
-                words = len(content.split())
+                words = count_words(content)
                 tokens = round(words * 1.33)
             else:
                 content, words, tokens = finalize_markdown(
@@ -171,12 +171,15 @@ def create_app(settings: Settings, converter: Converter, storage: StorageClient 
 
     @app.get("/api/v1/health")
     def health() -> dict:
-        return {
+        body = {
             "status": "ok",
             "role": settings.role,
             "instance": settings.instance,
             "version": settings.version,
         }
+        if revision := deployment_revision():
+            body["revision"] = revision
+        return body
 
     @app.get("/api/v1/ready")
     def ready() -> JSONResponse:

@@ -14,6 +14,8 @@ PR #13 released [a source capacity audit and CSV allocation reduction](LLMISER_P
 
 ## Verified starting point
 
+Current implementation: [Excel and final-result assembly memory](LLMISER_EXCEL_ASSEMBLY_MEMORY.md), branch `codex/excel-assembly-memory`. Sequential sheet processing, exact bounded word counts and delayed archive output encoding are under measurement/validation. Keep production status separate until the release checks finish.
+
 The copied source already contains atomic job startup/finalization, cleanup recovery, upload/active-job/storage-reservation admission, shared archive container checks, bounded PDF page uploads/OCR preparation, lazy Markdown/highlighter loading and current-edit export snapshots. Do not reimplement these based on old “proposed” checklist rows. Their deployment/capacity evidence is distinct from source tests.
 
 Search migration and public redirects are live; see [search migration](LLMISER_SEARCH_MIGRATION.md). Analytics ingestion is verified; controller login/configuration is verified but authenticated operations are not; see [access and analytics](LLMISER_ANALYTICS_CONTROLLER.md). Keep-warm Vault and cron changes were applied and verified in the earlier cron task. Dependency-aware service retirement remains separate operational work.
