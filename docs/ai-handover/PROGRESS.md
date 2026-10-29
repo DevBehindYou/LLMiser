@@ -1,6 +1,6 @@
 # LLMiser progress and remaining work
 
-Updated 28 October 2026. This is the current tracker. Earlier phase-specific numbers remain in their reports; they are not the current deployment state.
+Updated 29 October 2026. This is the current tracker. Earlier phase-specific numbers remain in their reports; they are not the current deployment state.
 
 ## Completed and released
 
@@ -15,14 +15,15 @@ Updated 28 October 2026. This is the current tracker. Earlier phase-specific num
 | Six-language web app | PR #5 released; English US, German, Japanese, Spanish, Russian, Simplified Chinese; now 631 messages each after PR #11 |
 | Final display-label fixes | PR #6 merged/deployed; preview labels/tooltips, mobile theme and retention labels |
 | Public README | Screenshots, recorded demo, steps, formats, profiles, privacy and FAQs; separate keyword evidence |
-| Final frontend CI | PR #13: 261 tests passed; lint, dictionaries, SQL/blog consistency and production build passed |
+| Final frontend CI | PR #15 and merged main: 261 tests passed; lint, dictionaries, SQL/blog consistency and production build passed |
 | Other CI | Backend N/O/Z, PostgreSQL, edge and extension jobs passed |
-| Production deployment | Latest runtime change `165d2b01ce8e30dfa09d32292ac911264f18e60d`; all six Vercel statuses successful, including the legacy static shell |
+| Production deployment | Latest runtime change `3db41140521d5cfb1bb3bfd12865feca5a8cc95b`; all six Vercel statuses successful; exact revision/readiness confirmed on N1/N2/Z1/Z2/O1/O2 |
 | Shared reader statistics | PR #9 merged/deployed; allocation-bounded counting and shared reader line/status metrics; preserved count semantics; synthetic benchmark and limits documented |
 | Large-preview control | PR #11 merged/deployed; generated browser profiling, explicit formatting above 50,000 characters, complete raw/copy/download acceptance, six-language notices |
 | CSV parser memory | PR #13 merged/deployed; verified-version output preservation in N/Z, synchronized generated measurements, and successful pre/post-release multipart CSV/ZIP probes on all four document workers |
-| Production HTTP audit | 40 passing checks during the integrated release; all 13 sitemap pages; permanent legacy redirects; API noindex/auth boundary |
-| Backend readiness | Normal/OCR/archive each 2/2 ready after final release |
+| Excel and final-result memory | PR #15 merged/deployed; sequential sheets, exact bounded word counts and bounded output encoding; generated multipart and actual Storage/download/recovery acceptance passed |
+| Production HTTP audit | 29 October: 20 public-page/discovery/health and permanent-redirect checks passed; documented legacy API routing unchanged |
+| Backend readiness | 29 October: all six workers report the released revision and ready; uncached public wake shows normal/OCR/archive each 2/2 |
 | Browser acceptance | All six languages, persistence, English-only blogs, translated policy/controller login; German 390px viewport had no horizontal overflow |
 | Search migration | Google accepted Change of Address and canonical sitemap on 21 October; ongoing recrawl/indexing monitoring remains open |
 
@@ -49,7 +50,7 @@ See [release record](../LLMISER_RELEASE_2026-10-26.md), [localization](../LLMISE
 
 ## Remaining work
 
-In progress: [Excel conversion and final-result assembly memory](../LLMISER_EXCEL_ASSEMBLY_MEMORY.md), explicitly selected by the owner. Candidate code/tests are on `codex/excel-assembly-memory`; repeated measurements, compatibility checks and release evidence are pending. The shipped-state table above still describes the preceding release.
+Released: [Excel conversion and final-result assembly memory](../LLMISER_EXCEL_ASSEMBLY_MEMORY.md), explicitly selected by the owner, PR #15 at 3db4114. Local suites: 144 normal/101 archive tests; installed-version checks passed. All seven Linux CI jobs and six Vercel production statuses passed, with exact revision/readiness verified on all six workers including Render. Eight post-release generated multipart probes and two Storage-backed XLSX/ZIP conversions passed, including all four output objects and exact saved-result recovery. Before/after Markdown, counts and index hashes match; manifest job IDs correctly differ. All 20 HTTP checks passed and all pools were 2/2 ready. Four real jobs across before/after tests follow normal retention; cleanup execution itself was not tested. Local Windows OCR readiness-suite failure is preserved in the report; Linux OCR CI passed.
 
 The owner resumed the implementation plan after the handover was merged in PR #8. [Shared reader statistics](../LLMISER_READER_STATISTICS.md) shipped in PR #9. [Large-preview control](../LLMISER_LARGE_PREVIEWS.md) shipped in PR #11 at 0501cd0 after 261 frontend CI tests/all seven jobs passed. All six production deployments succeeded; the 28 October 20-check HTTP audit passed and all three pools were 2/2 ready. Actual-component generated browser measurements and exact raw/download acceptance support the preview boundary. Representative-device/native textarea profiling and deeper parser-capacity work remain separate.
 
@@ -61,7 +62,7 @@ The owner resumed the implementation plan after the handover was merged in PR #8
 - Audit provider Git connections and all consumers before retiring old backend services or deleting their source repositories. Do not delete shared data, bucket, Vault entries, cleanup functions or compatibility contracts.
 - Complete native Chrome 0.2.0 acceptance and store publication; source merge does not publish the extension.
 - Native-language review and broader device testing remain useful; UI localization does not expand OCR languages.
-- A new full production upload/scanned-PDF/admin/actual-cleanup acceptance run was not part of the 26 October release. Prior generated-file conversion checks remain dated evidence.
+- The 29 October slice freshly accepted generated XLSX/ZIP production uploads, all output downloads and recovery. Scanned-PDF/live OCR-image/admin/actual-cleanup acceptance was outside this slice; prior evidence for those remains dated.
 - Continue Search Console/Bing monitoring and old-domain redirect retention. Do not claim Google has completely replaced old results without current evidence.
 
 ## Blog maintenance
