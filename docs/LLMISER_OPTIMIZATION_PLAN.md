@@ -1,10 +1,10 @@
 # LLMiser optimization continuation
 
-Updated 28 October 2026. Work only in LLMiser. This is the current continuation map; copied MDify analysis is historical evidence and proposals, not live deployment instructions. Blog rebranding is complete and blog sources/visuals are outside this implementation slice.
+Updated 29 October 2026. Work only in LLMiser. This is the current continuation map; copied MDify analysis is historical evidence and proposals, not live deployment instructions. Blog rebranding is complete and blog sources/visuals are outside this implementation slice.
 
 ## Current continuation state
 
-PRs #1–#13 are merged. Retained-result recovery, cron cutover, wake coalescing, shared reader statistics, large-preview control and CSV allocation reduction are released; the old frontend is now the static LLMiser fallback and public migration redirects remain live. The 22 October branch/review statements below are historical evidence for that earlier slice, not current release blockers. Use [START_HERE](START_HERE.md) and [PROGRESS](ai-handover/PROGRESS.md) for deployment state.
+PRs #1–#15 are merged. Retained-result recovery, cron cutover, wake coalescing, shared reader statistics, large-preview control, CSV allocation reduction and Excel/final-result memory changes are released; the old frontend remains the static LLMiser fallback and public migration redirects remain live. The 22 October branch/review statements below are historical evidence for that earlier slice, not current release blockers. Use [START_HERE](START_HERE.md) and [PROGRESS](ai-handover/PROGRESS.md) for deployment state.
 
 Shared reader statistics shipped in PR #9 at `84e510db62ea41f31c131771eb7d32b5e92515f4`: one allocation-bounded helper, one memoized result for reader line/status displays, preserved counting semantics and reproducible before/after measurements. See [reader statistics](LLMISER_READER_STATISTICS.md) for 259-test CI and live verification. Browser profiling follows below; the rest of the queue remains separate. No new production SQL or service retirement was part of this slice.
 
@@ -14,7 +14,7 @@ PR #13 released [a source capacity audit and CSV allocation reduction](LLMISER_P
 
 ## Verified starting point
 
-Current implementation: [Excel and final-result assembly memory](LLMISER_EXCEL_ASSEMBLY_MEMORY.md), branch `codex/excel-assembly-memory`. Sequential sheet processing, exact bounded word counts and delayed archive output encoding are under measurement/validation. Keep production status separate until the release checks finish.
+Released [Excel and final-result assembly memory](LLMISER_EXCEL_ASSEMBLY_MEMORY.md), PR #15 at `3db41140521d5cfb1bb3bfd12865feca5a8cc95b`: sequential sheet processing, exact bounded word counts and delayed archive output encoding. Three fresh-process trials per mode preserve complete hashes; local peak reductions are qualified by timing variability/XLS regression. All seven CI jobs passed before/after merge; six production Vercel statuses succeeded; all six N/O/Z workers report the exact revision and readiness. Eight generated multipart probes, two production Storage conversion/recovery checks and 20 HTTP checks passed; all pools are 2/2 ready. No SQL, concurrency, retention or blog changes.
 
 The copied source already contains atomic job startup/finalization, cleanup recovery, upload/active-job/storage-reservation admission, shared archive container checks, bounded PDF page uploads/OCR preparation, lazy Markdown/highlighter loading and current-edit export snapshots. Do not reimplement these based on old “proposed” checklist rows. Their deployment/capacity evidence is distinct from source tests.
 
@@ -44,7 +44,7 @@ Acceptance: expired link, later-part failure, complete Unicode assembly, restart
 | Work | Next bounded change / dependency |
 | --- | --- |
 | Shared statistics and large previews | Counting released in PR #9; browser profiling and large-preview control released in PR #11; measure native input/devices before deeper editor/worker changes |
-| Backend parser capacity | Source audit and synchronized CSV memory slice released in PR #13. Next measure workbook/native and response/merge memory; preserve fidelity before tuning concurrency |
+| Backend parser capacity | CSV released in PR #13; Excel/final-result memory released in PR #15 with production XLSX/ZIP Storage acceptance. Profile native/concurrent parsing and whole-result normalization/serialization on representative hosts before queue tuning |
 | Shared deadline | Add an optional, backward-compatible remaining-budget protocol, reserving finalization time; test slow failures/cold starts |
 | Controller detail pagination | Top-level lists already paginate; bound files/tree/events/work-items with stable cursors and truthful totals; query-plan evidence before new indexes |
 | Replay-stable object identities | Fence attempt-specific writes before deterministic IDs; SQL attempt guards alone do not prevent a stale Storage overwrite; additive rollout for new roots only |
