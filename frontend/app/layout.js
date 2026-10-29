@@ -1,4 +1,4 @@
-import { Inter, JetBrains_Mono, Patrick_Hand } from 'next/font/google';
+import './fonts.css';
 import './globals.css';
 import ConsentBanner from '../components/ConsentBanner';
 import WakeOnOpen from '../components/WakeOnOpen';
@@ -6,23 +6,6 @@ import SiteAnalytics from '../components/SiteAnalytics';
 import JsonLd from '../components/JsonLd';
 import LanguageProvider from '../components/i18n/LanguageProvider';
 import { DESCRIPTION, HOME_TITLE, KEYWORDS, SITE_NAME, SITE_URL, TAGLINE, siteJsonLd } from '../lib/siteContent';
-
-// next/font downloads these at build time and serves them from our own
-// origin, so visitors' browsers never contact Google's font servers (GDPR).
-const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' });
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ['latin'],
-  weight: ['400', '500'],
-  variable: '--font-jetbrains-mono',
-  display: 'swap',
-});
-const patrickHand = Patrick_Hand({
-  subsets: ['latin'],
-  weight: '400',
-  variable: '--font-patrick-hand',
-  display: 'swap',
-});
-const fontVariables = `${inter.variable} ${jetbrainsMono.variable} ${patrickHand.variable}`;
 
 const BASE_URL = SITE_URL;
 
@@ -112,8 +95,12 @@ export const viewport = { themeColor: [
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en-US" className={`h-full ${fontVariables}`} data-theme="dark" suppressHydrationWarning>
+    <html lang="en-US" className="h-full" data-theme="dark" suppressHydrationWarning>
       <head>
+        {/* Exact existing Latin subsets; other scripts load through unicode-range. */}
+        <link rel="preload" href="/fonts/v1/inter-latin.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/v1/jetbrains-mono-latin.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/v1/patrick-hand-latin.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
         {/* Apply saved theme before paint (default dark), then point the
             favicon at the matching icon once the head links exist. */}
         <script

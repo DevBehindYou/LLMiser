@@ -24,7 +24,7 @@ Search migration and public redirects are live; see [search migration](LLMISER_S
 
 ## Current slice: controller detail pagination
 
-Candidate: `codex/controller-detail-pagination`; see [implementation and evidence](LLMISER_CONTROLLER_PAGINATION.md). Files, nodes, work items and events now load 50 rows each, with stable unique cursors, exact live totals, per-section retry and refresh/job-switch guards. ZIP exports fetch every matching stored file page before signing/downloading. Existing indexes suffice for generated scoped query plans; no production SQL change is required. Focused acceptance passed; full regression, release and authenticated deployed comparison remain pending.
+Candidate: PR #19 on `codex/controller-detail-pagination`; see [implementation and evidence](LLMISER_CONTROLLER_PAGINATION.md). Files, nodes, work items and events load 50 rows each, with stable unique cursors, exact live totals, independent retry and refresh/job-switch guards. ZIP exports fetch every matching stored file page. Existing indexes suffice; no SQL change. Initial source `2f2afb0` passed all seven CI jobs/278 tests/build, but Vercel's Google font URL parser failed. The owner supplied the error; identical bundled fonts remove that build dependency. Updated checks/preview and deployed comparison remain before release.
 
 ## Historical slice: retained result recovery
 
