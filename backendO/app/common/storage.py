@@ -16,6 +16,7 @@ import re
 from urllib.parse import quote
 
 import httpx
+from .deadlines import check_budget, timeout_seconds
 
 # Backends only touch the fixed object layout of a job (docs/BACKGROUND_JOBS.md).
 # Anything else is refused, so a bug or a compromised caller can't read or
@@ -54,6 +55,7 @@ class StorageClient:
     def __init__(self, base_url: str, service_key: str, bucket: str, *, timeout: float = 30.0, transport=None):
         self._base = base_url.rstrip("/") + "/storage/v1"
         self._bucket = bucket
+        self._timeout_s = timeout
         self._http = httpx.Client(
             timeout=timeout,
             transport=transport,
@@ -73,19 +75,21 @@ class StorageClient:
 
     def download(self, path: str, max_bytes: int) -> bytes:
         try:
-            with self._http.stream("GET", self._url(path)) as res:
+            with self._http.stream("GET", self._url(path), timeout=timeout_seconds(self._timeout_s)) as res:
                 if res.status_code in (400, 404):
                     raise StorageError("Input object not found", transient=False, status=res.status_code)
                 if res.status_code >= 400:
                     raise StorageError(f"Storage read failed ({res.status_code})", transient=res.status_code >= 500, status=res.status_code)
                 chunks, size = [], 0
                 for chunk in res.iter_bytes():
+                    check_budget()
                     size += len(chunk)
                     if size > max_bytes:
                         raise StorageError("Input object exceeds the size limit", transient=False, status=413)
                     chunks.append(chunk)
                 return b"".join(chunks)
         except httpx.HTTPError as err:
+            check_budget()
             raise StorageError(f"Storage unreachable: {type(err).__name__}", transient=True) from None
 
     def upload(self, path: str, data: bytes, content_type: str) -> None:
@@ -94,9 +98,12 @@ class StorageClient:
             res = self._http.post(
                 self._url(path),
                 content=data,
+                timeout=timeout_seconds(self._timeout_s),
                 headers={"Content-Type": content_type, "x-upsert": "true", "Cache-Control": "no-store"},
             )
         except httpx.HTTPError as err:
+            check_budget()
             raise StorageError(f"Storage unreachable: {type(err).__name__}", transient=True) from None
         if res.status_code >= 400:
             raise StorageError(f"Storage write failed ({res.status_code})", transient=res.status_code >= 500, status=res.status_code)
+        check_budget()

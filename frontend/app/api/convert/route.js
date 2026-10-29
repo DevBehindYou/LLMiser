@@ -2,6 +2,7 @@ import { admitPublicRequest, admissionResponse, readBoundedBody } from '../../..
 import { NextResponse } from 'next/server';
 import { SUPPORTED_EXTENSIONS, maxFileSizeFor, poolForExtension, sizeLimitMessage, splitFileName } from '../../../lib/formats';
 import { dispatchConversion, getPoolConfig } from '../../../lib/server/dispatcher';
+import { routeDeadline } from '../../../lib/server/timeBudget';
 
 // Interim transport: the browser still posts the file here and this route
 // forwards it to a backend. The Storage flow (/api/uploads/create, then
@@ -10,6 +11,7 @@ export const dynamic = 'force-dynamic';
 export const maxDuration = 300; // Vercel Hobby maximum; see TIMEOUT_MS_BY_POOL in the dispatcher
 
 export async function POST(request) {
+  const deadlineMs = routeDeadline();
   const secret = process.env.BACKEND_SHARED_SECRET;
   if (!secret) {
     console.error('BACKEND_SHARED_SECRET is not set; refusing to dispatch.');
@@ -64,6 +66,7 @@ export async function POST(request) {
       file,
       profile,
       secret,
+      deadlineMs,
     });
 
     releaseLease = status < 500 && attempts === 1;

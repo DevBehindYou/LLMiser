@@ -65,6 +65,22 @@ def job_paths():
     return job, f"jobs/{job}/input/source.pdf", f"jobs/{job}/output/result.md"
 
 
+def test_deadline_after_pdf_classification_does_not_write_partial_success(client,storage,monkeypatch):
+    import time
+    from app.common.deadlines import current_budget
+    original = pdf_tasks.classify_pages
+    def classify(pdf):
+        pages = original(pdf)
+        object.__setattr__(current_budget(),'end',time.monotonic()-1)
+        return pages
+    monkeypatch.setattr(pdf_tasks,'classify_pages',classify)
+    job,src,out = job_paths()
+    storage.objects[src] = MIXED
+    response = client.post('/api/v1/internal/pdf/analyze',headers={**HEADERS,'X-LLMiser-Deadline-Ms':str(int((time.time()+60)*1000))},json={'job_id':job,'input_path':src,'output_path':out,'original_filename':'mixed.pdf'})
+    assert response.status_code == 504
+    assert set(storage.objects) == {src}
+
+
 def test_pages_are_classified_and_grouped():
     pdf = pdfium.PdfDocument(MIXED)
     try:

@@ -8,6 +8,8 @@
 // infrastructure failure is retried once on the peer; validation, policy and
 // conversion failures are never retried.
 
+import { DEADLINE_HEADER, DEADLINE_EXCEEDED_HEADER, FINALIZATION_RESERVE_MS, MIN_ATTEMPT_MS, TIMEOUT_DETAIL, remainingMs, routeDeadline } from './timeBudget.js';
+
 const TRANSIENT_STATUSES = new Set([502, 503, 504]);
 
 // Per-attempt budget. O1/O2 run on Render Free, which sleeps after 15 idle
@@ -72,6 +74,8 @@ export async function sendToPool({
   secret,
   timeoutMs = TIMEOUT_MS_BY_POOL[pool] ?? TIMEOUT_MS_BY_POOL.normal,
   fetchImpl = fetch,
+  deadlineMs = routeDeadline(),
+  now = Date.now,
 }) {
   const order = attemptOrder(jobId, urls);
   if (order.length === 0) {
@@ -85,35 +89,41 @@ export async function sendToPool({
 
   let lastFailure = null;
   let attempts = 0;
+  const stopAt = deadlineMs - FINALIZATION_RESERVE_MS;
+  const timedOut = (instanceUrl = null) => ({ status: 504, body: { detail: TIMEOUT_DETAIL }, instanceUrl, attempts });
   for (const baseUrl of order) {
+    if (remainingMs(stopAt, now()) < MIN_ATTEMPT_MS) return timedOut();
+    const attemptDeadline = Math.min(stopAt, now() + timeoutMs);
     const init = makeInit();
+    const attemptTimeout = remainingMs(attemptDeadline, now());
+    if (attemptTimeout < MIN_ATTEMPT_MS) return timedOut();
     attempts += 1;
     let res;
     try {
       res = await fetchImpl(`${baseUrl}${path}`, {
         ...init,
         method: 'POST',
-        headers: { ...(init.headers || {}), 'X-Internal-Secret': secret },
-        signal: AbortSignal.timeout(timeoutMs),
+        headers: { ...(init.headers || {}), 'X-Internal-Secret': secret, [DEADLINE_HEADER]: String(attemptDeadline - 2000) },
+        signal: AbortSignal.timeout(attemptTimeout),
         cache: 'no-store',
       });
     } catch (err) {
       if (err?.name === 'TimeoutError') {
         // The instance may still be working on it, and a second full attempt
         // would overrun this function's own time limit — don't retry.
-        return {
-          status: 504,
-          body: { detail: 'Conversion timed out. Try a smaller file or retry later.' },
-          instanceUrl: baseUrl,
-          attempts,
-        };
+        return timedOut(baseUrl);
       }
       // Connection refused / DNS / reset — infrastructure, so try the peer.
       lastFailure = { status: 502, reason: 'unreachable' };
       continue;
     }
 
+    if (res.status === 504 && res.headers?.get?.(DEADLINE_EXCEEDED_HEADER) === '1') {
+      try { await res.body?.cancel?.(); } catch { /* Deadline already terminal for this pass. */ }
+      return timedOut(baseUrl);
+    }
     if (isTransientStatus(res.status)) {
+      try { await res.body?.cancel?.(); } catch { /* Continue only within the shared budget. */ }
       lastFailure = { status: res.status, reason: `HTTP ${res.status}` };
       continue;
     }
@@ -121,7 +131,9 @@ export async function sendToPool({
     let body;
     try {
       body = await res.json();
-    } catch {
+      if (remainingMs(attemptDeadline, now()) === 0) return timedOut(baseUrl);
+    } catch (err) {
+      if (err?.name === 'TimeoutError' || remainingMs(attemptDeadline, now()) === 0) return timedOut(baseUrl);
       return { status: res.ok ? 502 : res.status, body: { detail: `Backend returned an unreadable response (${res.status}).` }, instanceUrl: baseUrl, attempts };
     }
     return { status: res.status, body, instanceUrl: baseUrl, attempts };

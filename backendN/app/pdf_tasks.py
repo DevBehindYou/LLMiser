@@ -34,6 +34,7 @@ from app.common.errors import ConversionRejected
 from app.common.files import sanitize_filename, split_name, title_from_stem
 from app.common.profiles import PROFILES, finalize_markdown
 from app.common.security import require_internal_secret
+from app.common.deadlines import budgeted_worker, check_budget, compute_checkpoint
 from app.common.storage import StorageError
 
 logger = logging.getLogger("mdify.pdf")
@@ -64,6 +65,7 @@ def _pdfium_serialized(fn):
     @wraps(fn)
     def run(*args, **kwargs):
         with _PDFIUM_LOCK:
+            compute_checkpoint()
             return fn(*args, **kwargs)
     return run
 
@@ -89,6 +91,7 @@ def classify_pages(pdf) -> list[PageInfo]:
 
     pages = []
     for index in range(len(pdf)):
+        compute_checkpoint()
         page = pdf[index]
         try:
             width, height = page.get_size()
@@ -206,6 +209,7 @@ def register(app: FastAPI) -> None:
         try:
             converter.validate(data, "pdf")
             with _PDFIUM_LOCK:
+                compute_checkpoint()
                 pdf = pdfium.PdfDocument(data)
         except ConversionRejected as err:
             raise HTTPException(status_code=err.status_code, detail=err.detail) from None
@@ -235,6 +239,7 @@ def register(app: FastAPI) -> None:
             skipped = scans[MAX_OCR_PAGES:]
             segments, scan_units = [], []
             for kind, first, last in page_runs(pages):
+                compute_checkpoint()
                 node_id = str(uuid.uuid4())
                 if kind == "native" or first not in ocr_pages:
                     if kind == "scan":
@@ -242,6 +247,7 @@ def register(app: FastAPI) -> None:
                     markdown, _warning = converter.convert(
                         sub_pdf(pdf, first, last), "pdf", filename=name, title=name, note_low_text=False
                     )
+                    compute_checkpoint()
                     path = f"jobs/{job_id}/nodes/{node_id}/result.md"
                     store.upload(path, (markdown.strip() + "\n").encode("utf-8"), "text/markdown; charset=utf-8")
                     segments.append({"node_id": node_id, "page_from": first, "page_to": last, "output_path": path})
@@ -302,6 +308,7 @@ def register(app: FastAPI) -> None:
         profile = req.profile if req.profile in PROFILES else "Standard"
 
         def load(part: MergePart) -> tuple[MergePart, str | None]:
+            compute_checkpoint()
             try:
                 return part, store.download(part.path, settings.max_upload_bytes).decode("utf-8", "replace")
             except StorageError as err:
@@ -311,12 +318,13 @@ def register(app: FastAPI) -> None:
 
         try:
             with ThreadPoolExecutor(max_workers=UPLOAD_WORKERS) as pool:
-                loaded = list(pool.map(load, sorted(req.parts, key=lambda p: p.page_from)))
+                loaded = list(pool.map(budgeted_worker(load), sorted(req.parts, key=lambda p: p.page_from)))
         except StorageError:
             raise HTTPException(status_code=503, detail="Storage temporarily unavailable") from None
 
         blocks, failed_pages = [], []
         for part, text in loaded:
+            compute_checkpoint()
             if part.kind == "ocr":
                 label = f"<!-- page {part.page_from}: text recognition -->"
                 if text is None or not text.strip():
@@ -333,6 +341,7 @@ def register(app: FastAPI) -> None:
                 f"(LLMiser reads up to {MAX_OCR_PAGES} scanned pages per PDF): {listed}."
             )
 
+        compute_checkpoint()
         content, words, tokens = finalize_markdown(
             "\n\n".join(blocks) or "_No text found in this document._",
             title=title_from_stem(stem),
@@ -342,6 +351,7 @@ def register(app: FastAPI) -> None:
             profile=profile,
         )
         body = content.encode("utf-8")
+        check_budget()
         try:
             store.upload(req.output_path, body, "text/markdown; charset=utf-8")
         except StorageError as err:

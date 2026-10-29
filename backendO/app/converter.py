@@ -22,6 +22,7 @@ import time
 from PIL import Image, ImageOps, JpegImagePlugin, UnidentifiedImageError
 
 from app.common.errors import ConversionRejected, EngineUnavailable
+from app.common.deadlines import FINALIZE_RESERVE_S, compute_checkpoint, timeout_seconds
 
 PIL_FORMAT_BY_EXT = {
     "jpg": "JPEG",
@@ -269,7 +270,7 @@ class OcrConverter:
             img,
             lang=OCR_LANG,
             config=f"--oem 1 --psm {OCR_PSM}",
-            timeout=max(1, int(remaining)),
+            timeout=max(0.001, min(remaining, timeout_seconds(OCR_TIMEOUT_S, reserve=FINALIZE_RESERVE_S))),
             output_type=pytesseract.Output.DICT,
         )
         return _text_from_data(data)
@@ -287,7 +288,7 @@ class OcrConverter:
                 img,
                 config="--psm 0 -c min_characters_to_try=5",
                 output_type=pytesseract.Output.DICT,
-                timeout=10,
+                timeout=timeout_seconds(10, reserve=FINALIZE_RESERVE_S),
             )
         except (pytesseract.TesseractError, RuntimeError):
             return None  # too little text, or OSD timed out
@@ -301,7 +302,7 @@ class OcrConverter:
         decide, the other three orientations) is kept only if it reads with
         clearly higher confidence.
         """
-        deadline = time.monotonic() + OCR_TIMEOUT_S
+        deadline = time.monotonic() + timeout_seconds(OCR_TIMEOUT_S, reserve=FINALIZE_RESERVE_S)
         best_text, best_conf, best_words = self._ocr(img, deadline)
         best_rotation = 0
         proposed = None
@@ -315,6 +316,7 @@ class OcrConverter:
                 candidates = [90, 180, 270]
 
         for rotation in candidates:
+            compute_checkpoint()
             if time.monotonic() >= deadline:
                 break
             text, conf, words = self._ocr(_rotate_upright(img, rotation), deadline)
@@ -338,6 +340,7 @@ class OcrConverter:
         # Hold capacity before decoding: otherwise waiting requests retain
         # their own full-size prepared images while another job runs OCR.
         with _OCR_LOCK:
+            compute_checkpoint()
             img = _open_checked(data, ext)
             try:
                 frames = getattr(img, "n_frames", 1)
@@ -349,16 +352,19 @@ class OcrConverter:
                 img.close()
 
             try:
+                compute_checkpoint()
                 raw, rotation = self._recognize(prepared)
             except pytesseract.TesseractNotFoundError as err:
                 raise EngineUnavailable(str(err)) from None
             except RuntimeError as err:
+                compute_checkpoint()
                 if "timeout" in str(err).lower():
                     raise ConversionRejected(422, "OCR took too long for this image", "ocr_timeout") from None
                 raise
             finally:
                 prepared.close()
 
+        compute_checkpoint()
         text = _clean_text(raw)
         if not text:
             return "_No text detected in this image._", "no-text-detected"

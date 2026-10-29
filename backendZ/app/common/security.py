@@ -5,6 +5,7 @@ from __future__ import annotations
 import hmac
 
 from fastapi import Header, HTTPException, Request
+from .deadlines import check_budget
 
 
 def require_internal_secret(
@@ -23,3 +24,4 @@ def require_internal_secret(
         x_internal_secret.encode(), expected.encode()
     ):
         raise HTTPException(status_code=401, detail="Unauthorized")
+    check_budget()
