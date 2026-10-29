@@ -4,7 +4,7 @@ Updated 29 October 2026. Work only in LLMiser. This is the current continuation 
 
 ## Current continuation state
 
-PRs #1–#15 are merged. Retained-result recovery, cron cutover, wake coalescing, shared reader statistics, large-preview control, CSV allocation reduction and Excel/final-result memory changes are released; the old frontend remains the static LLMiser fallback and public migration redirects remain live. The 22 October branch/review statements below are historical evidence for that earlier slice, not current release blockers. Use [START_HERE](START_HERE.md) and [PROGRESS](ai-handover/PROGRESS.md) for deployment state.
+PRs #1–#17 are merged. Recovery, cron cutover, wake coalescing, reader statistics, large previews, CSV/Excel/final-result memory and shared conversion deadlines are released. Legacy hosting/redirects remain live. Earlier 22 October branch/review statements below are historical; use [START_HERE](START_HERE.md) and [PROGRESS](ai-handover/PROGRESS.md) for current deployment evidence.
 
 Shared reader statistics shipped in PR #9 at `84e510db62ea41f31c131771eb7d32b5e92515f4`: one allocation-bounded helper, one memoized result for reader line/status displays, preserved counting semantics and reproducible before/after measurements. See [reader statistics](LLMISER_READER_STATISTICS.md) for 259-test CI and live verification. Browser profiling follows below; the rest of the queue remains separate. No new production SQL or service retirement was part of this slice.
 
@@ -14,7 +14,7 @@ PR #13 released [a source capacity audit and CSV allocation reduction](LLMISER_P
 
 ## Verified starting point
 
-Current candidate: [shared conversion deadlines](LLMISER_SHARED_DEADLINES.md), branch `codex/shared-conversion-deadlines`. Backend cooperative checkpoints and remaining-budget propagation are implemented locally; rollout/acceptance remain separate. This is a per-invocation budget and adds no whole-job lifetime, SQL or capacity setting.
+Released [shared conversion deadlines](LLMISER_SHARED_DEADLINES.md), PR #17 at `9131a2ac6163f22b630b008b40accb482ed3e0b3`. Optional authenticated absolute deadlines and monotonic cooperative worker checks preserve legacy callers and durable job/lease rules. All seven CI jobs and six Vercel production statuses passed; all six workers reported the exact revision/readiness. Thirty protocol checks, eight workbook/ZIP comparisons, four post-release Storage conversion/recovery jobs and 20 HTTP checks passed. Native preemption, exact-once writes and capacity tuning remain separate. Controller detail pagination is next.
 
 Released [Excel and final-result assembly memory](LLMISER_EXCEL_ASSEMBLY_MEMORY.md), PR #15 at `3db41140521d5cfb1bb3bfd12865feca5a8cc95b`: sequential sheet processing, exact bounded word counts and delayed archive output encoding. Three fresh-process trials per mode preserve complete hashes; local peak reductions are qualified by timing variability/XLS regression. All seven CI jobs passed before/after merge; six production Vercel statuses succeeded; all six N/O/Z workers report the exact revision and readiness. Eight generated multipart probes, two production Storage conversion/recovery checks and 20 HTTP checks passed; all pools are 2/2 ready. No SQL, concurrency, retention or blog changes.
 
@@ -47,7 +47,7 @@ Acceptance: expired link, later-part failure, complete Unicode assembly, restart
 | --- | --- |
 | Shared statistics and large previews | Counting released in PR #9; browser profiling and large-preview control released in PR #11; measure native input/devices before deeper editor/worker changes |
 | Backend parser capacity | CSV released in PR #13; Excel/final-result memory released in PR #15 with production XLSX/ZIP Storage acceptance. Profile native/concurrent parsing and whole-result normalization/serialization on representative hosts before queue tuning |
-| Shared deadline | Add an optional, backward-compatible remaining-budget protocol, reserving finalization time; test slow failures/cold starts |
+| Shared deadline | Released in PR #17; per-invocation propagation/reserves, simulated slow/cold paths and real protocol/OCR/PDF/ZIP Storage acceptance. Preserve cooperative-cancellation and replay-fencing limits |
 | Controller detail pagination | Top-level lists already paginate; bound files/tree/events/work-items with stable cursors and truthful totals; query-plan evidence before new indexes |
 | Replay-stable object identities | Fence attempt-specific writes before deterministic IDs; SQL attempt guards alone do not prevent a stale Storage overwrite; additive rollout for new roots only |
 | Observability | Allowlisted timing, attempts, cleanup age and cron diagnosis; no content/signed links/secrets; notification destination needs user authorization |

@@ -1,6 +1,6 @@
 # Shared conversion deadlines
 
-Updated 29 October 2026. Candidate on `codex/shared-conversion-deadlines`; release evidence is pending. The preceding [Excel/assembly release](LLMISER_EXCEL_ASSEMBLY_MEMORY.md) remains the last verified runtime snapshot.
+Updated 29 October 2026. Released in [PR #17](https://github.com/DevBehindYou/LLMiser/pull/17) at runtime revision `9131a2ac6163f22b630b008b40accb482ed3e0b3`. Later documentation-only commits do not change this verified source snapshot. This follows the [Excel/assembly release](LLMISER_EXCEL_ASSEMBLY_MEMORY.md).
 
 ## Scope and behavior
 
@@ -20,10 +20,19 @@ References: [Node AbortSignal](https://nodejs.org/api/globals.html#static-method
 
 ## Validation and rollout
 
-Local/generated checks currently pass: 270 frontend tests, 160 normal/PDF tests, 104 archive tests and 11 focused OCR/capacity tests. Coverage includes slow primary failover, no-time-before-dispatch, body decoding timeout, old-backend failover, expired database calls, queue claim suppression and durable retry recording; authenticated malformed/expired fields, valid/legacy output equality, clamping, duplicate fields, concurrent context isolation, upload-worker propagation, drip reads, slow upload acknowledgement, PDF/ZIP expiry, OCR subprocess budgets and image cleanup. Existing common-package integrity checks remain intact. The prior workstation-wide OCR readiness-suite limitation remains documented in the Excel report; full Linux OCR CI is required for release.
+Local/generated checks currently pass: 270 frontend tests, 160 normal/PDF tests, 104 archive tests and 11 focused OCR/capacity tests. Coverage includes slow primary failover, no-time-before-dispatch, body decoding timeout, old-backend failover, expired database calls, queue claim suppression and durable retry recording; authenticated malformed/expired fields, valid/legacy output equality, clamping, duplicate fields, concurrent context isolation, upload-worker propagation, drip reads, slow upload acknowledgement, PDF/ZIP expiry, OCR subprocess budgets and image cleanup. Existing common-package integrity checks remain intact. The prior workstation-wide OCR readiness-suite limitation remains documented in the Excel report; full Linux OCR CI passed before merge and on merged main.
 
 Local lint, production build and dictionary/SQL/blog consistency passed. Before release, eight generated multipart workbook/ZIP requests with future deadline headers passed on all four document workers, confirming old-worker compatibility. Two actual public Storage conversions (XLSX and workbook ZIP), all four output downloads and exact saved-result recovery also passed as baselines; those two generated jobs follow normal retention.
 
-CI, deployment and post-release acceptance are pending. Mixed versions remain compatible during rollout: old workers ignore the additional header, while new workers accept callers without it. Backend cooperative limits are therefore only verified after every worker has the new revision. Do not infer production deployment or savings from local tests.
+All seven CI jobs passed on PR #17 and merged main, including 270 frontend tests, full normal/OCR/archive suites, PostgreSQL, edge and extension. All six production Vercel status contexts succeeded. Every N1/N2/Z1/Z2/O1/O2 health response reported exactly `9131a2ac6163f22b630b008b40accb482ed3e0b3` and engine readiness. Mixed-version compatibility was retained during rollout: old workers ignored the added header and new workers accepted legacy callers. No provider setting was changed for this rollout.
 
 No UI/localization/blog/visual, database migration, cron SQL, provider environment, supported-format, file-limit or retention change is included. Operator probes and raw evidence stay ignored under `project-docs/deadline-audit/`.
+
+Post-release generated acceptance on 29 October:
+
+- Thirty direct multipart protocol requests passed across N1/N2/Z1/Z2/O1/O2: each returned 401 for wrong authentication, 504 plus the deadline marker for expired authenticated requests, 400 for malformed deadlines, and 200 with complete output for valid/legacy callers. OCR workers read the generated image text correctly. These requests created no Storage jobs.
+- Eight workbook/ZIP requests with future deadlines retained exactly the baseline complete Markdown hashes, character/word counts and engines. MarkItDown remains 0.1.9.
+- The public frontend Storage flow passed XLSX and workbook-ZIP conversion, all four output-object downloads and fresh-link recovery, matching the pre-release primary Markdown hashes/counts. Two additional jobs completed image-containing ZIP → OCR → project merge and scanned PDF → OCR → PDF merge, preserving both expected OCR sentences, the ZIP Unicode end marker and exact recovered Markdown. Six real generated Storage jobs in total across pre/post/multi-stage checks follow existing retention; no cleanup was manually invoked.
+- Twenty public-page/discovery/health and permanent path/query-preserving redirect checks passed. An uncached wake returned normal/OCR/archive each 2/2 ready; existing legacy API routing was unchanged.
+
+Cold-start/slow-failure boundaries were tested with generated/fake-clock fixtures, not a production stress test or a forced Render sleep. Small-file acceptance is not a maximum-size/concurrency or billing guarantee. Authenticated controller operations, real cleanup execution, hard native-process cancellation and replay-safe Storage fencing remain outside this slice.
