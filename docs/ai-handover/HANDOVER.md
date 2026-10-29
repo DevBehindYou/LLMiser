@@ -4,6 +4,8 @@ Updated 29 October 2026. Start with [START_HERE](../START_HERE.md). This replace
 
 ## What the owner wants now
 
+Active implementation: [controller detail pagination](../LLMISER_CONTROLLER_PAGINATION.md), PR #19 on `codex/controller-detail-pagination`. Initial source `2f2afb0` passed all seven CI jobs (278 frontend tests/build); Vercel's Google font URL extension parser failed separately. The owner supplied the log. Exact existing WOFF2 assets, subset declarations/fallback metrics and preloads are now bundled with licenses and hashes; updated checks/preview remain before merge. No connected Vercel tool/CLI session is assumed. Keep complete ZIP traversal, timestamp precision and job/section/filter cursor binding. Counts are separate live reads; Refresh resets all sections. No new SQL/index is needed. Validate the corrected preview, merge under existing authorization, then compare the generated authenticated baseline and public HTTP/wake results. Runtime remains PR #17 until release evidence is recorded.
+
 The owner resumed the optimization queue after the Excel/assembly release. Shared conversion deadlines are now released in PR #17. Continue from the remaining queue rather than repeating either slice. LLMiser must also remain independently maintainable after MDify and MDify-Pro are deleted. Keep immediate permanent redirects on the old public hosts and the minimal LLMiser-only fallback; repository/service deletion is not being executed here.
 
 ## Work already shipped

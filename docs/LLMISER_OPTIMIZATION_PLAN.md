@@ -22,7 +22,11 @@ The copied source already contains atomic job startup/finalization, cleanup reco
 
 Search migration and public redirects are live; see [search migration](LLMISER_SEARCH_MIGRATION.md). Analytics ingestion is verified; controller login/configuration is verified but authenticated operations are not; see [access and analytics](LLMISER_ANALYTICS_CONTROLLER.md). Keep-warm Vault and cron changes were applied and verified in the earlier cron task. Dependency-aware service retirement remains separate operational work.
 
-## Current slice: retained result recovery
+## Current slice: controller detail pagination
+
+Candidate: PR #19 on `codex/controller-detail-pagination`; see [implementation and evidence](LLMISER_CONTROLLER_PAGINATION.md). Files, nodes, work items and events load 50 rows each, with stable unique cursors, exact live totals, independent retry and refresh/job-switch guards. ZIP exports fetch every matching stored file page. Existing indexes suffice; no SQL change. Initial source `2f2afb0` passed all seven CI jobs/278 tests/build, but Vercel's Google font URL parser failed. The owner supplied the error; identical bundled fonts remove that build dependency. Updated checks/preview and deployed comparison remain before release.
+
+## Historical slice: retained result recovery
 
 Branch: `codex/result-download-recovery`. Implementation and local acceptance are complete; CI/review and a separate release decision remain. This is not the production revision.
 
@@ -57,7 +61,7 @@ Acceptance: expired link, later-part failure, complete Unicode assembly, restart
 
 The remaining queue is not an effort percentage. Track implementation, local regression/browser evidence, CI and deployed behavior independently. Do not apply production SQL or retire old services merely to complete a checklist.
 
-## Current verification
+## Historical recovery verification
 
 - Full frontend regression suite: **232 passed, 0 failed** on 22 October 2026. Log: private `project-docs/optimization-evidence/frontend-tests.log`.
 - Synthetic browser flow: initial final-download 403, browser reload, metadata-only recent-session recovery, complete Markdown download. Fixture counters remained **1 upload, 1 conversion start, 1 retrieval**. No production conversion services were called.

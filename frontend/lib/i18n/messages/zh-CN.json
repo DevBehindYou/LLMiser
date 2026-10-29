@@ -629,5 +629,11 @@
   "🔒 Privacy Policy": "🔒 隐私政策",
   "Large document: formatted preview is paused to keep editing responsive. The complete Markdown is available in Raw mode and exports.": "文档较大：为保持编辑流畅，已暂停格式化预览。完整 Markdown 可在源码模式和导出文件中查看。",
   "Render full preview (may take a moment)": "显示完整预览（可能需要一些时间）",
-  "Pause formatted preview": "暂停格式化预览"
+  "Pause formatted preview": "暂停格式化预览",
+  "Loaded: {v0} · Total: {v1}": "已加载：{v0} · 总计：{v1}",
+  "Totals can change while a job runs. Refresh to update all sections.": "任务运行时总数可能发生变化。请刷新以更新所有部分。",
+  "Tree and status counts show loaded records only.": "目录树和状态计数仅显示已加载的记录。",
+  "Stored files changed. Refresh and try again.": "已存储的文件发生变化。请刷新后重试。",
+  "Could not load the complete file list": "无法加载完整的文件列表",
+  "Reload the controller to use paginated job details.": "请重新加载控制台以分页查看任务详情。"
 }

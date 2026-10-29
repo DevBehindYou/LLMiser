@@ -629,5 +629,11 @@
   "🔒 Privacy Policy": "🔒 Privacy Policy",
   "Large document: formatted preview is paused to keep editing responsive. The complete Markdown is available in Raw mode and exports.": "Large document: formatted preview is paused to keep editing responsive. The complete Markdown is available in Raw mode and exports.",
   "Render full preview (may take a moment)": "Render full preview (may take a moment)",
-  "Pause formatted preview": "Pause formatted preview"
+  "Pause formatted preview": "Pause formatted preview",
+  "Loaded: {v0} · Total: {v1}": "Loaded: {v0} · Total: {v1}",
+  "Totals can change while a job runs. Refresh to update all sections.": "Totals can change while a job runs. Refresh to update all sections.",
+  "Tree and status counts show loaded records only.": "Tree and status counts show loaded records only.",
+  "Stored files changed. Refresh and try again.": "Stored files changed. Refresh and try again.",
+  "Could not load the complete file list": "Could not load the complete file list",
+  "Reload the controller to use paginated job details.": "Reload the controller to use paginated job details."
 }

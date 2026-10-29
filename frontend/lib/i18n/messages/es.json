@@ -629,5 +629,11 @@
   "🔒 Privacy Policy": "🔒 Política de privacidad",
   "Large document: formatted preview is paused to keep editing responsive. The complete Markdown is available in Raw mode and exports.": "Documento grande: la vista previa con formato está en pausa para mantener la edición fluida. El Markdown completo está disponible en el modo Código y en las exportaciones.",
   "Render full preview (may take a moment)": "Mostrar la vista previa completa (puede tardar un momento)",
-  "Pause formatted preview": "Pausar la vista previa con formato"
+  "Pause formatted preview": "Pausar la vista previa con formato",
+  "Loaded: {v0} · Total: {v1}": "Cargados: {v0} · Total: {v1}",
+  "Totals can change while a job runs. Refresh to update all sections.": "Los totales pueden cambiar mientras se ejecuta un trabajo. Actualiza para renovar todas las secciones.",
+  "Tree and status counts show loaded records only.": "El árbol y los recuentos por estado solo muestran los registros cargados.",
+  "Stored files changed. Refresh and try again.": "Los archivos almacenados han cambiado. Actualiza e inténtalo de nuevo.",
+  "Could not load the complete file list": "No se pudo cargar la lista completa de archivos",
+  "Reload the controller to use paginated job details.": "Vuelve a cargar el controlador para ver los detalles del trabajo por páginas."
 }

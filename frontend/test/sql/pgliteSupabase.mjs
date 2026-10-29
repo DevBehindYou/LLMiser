@@ -16,6 +16,13 @@ function where(filters, params) {
   const clauses = [];
   for (const [key, value] of Object.entries(filters || {})) {
     if (['select', 'order', 'limit', 'on_conflict'].includes(key)) continue;
+    if (key === 'or') {
+      const match = /^\((\w+)\.gt\.([^,]+),and\(\1\.eq\.([^,]+),(\w+)\.gt\.([^,)]+)\)\)$/.exec(value);
+      if (!match) throw new Error('unsupported logical filter');
+      params.push(match[2], match[3], match[5]);
+      clauses.push(`(${ident(match[1])} > $${params.length - 2} or (${ident(match[1])} = $${params.length - 1} and ${ident(match[4])} > $${params.length}))`);
+      continue;
+    }
     const m = /^(eq|lt)\.(.*)$/s.exec(String(value));
     if (!m) throw new Error(`unsupported filter ${key}=${value}`);
     params.push(m[2]);
@@ -98,6 +105,27 @@ export function createPgliteSupabase(pg, { bucket = 'mdify-pro-files', calls = [
       if (filters.limit) sql += ` limit ${Number(filters.limit)}`;
       const { rows } = await pg.query(sql, params);
       return rows;
+    },
+
+    async selectPage(table, filters = {}) {
+      const params = [];
+      const clause = where(filters, params);
+      const cols = filters.select.split(',').map(ident).join(', ');
+      const order = filters.order.split(',').map(part => {
+        const [col, dir] = part.split('.');
+        return `${ident(col)} ${dir === 'desc' ? 'desc' : 'asc'}`;
+      }).join(', ');
+      const rows = (await pg.query(`select row_to_json(p) as value from (select ${cols} from public.${ident(table)}${clause} order by ${order} limit ${Number(filters.limit)}) p`, params)).rows.map(row => row.value);
+      const total = Number((await pg.query(`select count(*) as total from public.${ident(table)}${clause}`, params)).rows[0].total);
+      calls.push(['selectPage', table, rows.length]);
+      return { rows, total };
+    },
+
+    async count(table, filters = {}) {
+      const params = [];
+      const total = Number((await pg.query(`select count(*) as total from public.${ident(table)}${where(filters, params)}`, params)).rows[0].total);
+      calls.push(['count', table]);
+      return total;
     },
 
     async remove(table, filters) {

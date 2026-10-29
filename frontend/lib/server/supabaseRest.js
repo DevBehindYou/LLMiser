@@ -29,7 +29,7 @@ export function createSupabase(config, fetchImpl = fetch, { deadlineMs } = {}) {
     Authorization: `Bearer ${config.key}`,
   };
 
-  async function call(path, init = {}) {
+  async function call(path, init = {}, { count = false } = {}) {
     const res = await fetchImpl(`${config.url}${path}`, {
       ...init,
       headers: { ...headers, ...(init.headers || {}) },
@@ -47,6 +47,14 @@ export function createSupabase(config, fetchImpl = fetch, { deadlineMs } = {}) {
       // Message only — response bodies may echo request data; never log keys.
       const msg = (data && (data.message || data.error)) || `HTTP ${res.status}`;
       throw new SupabaseError(`Supabase ${init.method || 'GET'} ${path.split('?')[0]} failed: ${msg}`, res.status);
+    }
+    if (count) {
+      const match = /\/(\d+)$/.exec(res.headers.get('content-range') || '');
+      const total = match ? Number(match[1]) : NaN;
+      if (!Number.isSafeInteger(total) || (init.method === 'HEAD' ? data !== null : !Array.isArray(data))) {
+        throw new SupabaseError('Database did not return an exact page count', 502);
+      }
+      return { rows: data || [], total };
     }
     return data;
   }
@@ -76,6 +84,12 @@ export function createSupabase(config, fetchImpl = fetch, { deadlineMs } = {}) {
       call(`/rest/v1/${table}?${new URLSearchParams(filters)}`, json('PATCH', patch, { Prefer: 'return=representation' })),
 
     select: (table, filters) => call(`/rest/v1/${table}?${new URLSearchParams(filters)}`),
+
+    selectPage: (table, filters) => call(`/rest/v1/${table}?${new URLSearchParams(filters)}`,
+      { headers: { Prefer: 'count=exact' } }, { count: true }),
+
+    count: (table, filters) => call(`/rest/v1/${table}?${new URLSearchParams(filters)}`,
+      { method: 'HEAD', headers: { Prefer: 'count=exact' } }, { count: true }).then(page => page.total),
 
     /** DELETE rows matching `filters` (PostgREST syntax); returns the deleted rows. */
     remove: (table, filters) =>

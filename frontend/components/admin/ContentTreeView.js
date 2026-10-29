@@ -79,7 +79,7 @@ export default function ContentTreeView({ tree }) {
     <div>
       <div className="flex flex-wrap gap-1.5 mb-2">
         <span className="font-tech text-[11px] text-[var(--muted)]">{counts.total}{uiText(" part(s):")}</span>
-        {['DONE', 'PENDING', 'RUNNING', 'SKIPPED', 'FAILED'].map((s) =>
+        {['DONE', 'PENDING', 'RUNNING', 'PROCESSING', 'SKIPPED', 'FAILED'].map((s) =>
           counts[s] ? (
             <Badge key={s} status={s}>
               {counts[s]} {s.toLowerCase()}

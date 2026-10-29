@@ -53,3 +53,14 @@ test('empty input gives an empty tree', () => {
   assert.equal(root.children.length, 0);
   assert.equal(counts.total, 0);
 });
+
+test('processing nodes remain visible in mixed PDF trees and folder summaries',()=>{
+  const {root,counts}=buildContentTree([
+    node('r',{node_type:'ROOT_FILE',logical_path:'scan.pdf'}),
+    node('p',{node_type:'PDF_PAGE',page_from:2,page_to:2,status:'PROCESSING'}),
+    node('f',{node_type:'TEXT_FILE',logical_path:'notes/readme.md'}),
+  ]);
+  assert.equal(root.children.length,2);
+  assert.equal(counts.PROCESSING,1);
+  assert.equal(worstStatus(root),'PROCESSING');
+});
