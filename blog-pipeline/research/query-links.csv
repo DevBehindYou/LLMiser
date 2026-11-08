@@ -1,0 +1,193 @@
+owner_id,keyword,engine,query_url,status
+M01,prepare codebase for AI,Google,https://www.google.com/search?hl=en&gl=us&q=prepare+codebase+for+AI,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M01,prepare codebase for AI,Bing,https://www.bing.com/search?q=prepare+codebase+for+AI,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M01,prepare codebase for AI,Brave,https://search.brave.com/search?q=prepare+codebase+for+AI,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M01,prepare codebase for AI,DuckDuckGo,https://duckduckgo.com/?q=prepare+codebase+for+AI,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M02,OCR quality checks for AI,Google,https://www.google.com/search?hl=en&gl=us&q=OCR+quality+checks+for+AI,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M02,OCR quality checks for AI,Bing,https://www.bing.com/search?q=OCR+quality+checks+for+AI,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M02,OCR quality checks for AI,Brave,https://search.brave.com/search?q=OCR+quality+checks+for+AI,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M02,OCR quality checks for AI,DuckDuckGo,https://duckduckgo.com/?q=OCR+quality+checks+for+AI,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M03,prepare Excel data for AI,Google,https://www.google.com/search?hl=en&gl=us&q=prepare+Excel+data+for+AI,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M03,prepare Excel data for AI,Bing,https://www.bing.com/search?q=prepare+Excel+data+for+AI,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M03,prepare Excel data for AI,Brave,https://search.brave.com/search?q=prepare+Excel+data+for+AI,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M03,prepare Excel data for AI,DuckDuckGo,https://duckduckgo.com/?q=prepare+Excel+data+for+AI,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M04,prepare Word documents for AI,Google,https://www.google.com/search?hl=en&gl=us&q=prepare+Word+documents+for+AI,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M04,prepare Word documents for AI,Bing,https://www.bing.com/search?q=prepare+Word+documents+for+AI,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M04,prepare Word documents for AI,Brave,https://search.brave.com/search?q=prepare+Word+documents+for+AI,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M04,prepare Word documents for AI,DuckDuckGo,https://duckduckgo.com/?q=prepare+Word+documents+for+AI,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M05,PowerPoint to Markdown,Google,https://www.google.com/search?hl=en&gl=us&q=PowerPoint+to+Markdown,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M05,PowerPoint to Markdown,Bing,https://www.bing.com/search?q=PowerPoint+to+Markdown,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M05,PowerPoint to Markdown,Brave,https://search.brave.com/search?q=PowerPoint+to+Markdown,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M05,PowerPoint to Markdown,DuckDuckGo,https://duckduckgo.com/?q=PowerPoint+to+Markdown,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M06,prepare CSV data for AI,Google,https://www.google.com/search?hl=en&gl=us&q=prepare+CSV+data+for+AI,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M06,prepare CSV data for AI,Bing,https://www.bing.com/search?q=prepare+CSV+data+for+AI,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M06,prepare CSV data for AI,Brave,https://search.brave.com/search?q=prepare+CSV+data+for+AI,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M06,prepare CSV data for AI,DuckDuckGo,https://duckduckgo.com/?q=prepare+CSV+data+for+AI,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M07,LLMiser batch conversion,Google,https://www.google.com/search?hl=en&gl=us&q=LLMiser+batch+conversion,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M07,LLMiser batch conversion,Bing,https://www.bing.com/search?q=LLMiser+batch+conversion,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M07,LLMiser batch conversion,Brave,https://search.brave.com/search?q=LLMiser+batch+conversion,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M07,LLMiser batch conversion,DuckDuckGo,https://duckduckgo.com/?q=LLMiser+batch+conversion,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M08,LLMiser processing profiles,Google,https://www.google.com/search?hl=en&gl=us&q=LLMiser+processing+profiles,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M08,LLMiser processing profiles,Bing,https://www.bing.com/search?q=LLMiser+processing+profiles,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M08,LLMiser processing profiles,Brave,https://search.brave.com/search?q=LLMiser+processing+profiles,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M08,LLMiser processing profiles,DuckDuckGo,https://duckduckgo.com/?q=LLMiser+processing+profiles,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M09,edit Markdown in LLMiser,Google,https://www.google.com/search?hl=en&gl=us&q=edit+Markdown+in+LLMiser,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M09,edit Markdown in LLMiser,Bing,https://www.bing.com/search?q=edit+Markdown+in+LLMiser,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M09,edit Markdown in LLMiser,Brave,https://search.brave.com/search?q=edit+Markdown+in+LLMiser,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M09,edit Markdown in LLMiser,DuckDuckGo,https://duckduckgo.com/?q=edit+Markdown+in+LLMiser,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M10,LLMiser ZIP manifest,Google,https://www.google.com/search?hl=en&gl=us&q=LLMiser+ZIP+manifest,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M10,LLMiser ZIP manifest,Bing,https://www.bing.com/search?q=LLMiser+ZIP+manifest,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M10,LLMiser ZIP manifest,Brave,https://search.brave.com/search?q=LLMiser+ZIP+manifest,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M10,LLMiser ZIP manifest,DuckDuckGo,https://duckduckgo.com/?q=LLMiser+ZIP+manifest,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M11,document prompt injection,Google,https://www.google.com/search?hl=en&gl=us&q=document+prompt+injection,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M11,document prompt injection,Bing,https://www.bing.com/search?q=document+prompt+injection,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M11,document prompt injection,Brave,https://search.brave.com/search?q=document+prompt+injection,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M11,document prompt injection,DuckDuckGo,https://duckduckgo.com/?q=document+prompt+injection,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M12,conflicting document versions AI,Google,https://www.google.com/search?hl=en&gl=us&q=conflicting+document+versions+AI,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M12,conflicting document versions AI,Bing,https://www.bing.com/search?q=conflicting+document+versions+AI,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M12,conflicting document versions AI,Brave,https://search.brave.com/search?q=conflicting+document+versions+AI,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M12,conflicting document versions AI,DuckDuckGo,https://duckduckgo.com/?q=conflicting+document+versions+AI,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M01-S1,check code ZIP for secrets,Google,https://www.google.com/search?hl=en&gl=us&q=check+code+ZIP+for+secrets,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M01-S1,check code ZIP for secrets,Bing,https://www.bing.com/search?q=check+code+ZIP+for+secrets,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M01-S1,check code ZIP for secrets,Brave,https://search.brave.com/search?q=check+code+ZIP+for+secrets,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M01-S1,check code ZIP for secrets,DuckDuckGo,https://duckduckgo.com/?q=check+code+ZIP+for+secrets,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M01-S2,dependency files for AI code review,Google,https://www.google.com/search?hl=en&gl=us&q=dependency+files+for+AI+code+review,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M01-S2,dependency files for AI code review,Bing,https://www.bing.com/search?q=dependency+files+for+AI+code+review,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M01-S2,dependency files for AI code review,Brave,https://search.brave.com/search?q=dependency+files+for+AI+code+review,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M01-S2,dependency files for AI code review,DuckDuckGo,https://duckduckgo.com/?q=dependency+files+for+AI+code+review,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M01-S3,task focused code bundle,Google,https://www.google.com/search?hl=en&gl=us&q=task+focused+code+bundle,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M01-S3,task focused code bundle,Bing,https://www.bing.com/search?q=task+focused+code+bundle,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M01-S3,task focused code bundle,Brave,https://search.brave.com/search?q=task+focused+code+bundle,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M01-S3,task focused code bundle,DuckDuckGo,https://duckduckgo.com/?q=task+focused+code+bundle,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M02-S1,rotated scan OCR check,Google,https://www.google.com/search?hl=en&gl=us&q=rotated+scan+OCR+check,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M02-S1,rotated scan OCR check,Bing,https://www.bing.com/search?q=rotated+scan+OCR+check,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M02-S1,rotated scan OCR check,Brave,https://search.brave.com/search?q=rotated+scan+OCR+check,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M02-S1,rotated scan OCR check,DuckDuckGo,https://duckduckgo.com/?q=rotated+scan+OCR+check,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M02-S2,verify numbers in OCR output,Google,https://www.google.com/search?hl=en&gl=us&q=verify+numbers+in+OCR+output,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M02-S2,verify numbers in OCR output,Bing,https://www.bing.com/search?q=verify+numbers+in+OCR+output,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M02-S2,verify numbers in OCR output,Brave,https://search.brave.com/search?q=verify+numbers+in+OCR+output,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M02-S2,verify numbers in OCR output,DuckDuckGo,https://duckduckgo.com/?q=verify+numbers+in+OCR+output,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M02-S3,mixed PDF OCR coverage,Google,https://www.google.com/search?hl=en&gl=us&q=mixed+PDF+OCR+coverage,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M02-S3,mixed PDF OCR coverage,Bing,https://www.bing.com/search?q=mixed+PDF+OCR+coverage,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M02-S3,mixed PDF OCR coverage,Brave,https://search.brave.com/search?q=mixed+PDF+OCR+coverage,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M02-S3,mixed PDF OCR coverage,DuckDuckGo,https://duckduckgo.com/?q=mixed+PDF+OCR+coverage,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M03-S1,Excel leading zeros AI,Google,https://www.google.com/search?hl=en&gl=us&q=Excel+leading+zeros+AI,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M03-S1,Excel leading zeros AI,Bing,https://www.bing.com/search?q=Excel+leading+zeros+AI,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M03-S1,Excel leading zeros AI,Brave,https://search.brave.com/search?q=Excel+leading+zeros+AI,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M03-S1,Excel leading zeros AI,DuckDuckGo,https://duckduckgo.com/?q=Excel+leading+zeros+AI,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M03-S2,Excel formula results conversion,Google,https://www.google.com/search?hl=en&gl=us&q=Excel+formula+results+conversion,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M03-S2,Excel formula results conversion,Bing,https://www.bing.com/search?q=Excel+formula+results+conversion,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M03-S2,Excel formula results conversion,Brave,https://search.brave.com/search?q=Excel+formula+results+conversion,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M03-S2,Excel formula results conversion,DuckDuckGo,https://duckduckgo.com/?q=Excel+formula+results+conversion,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M03-S3,merged Excel headers Markdown,Google,https://www.google.com/search?hl=en&gl=us&q=merged+Excel+headers+Markdown,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M03-S3,merged Excel headers Markdown,Bing,https://www.bing.com/search?q=merged+Excel+headers+Markdown,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M03-S3,merged Excel headers Markdown,Brave,https://search.brave.com/search?q=merged+Excel+headers+Markdown,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M03-S3,merged Excel headers Markdown,DuckDuckGo,https://duckduckgo.com/?q=merged+Excel+headers+Markdown,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M04-S1,Word heading styles Markdown,Google,https://www.google.com/search?hl=en&gl=us&q=Word+heading+styles+Markdown,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M04-S1,Word heading styles Markdown,Bing,https://www.bing.com/search?q=Word+heading+styles+Markdown,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M04-S1,Word heading styles Markdown,Brave,https://search.brave.com/search?q=Word+heading+styles+Markdown,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M04-S1,Word heading styles Markdown,DuckDuckGo,https://duckduckgo.com/?q=Word+heading+styles+Markdown,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M04-S2,nested Word lists Markdown,Google,https://www.google.com/search?hl=en&gl=us&q=nested+Word+lists+Markdown,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M04-S2,nested Word lists Markdown,Bing,https://www.bing.com/search?q=nested+Word+lists+Markdown,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M04-S2,nested Word lists Markdown,Brave,https://search.brave.com/search?q=nested+Word+lists+Markdown,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M04-S2,nested Word lists Markdown,DuckDuckGo,https://duckduckgo.com/?q=nested+Word+lists+Markdown,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M04-S3,Word tracked changes AI sharing,Google,https://www.google.com/search?hl=en&gl=us&q=Word+tracked+changes+AI+sharing,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M04-S3,Word tracked changes AI sharing,Bing,https://www.bing.com/search?q=Word+tracked+changes+AI+sharing,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M04-S3,Word tracked changes AI sharing,Brave,https://search.brave.com/search?q=Word+tracked+changes+AI+sharing,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M04-S3,Word tracked changes AI sharing,DuckDuckGo,https://duckduckgo.com/?q=Word+tracked+changes+AI+sharing,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M05-S1,PowerPoint speaker notes Markdown,Google,https://www.google.com/search?hl=en&gl=us&q=PowerPoint+speaker+notes+Markdown,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M05-S1,PowerPoint speaker notes Markdown,Bing,https://www.bing.com/search?q=PowerPoint+speaker+notes+Markdown,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M05-S1,PowerPoint speaker notes Markdown,Brave,https://search.brave.com/search?q=PowerPoint+speaker+notes+Markdown,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M05-S1,PowerPoint speaker notes Markdown,DuckDuckGo,https://duckduckgo.com/?q=PowerPoint+speaker+notes+Markdown,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M05-S2,PowerPoint chart context AI,Google,https://www.google.com/search?hl=en&gl=us&q=PowerPoint+chart+context+AI,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M05-S2,PowerPoint chart context AI,Bing,https://www.bing.com/search?q=PowerPoint+chart+context+AI,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M05-S2,PowerPoint chart context AI,Brave,https://search.brave.com/search?q=PowerPoint+chart+context+AI,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M05-S2,PowerPoint chart context AI,DuckDuckGo,https://duckduckgo.com/?q=PowerPoint+chart+context+AI,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M05-S3,PowerPoint slide order Markdown,Google,https://www.google.com/search?hl=en&gl=us&q=PowerPoint+slide+order+Markdown,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M05-S3,PowerPoint slide order Markdown,Bing,https://www.bing.com/search?q=PowerPoint+slide+order+Markdown,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M05-S3,PowerPoint slide order Markdown,Brave,https://search.brave.com/search?q=PowerPoint+slide+order+Markdown,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M05-S3,PowerPoint slide order Markdown,DuckDuckGo,https://duckduckgo.com/?q=PowerPoint+slide+order+Markdown,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M06-S1,CSV quoted cells Markdown,Google,https://www.google.com/search?hl=en&gl=us&q=CSV+quoted+cells+Markdown,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M06-S1,CSV quoted cells Markdown,Bing,https://www.bing.com/search?q=CSV+quoted+cells+Markdown,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M06-S1,CSV quoted cells Markdown,Brave,https://search.brave.com/search?q=CSV+quoted+cells+Markdown,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M06-S1,CSV quoted cells Markdown,DuckDuckGo,https://duckduckgo.com/?q=CSV+quoted+cells+Markdown,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M06-S2,CSV encoding AI,Google,https://www.google.com/search?hl=en&gl=us&q=CSV+encoding+AI,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M06-S2,CSV encoding AI,Bing,https://www.bing.com/search?q=CSV+encoding+AI,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M06-S2,CSV encoding AI,Brave,https://search.brave.com/search?q=CSV+encoding+AI,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M06-S2,CSV encoding AI,DuckDuckGo,https://duckduckgo.com/?q=CSV+encoding+AI,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M06-S3,empty CSV cells missing fields,Google,https://www.google.com/search?hl=en&gl=us&q=empty+CSV+cells+missing+fields,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M06-S3,empty CSV cells missing fields,Bing,https://www.bing.com/search?q=empty+CSV+cells+missing+fields,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M06-S3,empty CSV cells missing fields,Brave,https://search.brave.com/search?q=empty+CSV+cells+missing+fields,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M06-S3,empty CSV cells missing fields,DuckDuckGo,https://duckduckgo.com/?q=empty+CSV+cells+missing+fields,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M07-S1,LLMiser mixed file batch,Google,https://www.google.com/search?hl=en&gl=us&q=LLMiser+mixed+file+batch,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M07-S1,LLMiser mixed file batch,Bing,https://www.bing.com/search?q=LLMiser+mixed+file+batch,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M07-S1,LLMiser mixed file batch,Brave,https://search.brave.com/search?q=LLMiser+mixed+file+batch,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M07-S1,LLMiser mixed file batch,DuckDuckGo,https://duckduckgo.com/?q=LLMiser+mixed+file+batch,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M07-S2,LLMiser partial batch failure,Google,https://www.google.com/search?hl=en&gl=us&q=LLMiser+partial+batch+failure,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M07-S2,LLMiser partial batch failure,Bing,https://www.bing.com/search?q=LLMiser+partial+batch+failure,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M07-S2,LLMiser partial batch failure,Brave,https://search.brave.com/search?q=LLMiser+partial+batch+failure,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M07-S2,LLMiser partial batch failure,DuckDuckGo,https://duckduckgo.com/?q=LLMiser+partial+batch+failure,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M07-S3,LLMiser upload limits batch,Google,https://www.google.com/search?hl=en&gl=us&q=LLMiser+upload+limits+batch,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M07-S3,LLMiser upload limits batch,Bing,https://www.bing.com/search?q=LLMiser+upload+limits+batch,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M07-S3,LLMiser upload limits batch,Brave,https://search.brave.com/search?q=LLMiser+upload+limits+batch,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M07-S3,LLMiser upload limits batch,DuckDuckGo,https://duckduckgo.com/?q=LLMiser+upload+limits+batch,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M08-S1,LLMiser Standard vs Clean,Google,https://www.google.com/search?hl=en&gl=us&q=LLMiser+Standard+vs+Clean,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M08-S1,LLMiser Standard vs Clean,Bing,https://www.bing.com/search?q=LLMiser+Standard+vs+Clean,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M08-S1,LLMiser Standard vs Clean,Brave,https://search.brave.com/search?q=LLMiser+Standard+vs+Clean,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M08-S1,LLMiser Standard vs Clean,DuckDuckGo,https://duckduckgo.com/?q=LLMiser+Standard+vs+Clean,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M08-S2,LLMiser Compact Markdown,Google,https://www.google.com/search?hl=en&gl=us&q=LLMiser+Compact+Markdown,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M08-S2,LLMiser Compact Markdown,Bing,https://www.bing.com/search?q=LLMiser+Compact+Markdown,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M08-S2,LLMiser Compact Markdown,Brave,https://search.brave.com/search?q=LLMiser+Compact+Markdown,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M08-S2,LLMiser Compact Markdown,DuckDuckGo,https://duckduckgo.com/?q=LLMiser+Compact+Markdown,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M08-S3,LLMiser RAG-ready markers,Google,https://www.google.com/search?hl=en&gl=us&q=LLMiser+RAG-ready+markers,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M08-S3,LLMiser RAG-ready markers,Bing,https://www.bing.com/search?q=LLMiser+RAG-ready+markers,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M08-S3,LLMiser RAG-ready markers,Brave,https://search.brave.com/search?q=LLMiser+RAG-ready+markers,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M08-S3,LLMiser RAG-ready markers,DuckDuckGo,https://duckduckgo.com/?q=LLMiser+RAG-ready+markers,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M09-S1,LLMiser original versus edited Markdown,Google,https://www.google.com/search?hl=en&gl=us&q=LLMiser+original+versus+edited+Markdown,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M09-S1,LLMiser original versus edited Markdown,Bing,https://www.bing.com/search?q=LLMiser+original+versus+edited+Markdown,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M09-S1,LLMiser original versus edited Markdown,Brave,https://search.brave.com/search?q=LLMiser+original+versus+edited+Markdown,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M09-S1,LLMiser original versus edited Markdown,DuckDuckGo,https://duckduckgo.com/?q=LLMiser+original+versus+edited+Markdown,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M09-S2,LLMiser long Markdown preview,Google,https://www.google.com/search?hl=en&gl=us&q=LLMiser+long+Markdown+preview,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M09-S2,LLMiser long Markdown preview,Bing,https://www.bing.com/search?q=LLMiser+long+Markdown+preview,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M09-S2,LLMiser long Markdown preview,Brave,https://search.brave.com/search?q=LLMiser+long+Markdown+preview,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M09-S2,LLMiser long Markdown preview,DuckDuckGo,https://duckduckgo.com/?q=LLMiser+long+Markdown+preview,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M09-S3,LLMiser copy versus download,Google,https://www.google.com/search?hl=en&gl=us&q=LLMiser+copy+versus+download,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M09-S3,LLMiser copy versus download,Bing,https://www.bing.com/search?q=LLMiser+copy+versus+download,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M09-S3,LLMiser copy versus download,Brave,https://search.brave.com/search?q=LLMiser+copy+versus+download,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M09-S3,LLMiser copy versus download,DuckDuckGo,https://duckduckgo.com/?q=LLMiser+copy+versus+download,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M10-S1,LLMiser project index paths,Google,https://www.google.com/search?hl=en&gl=us&q=LLMiser+project+index+paths,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M10-S1,LLMiser project index paths,Bing,https://www.bing.com/search?q=LLMiser+project+index+paths,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M10-S1,LLMiser project index paths,Brave,https://search.brave.com/search?q=LLMiser+project+index+paths,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M10-S1,LLMiser project index paths,DuckDuckGo,https://duckduckgo.com/?q=LLMiser+project+index+paths,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M10-S2,LLMiser manifest completeness,Google,https://www.google.com/search?hl=en&gl=us&q=LLMiser+manifest+completeness,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M10-S2,LLMiser manifest completeness,Bing,https://www.bing.com/search?q=LLMiser+manifest+completeness,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M10-S2,LLMiser manifest completeness,Brave,https://search.brave.com/search?q=LLMiser+manifest+completeness,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M10-S2,LLMiser manifest completeness,DuckDuckGo,https://duckduckgo.com/?q=LLMiser+manifest+completeness,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M10-S3,LLMiser missing ZIP content,Google,https://www.google.com/search?hl=en&gl=us&q=LLMiser+missing+ZIP+content,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M10-S3,LLMiser missing ZIP content,Bing,https://www.bing.com/search?q=LLMiser+missing+ZIP+content,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M10-S3,LLMiser missing ZIP content,Brave,https://search.brave.com/search?q=LLMiser+missing+ZIP+content,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M10-S3,LLMiser missing ZIP content,DuckDuckGo,https://duckduckgo.com/?q=LLMiser+missing+ZIP+content,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M11-S1,untrusted document instructions,Google,https://www.google.com/search?hl=en&gl=us&q=untrusted+document+instructions,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M11-S1,untrusted document instructions,Bing,https://www.bing.com/search?q=untrusted+document+instructions,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M11-S1,untrusted document instructions,Brave,https://search.brave.com/search?q=untrusted+document+instructions,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M11-S1,untrusted document instructions,DuckDuckGo,https://duckduckgo.com/?q=untrusted+document+instructions,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M11-S2,Markdown conversion prompt injection,Google,https://www.google.com/search?hl=en&gl=us&q=Markdown+conversion+prompt+injection,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M11-S2,Markdown conversion prompt injection,Bing,https://www.bing.com/search?q=Markdown+conversion+prompt+injection,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M11-S2,Markdown conversion prompt injection,Brave,https://search.brave.com/search?q=Markdown+conversion+prompt+injection,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M11-S2,Markdown conversion prompt injection,DuckDuckGo,https://duckduckgo.com/?q=Markdown+conversion+prompt+injection,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M11-S3,AI actions from external documents,Google,https://www.google.com/search?hl=en&gl=us&q=AI+actions+from+external+documents,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M11-S3,AI actions from external documents,Bing,https://www.bing.com/search?q=AI+actions+from+external+documents,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M11-S3,AI actions from external documents,Brave,https://search.brave.com/search?q=AI+actions+from+external+documents,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M11-S3,AI actions from external documents,DuckDuckGo,https://duckduckgo.com/?q=AI+actions+from+external+documents,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M12-S1,label document versions AI,Google,https://www.google.com/search?hl=en&gl=us&q=label+document+versions+AI,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M12-S1,label document versions AI,Bing,https://www.bing.com/search?q=label+document+versions+AI,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M12-S1,label document versions AI,Brave,https://search.brave.com/search?q=label+document+versions+AI,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M12-S1,label document versions AI,DuckDuckGo,https://duckduckgo.com/?q=label+document+versions+AI,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M12-S2,conflicting policy passages AI,Google,https://www.google.com/search?hl=en&gl=us&q=conflicting+policy+passages+AI,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M12-S2,conflicting policy passages AI,Bing,https://www.bing.com/search?q=conflicting+policy+passages+AI,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M12-S2,conflicting policy passages AI,Brave,https://search.brave.com/search?q=conflicting+policy+passages+AI,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M12-S2,conflicting policy passages AI,DuckDuckGo,https://duckduckgo.com/?q=conflicting+policy+passages+AI,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M12-S3,stale excerpts AI context,Google,https://www.google.com/search?hl=en&gl=us&q=stale+excerpts+AI+context,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M12-S3,stale excerpts AI context,Bing,https://www.bing.com/search?q=stale+excerpts+AI+context,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M12-S3,stale excerpts AI context,Brave,https://search.brave.com/search?q=stale+excerpts+AI+context,RESEARCH_LINK_ONLY_NOT_EXECUTED
+M12-S3,stale excerpts AI context,DuckDuckGo,https://duckduckgo.com/?q=stale+excerpts+AI+context,RESEARCH_LINK_ONLY_NOT_EXECUTED

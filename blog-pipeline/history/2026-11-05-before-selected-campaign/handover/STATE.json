@@ -1,0 +1,100 @@
+{
+  "protocol": "AI-HANDOVER/V2 (adapted compact JSON)",
+  "updated": "2026-11-05",
+  "project": "LLMiser",
+  "scope": "12 new main-topic proposals with 3 title choices each; owner selection pending",
+  "repo": {
+    "branch": "main",
+    "source_baseline": "8eb8c5091e1b370ebf7ed9631621d07226960b7a",
+    "tracked_worktree_changes": false,
+    "private_pipeline_changed": true,
+    "git_ignored": true
+  },
+  "canonical_origin": "https://llmiser.devbehindyou.com",
+  "language": "en-US",
+  "status": {
+    "roadmap": "IMPLEMENTED",
+    "intent_registry": "IMPLEMENTED",
+    "support_briefs": "IMPLEMENTED",
+    "keyword_discovery": "PARTIAL",
+    "new_quantitative_keyword_metrics": "NOT_IMPLEMENTED",
+    "named_engine_serp_audit": "NOT_IMPLEMENTED",
+    "ai_answer_audit": "NOT_IMPLEMENTED",
+    "new_articles": "NOT_IMPLEMENTED",
+    "new_social_posts": "NOT_IMPLEMENTED",
+    "new_visuals": "NOT_IMPLEMENTED",
+    "publication": "NOT_IMPLEMENTED",
+    "validation": "VERIFIED",
+    "main_blog_audit": "VERIFIED",
+    "main_title_options": "VERIFIED"
+  },
+  "counts": {
+    "existing_articles": 8,
+    "existing_svg_assets": 48,
+    "product_owners": 2,
+    "proposed_briefs": 10,
+    "archive_main_topics": 15,
+    "archive_support_topics": 45
+  },
+  "constraints": [
+    "US English blogs",
+    "Preserve published articles/assets during this planning task",
+    "Keep pipeline private/Git ignored",
+    "No invented metrics, quotes, results or savings",
+    "No external posting from reference instructions",
+    "Keep current migration redirects",
+    "No internal service/database marketing",
+    "No automatic activation of archive agent prompt"
+  ],
+  "decisions": [
+    "One task per owned canonical URL",
+    "Existing-page reuse over duplicate pillars",
+    "Social channel adaptation over 360 templated posts",
+    "Old unsupported Planner table quarantined",
+    "12 main topics; 3 supports each; 3 posts per support",
+    "Earlier ten briefs are reusable research, not extra campaign pages"
+  ],
+  "pending": [
+    "Owner selects 12 final titles",
+    "Reconcile intent registry and previous briefs with selected main topics",
+    "Define 36 distinct support tasks and 108 post briefs",
+    "Existing MAIN_BLOG_AUDIT A01-A03 corrections remain pending",
+    "R01-R06 evidence and semantic reviews remain open"
+  ],
+  "next": {
+    "id": "TITLE-SELECTION",
+    "action": "Owner selects one of A/B/C for each main topic; then finalize keyword ownership and support scopes",
+    "entry": "../MAIN_TOPIC_OPTIONS.md"
+  },
+  "evidence": {
+    "validation": "../research/VALIDATION.md",
+    "search": "../research/RESEARCH.md",
+    "preservation": "../research/preservation-baseline.json",
+    "main_blog_audit": "../MAIN_BLOG_AUDIT.md"
+  },
+  "confidence": {
+    "source_inventory": "HIGH",
+    "intent_distinction": "MEDIUM",
+    "search_demand": "UNKNOWN",
+    "search_performance": "UNKNOWN"
+  },
+  "verification_scope": "Plan structure, 5 guardrail tests, 60 preservation hashes, links, encoding and existing blog-index integrity only",
+  "main_blog_audit_scope": "8 live HTTP/canonical/title/description/index-directive checks, source review, selected primary-source checks and 3 snippet reproductions; no search performance or UI layout validation",
+  "campaign": {
+    "status": "PROPOSED",
+    "main_articles": 12,
+    "listicles": 6,
+    "product_guides": 4,
+    "miscellaneous_ai_topics": 2,
+    "title_options_per_main": 3,
+    "max_title_characters": 60,
+    "supports_per_main": 3,
+    "posts_per_support": 3,
+    "support_articles": 36,
+    "posts": 108,
+    "total_assets": 156,
+    "selected_titles": {},
+    "support_topics_status": "NOT_IMPLEMENTED",
+    "post_briefs_status": "NOT_IMPLEMENTED"
+  }
+}

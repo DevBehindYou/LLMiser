@@ -1,0 +1,18 @@
+{
+  "selected_at": "2026-11-05",
+  "source": "Explicit user title selections",
+  "titles": {
+    "M01": "7 Things to Remove Before Sharing a Codebase With AI",
+    "M02": "9 OCR Checks Before You Send Scanned Text to AI",
+    "M03": "7 Excel Details to Check Before Sharing Data With AI",
+    "M04": "6 Ways to Prepare Word Documents for AI",
+    "M05": "8 Checks When Converting PowerPoint to Markdown",
+    "M06": "7 Ways to Prepare Cleaner CSV Data for AI",
+    "M07": "How to Convert Multiple Files With LLMiser",
+    "M08": "LLMiser Profiles: Standard, Clean, Compact, RAG-ready",
+    "M09": "How to Edit and Export Markdown With LLMiser",
+    "M10": "How to Read LLMiser's ZIP Index and Manifest",
+    "M11": "Prompt Injection: Can a Document Hijack Your AI?",
+    "M12": "Why Two Versions of a Document Can Confuse AI"
+  }
+}

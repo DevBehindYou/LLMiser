@@ -1,0 +1,1658 @@
+{
+  "schema_version": 1,
+  "updated": "2026-11-05",
+  "base_commit": "8eb8c5091e1b370ebf7ed9631621d07226960b7a",
+  "origin": "https://llmiser.devbehindyou.com",
+  "language": "en-US",
+  "scope": "Eight existing blogs plus twelve selected main titles and thirty-six proposed supports; no publication",
+  "records": [
+    {
+      "id": "HOME",
+      "canonical": "https://llmiser.devbehindyou.com",
+      "kind": "product",
+      "status": "IMPLEMENTED",
+      "intent_key": "converter-transaction",
+      "primary_keyword": "LLM cost optimizer",
+      "reserved_aliases": [
+        "pdf to markdown",
+        "pdf to markdown converter",
+        "pdf to md",
+        "markdown converter"
+      ],
+      "intent": "Use the live document converter",
+      "source": "frontend/lib/siteContent.js",
+      "owner": null
+    },
+    {
+      "id": "USE",
+      "canonical": "https://llmiser.devbehindyou.com/usecase",
+      "kind": "product",
+      "status": "IMPLEMENTED",
+      "intent_key": "product-benefits",
+      "primary_keyword": "why use LLMiser",
+      "reserved_aliases": [],
+      "intent": "Understand product benefits and limitations",
+      "source": "frontend/lib/siteContent.js",
+      "owner": null
+    },
+    {
+      "id": "E01",
+      "canonical": "https://llmiser.devbehindyou.com/blog/reduce-llm-api-costs",
+      "kind": "existing",
+      "status": "IMPLEMENTED",
+      "intent_key": "existing-reduce-llm-api-costs",
+      "primary_keyword": "reduce LLM API costs",
+      "reserved_aliases": [
+        "LLM cost optimization"
+      ],
+      "observed_secondary_keywords": [
+        "LLM cost optimization",
+        "AI API cost reduction"
+      ],
+      "intent": "Reduce provider API spend through actionable techniques",
+      "title": "How to Reduce LLM API Costs Without Losing Quality",
+      "description": "Reduce LLM API costs without hurting quality: batch async work, cache repeated prompts, shrink documents, route easy requests and cap output. With real prices.",
+      "source": "frontend/content/blog/reduce-llm-api-costs.md",
+      "source_sha256": "83f7d1cd950e6b9595e65d1fc259e0db570bf72020922d21c5c4d977e61b1aac",
+      "owner": null,
+      "notes": "Source inventory only; current indexing and performance not verified."
+    },
+    {
+      "id": "E02",
+      "canonical": "https://llmiser.devbehindyou.com/blog/why-your-llm-bill-is-too-high",
+      "kind": "existing",
+      "status": "IMPLEMENTED",
+      "intent_key": "existing-why-your-llm-bill-is-too-high",
+      "primary_keyword": "LLM API cost",
+      "reserved_aliases": [],
+      "observed_secondary_keywords": [
+        "AI API costs",
+        "LLM cost optimization"
+      ],
+      "intent": "Diagnose why an API bill is unexpectedly high",
+      "title": "Why Your LLM Bill Is Too High, and Where the Waste Hides",
+      "description": "Your LLM API cost is often inflated by repeated prompts, endless history, raw PDFs, off-topic retrieval, wordy output and an overkill model. Find the leaks.",
+      "source": "frontend/content/blog/why-your-llm-bill-is-too-high.md",
+      "source_sha256": "dcd885cd252de23be5c2af4234466a94ee2baba5709e93f835dff397bbe97a6f",
+      "owner": null,
+      "notes": "Source inventory only; current indexing and performance not verified."
+    },
+    {
+      "id": "E03",
+      "canonical": "https://llmiser.devbehindyou.com/blog/reduce-llm-token-usage",
+      "kind": "existing",
+      "status": "IMPLEMENTED",
+      "intent_key": "existing-reduce-llm-token-usage",
+      "primary_keyword": "LLM token usage",
+      "reserved_aliases": [],
+      "observed_secondary_keywords": [
+        "reduce token usage",
+        "LLM token optimization"
+      ],
+      "intent": "Audit excess input history and output tokens",
+      "title": "Why Your LLM Token Usage Is So High, and How to Fix It",
+      "description": "High LLM token usage rarely comes from your questions. Find the hidden causes: raw PDFs, chat history, big prompts, duplicate text and whole documents.",
+      "source": "frontend/content/blog/reduce-llm-token-usage.md",
+      "source_sha256": "46c1e047421a15a6d384d485f6f1c23d49378d382ef1d434ce64d46c94563e5c",
+      "owner": null,
+      "notes": "Source inventory only; current indexing and performance not verified."
+    },
+    {
+      "id": "E04",
+      "canonical": "https://llmiser.devbehindyou.com/blog/rag-cost-optimization",
+      "kind": "existing",
+      "status": "IMPLEMENTED",
+      "intent_key": "existing-rag-cost-optimization",
+      "primary_keyword": "RAG cost",
+      "reserved_aliases": [],
+      "observed_secondary_keywords": [
+        "RAG cost optimization",
+        "RAG token usage"
+      ],
+      "intent": "Understand full-lifecycle RAG costs",
+      "title": "The Real Cost of RAG: Embeddings, Tokens and Re-Ranking",
+      "description": "The real RAG cost is rarely embeddings. See where retrieval pipelines spend, from parsing to generation, and how to cut cost without hurting relevance.",
+      "source": "frontend/content/blog/rag-cost-optimization.md",
+      "source_sha256": "0fb8ba2292563c67259ebc451e7a4d9784d98e0490424c095031305bb9e4d5ad",
+      "owner": null,
+      "notes": "Source inventory only; current indexing and performance not verified."
+    },
+    {
+      "id": "E05",
+      "canonical": "https://llmiser.devbehindyou.com/blog/hidden-token-tax-rag-pipelines",
+      "kind": "existing",
+      "status": "IMPLEMENTED",
+      "intent_key": "existing-hidden-token-tax-rag-pipelines",
+      "primary_keyword": "RAG token optimization",
+      "reserved_aliases": [],
+      "observed_secondary_keywords": [
+        "RAG token cost",
+        "RAG context optimization"
+      ],
+      "intent": "Tune retrieved context waste overlap and top-K",
+      "title": "The Hidden Token Tax in RAG Pipelines",
+      "description": "RAG token optimization starts before generation: oversized chunks, overlap, duplicate retrieval and loose top-K inflate context. Learn to cut the tax.",
+      "source": "frontend/content/blog/hidden-token-tax-rag-pipelines.md",
+      "source_sha256": "a70faafd99908bd2307b8df23fbcabfa829d90e6e43cea8ee2bd92dccf1decf7",
+      "owner": null,
+      "notes": "Source inventory only; current indexing and performance not verified."
+    },
+    {
+      "id": "E06",
+      "canonical": "https://llmiser.devbehindyou.com/blog/why-pdfs-are-expensive-for-ai",
+      "kind": "existing",
+      "status": "IMPLEMENTED",
+      "intent_key": "existing-why-pdfs-are-expensive-for-ai",
+      "primary_keyword": "PDF LLM tokens",
+      "reserved_aliases": [],
+      "observed_secondary_keywords": [
+        "PDF processing for AI",
+        "PDF to Markdown"
+      ],
+      "intent": "Explain how PDF ingestion paths affect tokens",
+      "title": "PDFs Are Expensive for AI: Here's Why",
+      "description": "PDF LLM tokens add up fast: page images, repeated headers, broken columns and flattened tables. See why PDFs cost AI more, and the fix that works.",
+      "source": "frontend/content/blog/why-pdfs-are-expensive-for-ai.md",
+      "source_sha256": "c68924be71eb0879091e448f4568de79467ae46e3d7b2ab0b5987caf80f13c9b",
+      "owner": null,
+      "notes": "Source inventory only; current indexing and performance not verified."
+    },
+    {
+      "id": "E07",
+      "canonical": "https://llmiser.devbehindyou.com/blog/markdown-vs-pdf-llm-tokens",
+      "kind": "existing",
+      "status": "IMPLEMENTED",
+      "intent_key": "existing-markdown-vs-pdf-llm-tokens",
+      "primary_keyword": "Markdown vs PDF for LLM",
+      "reserved_aliases": [],
+      "observed_secondary_keywords": [
+        "PDF to Markdown for AI",
+        "reduce LLM tokens"
+      ],
+      "intent": "Compare PDF and Markdown input representations conditionally",
+      "title": "Markdown vs Raw PDFs: Which Uses Fewer LLM Tokens?",
+      "description": "Markdown vs PDF for LLM input: in our worked example, a 500-word page is about 667 tokens as Markdown and 2,235 as a PDF page. See where the gap comes from.",
+      "source": "frontend/content/blog/markdown-vs-pdf-llm-tokens.md",
+      "source_sha256": "81334d9c984e3fe4c4470139dcc7cb2a4f31116cc1b849ab56cd47b633921d4a",
+      "owner": null,
+      "notes": "Source inventory only; current indexing and performance not verified."
+    },
+    {
+      "id": "E08",
+      "canonical": "https://llmiser.devbehindyou.com/blog/document-to-llm-pipeline",
+      "kind": "existing",
+      "status": "IMPLEMENTED",
+      "intent_key": "existing-document-to-llm-pipeline",
+      "primary_keyword": "document to LLM pipeline",
+      "reserved_aliases": [],
+      "observed_secondary_keywords": [
+        "LLM document processing",
+        "AI document pipeline"
+      ],
+      "intent": "Understand the end-to-end document ingestion pipeline",
+      "title": "Stop Sending Whole Documents to AI: Build a Better Pipeline",
+      "description": "Build a document to LLM pipeline that extracts, cleans, chunks and retrieves, so each question sends a few relevant sections instead of the whole file.",
+      "source": "frontend/content/blog/document-to-llm-pipeline.md",
+      "source_sha256": "a10444f6b8c5e3620fc89ee23b3c615411a60d26bdf20dbcf0226c1db1cf7ca3",
+      "owner": null,
+      "notes": "Source inventory only; current indexing and performance not verified."
+    },
+    {
+      "id": "M01",
+      "kind": "planned",
+      "campaign_role": "main",
+      "status": "PROPOSED",
+      "title_selection": "USER_SELECTED",
+      "title": "7 Things to Remove Before Sharing a Codebase With AI",
+      "canonical": "https://llmiser.devbehindyou.com/blog/prepare-codebase-for-ai",
+      "intent_key": "prepare-codebase-for-ai",
+      "primary_keyword": "prepare codebase for AI",
+      "reserved_aliases": [],
+      "intent": "Keep task-relevant source, tests and dependency manifests. Removal is a reviewed choice, not automatic sanitization.",
+      "description": "Prepare a codebase for AI review by removing unnecessary or sensitive files while keeping the source, tests and dependency context the task needs.",
+      "parent_id": "E08",
+      "nearest_ids": [
+        "M10",
+        "E08"
+      ],
+      "excludes": "Keep task-relevant source, tests and dependency manifests. Removal is a reviewed choice, not automatic sanitization.",
+      "brief": "campaign/main-briefs/M01.md",
+      "owner": null,
+      "volume": null,
+      "difficulty": null,
+      "measurement_status": "UNMEASURED",
+      "source_refs": [
+        "SRC-GIT",
+        "SRC-LOCAL"
+      ],
+      "publication_gate": "Evidence, semantic review and content checks pending"
+    },
+    {
+      "id": "M02",
+      "kind": "planned",
+      "campaign_role": "main",
+      "status": "PROPOSED",
+      "title_selection": "USER_SELECTED",
+      "title": "9 OCR Checks Before You Send Scanned Text to AI",
+      "canonical": "https://llmiser.devbehindyou.com/blog/ocr-checks-before-ai",
+      "intent_key": "ocr-checks-before-ai",
+      "primary_keyword": "OCR quality checks for AI",
+      "reserved_aliases": [],
+      "intent": "A quality checklist, not a second PDF-cost article or a guarantee of accurate recognition.",
+      "description": "Check OCR output before using scanned text with AI. Review page coverage, numbers, reading order and tables against the original document.",
+      "parent_id": "E08",
+      "nearest_ids": [
+        "E06",
+        "E07",
+        "E08"
+      ],
+      "excludes": "A quality checklist, not a second PDF-cost article or a guarantee of accurate recognition.",
+      "brief": "campaign/main-briefs/M02.md",
+      "owner": null,
+      "volume": null,
+      "difficulty": null,
+      "measurement_status": "UNMEASURED",
+      "source_refs": [
+        "SRC-LOCAL",
+        "SRC-OCR-RESEARCH"
+      ],
+      "publication_gate": "Evidence, semantic review and content checks pending"
+    },
+    {
+      "id": "M03",
+      "kind": "planned",
+      "campaign_role": "main",
+      "status": "PROPOSED",
+      "title_selection": "USER_SELECTED",
+      "title": "7 Excel Details to Check Before Sharing Data With AI",
+      "canonical": "https://llmiser.devbehindyou.com/blog/excel-data-checks-for-ai",
+      "intent_key": "excel-data-checks-for-ai",
+      "primary_keyword": "prepare Excel data for AI",
+      "reserved_aliases": [],
+      "intent": "Own workbook semantics; delimiters and delimited-file encoding belong to M06.",
+      "description": "Prepare Excel data for AI by checking sheets, headers, identifiers, formula results and missing context before using converted Markdown.",
+      "parent_id": "E08",
+      "nearest_ids": [
+        "M06",
+        "E08"
+      ],
+      "excludes": "Own workbook semantics; delimiters and delimited-file encoding belong to M06.",
+      "brief": "campaign/main-briefs/M03.md",
+      "owner": null,
+      "volume": null,
+      "difficulty": null,
+      "measurement_status": "UNMEASURED",
+      "source_refs": [
+        "SRC-EXCEL",
+        "SRC-LOCAL"
+      ],
+      "publication_gate": "Evidence, semantic review and content checks pending"
+    },
+    {
+      "id": "M04",
+      "kind": "planned",
+      "campaign_role": "main",
+      "status": "PROPOSED",
+      "title_selection": "USER_SELECTED",
+      "title": "6 Ways to Prepare Word Documents for AI",
+      "canonical": "https://llmiser.devbehindyou.com/blog/prepare-word-documents-for-ai",
+      "intent_key": "prepare-word-documents-for-ai",
+      "primary_keyword": "prepare Word documents for AI",
+      "reserved_aliases": [],
+      "intent": "DOCX source preparation, not legacy .doc support or guaranteed formatting preservation.",
+      "description": "Prepare Word documents for AI with clearer headings, lists and tables. Review revisions and inspect the Markdown before sharing it.",
+      "parent_id": "E08",
+      "nearest_ids": [
+        "E08"
+      ],
+      "excludes": "DOCX source preparation, not legacy .doc support or guaranteed formatting preservation.",
+      "brief": "campaign/main-briefs/M04.md",
+      "owner": null,
+      "volume": null,
+      "difficulty": null,
+      "measurement_status": "UNMEASURED",
+      "source_refs": [
+        "SRC-HEADINGS",
+        "SRC-LOCAL"
+      ],
+      "publication_gate": "Evidence, semantic review and content checks pending"
+    },
+    {
+      "id": "M05",
+      "kind": "planned",
+      "campaign_role": "main",
+      "status": "PROPOSED",
+      "title_selection": "USER_SELECTED",
+      "title": "8 Checks When Converting PowerPoint to Markdown",
+      "canonical": "https://llmiser.devbehindyou.com/blog/powerpoint-to-markdown-checks",
+      "intent_key": "powerpoint-to-markdown-checks",
+      "primary_keyword": "PowerPoint to Markdown",
+      "reserved_aliases": [],
+      "intent": "Verify notes and chart behavior; do not imply all slide information becomes text.",
+      "description": "Check PowerPoint-to-Markdown output for slide order, notes, charts and missing context before using the converted text with AI.",
+      "parent_id": "E08",
+      "nearest_ids": [
+        "E07",
+        "E08"
+      ],
+      "excludes": "Verify notes and chart behavior; do not imply all slide information becomes text.",
+      "brief": "campaign/main-briefs/M05.md",
+      "owner": null,
+      "volume": null,
+      "difficulty": null,
+      "measurement_status": "UNMEASURED",
+      "source_refs": [
+        "SRC-LOCAL"
+      ],
+      "publication_gate": "Evidence, semantic review and content checks pending"
+    },
+    {
+      "id": "M06",
+      "kind": "planned",
+      "campaign_role": "main",
+      "status": "PROPOSED",
+      "title_selection": "USER_SELECTED",
+      "title": "7 Ways to Prepare Cleaner CSV Data for AI",
+      "canonical": "https://llmiser.devbehindyou.com/blog/prepare-csv-data-for-ai",
+      "intent_key": "prepare-csv-data-for-ai",
+      "primary_keyword": "prepare CSV data for AI",
+      "reserved_aliases": [],
+      "intent": "Own delimited-text preparation. Workbook styles, formulas and sheets stay with M03.",
+      "description": "Prepare CSV data for AI by reviewing delimiters, quoting, encoding, headers and missing fields before conversion.",
+      "parent_id": "E08",
+      "nearest_ids": [
+        "M03"
+      ],
+      "excludes": "Own delimited-text preparation. Workbook styles, formulas and sheets stay with M03.",
+      "brief": "campaign/main-briefs/M06.md",
+      "owner": null,
+      "volume": null,
+      "difficulty": null,
+      "measurement_status": "UNMEASURED",
+      "source_refs": [
+        "SRC-CSV",
+        "SRC-LOCAL"
+      ],
+      "publication_gate": "Evidence, semantic review and content checks pending"
+    },
+    {
+      "id": "M07",
+      "kind": "planned",
+      "campaign_role": "main",
+      "status": "PROPOSED",
+      "title_selection": "USER_SELECTED",
+      "title": "How to Convert Multiple Files With LLMiser",
+      "canonical": "https://llmiser.devbehindyou.com/blog/convert-multiple-files-llmiser",
+      "intent_key": "convert-multiple-files-llmiser",
+      "primary_keyword": "LLMiser batch conversion",
+      "reserved_aliases": [],
+      "intent": "Batch intake and per-file outcomes; deeper editing/export belongs to M09.",
+      "description": "Learn how to convert multiple files with LLMiser, review each result, handle partial failures and download your Markdown outputs.",
+      "parent_id": "E08",
+      "nearest_ids": [
+        "M09"
+      ],
+      "excludes": "Batch intake and per-file outcomes; deeper editing/export belongs to M09.",
+      "brief": "campaign/main-briefs/M07.md",
+      "owner": null,
+      "volume": null,
+      "difficulty": null,
+      "measurement_status": "UNMEASURED",
+      "source_refs": [
+        "SRC-LOCAL"
+      ],
+      "publication_gate": "Evidence, semantic review and content checks pending"
+    },
+    {
+      "id": "M08",
+      "kind": "planned",
+      "campaign_role": "main",
+      "status": "PROPOSED",
+      "title_selection": "USER_SELECTED",
+      "title": "LLMiser Profiles: Standard, Clean, Compact, RAG-ready",
+      "canonical": "https://llmiser.devbehindyou.com/blog/llmiser-processing-profiles",
+      "intent_key": "llmiser-processing-profiles",
+      "primary_keyword": "LLMiser processing profiles",
+      "reserved_aliases": [],
+      "intent": "Only shipped transformations; a profile is not a retriever, tokenizer or semantic repair tool.",
+      "description": "Compare Standard, Clean, Compact and RAG-ready in LLMiser. Choose a profile from actual output differences and review what changes.",
+      "parent_id": "E08",
+      "nearest_ids": [
+        "E03",
+        "E05",
+        "E08"
+      ],
+      "excludes": "Only shipped transformations; a profile is not a retriever, tokenizer or semantic repair tool.",
+      "brief": "campaign/main-briefs/M08.md",
+      "owner": null,
+      "volume": null,
+      "difficulty": null,
+      "measurement_status": "UNMEASURED",
+      "source_refs": [
+        "SRC-LOCAL",
+        "SRC-MARKDOWN"
+      ],
+      "publication_gate": "Evidence, semantic review and content checks pending"
+    },
+    {
+      "id": "M09",
+      "kind": "planned",
+      "campaign_role": "main",
+      "status": "PROPOSED",
+      "title_selection": "USER_SELECTED",
+      "title": "How to Edit and Export Markdown With LLMiser",
+      "canonical": "https://llmiser.devbehindyou.com/blog/edit-export-markdown-llmiser",
+      "intent_key": "edit-export-markdown-llmiser",
+      "primary_keyword": "edit Markdown in LLMiser",
+      "reserved_aliases": [],
+      "intent": "Post-conversion workflow; batch queue management belongs to M07.",
+      "description": "Use LLMiser to inspect, edit, copy and download Markdown. Check your exported file and distinguish edited text from original results.",
+      "parent_id": "E08",
+      "nearest_ids": [
+        "M07"
+      ],
+      "excludes": "Post-conversion workflow; batch queue management belongs to M07.",
+      "brief": "campaign/main-briefs/M09.md",
+      "owner": null,
+      "volume": null,
+      "difficulty": null,
+      "measurement_status": "UNMEASURED",
+      "source_refs": [
+        "SRC-LOCAL",
+        "SRC-MARKDOWN"
+      ],
+      "publication_gate": "Evidence, semantic review and content checks pending"
+    },
+    {
+      "id": "M10",
+      "kind": "planned",
+      "campaign_role": "main",
+      "status": "PROPOSED",
+      "title_selection": "USER_SELECTED",
+      "title": "How to Read LLMiser's ZIP Index and Manifest",
+      "canonical": "https://llmiser.devbehindyou.com/blog/llmiser-zip-index-manifest",
+      "intent_key": "llmiser-zip-index-manifest",
+      "primary_keyword": "LLMiser ZIP manifest",
+      "reserved_aliases": [],
+      "intent": "Artifact interpretation after conversion; pre-upload exclusions belong to M01.",
+      "description": "Read the project index and manifest from a LLMiser ZIP conversion. Check paths, outcomes and missing content before using the results.",
+      "parent_id": "E08",
+      "nearest_ids": [
+        "M01",
+        "E08"
+      ],
+      "excludes": "Artifact interpretation after conversion; pre-upload exclusions belong to M01.",
+      "brief": "campaign/main-briefs/M10.md",
+      "owner": null,
+      "volume": null,
+      "difficulty": null,
+      "measurement_status": "UNMEASURED",
+      "source_refs": [
+        "SRC-LOCAL"
+      ],
+      "publication_gate": "Evidence, semantic review and content checks pending"
+    },
+    {
+      "id": "M11",
+      "kind": "planned",
+      "campaign_role": "main",
+      "status": "PROPOSED",
+      "title_selection": "USER_SELECTED",
+      "title": "Prompt Injection: Can a Document Hijack Your AI?",
+      "canonical": "https://llmiser.devbehindyou.com/blog/document-prompt-injection",
+      "intent_key": "document-prompt-injection",
+      "primary_keyword": "document prompt injection",
+      "reserved_aliases": [],
+      "intent": "Education only: LLMiser is not a prompt-injection detector or security boundary.",
+      "description": "Learn how instructions inside a document can redirect an AI task, why format conversion does not establish trust, and what to review.",
+      "parent_id": "E08",
+      "nearest_ids": [
+        "M12"
+      ],
+      "excludes": "Education only: LLMiser is not a prompt-injection detector or security boundary.",
+      "brief": "campaign/main-briefs/M11.md",
+      "owner": null,
+      "volume": null,
+      "difficulty": null,
+      "measurement_status": "UNMEASURED",
+      "source_refs": [
+        "SRC-OWASP",
+        "SRC-INJECTION"
+      ],
+      "publication_gate": "Evidence, semantic review and content checks pending"
+    },
+    {
+      "id": "M12",
+      "kind": "planned",
+      "campaign_role": "main",
+      "status": "PROPOSED",
+      "title_selection": "USER_SELECTED",
+      "title": "Why Two Versions of a Document Can Confuse AI",
+      "canonical": "https://llmiser.devbehindyou.com/blog/conflicting-document-versions-ai",
+      "intent_key": "conflicting-document-versions-ai",
+      "primary_keyword": "conflicting document versions AI",
+      "reserved_aliases": [],
+      "intent": "Document provenance/conflicts, not another generic RAG, hallucination or deduplication guide.",
+      "description": "Understand how conflicting document versions affect AI context. Keep provenance, effective dates and source scope clear before asking a question.",
+      "parent_id": "E08",
+      "nearest_ids": [
+        "E05",
+        "M11"
+      ],
+      "excludes": "Document provenance/conflicts, not another generic RAG, hallucination or deduplication guide.",
+      "brief": "campaign/main-briefs/M12.md",
+      "owner": null,
+      "volume": null,
+      "difficulty": null,
+      "measurement_status": "UNMEASURED",
+      "source_refs": [
+        "SRC-RETRIEVAL"
+      ],
+      "publication_gate": "Evidence, semantic review and content checks pending"
+    },
+    {
+      "id": "M01-S1",
+      "kind": "planned",
+      "campaign_role": "support",
+      "status": "PROPOSED",
+      "title_selection": "EDITORIAL_PROPOSAL",
+      "title": "Check a Project ZIP for Secrets Before Sharing It",
+      "canonical": "https://llmiser.devbehindyou.com/blog/project-zip-secret-review",
+      "intent_key": "project-zip-secret-review",
+      "primary_keyword": "check code ZIP for secrets",
+      "reserved_aliases": [],
+      "intent": "How do I review a sharing copy for credentials and private data?",
+      "description": "How do I review a sharing copy for credentials and private data? See a practical example, checks and limitations.",
+      "parent_id": "M01",
+      "nearest_ids": [
+        "M01-S2",
+        "M01-S3",
+        "M01"
+      ],
+      "excludes": "Do not use real secrets or imply the converter detects credentials. Main checklist and sibling questions remain with their owners.",
+      "brief": "campaign/support-briefs/M01-S1.md",
+      "owner": null,
+      "volume": null,
+      "difficulty": null,
+      "measurement_status": "UNMEASURED",
+      "source_refs": [
+        "SRC-GIT",
+        "SRC-LOCAL"
+      ],
+      "publication_gate": "Original example and semantic review pending; parent must exist before promotion"
+    },
+    {
+      "id": "M01-S2",
+      "kind": "planned",
+      "campaign_role": "support",
+      "status": "PROPOSED",
+      "title_selection": "EDITORIAL_PROPOSAL",
+      "title": "Which Dependency Files Should You Keep for AI Review?",
+      "canonical": "https://llmiser.devbehindyou.com/blog/dependency-files-ai-review",
+      "intent_key": "dependency-files-ai-review",
+      "primary_keyword": "dependency files for AI code review",
+      "reserved_aliases": [],
+      "intent": "What should remain when installed packages are removed?",
+      "description": "What should remain when installed packages are removed? See a practical example, checks and limitations.",
+      "parent_id": "M01",
+      "nearest_ids": [
+        "M01-S1",
+        "M01-S3",
+        "M01"
+      ],
+      "excludes": "Do not prescribe removing all lockfiles or all vendored source. Main checklist and sibling questions remain with their owners.",
+      "brief": "campaign/support-briefs/M01-S2.md",
+      "owner": null,
+      "volume": null,
+      "difficulty": null,
+      "measurement_status": "UNMEASURED",
+      "source_refs": [
+        "SRC-GIT",
+        "SRC-LOCAL"
+      ],
+      "publication_gate": "Original example and semantic review pending; parent must exist before promotion"
+    },
+    {
+      "id": "M01-S3",
+      "kind": "planned",
+      "campaign_role": "support",
+      "status": "PROPOSED",
+      "title_selection": "EDITORIAL_PROPOSAL",
+      "title": "Build a Task-Focused Code Bundle With Tests",
+      "canonical": "https://llmiser.devbehindyou.com/blog/task-focused-code-bundle",
+      "intent_key": "task-focused-code-bundle",
+      "primary_keyword": "task focused code bundle",
+      "reserved_aliases": [],
+      "intent": "How do I select enough source and tests for one code question?",
+      "description": "How do I select enough source and tests for one code question? See a practical example, checks and limitations.",
+      "parent_id": "M01",
+      "nearest_ids": [
+        "M01-S1",
+        "M01-S2",
+        "M01"
+      ],
+      "excludes": "No universal file-count or answer-quality improvement promise. Main checklist and sibling questions remain with their owners.",
+      "brief": "campaign/support-briefs/M01-S3.md",
+      "owner": null,
+      "volume": null,
+      "difficulty": null,
+      "measurement_status": "UNMEASURED",
+      "source_refs": [
+        "SRC-GIT",
+        "SRC-LOCAL"
+      ],
+      "publication_gate": "Original example and semantic review pending; parent must exist before promotion"
+    },
+    {
+      "id": "M02-S1",
+      "kind": "planned",
+      "campaign_role": "support",
+      "status": "PROPOSED",
+      "title_selection": "EDITORIAL_PROPOSAL",
+      "title": "Check Rotated Scans Before Running OCR",
+      "canonical": "https://llmiser.devbehindyou.com/blog/rotated-scan-ocr-check",
+      "intent_key": "rotated-scan-ocr-check",
+      "primary_keyword": "rotated scan OCR check",
+      "reserved_aliases": [],
+      "intent": "How does orientation affect recognition in a specific sample?",
+      "description": "How does orientation affect recognition in a specific sample? See a practical example, checks and limitations.",
+      "parent_id": "M02",
+      "nearest_ids": [
+        "M02-S2",
+        "M02-S3",
+        "M02"
+      ],
+      "excludes": "Do not claim LLMiser always corrects rotation automatically. Main checklist and sibling questions remain with their owners.",
+      "brief": "campaign/support-briefs/M02-S1.md",
+      "owner": null,
+      "volume": null,
+      "difficulty": null,
+      "measurement_status": "UNMEASURED",
+      "source_refs": [
+        "SRC-LOCAL",
+        "SRC-OCR-RESEARCH"
+      ],
+      "publication_gate": "Original example and semantic review pending; parent must exist before promotion"
+    },
+    {
+      "id": "M02-S2",
+      "kind": "planned",
+      "campaign_role": "support",
+      "status": "PROPOSED",
+      "title_selection": "EDITORIAL_PROPOSAL",
+      "title": "Verify Numbers and Identifiers in OCR Output",
+      "canonical": "https://llmiser.devbehindyou.com/blog/verify-ocr-numbers",
+      "intent_key": "verify-ocr-numbers",
+      "primary_keyword": "verify numbers in OCR output",
+      "reserved_aliases": [],
+      "intent": "How do I verify digits and labels without trusting fluent OCR text?",
+      "description": "How do I verify digits and labels without trusting fluent OCR text? See a practical example, checks and limitations.",
+      "parent_id": "M02",
+      "nearest_ids": [
+        "M02-S1",
+        "M02-S3",
+        "M02"
+      ],
+      "excludes": "No financial recommendation; report character fidelity, not invented accuracy rates. Main checklist and sibling questions remain with their owners.",
+      "brief": "campaign/support-briefs/M02-S2.md",
+      "owner": null,
+      "volume": null,
+      "difficulty": null,
+      "measurement_status": "UNMEASURED",
+      "source_refs": [
+        "SRC-LOCAL",
+        "SRC-OCR-RESEARCH"
+      ],
+      "publication_gate": "Original example and semantic review pending; parent must exist before promotion"
+    },
+    {
+      "id": "M02-S3",
+      "kind": "planned",
+      "campaign_role": "support",
+      "status": "PROPOSED",
+      "title_selection": "EDITORIAL_PROPOSAL",
+      "title": "Check OCR Coverage in a Mixed PDF",
+      "canonical": "https://llmiser.devbehindyou.com/blog/mixed-pdf-ocr-coverage",
+      "intent_key": "mixed-pdf-ocr-coverage",
+      "primary_keyword": "mixed PDF OCR coverage",
+      "reserved_aliases": [],
+      "intent": "How do I confirm that a PDF with text and scanned pages is represented?",
+      "description": "How do I confirm that a PDF with text and scanned pages is represented? See a practical example, checks and limitations.",
+      "parent_id": "M02",
+      "nearest_ids": [
+        "M02-S1",
+        "M02-S2",
+        "M02"
+      ],
+      "excludes": "No page-level OCR routing or page-count guarantee without observed evidence. Main checklist and sibling questions remain with their owners.",
+      "brief": "campaign/support-briefs/M02-S3.md",
+      "owner": null,
+      "volume": null,
+      "difficulty": null,
+      "measurement_status": "UNMEASURED",
+      "source_refs": [
+        "SRC-LOCAL",
+        "SRC-OCR-RESEARCH"
+      ],
+      "publication_gate": "Original example and semantic review pending; parent must exist before promotion"
+    },
+    {
+      "id": "M03-S1",
+      "kind": "planned",
+      "campaign_role": "support",
+      "status": "PROPOSED",
+      "title_selection": "EDITORIAL_PROPOSAL",
+      "title": "Keep Leading Zeros When Preparing Excel Data for AI",
+      "canonical": "https://llmiser.devbehindyou.com/blog/excel-leading-zeros-ai",
+      "intent_key": "excel-leading-zeros-ai",
+      "primary_keyword": "Excel leading zeros AI",
+      "reserved_aliases": [],
+      "intent": "How do I distinguish identifiers from numeric quantities?",
+      "description": "How do I distinguish identifiers from numeric quantities? See a practical example, checks and limitations.",
+      "parent_id": "M03",
+      "nearest_ids": [
+        "M03-S2",
+        "M03-S3",
+        "M03"
+      ],
+      "excludes": "Display formatting and stored values may differ; conversion cannot restore lost digits. Main checklist and sibling questions remain with their owners.",
+      "brief": "campaign/support-briefs/M03-S1.md",
+      "owner": null,
+      "volume": null,
+      "difficulty": null,
+      "measurement_status": "UNMEASURED",
+      "source_refs": [
+        "SRC-EXCEL",
+        "SRC-LOCAL"
+      ],
+      "publication_gate": "Original example and semantic review pending; parent must exist before promotion"
+    },
+    {
+      "id": "M03-S2",
+      "kind": "planned",
+      "campaign_role": "support",
+      "status": "PROPOSED",
+      "title_selection": "EDITORIAL_PROPOSAL",
+      "title": "Check Excel Formula Results Before Conversion",
+      "canonical": "https://llmiser.devbehindyou.com/blog/excel-formula-results-conversion",
+      "intent_key": "excel-formula-results-conversion",
+      "primary_keyword": "Excel formula results conversion",
+      "reserved_aliases": [],
+      "intent": "What evidence shows whether formula results are current?",
+      "description": "What evidence shows whether formula results are current? See a practical example, checks and limitations.",
+      "parent_id": "M03",
+      "nearest_ids": [
+        "M03-S1",
+        "M03-S3",
+        "M03"
+      ],
+      "excludes": "Do not claim the converter recalculates formulas; record app and workbook provenance. Main checklist and sibling questions remain with their owners.",
+      "brief": "campaign/support-briefs/M03-S2.md",
+      "owner": null,
+      "volume": null,
+      "difficulty": null,
+      "measurement_status": "UNMEASURED",
+      "source_refs": [
+        "SRC-EXCEL",
+        "SRC-LOCAL"
+      ],
+      "publication_gate": "Original example and semantic review pending; parent must exist before promotion"
+    },
+    {
+      "id": "M03-S3",
+      "kind": "planned",
+      "campaign_role": "support",
+      "status": "PROPOSED",
+      "title_selection": "EDITORIAL_PROPOSAL",
+      "title": "Prepare Merged Excel Headers for Markdown Tables",
+      "canonical": "https://llmiser.devbehindyou.com/blog/merged-excel-headers-markdown",
+      "intent_key": "merged-excel-headers-markdown",
+      "primary_keyword": "merged Excel headers Markdown",
+      "reserved_aliases": [],
+      "intent": "How can I make multi-level spreadsheet labels unambiguous?",
+      "description": "How can I make multi-level spreadsheet labels unambiguous? See a practical example, checks and limitations.",
+      "parent_id": "M03",
+      "nearest_ids": [
+        "M03-S1",
+        "M03-S2",
+        "M03"
+      ],
+      "excludes": "Manual flattening must preserve meaning; no automatic merged-cell repair claim. Main checklist and sibling questions remain with their owners.",
+      "brief": "campaign/support-briefs/M03-S3.md",
+      "owner": null,
+      "volume": null,
+      "difficulty": null,
+      "measurement_status": "UNMEASURED",
+      "source_refs": [
+        "SRC-EXCEL",
+        "SRC-LOCAL"
+      ],
+      "publication_gate": "Original example and semantic review pending; parent must exist before promotion"
+    },
+    {
+      "id": "M04-S1",
+      "kind": "planned",
+      "campaign_role": "support",
+      "status": "PROPOSED",
+      "title_selection": "EDITORIAL_PROPOSAL",
+      "title": "Use Word Heading Styles Before Markdown Conversion",
+      "canonical": "https://llmiser.devbehindyou.com/blog/word-heading-styles-markdown",
+      "intent_key": "word-heading-styles-markdown",
+      "primary_keyword": "Word heading styles Markdown",
+      "reserved_aliases": [],
+      "intent": "How do semantic styles differ from large bold text?",
+      "description": "How do semantic styles differ from large bold text? See a practical example, checks and limitations.",
+      "parent_id": "M04",
+      "nearest_ids": [
+        "M04-S2",
+        "M04-S3",
+        "M04"
+      ],
+      "excludes": "General semantic-heading sources do not prove exact DOCX parser behavior; test it. Main checklist and sibling questions remain with their owners.",
+      "brief": "campaign/support-briefs/M04-S1.md",
+      "owner": null,
+      "volume": null,
+      "difficulty": null,
+      "measurement_status": "UNMEASURED",
+      "source_refs": [
+        "SRC-HEADINGS",
+        "SRC-LOCAL"
+      ],
+      "publication_gate": "Original example and semantic review pending; parent must exist before promotion"
+    },
+    {
+      "id": "M04-S2",
+      "kind": "planned",
+      "campaign_role": "support",
+      "status": "PROPOSED",
+      "title_selection": "EDITORIAL_PROPOSAL",
+      "title": "Check Nested Word Lists in Markdown Output",
+      "canonical": "https://llmiser.devbehindyou.com/blog/nested-word-lists-markdown",
+      "intent_key": "nested-word-lists-markdown",
+      "primary_keyword": "nested Word lists Markdown",
+      "reserved_aliases": [],
+      "intent": "How do I verify parent-child relationships in converted lists?",
+      "description": "How do I verify parent-child relationships in converted lists? See a practical example, checks and limitations.",
+      "parent_id": "M04",
+      "nearest_ids": [
+        "M04-S1",
+        "M04-S3",
+        "M04"
+      ],
+      "excludes": "Do not promise lossless numbering; preserve the original. Main checklist and sibling questions remain with their owners.",
+      "brief": "campaign/support-briefs/M04-S2.md",
+      "owner": null,
+      "volume": null,
+      "difficulty": null,
+      "measurement_status": "UNMEASURED",
+      "source_refs": [
+        "SRC-HEADINGS",
+        "SRC-LOCAL"
+      ],
+      "publication_gate": "Original example and semantic review pending; parent must exist before promotion"
+    },
+    {
+      "id": "M04-S3",
+      "kind": "planned",
+      "campaign_role": "support",
+      "status": "PROPOSED",
+      "title_selection": "EDITORIAL_PROPOSAL",
+      "title": "Prepare Word Revisions and Comments for AI Sharing",
+      "canonical": "https://llmiser.devbehindyou.com/blog/word-revisions-ai-sharing",
+      "intent_key": "word-revisions-ai-sharing",
+      "primary_keyword": "Word tracked changes AI sharing",
+      "reserved_aliases": [],
+      "intent": "Which revision view and comments should a shared document represent?",
+      "description": "Which revision view and comments should a shared document represent? See a practical example, checks and limitations.",
+      "parent_id": "M04",
+      "nearest_ids": [
+        "M04-S1",
+        "M04-S2",
+        "M04"
+      ],
+      "excludes": "Do not silently accept changes or claim all comments are extracted/removed. Main checklist and sibling questions remain with their owners.",
+      "brief": "campaign/support-briefs/M04-S3.md",
+      "owner": null,
+      "volume": null,
+      "difficulty": null,
+      "measurement_status": "UNMEASURED",
+      "source_refs": [
+        "SRC-HEADINGS",
+        "SRC-LOCAL"
+      ],
+      "publication_gate": "Original example and semantic review pending; parent must exist before promotion"
+    },
+    {
+      "id": "M05-S1",
+      "kind": "planned",
+      "campaign_role": "support",
+      "status": "PROPOSED",
+      "title_selection": "EDITORIAL_PROPOSAL",
+      "title": "Check PowerPoint Speaker Notes After Conversion",
+      "canonical": "https://llmiser.devbehindyou.com/blog/powerpoint-speaker-notes-markdown",
+      "intent_key": "powerpoint-speaker-notes-markdown",
+      "primary_keyword": "PowerPoint speaker notes Markdown",
+      "reserved_aliases": [],
+      "intent": "Are important speaker notes represented in this output?",
+      "description": "Are important speaker notes represented in this output? See a practical example, checks and limitations.",
+      "parent_id": "M05",
+      "nearest_ids": [
+        "M05-S2",
+        "M05-S3",
+        "M05"
+      ],
+      "excludes": "Notes extraction is a test question, not an advertised verified feature. Main checklist and sibling questions remain with their owners.",
+      "brief": "campaign/support-briefs/M05-S1.md",
+      "owner": null,
+      "volume": null,
+      "difficulty": null,
+      "measurement_status": "UNMEASURED",
+      "source_refs": [
+        "SRC-LOCAL"
+      ],
+      "publication_gate": "Original example and semantic review pending; parent must exist before promotion"
+    },
+    {
+      "id": "M05-S2",
+      "kind": "planned",
+      "campaign_role": "support",
+      "status": "PROPOSED",
+      "title_selection": "EDITORIAL_PROPOSAL",
+      "title": "Carry Chart Context From Slides Into AI Prompts",
+      "canonical": "https://llmiser.devbehindyou.com/blog/slide-chart-context-ai",
+      "intent_key": "slide-chart-context-ai",
+      "primary_keyword": "PowerPoint chart context AI",
+      "reserved_aliases": [],
+      "intent": "What chart information must accompany a text-only slide export?",
+      "description": "What chart information must accompany a text-only slide export? See a practical example, checks and limitations.",
+      "parent_id": "M05",
+      "nearest_ids": [
+        "M05-S1",
+        "M05-S3",
+        "M05"
+      ],
+      "excludes": "Never infer values that were not readable or claim automatic chart understanding. Main checklist and sibling questions remain with their owners.",
+      "brief": "campaign/support-briefs/M05-S2.md",
+      "owner": null,
+      "volume": null,
+      "difficulty": null,
+      "measurement_status": "UNMEASURED",
+      "source_refs": [
+        "SRC-LOCAL"
+      ],
+      "publication_gate": "Original example and semantic review pending; parent must exist before promotion"
+    },
+    {
+      "id": "M05-S3",
+      "kind": "planned",
+      "campaign_role": "support",
+      "status": "PROPOSED",
+      "title_selection": "EDITORIAL_PROPOSAL",
+      "title": "Keep Slide Titles and Order Clear in Markdown",
+      "canonical": "https://llmiser.devbehindyou.com/blog/slide-order-markdown",
+      "intent_key": "slide-order-markdown",
+      "primary_keyword": "PowerPoint slide order Markdown",
+      "reserved_aliases": [],
+      "intent": "How do I retain the sequence needed to interpret a deck?",
+      "description": "How do I retain the sequence needed to interpret a deck? See a practical example, checks and limitations.",
+      "parent_id": "M05",
+      "nearest_ids": [
+        "M05-S1",
+        "M05-S2",
+        "M05"
+      ],
+      "excludes": "No artificial page/slide numbers unless traced to the source. Main checklist and sibling questions remain with their owners.",
+      "brief": "campaign/support-briefs/M05-S3.md",
+      "owner": null,
+      "volume": null,
+      "difficulty": null,
+      "measurement_status": "UNMEASURED",
+      "source_refs": [
+        "SRC-LOCAL"
+      ],
+      "publication_gate": "Original example and semantic review pending; parent must exist before promotion"
+    },
+    {
+      "id": "M06-S1",
+      "kind": "planned",
+      "campaign_role": "support",
+      "status": "PROPOSED",
+      "title_selection": "EDITORIAL_PROPOSAL",
+      "title": "Handle Commas and Quotes Inside CSV Cells",
+      "canonical": "https://llmiser.devbehindyou.com/blog/csv-quoted-cells-markdown",
+      "intent_key": "csv-quoted-cells-markdown",
+      "primary_keyword": "CSV quoted cells Markdown",
+      "reserved_aliases": [],
+      "intent": "How do I verify that quoted separators remain inside a cell?",
+      "description": "How do I verify that quoted separators remain inside a cell? See a practical example, checks and limitations.",
+      "parent_id": "M06",
+      "nearest_ids": [
+        "M06-S2",
+        "M06-S3",
+        "M06"
+      ],
+      "excludes": "Do not recommend global comma replacement or splitting on commas without a CSV parser. Main checklist and sibling questions remain with their owners.",
+      "brief": "campaign/support-briefs/M06-S1.md",
+      "owner": null,
+      "volume": null,
+      "difficulty": null,
+      "measurement_status": "UNMEASURED",
+      "source_refs": [
+        "SRC-CSV",
+        "SRC-LOCAL"
+      ],
+      "publication_gate": "Original example and semantic review pending; parent must exist before promotion"
+    },
+    {
+      "id": "M06-S2",
+      "kind": "planned",
+      "campaign_role": "support",
+      "status": "PROPOSED",
+      "title_selection": "EDITORIAL_PROPOSAL",
+      "title": "Check CSV Encoding Before Sharing Text With AI",
+      "canonical": "https://llmiser.devbehindyou.com/blog/csv-encoding-ai",
+      "intent_key": "csv-encoding-ai",
+      "primary_keyword": "CSV encoding AI",
+      "reserved_aliases": [],
+      "intent": "How can I diagnose corrupted text before using converted output?",
+      "description": "How can I diagnose corrupted text before using converted output? See a practical example, checks and limitations.",
+      "parent_id": "M06",
+      "nearest_ids": [
+        "M06-S1",
+        "M06-S3",
+        "M06"
+      ],
+      "excludes": "Do not claim encoding detection is infallible or imply interface languages change OCR. Main checklist and sibling questions remain with their owners.",
+      "brief": "campaign/support-briefs/M06-S2.md",
+      "owner": null,
+      "volume": null,
+      "difficulty": null,
+      "measurement_status": "UNMEASURED",
+      "source_refs": [
+        "SRC-CSV",
+        "SRC-LOCAL"
+      ],
+      "publication_gate": "Original example and semantic review pending; parent must exist before promotion"
+    },
+    {
+      "id": "M06-S3",
+      "kind": "planned",
+      "campaign_role": "support",
+      "status": "PROPOSED",
+      "title_selection": "EDITORIAL_PROPOSAL",
+      "title": "Distinguish Empty CSV Cells From Missing Fields",
+      "canonical": "https://llmiser.devbehindyou.com/blog/csv-empty-missing-fields",
+      "intent_key": "csv-empty-missing-fields",
+      "primary_keyword": "empty CSV cells missing fields",
+      "reserved_aliases": [],
+      "intent": "How do missing delimiters differ from intentionally blank values?",
+      "description": "How do missing delimiters differ from intentionally blank values? See a practical example, checks and limitations.",
+      "parent_id": "M06",
+      "nearest_ids": [
+        "M06-S1",
+        "M06-S2",
+        "M06"
+      ],
+      "excludes": "Keep missing-value decisions explicit; do not fill invented values. Main checklist and sibling questions remain with their owners.",
+      "brief": "campaign/support-briefs/M06-S3.md",
+      "owner": null,
+      "volume": null,
+      "difficulty": null,
+      "measurement_status": "UNMEASURED",
+      "source_refs": [
+        "SRC-CSV",
+        "SRC-LOCAL"
+      ],
+      "publication_gate": "Original example and semantic review pending; parent must exist before promotion"
+    },
+    {
+      "id": "M07-S1",
+      "kind": "planned",
+      "campaign_role": "support",
+      "status": "PROPOSED",
+      "title_selection": "EDITORIAL_PROPOSAL",
+      "title": "Plan a Batch With Different Supported File Types",
+      "canonical": "https://llmiser.devbehindyou.com/blog/mixed-file-batch-llmiser",
+      "intent_key": "mixed-file-batch-llmiser",
+      "primary_keyword": "LLMiser mixed file batch",
+      "reserved_aliases": [],
+      "intent": "How do I organize a supported mixed-format batch?",
+      "description": "How do I organize a supported mixed-format batch? See a practical example, checks and limitations.",
+      "parent_id": "M07",
+      "nearest_ids": [
+        "M07-S2",
+        "M07-S3",
+        "M07"
+      ],
+      "excludes": "Not a worker architecture article; no unsupported formats or uniform-speed promise. Main checklist and sibling questions remain with their owners.",
+      "brief": "campaign/support-briefs/M07-S1.md",
+      "owner": null,
+      "volume": null,
+      "difficulty": null,
+      "measurement_status": "UNMEASURED",
+      "source_refs": [
+        "SRC-LOCAL"
+      ],
+      "publication_gate": "Original example and semantic review pending; parent must exist before promotion"
+    },
+    {
+      "id": "M07-S2",
+      "kind": "planned",
+      "campaign_role": "support",
+      "status": "PROPOSED",
+      "title_selection": "EDITORIAL_PROPOSAL",
+      "title": "Handle Partial Conversion Failures in a Batch",
+      "canonical": "https://llmiser.devbehindyou.com/blog/partial-batch-conversion",
+      "intent_key": "partial-batch-conversion",
+      "primary_keyword": "LLMiser partial batch failure",
+      "reserved_aliases": [],
+      "intent": "How do I recover when some files finish and others fail?",
+      "description": "How do I recover when some files finish and others fail? See a practical example, checks and limitations.",
+      "parent_id": "M07",
+      "nearest_ids": [
+        "M07-S1",
+        "M07-S3",
+        "M07"
+      ],
+      "excludes": "Do not create production load; verify retry controls and avoid automatic full-batch reuploads. Main checklist and sibling questions remain with their owners.",
+      "brief": "campaign/support-briefs/M07-S2.md",
+      "owner": null,
+      "volume": null,
+      "difficulty": null,
+      "measurement_status": "UNMEASURED",
+      "source_refs": [
+        "SRC-LOCAL"
+      ],
+      "publication_gate": "Original example and semantic review pending; parent must exist before promotion"
+    },
+    {
+      "id": "M07-S3",
+      "kind": "planned",
+      "campaign_role": "support",
+      "status": "PROPOSED",
+      "title_selection": "EDITORIAL_PROPOSAL",
+      "title": "Split a File Batch Around LLMiser's Upload Limits",
+      "canonical": "https://llmiser.devbehindyou.com/blog/split-batch-upload-limits",
+      "intent_key": "split-batch-upload-limits",
+      "primary_keyword": "LLMiser upload limits batch",
+      "reserved_aliases": [],
+      "intent": "How do I plan a batch that meets documented per-file and queue limits?",
+      "description": "How do I plan a batch that meets documented per-file and queue limits? See a practical example, checks and limitations.",
+      "parent_id": "M07",
+      "nearest_ids": [
+        "M07-S1",
+        "M07-S2",
+        "M07"
+      ],
+      "excludes": "Do not promise splitting the queue fixes an oversized individual file. Main checklist and sibling questions remain with their owners.",
+      "brief": "campaign/support-briefs/M07-S3.md",
+      "owner": null,
+      "volume": null,
+      "difficulty": null,
+      "measurement_status": "UNMEASURED",
+      "source_refs": [
+        "SRC-LOCAL"
+      ],
+      "publication_gate": "Original example and semantic review pending; parent must exist before promotion"
+    },
+    {
+      "id": "M08-S1",
+      "kind": "planned",
+      "campaign_role": "support",
+      "status": "PROPOSED",
+      "title_selection": "EDITORIAL_PROPOSAL",
+      "title": "Standard vs Clean: Compare LLMiser Output",
+      "canonical": "https://llmiser.devbehindyou.com/blog/llmiser-standard-vs-clean",
+      "intent_key": "llmiser-standard-vs-clean",
+      "primary_keyword": "LLMiser Standard vs Clean",
+      "reserved_aliases": [],
+      "intent": "What changes between Standard and Clean for the same input?",
+      "description": "What changes between Standard and Clean for the same input? See a practical example, checks and limitations.",
+      "parent_id": "M08",
+      "nearest_ids": [
+        "M08-S2",
+        "M08-S3",
+        "M08"
+      ],
+      "excludes": "Do not claim semantic cleanup, deduplication or privacy sanitization. Main checklist and sibling questions remain with their owners.",
+      "brief": "campaign/support-briefs/M08-S1.md",
+      "owner": null,
+      "volume": null,
+      "difficulty": null,
+      "measurement_status": "UNMEASURED",
+      "source_refs": [
+        "SRC-LOCAL",
+        "SRC-MARKDOWN"
+      ],
+      "publication_gate": "Original example and semantic review pending; parent must exist before promotion"
+    },
+    {
+      "id": "M08-S2",
+      "kind": "planned",
+      "campaign_role": "support",
+      "status": "PROPOSED",
+      "title_selection": "EDITORIAL_PROPOSAL",
+      "title": "Check Compact Markdown Before You Use It",
+      "canonical": "https://llmiser.devbehindyou.com/blog/llmiser-compact-markdown-check",
+      "intent_key": "llmiser-compact-markdown-check",
+      "primary_keyword": "LLMiser Compact Markdown",
+      "reserved_aliases": [],
+      "intent": "What needs checking when compact formatting removes separators or spacing?",
+      "description": "What needs checking when compact formatting removes separators or spacing? See a practical example, checks and limitations.",
+      "parent_id": "M08",
+      "nearest_ids": [
+        "M08-S1",
+        "M08-S3",
+        "M08"
+      ],
+      "excludes": "No assumed token savings or universally valid table preservation; record unexpected changes. Main checklist and sibling questions remain with their owners.",
+      "brief": "campaign/support-briefs/M08-S2.md",
+      "owner": null,
+      "volume": null,
+      "difficulty": null,
+      "measurement_status": "UNMEASURED",
+      "source_refs": [
+        "SRC-LOCAL",
+        "SRC-MARKDOWN"
+      ],
+      "publication_gate": "Original example and semantic review pending; parent must exist before promotion"
+    },
+    {
+      "id": "M08-S3",
+      "kind": "planned",
+      "campaign_role": "support",
+      "status": "PROPOSED",
+      "title_selection": "EDITORIAL_PROPOSAL",
+      "title": "What LLMiser's RAG-ready Markers Do",
+      "canonical": "https://llmiser.devbehindyou.com/blog/llmiser-rag-ready-markers",
+      "intent_key": "llmiser-rag-ready-markers",
+      "primary_keyword": "LLMiser RAG-ready markers",
+      "reserved_aliases": [],
+      "intent": "What does a chunk-boundary marker communicate and what does it not do?",
+      "description": "What does a chunk-boundary marker communicate and what does it not do? See a practical example, checks and limitations.",
+      "parent_id": "M08",
+      "nearest_ids": [
+        "M08-S1",
+        "M08-S2",
+        "M08"
+      ],
+      "excludes": "No embedding/retrieval service or semantic chunking guarantee; heed existing E08 code audit. Main checklist and sibling questions remain with their owners.",
+      "brief": "campaign/support-briefs/M08-S3.md",
+      "owner": null,
+      "volume": null,
+      "difficulty": null,
+      "measurement_status": "UNMEASURED",
+      "source_refs": [
+        "SRC-LOCAL",
+        "SRC-MARKDOWN"
+      ],
+      "publication_gate": "Original example and semantic review pending; parent must exist before promotion"
+    },
+    {
+      "id": "M09-S1",
+      "kind": "planned",
+      "campaign_role": "support",
+      "status": "PROPOSED",
+      "title_selection": "EDITORIAL_PROPOSAL",
+      "title": "Original or Edited Markdown: Which File Are You Saving?",
+      "canonical": "https://llmiser.devbehindyou.com/blog/original-edited-markdown",
+      "intent_key": "original-edited-markdown",
+      "primary_keyword": "LLMiser original versus edited Markdown",
+      "reserved_aliases": [],
+      "intent": "How can I tell whether an export includes my edits?",
+      "description": "How can I tell whether an export includes my edits? See a practical example, checks and limitations.",
+      "parent_id": "M09",
+      "nearest_ids": [
+        "M09-S2",
+        "M09-S3",
+        "M09"
+      ],
+      "excludes": "Verify each action in current UI; do not assume edits persist across refresh or recovery. Main checklist and sibling questions remain with their owners.",
+      "brief": "campaign/support-briefs/M09-S1.md",
+      "owner": null,
+      "volume": null,
+      "difficulty": null,
+      "measurement_status": "UNMEASURED",
+      "source_refs": [
+        "SRC-LOCAL",
+        "SRC-MARKDOWN"
+      ],
+      "publication_gate": "Original example and semantic review pending; parent must exist before promotion"
+    },
+    {
+      "id": "M09-S2",
+      "kind": "planned",
+      "campaign_role": "support",
+      "status": "PROPOSED",
+      "title_selection": "EDITORIAL_PROPOSAL",
+      "title": "Check Long Markdown Beyond the Preview",
+      "canonical": "https://llmiser.devbehindyou.com/blog/long-markdown-preview",
+      "intent_key": "long-markdown-preview",
+      "primary_keyword": "LLMiser long Markdown preview",
+      "reserved_aliases": [],
+      "intent": "How do I distinguish a limited rendering view from incomplete output?",
+      "description": "How do I distinguish a limited rendering view from incomplete output? See a practical example, checks and limitations.",
+      "parent_id": "M09",
+      "nearest_ids": [
+        "M09-S1",
+        "M09-S3",
+        "M09"
+      ],
+      "excludes": "No current size threshold claim without code/UI verification; missing content must be reported. Main checklist and sibling questions remain with their owners.",
+      "brief": "campaign/support-briefs/M09-S2.md",
+      "owner": null,
+      "volume": null,
+      "difficulty": null,
+      "measurement_status": "UNMEASURED",
+      "source_refs": [
+        "SRC-LOCAL",
+        "SRC-MARKDOWN"
+      ],
+      "publication_gate": "Original example and semantic review pending; parent must exist before promotion"
+    },
+    {
+      "id": "M09-S3",
+      "kind": "planned",
+      "campaign_role": "support",
+      "status": "PROPOSED",
+      "title_selection": "EDITORIAL_PROPOSAL",
+      "title": "Copy or Download Markdown: Check the Result",
+      "canonical": "https://llmiser.devbehindyou.com/blog/copy-download-markdown",
+      "intent_key": "copy-download-markdown",
+      "primary_keyword": "LLMiser copy versus download",
+      "reserved_aliases": [],
+      "intent": "What should I check after moving Markdown to another app?",
+      "description": "What should I check after moving Markdown to another app? See a practical example, checks and limitations.",
+      "parent_id": "M09",
+      "nearest_ids": [
+        "M09-S1",
+        "M09-S2",
+        "M09"
+      ],
+      "excludes": "Destination apps may reformat; no promise of every platform preserving Markdown. Main checklist and sibling questions remain with their owners.",
+      "brief": "campaign/support-briefs/M09-S3.md",
+      "owner": null,
+      "volume": null,
+      "difficulty": null,
+      "measurement_status": "UNMEASURED",
+      "source_refs": [
+        "SRC-LOCAL",
+        "SRC-MARKDOWN"
+      ],
+      "publication_gate": "Original example and semantic review pending; parent must exist before promotion"
+    },
+    {
+      "id": "M10-S1",
+      "kind": "planned",
+      "campaign_role": "support",
+      "status": "PROPOSED",
+      "title_selection": "EDITORIAL_PROPOSAL",
+      "title": "Find Relevant Files in PROJECT_INDEX.md",
+      "canonical": "https://llmiser.devbehindyou.com/blog/read-project-index-paths",
+      "intent_key": "read-project-index-paths",
+      "primary_keyword": "LLMiser project index paths",
+      "reserved_aliases": [],
+      "intent": "How do source paths help locate the right converted file?",
+      "description": "How do source paths help locate the right converted file? See a practical example, checks and limitations.",
+      "parent_id": "M10",
+      "nearest_ids": [
+        "M10-S2",
+        "M10-S3",
+        "M10"
+      ],
+      "excludes": "Use actual current index format; no invented links or schema fields. Main checklist and sibling questions remain with their owners.",
+      "brief": "campaign/support-briefs/M10-S1.md",
+      "owner": null,
+      "volume": null,
+      "difficulty": null,
+      "measurement_status": "UNMEASURED",
+      "source_refs": [
+        "SRC-LOCAL"
+      ],
+      "publication_gate": "Original example and semantic review pending; parent must exist before promotion"
+    },
+    {
+      "id": "M10-S2",
+      "kind": "planned",
+      "campaign_role": "support",
+      "status": "PROPOSED",
+      "title_selection": "EDITORIAL_PROPOSAL",
+      "title": "Reconcile a ZIP Manifest With Your Source Files",
+      "canonical": "https://llmiser.devbehindyou.com/blog/reconcile-zip-manifest",
+      "intent_key": "reconcile-zip-manifest",
+      "primary_keyword": "LLMiser manifest completeness",
+      "reserved_aliases": [],
+      "intent": "How do I account for every intended source item after conversion?",
+      "description": "How do I account for every intended source item after conversion? See a practical example, checks and limitations.",
+      "parent_id": "M10",
+      "nearest_ids": [
+        "M10-S1",
+        "M10-S3",
+        "M10"
+      ],
+      "excludes": "Never infer that every source was converted from a successful overall status. Main checklist and sibling questions remain with their owners.",
+      "brief": "campaign/support-briefs/M10-S2.md",
+      "owner": null,
+      "volume": null,
+      "difficulty": null,
+      "measurement_status": "UNMEASURED",
+      "source_refs": [
+        "SRC-LOCAL"
+      ],
+      "publication_gate": "Original example and semantic review pending; parent must exist before promotion"
+    },
+    {
+      "id": "M10-S3",
+      "kind": "planned",
+      "campaign_role": "support",
+      "status": "PROPOSED",
+      "title_selection": "EDITORIAL_PROPOSAL",
+      "title": "Investigate Missing Content in a ZIP Conversion",
+      "canonical": "https://llmiser.devbehindyou.com/blog/missing-zip-conversion-content",
+      "intent_key": "missing-zip-conversion-content",
+      "primary_keyword": "LLMiser missing ZIP content",
+      "reserved_aliases": [],
+      "intent": "How do I distinguish an intentional exclusion from a conversion omission?",
+      "description": "How do I distinguish an intentional exclusion from a conversion omission? See a practical example, checks and limitations.",
+      "parent_id": "M10",
+      "nearest_ids": [
+        "M10-S1",
+        "M10-S2",
+        "M10"
+      ],
+      "excludes": "Do not claim all nested ZIPs are expanded or recommend bypassing limits; separate from pre-upload exclusions in M01. Main checklist and sibling questions remain with their owners.",
+      "brief": "campaign/support-briefs/M10-S3.md",
+      "owner": null,
+      "volume": null,
+      "difficulty": null,
+      "measurement_status": "UNMEASURED",
+      "source_refs": [
+        "SRC-LOCAL"
+      ],
+      "publication_gate": "Original example and semantic review pending; parent must exist before promotion"
+    },
+    {
+      "id": "M11-S1",
+      "kind": "planned",
+      "campaign_role": "support",
+      "status": "PROPOSED",
+      "title_selection": "EDITORIAL_PROPOSAL",
+      "title": "Recognize Instructions Inside an Untrusted Document",
+      "canonical": "https://llmiser.devbehindyou.com/blog/untrusted-document-instructions",
+      "intent_key": "untrusted-document-instructions",
+      "primary_keyword": "untrusted document instructions",
+      "reserved_aliases": [],
+      "intent": "How do I recognize source text attempting to redirect the task?",
+      "description": "How do I recognize source text attempting to redirect the task? See a practical example, checks and limitations.",
+      "parent_id": "M11",
+      "nearest_ids": [
+        "M11-S2",
+        "M11-S3",
+        "M11"
+      ],
+      "excludes": "Recognition is not proof of detection completeness; cite OWASP and do not execute embedded commands. Main checklist and sibling questions remain with their owners.",
+      "brief": "campaign/support-briefs/M11-S1.md",
+      "owner": null,
+      "volume": null,
+      "difficulty": null,
+      "measurement_status": "UNMEASURED",
+      "source_refs": [
+        "SRC-OWASP",
+        "SRC-INJECTION"
+      ],
+      "publication_gate": "Original example and semantic review pending; parent must exist before promotion"
+    },
+    {
+      "id": "M11-S2",
+      "kind": "planned",
+      "campaign_role": "support",
+      "status": "PROPOSED",
+      "title_selection": "EDITORIAL_PROPOSAL",
+      "title": "Why Markdown Conversion Does Not Remove Prompt Injection",
+      "canonical": "https://llmiser.devbehindyou.com/blog/markdown-conversion-prompt-injection",
+      "intent_key": "markdown-conversion-prompt-injection",
+      "primary_keyword": "Markdown conversion prompt injection",
+      "reserved_aliases": [],
+      "intent": "Why can an instruction attempt survive a change of file format?",
+      "description": "Why can an instruction attempt survive a change of file format? See a practical example, checks and limitations.",
+      "parent_id": "M11",
+      "nearest_ids": [
+        "M11-S1",
+        "M11-S3",
+        "M11"
+      ],
+      "excludes": "No claim conversion is a sanitizer or that keyword removal is a complete defense. Main checklist and sibling questions remain with their owners.",
+      "brief": "campaign/support-briefs/M11-S2.md",
+      "owner": null,
+      "volume": null,
+      "difficulty": null,
+      "measurement_status": "UNMEASURED",
+      "source_refs": [
+        "SRC-OWASP",
+        "SRC-INJECTION"
+      ],
+      "publication_gate": "Original example and semantic review pending; parent must exist before promotion"
+    },
+    {
+      "id": "M11-S3",
+      "kind": "planned",
+      "campaign_role": "support",
+      "status": "PROPOSED",
+      "title_selection": "EDITORIAL_PROPOSAL",
+      "title": "Review AI Actions After Reading External Documents",
+      "canonical": "https://llmiser.devbehindyou.com/blog/ai-actions-external-documents",
+      "intent_key": "ai-actions-external-documents",
+      "primary_keyword": "AI actions from external documents",
+      "reserved_aliases": [],
+      "intent": "What should a reader check before allowing actions derived from a document?",
+      "description": "What should a reader check before allowing actions derived from a document? See a practical example, checks and limitations.",
+      "parent_id": "M11",
+      "nearest_ids": [
+        "M11-S1",
+        "M11-S2",
+        "M11"
+      ],
+      "excludes": "Stay defensive; LLMiser does not enforce downstream tool permissions. Main checklist and sibling questions remain with their owners.",
+      "brief": "campaign/support-briefs/M11-S3.md",
+      "owner": null,
+      "volume": null,
+      "difficulty": null,
+      "measurement_status": "UNMEASURED",
+      "source_refs": [
+        "SRC-OWASP",
+        "SRC-INJECTION"
+      ],
+      "publication_gate": "Original example and semantic review pending; parent must exist before promotion"
+    },
+    {
+      "id": "M12-S1",
+      "kind": "planned",
+      "campaign_role": "support",
+      "status": "PROPOSED",
+      "title_selection": "EDITORIAL_PROPOSAL",
+      "title": "Label Document Versions Before Building AI Context",
+      "canonical": "https://llmiser.devbehindyou.com/blog/label-document-versions-ai",
+      "intent_key": "label-document-versions-ai",
+      "primary_keyword": "label document versions AI",
+      "reserved_aliases": [],
+      "intent": "Which provenance fields distinguish two versions of a source?",
+      "description": "Which provenance fields distinguish two versions of a source? See a practical example, checks and limitations.",
+      "parent_id": "M12",
+      "nearest_ids": [
+        "M12-S2",
+        "M12-S3",
+        "M12"
+      ],
+      "excludes": "No fabricated author/date; keep unknown fields explicit and no built-in version-management claim. Main checklist and sibling questions remain with their owners.",
+      "brief": "campaign/support-briefs/M12-S1.md",
+      "owner": null,
+      "volume": null,
+      "difficulty": null,
+      "measurement_status": "UNMEASURED",
+      "source_refs": [
+        "SRC-RETRIEVAL"
+      ],
+      "publication_gate": "Original example and semantic review pending; parent must exist before promotion"
+    },
+    {
+      "id": "M12-S2",
+      "kind": "planned",
+      "campaign_role": "support",
+      "status": "PROPOSED",
+      "title_selection": "EDITORIAL_PROPOSAL",
+      "title": "Resolve Conflicting Policy Passages Before Asking AI",
+      "canonical": "https://llmiser.devbehindyou.com/blog/conflicting-policy-passages-ai",
+      "intent_key": "conflicting-policy-passages-ai",
+      "primary_keyword": "conflicting policy passages AI",
+      "reserved_aliases": [],
+      "intent": "How do I handle two valid-looking passages with different scopes?",
+      "description": "How do I handle two valid-looking passages with different scopes? See a practical example, checks and limitations.",
+      "parent_id": "M12",
+      "nearest_ids": [
+        "M12-S1",
+        "M12-S3",
+        "M12"
+      ],
+      "excludes": "Do not assume newer always wins or silently choose a policy; generic information, not legal advice. Main checklist and sibling questions remain with their owners.",
+      "brief": "campaign/support-briefs/M12-S2.md",
+      "owner": null,
+      "volume": null,
+      "difficulty": null,
+      "measurement_status": "UNMEASURED",
+      "source_refs": [
+        "SRC-RETRIEVAL"
+      ],
+      "publication_gate": "Original example and semantic review pending; parent must exist before promotion"
+    },
+    {
+      "id": "M12-S3",
+      "kind": "planned",
+      "campaign_role": "support",
+      "status": "PROPOSED",
+      "title_selection": "EDITORIAL_PROPOSAL",
+      "title": "Remove Stale Excerpts From an AI Context Packet",
+      "canonical": "https://llmiser.devbehindyou.com/blog/stale-excerpts-ai-context",
+      "intent_key": "stale-excerpts-ai-context",
+      "primary_keyword": "stale excerpts AI context",
+      "reserved_aliases": [],
+      "intent": "How do I update a manually assembled packet when a source changes?",
+      "description": "How do I update a manually assembled packet when a source changes? See a practical example, checks and limitations.",
+      "parent_id": "M12",
+      "nearest_ids": [
+        "M12-S1",
+        "M12-S2",
+        "M12"
+      ],
+      "excludes": "No automatic cache/index invalidation feature claimed; distinguish a manual packet from a production RAG index. Main checklist and sibling questions remain with their owners.",
+      "brief": "campaign/support-briefs/M12-S3.md",
+      "owner": null,
+      "volume": null,
+      "difficulty": null,
+      "measurement_status": "UNMEASURED",
+      "source_refs": [
+        "SRC-RETRIEVAL"
+      ],
+      "publication_gate": "Original example and semantic review pending; parent must exist before promotion"
+    }
+  ]
+}

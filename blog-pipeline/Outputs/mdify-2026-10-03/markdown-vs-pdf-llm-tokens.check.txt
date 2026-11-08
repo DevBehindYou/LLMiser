@@ -1,0 +1,11 @@
+MDify article check: frontend/content/blog/markdown-vs-pdf-llm-tokens.md
+Date: 2026-10-03T19:50:27.724Z
+Words: 1832, read time 8 min
+
+Errors (0):
+  none
+
+Warnings (0):
+  none
+
+RESULT: PASS

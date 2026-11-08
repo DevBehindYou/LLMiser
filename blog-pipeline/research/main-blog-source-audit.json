@@ -1,0 +1,144 @@
+{
+  "observed_at": "2026-11-04",
+  "inventory": [
+    {
+      "slug": "document-to-llm-pipeline",
+      "approx_words": 1631,
+      "h2_count": 7,
+      "figure_count": 5,
+      "outgoing_blog_links": [],
+      "external_hosts": [
+        "aclanthology.org",
+        "platform.claude.com",
+        "www.anthropic.com",
+        "www.trychroma.com"
+      ]
+    },
+    {
+      "slug": "hidden-token-tax-rag-pipelines",
+      "approx_words": 1483,
+      "h2_count": 7,
+      "figure_count": 5,
+      "outgoing_blog_links": [],
+      "external_hosts": [
+        "aclanthology.org",
+        "www.anthropic.com",
+        "www.trychroma.com"
+      ]
+    },
+    {
+      "slug": "markdown-vs-pdf-llm-tokens",
+      "approx_words": 1934,
+      "h2_count": 8,
+      "figure_count": 5,
+      "outgoing_blog_links": [],
+      "external_hosts": [
+        "help.openai.com",
+        "platform.claude.com"
+      ]
+    },
+    {
+      "slug": "rag-cost-optimization",
+      "approx_words": 1473,
+      "h2_count": 7,
+      "figure_count": 5,
+      "outgoing_blog_links": [],
+      "external_hosts": [
+        "aclanthology.org",
+        "platform.claude.com",
+        "www.anthropic.com"
+      ]
+    },
+    {
+      "slug": "reduce-llm-api-costs",
+      "approx_words": 1778,
+      "h2_count": 10,
+      "figure_count": 5,
+      "outgoing_blog_links": [
+        "/blog/markdown-vs-pdf-llm-tokens"
+      ],
+      "external_hosts": [
+        "aclanthology.org",
+        "arxiv.org",
+        "platform.claude.com"
+      ]
+    },
+    {
+      "slug": "reduce-llm-token-usage",
+      "approx_words": 1582,
+      "h2_count": 8,
+      "figure_count": 5,
+      "outgoing_blog_links": [
+        "/blog/markdown-vs-pdf-llm-tokens"
+      ],
+      "external_hosts": [
+        "help.openai.com",
+        "platform.claude.com",
+        "www.trychroma.com"
+      ]
+    },
+    {
+      "slug": "why-pdfs-are-expensive-for-ai",
+      "approx_words": 1627,
+      "h2_count": 7,
+      "figure_count": 5,
+      "outgoing_blog_links": [
+        "/blog/markdown-vs-pdf-llm-tokens"
+      ],
+      "external_hosts": [
+        "platform.claude.com"
+      ]
+    },
+    {
+      "slug": "why-your-llm-bill-is-too-high",
+      "approx_words": 1532,
+      "h2_count": 7,
+      "figure_count": 5,
+      "outgoing_blog_links": [
+        "/blog/markdown-vs-pdf-llm-tokens"
+      ],
+      "external_hosts": [
+        "arxiv.org",
+        "platform.claude.com"
+      ]
+    }
+  ],
+  "snippet_checks": [
+    {
+      "article": "why-pdfs-are-expensive-for-ai",
+      "function": "strip_repeated_lines",
+      "result": [
+        "Unique A",
+        "Unique B",
+        "Unique C"
+      ]
+    },
+    {
+      "article": "hidden-token-tax-rag-pipelines",
+      "function": "pack_context",
+      "result": [
+        [
+          "Refunds are issued within 5 business days of approval"
+        ],
+        13
+      ]
+    },
+    {
+      "article": "document-to-llm-pipeline",
+      "function": "chunk_markdown",
+      "result": [
+        {
+          "doc": "example.md",
+          "section": "Policy",
+          "text": "Before\n```python"
+        },
+        {
+          "doc": "example.md",
+          "section": "not a document heading",
+          "text": "x = 1\n```\nAfter"
+        }
+      ]
+    }
+  ],
+  "link_scope": "Body Markdown article hyperlinks only; excludes SVG image URLs and shared site navigation."
+}

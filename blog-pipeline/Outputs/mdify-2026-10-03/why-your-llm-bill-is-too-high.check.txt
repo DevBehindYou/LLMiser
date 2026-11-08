@@ -1,0 +1,11 @@
+MDify article check: frontend/content/blog/why-your-llm-bill-is-too-high.md
+Date: 2026-10-03T19:50:28.053Z
+Words: 1458, read time 6 min
+
+Errors (0):
+  none
+
+Warnings (1):
+  ! Three sentences in a row of similar length, starting "Convert PDFs to Markdown before they reach the model...."
+
+RESULT: PASS

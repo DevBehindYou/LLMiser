@@ -1,0 +1,108 @@
+{
+  "observed_at": "2026-11-04",
+  "method": "Available web-search tool; provider/locale/device not exposed. No named-engine ranking inference.",
+  "discovery_queries": [
+    {
+      "query": "\"pdf to markdown\" converter OCR",
+      "finding": "Conversion landing pages and OCR workflows appeared in the returned sample.",
+      "evidence_type": "search excerpts",
+      "ranking_position": null
+    },
+    {
+      "query": "scanned pdf to markdown OCR",
+      "urls": [
+        "https://www.extract2md.com/scanned-pdf-to-markdown",
+        "https://pdf2md.dev/scanned-pdf-to-markdown/"
+      ],
+      "finding": "Dedicated scanned-PDF conversion pages; quality-check tutorial is an editorial differentiation hypothesis.",
+      "evidence_type": "search excerpts; first direct fetch failed",
+      "ranking_position": null
+    },
+    {
+      "query": "codebase to markdown zip repomix",
+      "urls": [
+        "https://repomix.com/guide/output",
+        "https://repomix.com/guide/usage"
+      ],
+      "finding": "Official output documentation includes Markdown, paths and file structure. Direct output page read.",
+      "evidence_type": "search + primary page",
+      "ranking_position": null
+    },
+    {
+      "query": "word docx to markdown headings tables",
+      "urls": [
+        "https://pandoc.org/MANUAL.html"
+      ],
+      "finding": "Document conversion task investigated; official Pandoc manual subsequently read. No keyword metrics.",
+      "evidence_type": "search discovery + primary manual",
+      "ranking_position": null
+    },
+    {
+      "query": "excel to markdown multiple sheets",
+      "urls": [
+        "https://parsyra.com/excel-to-markdown/",
+        "https://www.getmarkdown.com/excel-to-markdown"
+      ],
+      "finding": "Returned excerpts emphasize sheet/table conversion. Direct Parsyra fetch failed; features not independently tested.",
+      "evidence_type": "search excerpts",
+      "ranking_position": null
+    },
+    {
+      "query": "\"llm token optimization\" document markdown",
+      "finding": "Discovery only; broad term already allocated to existing content. No new demand estimate.",
+      "evidence_type": "search discovery",
+      "ranking_position": null
+    }
+  ],
+  "direct_engine_attempts": [
+    {
+      "engine": "google",
+      "query": "scanned pdf to markdown",
+      "status": "UNAVAILABLE",
+      "result": "Direct results URL inaccessible through tool; no SERP content captured",
+      "country": "US requested in URL, not verified"
+    },
+    {
+      "engine": "bing",
+      "query": "scanned pdf to markdown",
+      "status": "UNAVAILABLE",
+      "result": "Direct results URL inaccessible through tool; no SERP content captured",
+      "country": null
+    },
+    {
+      "engine": "brave",
+      "query": "scanned pdf to markdown",
+      "status": "UNAVAILABLE",
+      "result": "Direct results URL inaccessible through tool; no SERP content captured",
+      "country": null
+    },
+    {
+      "engine": "duckduckgo",
+      "query": "scanned pdf to markdown",
+      "status": "UNAVAILABLE",
+      "result": "Direct results URL inaccessible through tool; no SERP content captured",
+      "country": null
+    }
+  ],
+  "metric_access": [
+    {
+      "tool": "Semrush",
+      "status": "NO_NEW_KEYWORD_REPORT",
+      "url": "https://www.semrush.com/free-tools/keyword-search-volume-checker/"
+    },
+    {
+      "tool": "Ahrefs",
+      "status": "NO_KEYWORD_REPORT",
+      "url": "https://ahrefs.com/keyword-generator"
+    },
+    {
+      "tool": "Google Keyword Planner",
+      "status": "DOCUMENTATION_ONLY_NO_AUTHENTICATED_EXPORT",
+      "url": "https://support.google.com/google-ads/answer/7337243?hl=en"
+    }
+  ],
+  "ai_answer_audit": {
+    "status": "NOT_IMPLEMENTED",
+    "note": "No direct answer-engine prompt/citation audit performed; official guidance is not a citation test."
+  }
+}

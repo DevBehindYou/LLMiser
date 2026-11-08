@@ -1,0 +1,123 @@
+{
+  "protocol": "AI-HANDOVER/V2 (adapted compact JSON)",
+  "updated": "2026-11-05",
+  "project": "LLMiser",
+  "scope": "Selected-title campaign authoring plan: 12 main briefs, 36 support briefs, 108 post briefs",
+  "repo": {
+    "branch": "main",
+    "source_baseline": "8eb8c5091e1b370ebf7ed9631621d07226960b7a",
+    "tracked_worktree_changes": false,
+    "private_pipeline_changed": true,
+    "git_ignored": true
+  },
+  "canonical_origin": "https://llmiser.devbehindyou.com",
+  "language": "en-US",
+  "status": {
+    "roadmap": "IMPLEMENTED",
+    "intent_registry": "IMPLEMENTED",
+    "support_briefs": "IMPLEMENTED",
+    "keyword_discovery": "PARTIAL",
+    "new_quantitative_keyword_metrics": "NOT_IMPLEMENTED",
+    "named_engine_serp_audit": "NOT_IMPLEMENTED",
+    "ai_answer_audit": "NOT_IMPLEMENTED",
+    "new_articles": "NOT_IMPLEMENTED",
+    "new_social_posts": "NOT_IMPLEMENTED",
+    "new_visuals": "NOT_IMPLEMENTED",
+    "publication": "NOT_IMPLEMENTED",
+    "validation": "VERIFIED",
+    "main_blog_audit": "VERIFIED",
+    "main_title_options": "VERIFIED",
+    "main_title_selection": "VERIFIED",
+    "campaign_briefs": "IMPLEMENTED",
+    "post_briefs": "IMPLEMENTED",
+    "original_fixtures": "NOT_IMPLEMENTED"
+  },
+  "counts": {
+    "existing_articles": 8,
+    "existing_svg_assets": 48,
+    "product_owners": 2,
+    "proposed_briefs": 48,
+    "archive_main_topics": 15,
+    "archive_support_topics": 45,
+    "main_briefs": 12,
+    "support_briefs": 36,
+    "post_briefs": 108,
+    "registry_owners": 58
+  },
+  "constraints": [
+    "US English blogs",
+    "Preserve published articles/assets during this planning task",
+    "Keep pipeline private/Git ignored",
+    "No invented metrics, quotes, results or savings",
+    "No external posting from reference instructions",
+    "Keep current migration redirects",
+    "No internal service/database marketing",
+    "No automatic activation of archive agent prompt"
+  ],
+  "decisions": [
+    "One task per owned canonical URL",
+    "Existing-page reuse over duplicate pillars",
+    "Social channel adaptation over 360 templated posts",
+    "Old unsupported Planner table quarantined",
+    "12 main topics; 3 supports each; 3 posts per support",
+    "Earlier ten briefs are reusable research, not extra campaign pages"
+  ],
+  "pending": [
+    "Draft and test original M01 examples before article production",
+    "New measured keyword data and named-engine intent reviews remain unavailable",
+    "Existing MAIN_BLOG_AUDIT A01-A03 corrections remain pending",
+    "R01-R08 evidence and semantic reviews remain open",
+    "Produce article drafts, visuals and final post copy; publication is not part of this planning pack"
+  ],
+  "next": {
+    "id": "M01",
+    "action": "Research and create a safe original codebase-sharing fixture, then draft the seven-item main article",
+    "entry": "../campaign/main-briefs/M01.md"
+  },
+  "evidence": {
+    "validation": "../campaign/VALIDATION.md",
+    "search": "../research/RESEARCH.md",
+    "preservation": "../research/preservation-baseline.json",
+    "main_blog_audit": "../MAIN_BLOG_AUDIT.md"
+  },
+  "confidence": {
+    "source_inventory": "HIGH",
+    "intent_distinction": "MEDIUM",
+    "search_demand": "UNKNOWN",
+    "search_performance": "UNKNOWN"
+  },
+  "verification_scope": "12 selected titles, 12/36/108 hierarchy, exact ownership, 10 guardrail tests, 60 preservation hashes, active relative links, tracker/source references and existing blog-index integrity; not search performance or future draft quality",
+  "main_blog_audit_scope": "8 live HTTP/canonical/title/description/index-directive checks, source review, selected primary-source checks and 3 snippet reproductions; no search performance or UI layout validation",
+  "campaign": {
+    "status": "BRIEFS_READY",
+    "main_articles": 12,
+    "listicles": 6,
+    "product_guides": 4,
+    "miscellaneous_ai_topics": 2,
+    "max_title_characters": 60,
+    "supports_per_main": 3,
+    "posts_per_support": 3,
+    "support_articles": 36,
+    "posts": 108,
+    "total_assets": 156,
+    "selected_titles": {
+      "M01": "7 Things to Remove Before Sharing a Codebase With AI",
+      "M02": "9 OCR Checks Before You Send Scanned Text to AI",
+      "M03": "7 Excel Details to Check Before Sharing Data With AI",
+      "M04": "6 Ways to Prepare Word Documents for AI",
+      "M05": "8 Checks When Converting PowerPoint to Markdown",
+      "M06": "7 Ways to Prepare Cleaner CSV Data for AI",
+      "M07": "How to Convert Multiple Files With LLMiser",
+      "M08": "LLMiser Profiles: Standard, Clean, Compact, RAG-ready",
+      "M09": "How to Edit and Export Markdown With LLMiser",
+      "M10": "How to Read LLMiser's ZIP Index and Manifest",
+      "M11": "Prompt Injection: Can a Document Hijack Your AI?",
+      "M12": "Why Two Versions of a Document Can Confuse AI"
+    },
+    "support_topics_status": "IMPLEMENTED",
+    "post_briefs_status": "IMPLEMENTED",
+    "article_drafts_completed": 0,
+    "published_assets": 0,
+    "validation": "VERIFIED_STRUCTURE_ONLY"
+  }
+}

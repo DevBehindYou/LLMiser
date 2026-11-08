@@ -1,0 +1,11 @@
+LLMiser article check: frontend/content/blog/markdown-vs-pdf-llm-tokens.md
+Date: 2026-10-20T15:28:18.425Z
+Words: 1991, read time 9 min
+
+Errors (0):
+  none
+
+Warnings (0):
+  none
+
+RESULT: PASS

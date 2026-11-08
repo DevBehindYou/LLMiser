@@ -1,0 +1,149 @@
+{
+  "updated": "2026-11-05",
+  "note": "Review signals and evidence gaps; no measured cannibalization claim.",
+  "issues": [
+    {
+      "id": "R01",
+      "status": "OPEN",
+      "title": "Existing cost strategy and diagnosis overlap",
+      "owners": [
+        "E01",
+        "E02"
+      ],
+      "action": "Review query/page data and introductions. E01 owns actions; E02 owns diagnosing the bill. Preserve URLs; no public edits made."
+    },
+    {
+      "id": "R02",
+      "status": "OPEN",
+      "title": "Existing RAG lifecycle and context-waste overlap",
+      "owners": [
+        "E04",
+        "E05"
+      ],
+      "action": "Keep full-lifecycle cost on E04; chunk/overlap/top-K details on E05. Verify observed ownership before consolidation."
+    },
+    {
+      "id": "R03",
+      "status": "OPEN",
+      "title": "Existing PDF cost explanation and format comparison overlap",
+      "owners": [
+        "E06",
+        "E07"
+      ],
+      "action": "E06 explains ingestion charges; E07 compares representations under explicit conditions. Do not create another broad PDF savings article."
+    },
+    {
+      "id": "R04",
+      "status": "OPEN",
+      "title": "Excel and CSV scopes require distinct evidence",
+      "owners": [
+        "M03",
+        "M06"
+      ],
+      "action": "M03 owns workbook semantics; M06 owns delimited text integrity. Check main and support outlines and observed queries; replace any duplicate support task within its cluster."
+    },
+    {
+      "id": "R05",
+      "status": "OPEN",
+      "title": "Direct named-engine audits and new keyword volumes unavailable",
+      "owners": [
+        "M01",
+        "M02",
+        "M03",
+        "M04",
+        "M05",
+        "M06",
+        "M07",
+        "M08",
+        "M09",
+        "M10",
+        "M11",
+        "M12",
+        "M01-S1",
+        "M01-S2",
+        "M01-S3",
+        "M02-S1",
+        "M02-S2",
+        "M02-S3",
+        "M03-S1",
+        "M03-S2",
+        "M03-S3",
+        "M04-S1",
+        "M04-S2",
+        "M04-S3",
+        "M05-S1",
+        "M05-S2",
+        "M05-S3",
+        "M06-S1",
+        "M06-S2",
+        "M06-S3",
+        "M07-S1",
+        "M07-S2",
+        "M07-S3",
+        "M08-S1",
+        "M08-S2",
+        "M08-S3",
+        "M09-S1",
+        "M09-S2",
+        "M09-S3",
+        "M10-S1",
+        "M10-S2",
+        "M10-S3",
+        "M11-S1",
+        "M11-S2",
+        "M11-S3",
+        "M12-S1",
+        "M12-S2",
+        "M12-S3"
+      ],
+      "action": "Record unavailable metrics honestly. Research before final outline; do not label high volume or rankings without evidence."
+    },
+    {
+      "id": "R06",
+      "status": "OPEN",
+      "title": "Historical Keyword Planner table lacks corroborating export",
+      "owners": [],
+      "action": "Quarantined in history; do not reuse numbers until the actual dated export can be checked."
+    },
+    {
+      "id": "R07",
+      "status": "OPEN",
+      "title": "Support articles must add independent practical value",
+      "owners": [
+        "M01",
+        "M02",
+        "M03",
+        "M04",
+        "M05",
+        "M06",
+        "M07",
+        "M08",
+        "M09",
+        "M10",
+        "M11",
+        "M12"
+      ],
+      "action": "Use campaign/OVERLAP_REVIEW.md. Require a narrow reader question and original example, not a rewritten main checklist; replace weak support tasks rather than padding."
+    },
+    {
+      "id": "R08",
+      "status": "OPEN",
+      "title": "Cross-cluster intent boundaries need draft and search review",
+      "owners": [
+        "M01",
+        "M02",
+        "M03",
+        "M04",
+        "M05",
+        "M06",
+        "M07",
+        "M08",
+        "M09",
+        "M10",
+        "M11",
+        "M12"
+      ],
+      "action": "Review M01/M10, M03/M06, M07/M09, M08/E05/E08 and M11/M12 against the documented exclusions and actual query/page evidence."
+    }
+  ]
+}

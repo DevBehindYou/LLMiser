@@ -1,0 +1,61 @@
+archive_id,original_title,decision,owner_id,reason
+C1,LLM Cost Optimization in 2026: How to Reduce AI API Spend Without Sacrificing Quality,REUSE_OR_NARROW,E01,No duplicate main pillar; use owned task/URL
+C1-S1,7 Hidden Reasons Your LLM Bill Is Higher Than It Should Be,REUSE,E02,Existing cost diagnosis
+C1-S2,Model Routing for LLMs: 7 Rules for Matching Every Task to the Right Model,DEFER,E01,Routing is not a product feature; expand existing section first
+C1-S3,Prompt Caching vs Semantic Caching: Which One Actually Saves More AI Spend?,DEFER,E01,Provider caching topic; evidence and distinct intent needed
+C2,"LLM Token Optimization: How to Reduce Input, Output, and Context Tokens",REUSE_OR_NARROW,E03,No duplicate main pillar; use owned task/URL
+C2-S1,Why Your LLM Token Usage Is So High — and How to Fix It,REUSE,E03,Existing token audit
+C2-S2,Prompt Compression: 8 Ways to Shrink Context Without Losing Important Instructions,REUSE_SECTION,E03,Avoid another broad context-reduction guide
+C2-S3,Output Tokens Cost Money Too: How to Control LLM Response Length Without Hurting Quality,REUSE_SECTION,E01,Output cost lever already belongs in existing guide
+C3,"RAG Cost Optimization: Reduce Embedding, Retrieval, Reranking, and Generation Costs",REUSE_OR_NARROW,E04,No duplicate main pillar; use owned task/URL
+C3-S1,"The Real Cost of RAG: Embeddings, Tokens, Retrieval, and Re-Ranking Explained",REUSE,E04,Existing RAG lifecycle cost
+C3-S2,The Hidden Token Tax in RAG Pipelines,REUSE,E05,Existing retrieval token tax
+C3-S3,"Chunk Size, Overlap, and Top-K: The RAG Cost Triangle Most Teams Ignore",REUSE_SECTION,E05,Chunk overlap/top-K shares retrieval intent
+C4,AI API Cost Planning: How to Forecast LLM Spend Before You Launch,DEFER,E01,Calculator intent needs a working calculator; no implementation claimed
+C4-S1,"How to Forecast Monthly LLM API Spend Before Your App Reaches 10,000 Users",DEFER,E01,Forecasting needs actual assumptions; no calculator product
+C4-S2,Free AI vs Paid AI: 10 Things You Actually Pay For Beyond Better Models,DEFER,,Broad plan comparison away from document task
+C4-S3,What % of AI Users Still Use Free Plans in 2026? What the Data Really Says,REJECT_UNSOURCED,,No population dataset; do not invent percentages
+C5,Long Context vs RAG: When Bigger Context Windows Cost More Than Retrieval,REUSE_OR_NARROW,E08,No duplicate main pillar; use owned task/URL
+C5-S1,Why Sending Entire Documents to an LLM Can Waste Your Context Window,REUSE,E08,Duplicate C13-S1 and existing pipeline
+C5-S2,Long Context Is Not Free: 7 Cases Where Retrieval Is Still the Better Choice,REUSE_SECTION,E08,Long-context choice within pipeline; independent study later
+C5-S3,Context Pruning vs Summarization vs Retrieval: Which Strategy Should You Use?,REUSE_SECTION,E08,Avoid generic context strategy duplication
+C6,AI Document Processing Architecture: From Raw Files to AI-Ready Context,REUSE_OR_NARROW,E08,No duplicate main pillar; use owned task/URL
+C6-S1,From Raw Files to AI-Ready Context: 5 Layers Behind MDify’s Architecture,REJECT_FRAMING,E08,Old brand and internal architecture promotion; keep reader workflow
+C6-S2,Document Preprocessing for RAG: 8 Failures That Start Before Embeddings,ADAPT,S07,Narrow to extraction cleanup and reading order
+C6-S3,Why Markdown Works So Well as an Intermediate Format for AI Pipelines,REUSE_SECTION,E08,Intermediate format explanation belongs in pipeline
+C7,How to Analyze ZIP Files and Codebases with AI Without Losing Project Structure,REUSE_OR_NARROW,S02,No duplicate main pillar; use owned task/URL
+C7-S1,"Can ChatGPT, Gemini, and DeepSeek Really Analyze a ZIP File? 7 Things You Should Know",DEFER,S02,"Provider upload support changes; verify per plan/date, no separate provider pages"
+C7-S2,"1 ZIP, 500 Files, 4 AI Workers: How MDify Processes Complex Projects Without Blowing Up Token Costs",REJECT_FRAMING,S02,No four AI workers or untested 500-file/cost promise
+C7-S3,"Nested ZIPs, node_modules, Binaries, and Build Folders: What Should AI Actually Read?",ADAPT_SECTION,S02,Relevant-file selection belongs in ZIP guide
+C8,"Codebase to Markdown: How to Prepare Repositories for LLMs, RAG, and AI Agents",REUSE_OR_NARROW,S02,No duplicate main pillar; use owned task/URL
+C8-S1,How to Turn a GitHub Repository into AI-Ready Context Without Dumping Every File,ADAPT,S02,Same codebase-to-context intent; one page
+C8-S2,Why Dumping an Entire Codebase into ChatGPT Can Produce Worse Answers,ADAPT_SECTION,S02,"Selection rationale, no unsupported answer-quality claim"
+C8-S3,PROJECT_INDEX.md + manifest.json: A Better Way to Give AI Agents Project Context,ADAPT,S08,Distinct returned-artifacts reference; use actual schema
+C9,"PDF, DOCX, XLSX, and PPTX for LLMs: The Complete Document Preprocessing Guide",REUSE_OR_NARROW,E08,No duplicate main pillar; use owned task/URL
+C9-S1,"XLSX to Markdown for LLMs: How to Preserve Sheets, Tables, and Meaning",ADAPT,S03,Workbook walkthrough and quality checks
+C9-S2,PPTX to Markdown for AI: How to Preserve Slide Structure Without Losing Context,ADAPT,S05,Slide text with visual-loss caveats
+C9-S3,"DOCX to Markdown for LLMs: Headings, Tables, Lists, and Images Done Right",ADAPT,S04,DOCX structure walkthrough
+C10,"Content-Aware File Processing: Why AI Pipelines Should Route by Content, Not File Extension",REUSE_OR_NARROW,E08,No duplicate main pillar; use owned task/URL
+C10-S1,Why File Extensions Are Not Enough for Modern AI Document Processing,DEFER,E08,Internal routing engineering story outside product content pilot
+C10-S2,Normal Workers vs OCR Workers: Why Separating AI Document Workloads Matters,DEFER,,Separate engineering scope; no hosting detail in product posts
+C10-S3,Content Graphs and Work Items: A Scalable Pattern for Complex AI File Processing,DEFER,,Internal architecture; requires own audience and scope
+C11,OCR for AI: How to Turn Scanned Documents and Images into LLM-Ready Text,REUSE_OR_NARROW,S01,No duplicate main pillar; use owned task/URL
+C11-S1,Tesseract for LLM Pipelines: Fast OCR Without Turning Your AI Stack into a Memory Hog,DEFER,,Engine-specific tutorial outside public product positioning
+C11-S2,90° Rotated Scans Can Destroy OCR Accuracy: How to Fix Orientation Before AI,ADAPT_SECTION,S06,Orientation quality check; test instead of promising correction
+C11-S3,OCR Only Where Needed: Why Scanned Pages Should Not Force Entire PDFs Through OCR,ADAPT_SECTION,S01,Mixed PDF explanation under OCR walkthrough
+C12,"Document-to-LLM Pipeline: Parse, Clean, Structure, Chunk, Retrieve, and Inject",REUSE_OR_NARROW,E08,No duplicate main pillar; use owned task/URL
+C12-S1,Stop Sending Entire Documents to AI: Build a Smarter Document-to-LLM Pipeline,REUSE,E08,Existing published pipeline
+C12-S2,From Document to Chunks: 7 Decisions That Determine Whether RAG Works,REUSE_SECTION,E08,Chunking pipeline overview already owned
+C12-S3,Metadata-Aware Chunking: The Missing Layer Between Document Parsing and Retrieval,DEFER,E08,Distinct metadata experiment required before new page
+C13,AI Context Window Optimization: How to Use Long Context Without Wasting Tokens,REUSE_OR_NARROW,E03,No duplicate main pillar; use owned task/URL
+C13-S1,Why Sending Entire Documents to an LLM Can Waste Your Context Window,REUSE,E08,Exact duplicate title of C5-S1
+C13-S2,Long Context vs RAG vs Summaries: A Decision Guide for AI Applications,REUSE_SECTION,E08,Same decision as C5-S2/S3
+C13-S3,"Context Budgets for AI Agents: How Much Space Should Instructions, Tools, Memory, and Retrieval Get?",REUSE_SECTION,E03,Token-budget audit already owned
+C14,"Hybrid PDF Processing for AI: Native Text, Images, and OCR in One Pipeline",REUSE_OR_NARROW,S01,No duplicate main pillar; use owned task/URL
+C14-S1,A 100-Page PDF Shouldn’t Cost 100 Pages of Tokens: 6 Smarter Ways to Process Documents for AI,REUSE_SECTION,E06,Misleading headline; no blanket 100-page savings
+C14-S2,PDFs Are Expensive for AI — Here’s Why,REUSE,E06,Existing PDF token-cost explanation
+C14-S3,"Native, Mixed, or Scanned? How to Classify PDF Pages Before Sending Them to AI",ADAPT_SECTION,S01,Page-type decision tree within OCR guide
+C15,PDF to Markdown for LLMs: Why Structured Markdown Beats Raw PDF Extraction,REUSE_OR_NARROW,E07,No duplicate main pillar; use owned task/URL
+C15-S1,Markdown vs Raw PDFs: Which Format Uses Fewer LLM Tokens?,REUSE,E07,Existing format comparison
+C15-S2,Why Markdown Improves Chunking and Retrieval for Document AI,REUSE_SECTION,E08,No universal retrieval improvement claim
+C15-S3,"Headers, Footers, Tables, and Reading Order: What PDF-to-Markdown Converters Must Fix",ADAPT,S07,Distinct inspection and cleanup procedure
