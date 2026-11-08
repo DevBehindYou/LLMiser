@@ -1,0 +1,71 @@
+{
+  "slug": "prepare-word-documents-for-ai",
+  "date": "2026-11-08T17:39:23.075Z",
+  "viewport": "2 x 375px columns, deviceScaleFactor 2",
+  "themes": [
+    "dark",
+    "light"
+  ],
+  "fontsLoaded": [
+    "LLMiser Inter",
+    "LLMiser JetBrains Mono",
+    "LLMiser Patrick Hand"
+  ],
+  "figures": [
+    {
+      "figure": "banner.svg",
+      "viewBox": [
+        1200,
+        400
+      ],
+      "renderedWidthPx": 343,
+      "minFontPxAt375": "4.0",
+      "texts": 16,
+      "issues": []
+    },
+    {
+      "figure": "docx-to-markdown.svg",
+      "viewBox": [
+        600,
+        543
+      ],
+      "renderedWidthPx": 343,
+      "minFontPxAt375": "6.3",
+      "texts": 35,
+      "issues": []
+    },
+    {
+      "figure": "list-table-output.svg",
+      "viewBox": [
+        600,
+        516
+      ],
+      "renderedWidthPx": 343,
+      "minFontPxAt375": "6.3",
+      "texts": 18,
+      "issues": []
+    },
+    {
+      "figure": "tracked-change-decision.svg",
+      "viewBox": [
+        600,
+        511
+      ],
+      "renderedWidthPx": 343,
+      "minFontPxAt375": "6.3",
+      "texts": 13,
+      "issues": []
+    },
+    {
+      "figure": "word-checklist.svg",
+      "viewBox": [
+        600,
+        380
+      ],
+      "renderedWidthPx": 343,
+      "minFontPxAt375": "6.3",
+      "texts": 10,
+      "issues": []
+    }
+  ]
+}

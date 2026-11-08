@@ -1,0 +1,15 @@
+LLMiser PRIVATE draft check (adapter; staged visuals, not production validation): Blogs/prepare-word-documents-for-ai/draft.md
+Date: 2026-11-08T17:39:23.154Z
+Words (app wordCount): 1557, read time 7 min
+Info: Intro: 82 words
+Info: H2 opening word counts: 32, 37, 31, 30, 29, 35, 37
+Info: Numbered items: 6 of 6
+Info: Links: 5 (2 external)
+
+Errors (0):
+  none
+
+Warnings (1):
+  ! draft: true. The post stays out of the Blog dialog until you set it to false.
+
+RESULT: PASS (private draft adapter)

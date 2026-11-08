@@ -14,7 +14,7 @@ Remaining warning: one rhythm warning (three similar-length sentences in "What t
 
 - Exact selected title, 7 items, M06 boundary respected (CSV only as a tested workaround).
 - C14 is PARTIAL: colors, comments and pictures were not separately tested; wording says they "don't come through as cell values", which follows from the value-only path. Owner may ask for a fixture.
-- Research: M03-specific SERP capture still pending (logged in research.md).
+- Research: one unspecified-provider search observation recorded in research.md.
 
 ## Product observation for the owner
 

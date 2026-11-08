@@ -1,0 +1,18 @@
+{
+  "article": "M04",
+  "slug": "prepare-word-documents-for-ai",
+  "checked": "2026-11-08",
+  "claims": [
+    { "id": "C01", "text": "Real Heading styles became Markdown headings; simple numbered steps stayed numbered", "state": "VERIFIED_LOCAL_RUN", "source": "F-M04" },
+    { "id": "C02", "text": "Bold 18-point Normal 'Exceptions' converted to **Exceptions**", "state": "VERIFIED_LOCAL_RUN", "source": "F-M04" },
+    { "id": "C03", "text": "Headings communicate the organization of the content", "state": "VERIFIED_SOURCE", "source": "S-W3C-HEADINGS" },
+    { "id": "C04", "text": "Sub-bullets lost their indent; numbering restarted so Gift cards became item 1", "state": "VERIFIED_LOCAL_RUN", "source": "F-M04" },
+    { "id": "C05", "text": "Merged header produced an empty header row; real headers dropped into the first data row with a blank cell", "state": "VERIFIED_LOCAL_RUN", "source": "F-M04" },
+    { "id": "C06", "text": "Tracked change 14 to 30 days: output said within 30 days; deleted text, change marks and the comment were gone", "state": "VERIFIED_LOCAL_RUN", "source": "F-M04", "note": "One tracked replacement created by direct XML; Word-authored revisions may differ in markup detail." },
+    { "id": "C07", "text": "Chart came through as alt text only; 'As Figure 1 above shows' remained", "state": "VERIFIED_LOCAL_RUN", "source": "F-M04" },
+    { "id": "C08", "text": "Footer 'CONFIDENTIAL draft v3, not for customers' did not appear in the output", "state": "VERIFIED_LOCAL_RUN", "source": "F-M04" },
+    { "id": "C09", "text": "Word's Document Inspector lists comments and revision marks; removal may not be undoable", "state": "VERIFIED_SOURCE", "source": "S-MS-INSPECT" },
+    { "id": "C10", "text": "LLMiser's editor lets you fix Markdown in place before copying or downloading", "state": "VERIFIED_CODE", "source": "frontend/lib/siteContent.js FAQ ('Review and edit the Markdown, then copy it, download a .md file or export a ZIP')" },
+    { "id": "C12", "text": "LLMiser accepts .docx up to 15 MB; .doc is not supported", "state": "VERIFIED_CODE", "source": "S-CODE-FORMATS" }
+  ]
+}

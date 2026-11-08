@@ -1,0 +1,17 @@
+{
+  "article": "M04",
+  "checked": "2026-11-08",
+  "in_draft": [
+    { "url": "/blog/document-to-llm-pipeline", "owner": "E08", "status": "LIVE" },
+    { "url": "https://www.w3.org/WAI/tutorials/page-structure/headings/", "owner": "external", "status": "CHECKED_200" },
+    { "url": "https://support.microsoft.com/en-us/office/remove-hidden-data-and-personal-information-by-inspecting-documents-presentations-or-workbooks-356b7b5d-77af-44fe-a07f-9aa4d085966f", "owner": "external", "status": "CHECKED_200 (redirects to a collab-files path)" },
+    { "url": "/usecase", "owner": "USE", "status": "LIVE" },
+    { "url": "/", "owner": "HOME", "status": "LIVE", "placement": "CTA" }
+  ],
+  "planned_when_released": [
+    { "target": "M04-S1", "url": "/blog/word-heading-styles-markdown", "status": "UNPUBLISHED", "placement": "1. Use actual heading styles", "anchor": "test heading styles before conversion" },
+    { "target": "M04-S2", "url": "/blog/nested-word-lists-markdown", "status": "UNPUBLISHED", "placement": "2. Check nested lists", "anchor": "check nested lists in the output" },
+    { "target": "M04-S3", "url": "/blog/word-revisions-ai-sharing", "status": "UNPUBLISHED", "placement": "4. Resolve tracked changes", "anchor": "prepare revisions and comments" },
+    { "target": "M09", "url": "/blog/edit-export-markdown-llmiser", "status": "UNPUBLISHED", "placement": "6. Review the converted Markdown, editor sentence", "anchor": "edit and export in LLMiser" }
+  ]
+}
