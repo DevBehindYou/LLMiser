@@ -1,0 +1,16 @@
+{
+  "article": "M06",
+  "checked": "2026-11-08",
+  "in_draft": [
+    { "url": "https://www.rfc-editor.org/rfc/rfc4180", "owner": "external", "status": "CHECKED_200" },
+    { "url": "/usecase", "owner": "USE", "status": "LIVE" },
+    { "url": "/blog/document-to-llm-pipeline", "owner": "E08", "status": "LIVE" },
+    { "url": "/", "owner": "HOME", "status": "LIVE", "placement": "CTA" }
+  ],
+  "planned_when_released": [
+    { "target": "M06-S1", "url": "/blog/csv-quoted-cells-markdown", "status": "UNPUBLISHED", "placement": "2. Quote separators" },
+    { "target": "M06-S2", "url": "/blog/csv-encoding-ai", "status": "UNPUBLISHED", "placement": "3. Check text encoding" },
+    { "target": "M06-S3", "url": "/blog/csv-empty-missing-fields", "status": "UNPUBLISHED", "placement": "6. Missing fields and row shape" },
+    { "target": "M03", "url": "/blog/excel-data-checks-for-ai", "status": "UNPUBLISHED", "placement": "Closing paragraph, workbook sentence", "anchor": "workbook checks" }
+  ]
+}

@@ -1,0 +1,16 @@
+LLMiser PRIVATE draft check (adapter; staged visuals, not production validation): Blogs/prepare-csv-data-for-ai/draft.md
+Date: 2026-11-08T17:45:52.136Z
+Words (app wordCount): 1615, read time 7 min
+Info: Intro: 76 words
+Info: H2 opening word counts: 35, 32, 35, 30, 34, 32, 34, 30
+Info: Numbered items: 7 of 7
+Info: Links: 4 (1 external)
+
+Errors (0):
+  none
+
+Warnings (2):
+  ! Three sentences in a row of similar length, starting "In our test, accented names in UTF-8 converted correctly wit..."
+  ! draft: true. The post stays out of the Blog dialog until you set it to false.
+
+RESULT: PASS (private draft adapter)

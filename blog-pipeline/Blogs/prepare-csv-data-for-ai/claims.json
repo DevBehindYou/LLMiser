@@ -1,0 +1,19 @@
+{
+  "article": "M06",
+  "slug": "prepare-csv-data-for-ai",
+  "checked": "2026-11-08",
+  "claims": [
+    { "id": "C01", "text": "LLMiser reads a .csv as comma-separated, guesses encoding from the bytes, writes one table; first row is header; rows padded to widest", "state": "VERIFIED_CODE", "source": "S-CODE-CSV" },
+    { "id": "C03", "text": "Semicolon row Lee;10,50;Köln came out as Lee;10 and 50;Köln with all headers in one cell", "state": "VERIFIED_LOCAL_RUN", "source": "F-M06" },
+    { "id": "C04", "text": ".tsv came through as raw tab-separated text, not a table", "state": "VERIFIED_LOCAL_RUN", "source": "F-M06" },
+    { "id": "C05", "text": "Quoted file converted correctly; doubled quote became one; two-line note joined into one line", "state": "VERIFIED_LOCAL_RUN", "source": "F-M06" },
+    { "id": "C06", "text": "RFC 4180: fields with commas, quotes or line breaks enclosed in double quotes; inner quotes doubled", "state": "VERIFIED_SOURCE", "source": "S-RFC4180" },
+    { "id": "C07", "text": "Unquoted copy: Paid in Note, ' then refunded' under Amount, 10.50 in a headerless fourth column", "state": "VERIFIED_LOCAL_RUN", "source": "F-M06" },
+    { "id": "C08", "text": "Windows-1252 names came out as Josķ N·±ez and Z³rich; UTF-8 with or without BOM came out right; already-garbled JosÃ© turned into Korean characters", "state": "VERIFIED_LOCAL_RUN", "source": "F-M06" },
+    { "id": "C09", "text": "CSV kept leading zeros 02134 where the workbook path lost them", "state": "VERIFIED_LOCAL_RUN", "source": "F-M03 probe" },
+    { "id": "C10", "text": "Header-less file: first record became the headers, one data row left", "state": "VERIFIED_LOCAL_RUN", "source": "F-M06" },
+    { "id": "C11", "text": "RFC 4180 calls the header optional and expects it to have as many fields as the records", "state": "VERIFIED_SOURCE", "source": "S-RFC4180" },
+    { "id": "C12", "text": "Ragged file: blank cell stayed blank, short row padded, extra field added an unnamed fourth column", "state": "VERIFIED_LOCAL_RUN", "source": "F-M06" },
+    { "id": "C13", "text": "LLMiser accepts .csv up to 15 MB and accepts .tsv", "state": "VERIFIED_CODE", "source": "S-CODE-FORMATS" }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "label": "LOCAL CODE-LEVEL RUN of repository backend code; not a live production conversion",
+  "date_utc": "2026-11-08T17:43:53+00:00",
+  "revision": "233ac212ba9c8b1dd1b46b6ecd06916e77899253",
+  "versions": {
+    "python": "3.13.18",
+    "markitdown": "0.1.9",
+    "tesseract": "tesseract 5.3.4"
+  },
+  "input": {
+    "file": "ragged.csv",
+    "bytes": 68,
+    "sha256": "a9488aa98e957c13da679740276039f6ea7c27d1e9df290d547679476c287751"
+  },
+  "mode": "doc",
+  "runs": [
+    {
+      "profile": "Standard",
+      "kind": "doc",
+      "note": null,
+      "words": 50,
+      "estimated_tokens_backend": 66,
+      "outputs": [
+        {
+          "file": "ragged.Standard.md",
+          "bytes": 211,
+          "sha256": "3954fc2657f83163e7a0e862d807cc1abfcc2ad7f16bc5e790b341db08506ebe"
+        }
+      ]
+    }
+  ]
+}

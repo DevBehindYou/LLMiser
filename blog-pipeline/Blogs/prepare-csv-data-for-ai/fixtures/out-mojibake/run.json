@@ -1,0 +1,32 @@
+{
+  "label": "LOCAL CODE-LEVEL RUN of repository backend code; not a live production conversion",
+  "date_utc": "2026-11-08T17:43:52+00:00",
+  "revision": "233ac212ba9c8b1dd1b46b6ecd06916e77899253",
+  "versions": {
+    "python": "3.13.18",
+    "markitdown": "0.1.9",
+    "tesseract": "tesseract 5.3.4"
+  },
+  "input": {
+    "file": "mojibake.csv",
+    "bytes": 44,
+    "sha256": "23b7203dd4f16f3932f9cecc93650f23f0f2d1fdac8595a1084f8983549d8b82"
+  },
+  "mode": "doc",
+  "runs": [
+    {
+      "profile": "Standard",
+      "kind": "doc",
+      "note": null,
+      "words": 26,
+      "estimated_tokens_backend": 35,
+      "outputs": [
+        {
+          "file": "mojibake.Standard.md",
+          "bytes": 155,
+          "sha256": "7d4ff82b32b3e82780f631b68259ae39e0efd5e73aa410d76a6f2e37e9fcf33b"
+        }
+      ]
+    }
+  ]
+}
