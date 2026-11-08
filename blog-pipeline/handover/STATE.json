@@ -1,14 +1,15 @@
 {
   "protocol": "AI-HANDOVER/V2 (adapted compact JSON)",
-  "updated": "2026-11-05",
+  "updated": "2026-11-08",
   "project": "LLMiser",
-  "scope": "Selected-title campaign authoring plan: 12 main briefs, 36 support briefs, 108 post briefs",
+  "scope": "Selected-title campaign production: 12 mains, 36 supports, 108 posts (writing in progress)",
   "repo": {
-    "branch": "main",
+    "branch": "claude/stoic-pasteur-raqnqy",
     "source_baseline": "8eb8c5091e1b370ebf7ed9631621d07226960b7a",
     "tracked_worktree_changes": false,
     "private_pipeline_changed": true,
-    "git_ignored": true
+    "git_ignored": false,
+    "tracked_by_owner_decision": "2026-11-08: owner approved committing blog-pipeline/ to the session branch"
   },
   "canonical_origin": "https://llmiser.devbehindyou.com",
   "language": "en-US",
@@ -20,9 +21,9 @@
     "new_quantitative_keyword_metrics": "NOT_IMPLEMENTED",
     "named_engine_serp_audit": "NOT_IMPLEMENTED",
     "ai_answer_audit": "NOT_IMPLEMENTED",
-    "new_articles": "NOT_IMPLEMENTED",
+    "new_articles": "PARTIAL",
     "new_social_posts": "NOT_IMPLEMENTED",
-    "new_visuals": "NOT_IMPLEMENTED",
+    "new_visuals": "PARTIAL",
     "publication": "NOT_IMPLEMENTED",
     "validation": "VERIFIED",
     "main_blog_audit": "VERIFIED",
@@ -30,7 +31,7 @@
     "main_title_selection": "VERIFIED",
     "campaign_briefs": "IMPLEMENTED",
     "post_briefs": "IMPLEMENTED",
-    "original_fixtures": "NOT_IMPLEMENTED"
+    "original_fixtures": "PARTIAL"
   },
   "counts": {
     "existing_articles": 8,
@@ -63,16 +64,16 @@
     "Earlier ten briefs are reusable research, not extra campaign pages"
   ],
   "pending": [
-    "Draft and test original M01 examples before article production",
+    "M02-M12 mains, 36 supports, 108 posts",
     "New measured keyword data and named-engine intent reviews remain unavailable",
     "Existing MAIN_BLOG_AUDIT A01-A03 corrections remain pending",
     "R01-R08 evidence and semantic reviews remain open",
     "Produce article drafts, visuals and final post copy; publication is not part of this planning pack"
   ],
   "next": {
-    "id": "M01",
-    "action": "Research and create a safe original codebase-sharing fixture, then draft the seven-item main article",
-    "entry": "../campaign/main-briefs/M01.md"
+    "id": "M02",
+    "action": "Draft 9 OCR Checks Before You Send Scanned Text to AI with OCR fixture",
+    "entry": "../campaign/main-briefs/M02.md"
   },
   "evidence": {
     "validation": "../campaign/VALIDATION.md",
@@ -89,7 +90,7 @@
   "verification_scope": "12 selected titles, 12/36/108 hierarchy, exact ownership, 10 guardrail tests, 60 preservation hashes, active relative links, tracker/source references and existing blog-index integrity; not search performance or future draft quality",
   "main_blog_audit_scope": "8 live HTTP/canonical/title/description/index-directive checks, source review, selected primary-source checks and 3 snippet reproductions; no search performance or UI layout validation",
   "campaign": {
-    "status": "BRIEFS_READY",
+    "status": "PRODUCTION_IN_PROGRESS",
     "main_articles": 12,
     "listicles": 6,
     "product_guides": 4,
@@ -116,8 +117,18 @@
     },
     "support_topics_status": "IMPLEMENTED",
     "post_briefs_status": "IMPLEMENTED",
-    "article_drafts_completed": 0,
+    "article_drafts_completed": 1,
     "published_assets": 0,
-    "validation": "VERIFIED_STRUCTURE_ONLY"
+    "validation": "VERIFIED_STRUCTURE_ONLY",
+    "production": {
+      "mains_drafted": 1,
+      "supports_drafted": 0,
+      "posts_written": 0,
+      "banners": 1,
+      "figures": 4,
+      "rendered_previews": 1,
+      "ledger": "../campaign/production-status.json",
+      "checkpoint": "../campaign/CONTINUATION.md"
+    }
   }
 }

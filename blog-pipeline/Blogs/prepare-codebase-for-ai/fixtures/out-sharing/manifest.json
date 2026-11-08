@@ -1,0 +1,173 @@
+{
+  "job_id": null,
+  "source": {
+    "filename": "invoice-tool-sharing.zip",
+    "bytes": 3254,
+    "entries": 13
+  },
+  "limits": {
+    "max_entries": 2000,
+    "max_uncompressed_bytes": 104857600,
+    "max_entry_bytes": 15728640,
+    "max_depth": 1,
+    "max_ocr_images": 50
+  },
+  "nodes": [
+    {
+      "path": "invoice-tool/.env.example",
+      "depth": 0,
+      "size": 95,
+      "node_type": "BINARY",
+      "classification": "SKIP",
+      "status": "SKIPPED",
+      "engine": null,
+      "skip_reason": "may contain credentials, not converted",
+      "language": null,
+      "node_id": "d9a47286-4d0c-4075-b5af-f2953e1b082a"
+    },
+    {
+      "path": "invoice-tool/.gitignore",
+      "depth": 0,
+      "size": 103,
+      "node_type": "CODE_FILE",
+      "classification": "DIRECT_TEXT",
+      "status": "DONE",
+      "engine": "direct",
+      "skip_reason": null,
+      "language": "",
+      "node_id": "b7aebe93-adb4-443c-b769-dcee617ac082"
+    },
+    {
+      "path": "invoice-tool/config/app.yaml",
+      "depth": 0,
+      "size": 46,
+      "node_type": "CODE_FILE",
+      "classification": "DIRECT_TEXT",
+      "status": "DONE",
+      "engine": "direct",
+      "skip_reason": null,
+      "language": "yaml",
+      "node_id": "d3f27477-97ca-443e-852e-63e4ddab43d9"
+    },
+    {
+      "path": "invoice-tool/pyproject.toml",
+      "depth": 0,
+      "size": 168,
+      "node_type": "CODE_FILE",
+      "classification": "DIRECT_TEXT",
+      "status": "DONE",
+      "engine": "direct",
+      "skip_reason": null,
+      "language": "toml",
+      "node_id": "e4a22973-45dc-4b85-9622-7570972ea36c"
+    },
+    {
+      "path": "invoice-tool/README.md",
+      "depth": 0,
+      "size": 131,
+      "node_type": "TEXT_FILE",
+      "classification": "DIRECT_TEXT",
+      "status": "DONE",
+      "engine": "direct",
+      "skip_reason": null,
+      "language": null,
+      "node_id": "8e4c6bde-97e0-4f9c-9ed9-e1069c8ce25d"
+    },
+    {
+      "path": "invoice-tool/requirements.lock",
+      "depth": 0,
+      "size": 75,
+      "node_type": "CODE_FILE",
+      "classification": "DIRECT_TEXT",
+      "status": "DONE",
+      "engine": "direct",
+      "skip_reason": null,
+      "language": "",
+      "node_id": "ad3f37f4-6924-4923-b5b4-d8f64101fd04"
+    },
+    {
+      "path": "invoice-tool/src/invoice/__init__.py",
+      "depth": 0,
+      "size": 22,
+      "node_type": "CODE_FILE",
+      "classification": "DIRECT_TEXT",
+      "status": "DONE",
+      "engine": "direct",
+      "skip_reason": null,
+      "language": "python",
+      "node_id": "62c3172a-3e16-44a8-8803-529ef0bed742"
+    },
+    {
+      "path": "invoice-tool/src/invoice/cli.py",
+      "depth": 0,
+      "size": 322,
+      "node_type": "CODE_FILE",
+      "classification": "DIRECT_TEXT",
+      "status": "DONE",
+      "engine": "direct",
+      "skip_reason": null,
+      "language": "python",
+      "node_id": "67e787dd-c26f-4e70-956c-87d51d2e0ac8"
+    },
+    {
+      "path": "invoice-tool/src/invoice/totals.py",
+      "depth": 0,
+      "size": 471,
+      "node_type": "CODE_FILE",
+      "classification": "DIRECT_TEXT",
+      "status": "DONE",
+      "engine": "direct",
+      "skip_reason": null,
+      "language": "python",
+      "node_id": "4a702e62-fef4-4038-b189-8f757f1a10f0"
+    },
+    {
+      "path": "invoice-tool/tests/test_totals.py",
+      "depth": 0,
+      "size": 305,
+      "node_type": "CODE_FILE",
+      "classification": "DIRECT_TEXT",
+      "status": "DONE",
+      "engine": "direct",
+      "skip_reason": null,
+      "language": "python",
+      "node_id": "6dd0c039-6f55-4d79-acb7-f4715efae9f8"
+    },
+    {
+      "path": "invoice-tool/web/package-lock.json",
+      "depth": 0,
+      "size": 125,
+      "node_type": "CODE_FILE",
+      "classification": "DIRECT_TEXT",
+      "status": "DONE",
+      "engine": "direct",
+      "skip_reason": null,
+      "language": "json",
+      "node_id": "f4245790-7baf-4b87-9614-5e85cf15a8b9"
+    },
+    {
+      "path": "invoice-tool/web/package.json",
+      "depth": 0,
+      "size": 93,
+      "node_type": "CODE_FILE",
+      "classification": "DIRECT_TEXT",
+      "status": "DONE",
+      "engine": "direct",
+      "skip_reason": null,
+      "language": "json",
+      "node_id": "b8da8848-5465-4383-9a28-ec5c9b2654e6"
+    },
+    {
+      "path": "invoice-tool/web/src/app.js",
+      "depth": 0,
+      "size": 83,
+      "node_type": "CODE_FILE",
+      "classification": "DIRECT_TEXT",
+      "status": "DONE",
+      "engine": "direct",
+      "skip_reason": null,
+      "language": "javascript",
+      "node_id": "cc85ee79-c425-49ee-8761-2aad93ffc88c"
+    }
+  ]
+}

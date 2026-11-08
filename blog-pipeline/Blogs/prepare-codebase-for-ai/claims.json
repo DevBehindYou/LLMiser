@@ -1,0 +1,28 @@
+{
+  "article": "M01",
+  "slug": "prepare-codebase-for-ai",
+  "checked": "2026-11-08",
+  "states": "VERIFIED_SOURCE = passage read today; VERIFIED_CODE = repository code read at 06261c1; VERIFIED_LOCAL_RUN = observed in the local code-level fixture run (not production); EDITORIAL = advice or judgment, no factual dependency",
+  "claims": [
+    { "id": "C01", "text": "A shared file cannot be taken back once an AI tool has read it", "state": "EDITORIAL", "source": null, "note": "Framing; rotation advice (C08) carries the factual weight." },
+    { "id": "C02", "text": "Build a task-focused sharing copy instead of uploading the working folder", "state": "EDITORIAL", "source": null },
+    { "id": "C03", "text": "gitignore specifies intentionally untracked files; tracked files are not affected", "state": "VERIFIED_SOURCE", "source": "S-GITIGNORE" },
+    { "id": "C04", "text": "git archive creates an archive of files from a named tree, so committed secrets come along", "state": "VERIFIED_SOURCE", "source": "S-GITARCHIVE", "note": "Second half is a direct inference from 'named tree'." },
+    { "id": "C05", "text": "LLMiser ZIP mode lists files named like credentials (.env, private keys, credentials.json) without reading them, and never converts .git", "state": "VERIFIED_CODE", "source": "S-CODE-ARCHIVE", "also": "F-M01 index rows for .env, id_ed25519, .git/config" },
+    { "id": "C06", "text": "The rule looks at names; config/settings.local.yaml with a fake key was converted into the Markdown", "state": "VERIFIED_LOCAL_RUN", "source": "F-M01", "evidence": "out-original/combined.md lines with payments_api_key" },
+    { "id": "C07", "text": "The same rule skipped .env.example", "state": "VERIFIED_LOCAL_RUN", "source": "F-M01" },
+    { "id": "C08", "text": "If a real secret was shared, revoke or rotate it first; a rotated secret can no longer be used", "state": "VERIFIED_SOURCE", "source": "S-GITHUB-SENSITIVE" },
+    { "id": "C09", "text": "Images inside an uploaded ZIP go through text recognition, up to 50 per archive", "state": "VERIFIED_CODE", "source": "S-CODE-TASKS, S-CODE-ARCHIVE (MAX_OCR_IMAGES=50)" },
+    { "id": "C10", "text": "LLMiser converted the synthetic log and customer CSV; the CSV became a Markdown table", "state": "VERIFIED_LOCAL_RUN", "source": "F-M01" },
+    { "id": "C10b", "text": "LLMiser's text recognition code returned the screenshot's name, email and invoice total as text", "state": "VERIFIED_LOCAL_RUN", "source": "F-M01 out-ocr-screenshot", "note": "Run separately through backendO code with tessdata_fast 4.1.0 eng and local tesseract 5.3.4; production binary version may differ." },
+    { "id": "C11", "text": "A ZIP is capped at 15 MB and 2,000 files", "state": "VERIFIED_CODE", "source": "S-CODE-FORMATS, S-CODE-ARCHIVE" },
+    { "id": "C12", "text": "Privacy policy asks users to upload only what they need converted", "state": "VERIFIED_CODE", "source": "S-PRIVACY" },
+    { "id": "C13", "text": "Folders such as node_modules, .venv, venv, vendor, build, dist, __pycache__, .pytest_cache are listed but not converted; rules match folder names anywhere in the path, so bin, out, env are skipped too", "state": "VERIFIED_CODE", "source": "S-CODE-ARCHIVE", "also": "F-M01 index" },
+    { "id": "C14", "text": "tmp/debug-notes.txt was converted and carried the fake key and an email", "state": "VERIFIED_LOCAL_RUN", "source": "F-M01" },
+    { "id": "C15", "text": "LLMiser stops converting entries once unpacked contents pass 100 MB, opens one nested ZIP level", "state": "VERIFIED_CODE", "source": "S-CODE-ARCHIVE" },
+    { "id": "C16", "text": "Both copies and the nested backup's settings.old.yaml (older fake key) were converted", "state": "VERIFIED_LOCAL_RUN", "source": "F-M01" },
+    { "id": "C17", "text": "Original Markdown: 4 fake credential lines, 2 customer rows, 3 more email lines; reviewed copy none; 484 words to 289", "state": "VERIFIED_LOCAL_RUN", "source": "F-M01 run.json and grep in qa.md", "note": "Toy fixture only. No savings generalization." },
+    { "id": "C18", "text": "The fake MP4 was skipped as a binary file", "state": "VERIFIED_LOCAL_RUN", "source": "F-M01" },
+    { "id": "C19", "text": "The reviewed copy's test failed for the planted rounding bug", "state": "VERIFIED_LOCAL_RUN", "source": "F-M01 pytest run, qa.md" }
+  ]
+}

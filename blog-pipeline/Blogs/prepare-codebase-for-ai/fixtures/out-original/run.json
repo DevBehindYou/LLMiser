@@ -1,0 +1,253 @@
+{
+  "label": "LOCAL CODE-LEVEL RUN of repository backend code; not a live production conversion",
+  "date_utc": "2026-11-08T17:07:14+00:00",
+  "revision": "06261c1422f37bdc3db1237a47987010b4dcdae1",
+  "versions": {
+    "python": "3.13.18",
+    "markitdown": "0.1.9",
+    "tesseract": "tesseract 5.3.4"
+  },
+  "input": {
+    "file": "invoice-tool-original.zip",
+    "bytes": 325182,
+    "sha256": "540bfc9f213f35153281fc50d19fe69764167ad3cde52c288754dca748ea20e6"
+  },
+  "mode": "zip",
+  "runs": [
+    {
+      "profile": "Standard",
+      "kind": "zip",
+      "words": 484,
+      "estimated_tokens_backend": 644,
+      "outputs": [
+        {
+          "file": "combined.md",
+          "bytes": 4585,
+          "sha256": "483b835743697fda7d18036272ddd9d0b91f3ab36ee3cfb651c085fff18d0245"
+        },
+        {
+          "file": "PROJECT_INDEX.md",
+          "bytes": 6226,
+          "sha256": "6c1c8e54bac4ede9930cfcd40b04814d9e0f78ea44b4da105463f51b4f51d1b2"
+        },
+        {
+          "file": "manifest.json",
+          "bytes": 12585,
+          "sha256": "61bb210349fb5bc17ccf3e6a5a0ab90779cf1c4919c3ce1a8cfb551f428069b4"
+        }
+      ],
+      "entries": [
+        {
+          "path": "invoice-tool/.env",
+          "status": "SKIPPED",
+          "type": "BINARY",
+          "reason": "may contain credentials, not converted"
+        },
+        {
+          "path": "invoice-tool/.env.example",
+          "status": "SKIPPED",
+          "type": "BINARY",
+          "reason": "may contain credentials, not converted"
+        },
+        {
+          "path": "invoice-tool/.git/config",
+          "status": "SKIPPED",
+          "type": "ARCHIVE_ENTRY",
+          "reason": "dependency or build folder (smart project mode)"
+        },
+        {
+          "path": "invoice-tool/.git/HEAD",
+          "status": "SKIPPED",
+          "type": "ARCHIVE_ENTRY",
+          "reason": "dependency or build folder (smart project mode)"
+        },
+        {
+          "path": "invoice-tool/.gitignore",
+          "status": "DONE",
+          "type": "CODE_FILE",
+          "reason": null
+        },
+        {
+          "path": "invoice-tool/.pytest_cache/v/cache/lastfailed",
+          "status": "SKIPPED",
+          "type": "ARCHIVE_ENTRY",
+          "reason": "dependency or build folder (smart project mode)"
+        },
+        {
+          "path": "invoice-tool/.venv/lib/python3.12/site-packages/babel/__init__.py",
+          "status": "SKIPPED",
+          "type": "ARCHIVE_ENTRY",
+          "reason": "dependency or build folder (smart project mode)"
+        },
+        {
+          "path": "invoice-tool/assets/demo-recording.mp4",
+          "status": "SKIPPED",
+          "type": "BINARY",
+          "reason": "binary file"
+        },
+        {
+          "path": "invoice-tool/backup/invoice-tool-2026-09.zip",
+          "status": "DONE",
+          "type": "NESTED_ARCHIVE",
+          "reason": null
+        },
+        {
+          "path": "invoice-tool/backup/invoice-tool-2026-09.zip/invoice-tool/config/settings.old.yaml",
+          "status": "DONE",
+          "type": "CODE_FILE",
+          "reason": null
+        },
+        {
+          "path": "invoice-tool/backup/invoice-tool-2026-09.zip/invoice-tool/src/invoice/totals.py",
+          "status": "DONE",
+          "type": "CODE_FILE",
+          "reason": null
+        },
+        {
+          "path": "invoice-tool/build/lib/invoice/totals.py",
+          "status": "SKIPPED",
+          "type": "ARCHIVE_ENTRY",
+          "reason": "dependency or build folder (smart project mode)"
+        },
+        {
+          "path": "invoice-tool/config/app.yaml",
+          "status": "DONE",
+          "type": "CODE_FILE",
+          "reason": null
+        },
+        {
+          "path": "invoice-tool/config/settings.local.yaml",
+          "status": "DONE",
+          "type": "CODE_FILE",
+          "reason": null
+        },
+        {
+          "path": "invoice-tool/data/customers-export.csv",
+          "status": "DONE",
+          "type": "DOCUMENT",
+          "reason": null
+        },
+        {
+          "path": "invoice-tool/dist/invoice_tool-0.3.0-py3-none-any.whl",
+          "status": "SKIPPED",
+          "type": "ARCHIVE_ENTRY",
+          "reason": "dependency or build folder (smart project mode)"
+        },
+        {
+          "path": "invoice-tool/docs/screenshot-checkout.png",
+          "status": "SKIPPED",
+          "type": "IMAGE",
+          "reason": "image text recognition needs direct upload"
+        },
+        {
+          "path": "invoice-tool/id_ed25519",
+          "status": "SKIPPED",
+          "type": "BINARY",
+          "reason": "may contain credentials, not converted"
+        },
+        {
+          "path": "invoice-tool/logs/app-2026-11-02.log",
+          "status": "DONE",
+          "type": "TEXT_FILE",
+          "reason": null
+        },
+        {
+          "path": "invoice-tool/pyproject.toml",
+          "status": "DONE",
+          "type": "CODE_FILE",
+          "reason": null
+        },
+        {
+          "path": "invoice-tool/README.md",
+          "status": "DONE",
+          "type": "TEXT_FILE",
+          "reason": null
+        },
+        {
+          "path": "invoice-tool/requirements.lock",
+          "status": "DONE",
+          "type": "CODE_FILE",
+          "reason": null
+        },
+        {
+          "path": "invoice-tool/src/invoice/__init__.py",
+          "status": "DONE",
+          "type": "CODE_FILE",
+          "reason": null
+        },
+        {
+          "path": "invoice-tool/src/invoice/__pycache__/totals.cpython-312.pyc",
+          "status": "SKIPPED",
+          "type": "ARCHIVE_ENTRY",
+          "reason": "dependency or build folder (smart project mode)"
+        },
+        {
+          "path": "invoice-tool/src/invoice/cli.py",
+          "status": "DONE",
+          "type": "CODE_FILE",
+          "reason": null
+        },
+        {
+          "path": "invoice-tool/src/invoice/totals (copy).py",
+          "status": "DONE",
+          "type": "CODE_FILE",
+          "reason": null
+        },
+        {
+          "path": "invoice-tool/src/invoice/totals.py",
+          "status": "DONE",
+          "type": "CODE_FILE",
+          "reason": null
+        },
+        {
+          "path": "invoice-tool/src/invoice/totals_old.py",
+          "status": "DONE",
+          "type": "CODE_FILE",
+          "reason": null
+        },
+        {
+          "path": "invoice-tool/tests/test_totals.py",
+          "status": "DONE",
+          "type": "CODE_FILE",
+          "reason": null
+        },
+        {
+          "path": "invoice-tool/tmp/debug-notes.txt",
+          "status": "DONE",
+          "type": "TEXT_FILE",
+          "reason": null
+        },
+        {
+          "path": "invoice-tool/web/node_modules/left-pad/index.js",
+          "status": "SKIPPED",
+          "type": "ARCHIVE_ENTRY",
+          "reason": "dependency or build folder (smart project mode)"
+        },
+        {
+          "path": "invoice-tool/web/node_modules/left-pad/package.json",
+          "status": "SKIPPED",
+          "type": "ARCHIVE_ENTRY",
+          "reason": "dependency or build folder (smart project mode)"
+        },
+        {
+          "path": "invoice-tool/web/package-lock.json",
+          "status": "DONE",
+          "type": "CODE_FILE",
+          "reason": null
+        },
+        {
+          "path": "invoice-tool/web/package.json",
+          "status": "DONE",
+          "type": "CODE_FILE",
+          "reason": null
+        },
+        {
+          "path": "invoice-tool/web/src/app.js",
+          "status": "DONE",
+          "type": "CODE_FILE",
+          "reason": null
+        }
+      ]
+    }
+  ]
+}

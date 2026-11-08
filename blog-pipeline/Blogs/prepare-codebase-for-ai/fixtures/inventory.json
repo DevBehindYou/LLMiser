@@ -1,0 +1,216 @@
+{
+  "label": "Synthetic fixture. All credentials are FAKE placeholders; e-mails use example.com; IPs use 203.0.113.0/24.",
+  "task": "Fix the rounding bug in invoice totals (invoice_total rounds per line, should round once)",
+  "archives": {
+    "invoice-tool-original.zip": {
+      "bytes": 325182,
+      "sha256": "540bfc9f213f35153281fc50d19fe69764167ad3cde52c288754dca748ea20e6",
+      "entries": 33
+    },
+    "invoice-tool-sharing.zip": {
+      "bytes": 3254,
+      "sha256": "3cef472da32c9fd2e52cdbbf14ce47009151a5131092a2625904347ea3222281",
+      "entries": 13
+    }
+  },
+  "files": [
+    {
+      "path": "invoice-tool/.env",
+      "category": "1-secrets",
+      "decision": "remove",
+      "bytes": 91
+    },
+    {
+      "path": "invoice-tool/.env.example",
+      "category": "context",
+      "decision": "keep",
+      "bytes": 95
+    },
+    {
+      "path": "invoice-tool/.git/HEAD",
+      "category": "4-generated",
+      "decision": "remove",
+      "bytes": 21
+    },
+    {
+      "path": "invoice-tool/.git/config",
+      "category": "1-secrets",
+      "decision": "remove",
+      "bytes": 91
+    },
+    {
+      "path": "invoice-tool/.gitignore",
+      "category": "context",
+      "decision": "keep",
+      "bytes": 103
+    },
+    {
+      "path": "invoice-tool/.pytest_cache/v/cache/lastfailed",
+      "category": "5-cache-temp",
+      "decision": "remove",
+      "bytes": 65
+    },
+    {
+      "path": "invoice-tool/.venv/lib/python3.12/site-packages/babel/__init__.py",
+      "category": "3-dependencies",
+      "decision": "remove",
+      "bytes": 67
+    },
+    {
+      "path": "invoice-tool/README.md",
+      "category": "context",
+      "decision": "keep",
+      "bytes": 131
+    },
+    {
+      "path": "invoice-tool/assets/demo-recording.mp4",
+      "category": "6-large-binary",
+      "decision": "remove",
+      "bytes": 262144
+    },
+    {
+      "path": "invoice-tool/backup/invoice-tool-2026-09.zip",
+      "category": "7-duplicates",
+      "decision": "remove",
+      "bytes": 424
+    },
+    {
+      "path": "invoice-tool/build/lib/invoice/totals.py",
+      "category": "4-generated",
+      "decision": "remove",
+      "bytes": 64
+    },
+    {
+      "path": "invoice-tool/config/app.yaml",
+      "category": "context",
+      "decision": "keep",
+      "bytes": 46
+    },
+    {
+      "path": "invoice-tool/config/settings.local.yaml",
+      "category": "1-secrets",
+      "decision": "remove",
+      "bytes": 156
+    },
+    {
+      "path": "invoice-tool/data/customers-export.csv",
+      "category": "2-private-data",
+      "decision": "remove",
+      "bytes": 109
+    },
+    {
+      "path": "invoice-tool/dist/invoice_tool-0.3.0-py3-none-any.whl",
+      "category": "4-generated",
+      "decision": "remove",
+      "bytes": 40000
+    },
+    {
+      "path": "invoice-tool/docs/screenshot-checkout.png",
+      "category": "2-private-data",
+      "decision": "remove",
+      "bytes": 14443
+    },
+    {
+      "path": "invoice-tool/id_ed25519",
+      "category": "1-secrets",
+      "decision": "remove",
+      "bytes": 98
+    },
+    {
+      "path": "invoice-tool/logs/app-2026-11-02.log",
+      "category": "2-private-data",
+      "decision": "remove",
+      "bytes": 259
+    },
+    {
+      "path": "invoice-tool/pyproject.toml",
+      "category": "manifest",
+      "decision": "keep",
+      "bytes": 168
+    },
+    {
+      "path": "invoice-tool/requirements.lock",
+      "category": "manifest",
+      "decision": "keep",
+      "bytes": 75
+    },
+    {
+      "path": "invoice-tool/src/invoice/__init__.py",
+      "category": "source",
+      "decision": "keep",
+      "bytes": 22
+    },
+    {
+      "path": "invoice-tool/src/invoice/__pycache__/totals.cpython-312.pyc",
+      "category": "5-cache-temp",
+      "decision": "remove",
+      "bytes": 2017
+    },
+    {
+      "path": "invoice-tool/src/invoice/cli.py",
+      "category": "source",
+      "decision": "keep",
+      "bytes": 322
+    },
+    {
+      "path": "invoice-tool/src/invoice/totals (copy).py",
+      "category": "7-duplicates",
+      "decision": "remove",
+      "bytes": 471
+    },
+    {
+      "path": "invoice-tool/src/invoice/totals.py",
+      "category": "source",
+      "decision": "keep",
+      "bytes": 471
+    },
+    {
+      "path": "invoice-tool/src/invoice/totals_old.py",
+      "category": "7-duplicates",
+      "decision": "remove",
+      "bytes": 122
+    },
+    {
+      "path": "invoice-tool/tests/test_totals.py",
+      "category": "test",
+      "decision": "keep",
+      "bytes": 305
+    },
+    {
+      "path": "invoice-tool/tmp/debug-notes.txt",
+      "category": "5-cache-temp",
+      "decision": "remove",
+      "bytes": 136
+    },
+    {
+      "path": "invoice-tool/web/node_modules/left-pad/index.js",
+      "category": "3-dependencies",
+      "decision": "remove",
+      "bytes": 75
+    },
+    {
+      "path": "invoice-tool/web/node_modules/left-pad/package.json",
+      "category": "3-dependencies",
+      "decision": "remove",
+      "bytes": 43
+    },
+    {
+      "path": "invoice-tool/web/package-lock.json",
+      "category": "manifest",
+      "decision": "keep",
+      "bytes": 125
+    },
+    {
+      "path": "invoice-tool/web/package.json",
+      "category": "manifest",
+      "decision": "keep",
+      "bytes": 93
+    },
+    {
+      "path": "invoice-tool/web/src/app.js",
+      "category": "source",
+      "decision": "keep",
+      "bytes": 83
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+LLMiser PRIVATE draft check (adapter; staged visuals, not production validation): Blogs/prepare-codebase-for-ai/draft.md
+Date: 2026-11-08T17:18:39.398Z
+Words (app wordCount): 1985, read time 9 min
+Info: Intro: 100 words
+Info: H2 opening word counts: 36, 35, 38, 35, 34, 34, 36, 33, 38
+Info: Numbered items: 7 of 7
+Info: Links: 7 (3 external)
+
+Errors (0):
+  none
+
+Warnings (2):
+  ! Description does not contain the primary keyword.
+  ! draft: true. The post stays out of the Blog dialog until you set it to false.
+
+RESULT: PASS (private draft adapter)

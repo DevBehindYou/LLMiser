@@ -1,0 +1,84 @@
+{
+  "article": "M01",
+  "checked": "2026-11-08",
+  "rule": "Only links to live pages appear in draft.md. Campaign destinations wait here until they are part of the same release.",
+  "in_draft": [
+    {
+      "url": "/blog/document-to-llm-pipeline",
+      "owner": "E08",
+      "status": "LIVE",
+      "placement": "Start with a sharing copy, last paragraph"
+    },
+    {
+      "url": "/privacy",
+      "owner": "PRIVACY",
+      "status": "LIVE",
+      "placement": "2. Private data"
+    },
+    {
+      "url": "/usecase",
+      "owner": "USE",
+      "status": "LIVE",
+      "placement": "Check the copy, last line"
+    },
+    {
+      "url": "/",
+      "owner": "HOME",
+      "status": "LIVE",
+      "placement": "CTA"
+    },
+    {
+      "url": "https://git-scm.com/docs/gitignore",
+      "owner": "external",
+      "status": "CHECKED_200"
+    },
+    {
+      "url": "https://git-scm.com/docs/git-archive",
+      "owner": "external",
+      "status": "CHECKED_200"
+    },
+    {
+      "url": "https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository",
+      "owner": "external",
+      "status": "CHECKED_200"
+    }
+  ],
+  "planned_when_released": [
+    {
+      "target": "M01-S1",
+      "url": "/blog/project-zip-secret-review",
+      "status": "UNPUBLISHED",
+      "placement": "1. Secrets, after the renamed-config paragraph",
+      "anchor": "how to review a sharing copy for secrets"
+    },
+    {
+      "target": "M01-S2",
+      "url": "/blog/dependency-files-ai-review",
+      "status": "UNPUBLISHED",
+      "placement": "3. Installed dependency directories, after the lockfile paragraph",
+      "anchor": "which dependency files to keep"
+    },
+    {
+      "target": "M01-S3",
+      "url": "/blog/task-focused-code-bundle",
+      "status": "UNPUBLISHED",
+      "placement": "Start with a sharing copy, after naming the task",
+      "anchor": "build a task-focused bundle with tests"
+    },
+    {
+      "target": "M10",
+      "url": "/blog/llmiser-zip-index-manifest",
+      "status": "UNPUBLISHED",
+      "placement": "Check the copy, project index paragraph",
+      "anchor": "reading the project index and manifest"
+    },
+    {
+      "target": "M12",
+      "url": "/blog/conflicting-document-versions-ai",
+      "status": "UNPUBLISHED",
+      "placement": "7. Duplicate or obsolete copies (optional)",
+      "anchor": "why two versions confuse AI"
+    }
+  ],
+  "note": "Slugs confirmed against intent-registry.json canonicals on 2026-11-08 (campaign/slug-map.json)."
+}

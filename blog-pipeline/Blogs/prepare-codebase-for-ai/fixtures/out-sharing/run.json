@@ -1,0 +1,121 @@
+{
+  "label": "LOCAL CODE-LEVEL RUN of repository backend code; not a live production conversion",
+  "date_utc": "2026-11-08T17:07:15+00:00",
+  "revision": "06261c1422f37bdc3db1237a47987010b4dcdae1",
+  "versions": {
+    "python": "3.13.18",
+    "markitdown": "0.1.9",
+    "tesseract": "tesseract 5.3.4"
+  },
+  "input": {
+    "file": "invoice-tool-sharing.zip",
+    "bytes": 3254,
+    "sha256": "3cef472da32c9fd2e52cdbbf14ce47009151a5131092a2625904347ea3222281"
+  },
+  "mode": "zip",
+  "runs": [
+    {
+      "profile": "Standard",
+      "kind": "zip",
+      "words": 289,
+      "estimated_tokens_backend": 384,
+      "outputs": [
+        {
+          "file": "combined.md",
+          "bytes": 2650,
+          "sha256": "182b661d2327e663bdbf3d080ab9c148a027116cee1642d7843340021b703991"
+        },
+        {
+          "file": "PROJECT_INDEX.md",
+          "bytes": 1758,
+          "sha256": "30f54933f17a4ca65c954157f46b345776efb314cbf3e2d04b803928847e16de"
+        },
+        {
+          "file": "manifest.json",
+          "bytes": 4574,
+          "sha256": "d39f76ad0c5e9b6dd708775155c79f7a4289f65e98bba0881a2d36e21102f825"
+        }
+      ],
+      "entries": [
+        {
+          "path": "invoice-tool/.env.example",
+          "status": "SKIPPED",
+          "type": "BINARY",
+          "reason": "may contain credentials, not converted"
+        },
+        {
+          "path": "invoice-tool/.gitignore",
+          "status": "DONE",
+          "type": "CODE_FILE",
+          "reason": null
+        },
+        {
+          "path": "invoice-tool/config/app.yaml",
+          "status": "DONE",
+          "type": "CODE_FILE",
+          "reason": null
+        },
+        {
+          "path": "invoice-tool/pyproject.toml",
+          "status": "DONE",
+          "type": "CODE_FILE",
+          "reason": null
+        },
+        {
+          "path": "invoice-tool/README.md",
+          "status": "DONE",
+          "type": "TEXT_FILE",
+          "reason": null
+        },
+        {
+          "path": "invoice-tool/requirements.lock",
+          "status": "DONE",
+          "type": "CODE_FILE",
+          "reason": null
+        },
+        {
+          "path": "invoice-tool/src/invoice/__init__.py",
+          "status": "DONE",
+          "type": "CODE_FILE",
+          "reason": null
+        },
+        {
+          "path": "invoice-tool/src/invoice/cli.py",
+          "status": "DONE",
+          "type": "CODE_FILE",
+          "reason": null
+        },
+        {
+          "path": "invoice-tool/src/invoice/totals.py",
+          "status": "DONE",
+          "type": "CODE_FILE",
+          "reason": null
+        },
+        {
+          "path": "invoice-tool/tests/test_totals.py",
+          "status": "DONE",
+          "type": "CODE_FILE",
+          "reason": null
+        },
+        {
+          "path": "invoice-tool/web/package-lock.json",
+          "status": "DONE",
+          "type": "CODE_FILE",
+          "reason": null
+        },
+        {
+          "path": "invoice-tool/web/package.json",
+          "status": "DONE",
+          "type": "CODE_FILE",
+          "reason": null
+        },
+        {
+          "path": "invoice-tool/web/src/app.js",
+          "status": "DONE",
+          "type": "CODE_FILE",
+          "reason": null
+        }
+      ]
+    }
+  ]
+}

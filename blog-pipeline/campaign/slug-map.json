@@ -1,0 +1,294 @@
+{
+ "note": "Derived from intent-registry.json for drafting convenience. Registry wins on conflict.",
+ "generated": "2026-11-08",
+ "ids": {
+  "M01": {
+   "slug": "prepare-codebase-for-ai",
+   "title": "7 Things to Remove Before Sharing a Codebase With AI",
+   "primary": "prepare codebase for AI",
+   "parent": "E08"
+  },
+  "M02": {
+   "slug": "ocr-checks-before-ai",
+   "title": "9 OCR Checks Before You Send Scanned Text to AI",
+   "primary": "OCR quality checks for AI",
+   "parent": "E08"
+  },
+  "M03": {
+   "slug": "excel-data-checks-for-ai",
+   "title": "7 Excel Details to Check Before Sharing Data With AI",
+   "primary": "prepare Excel data for AI",
+   "parent": "E08"
+  },
+  "M04": {
+   "slug": "prepare-word-documents-for-ai",
+   "title": "6 Ways to Prepare Word Documents for AI",
+   "primary": "prepare Word documents for AI",
+   "parent": "E08"
+  },
+  "M05": {
+   "slug": "powerpoint-to-markdown-checks",
+   "title": "8 Checks When Converting PowerPoint to Markdown",
+   "primary": "PowerPoint to Markdown",
+   "parent": "E08"
+  },
+  "M06": {
+   "slug": "prepare-csv-data-for-ai",
+   "title": "7 Ways to Prepare Cleaner CSV Data for AI",
+   "primary": "prepare CSV data for AI",
+   "parent": "E08"
+  },
+  "M07": {
+   "slug": "convert-multiple-files-llmiser",
+   "title": "How to Convert Multiple Files With LLMiser",
+   "primary": "LLMiser batch conversion",
+   "parent": "E08"
+  },
+  "M08": {
+   "slug": "llmiser-processing-profiles",
+   "title": "LLMiser Profiles: Standard, Clean, Compact, RAG-ready",
+   "primary": "LLMiser processing profiles",
+   "parent": "E08"
+  },
+  "M09": {
+   "slug": "edit-export-markdown-llmiser",
+   "title": "How to Edit and Export Markdown With LLMiser",
+   "primary": "edit Markdown in LLMiser",
+   "parent": "E08"
+  },
+  "M10": {
+   "slug": "llmiser-zip-index-manifest",
+   "title": "How to Read LLMiser's ZIP Index and Manifest",
+   "primary": "LLMiser ZIP manifest",
+   "parent": "E08"
+  },
+  "M11": {
+   "slug": "document-prompt-injection",
+   "title": "Prompt Injection: Can a Document Hijack Your AI?",
+   "primary": "document prompt injection",
+   "parent": "E08"
+  },
+  "M12": {
+   "slug": "conflicting-document-versions-ai",
+   "title": "Why Two Versions of a Document Can Confuse AI",
+   "primary": "conflicting document versions AI",
+   "parent": "E08"
+  },
+  "M01-S1": {
+   "slug": "project-zip-secret-review",
+   "title": "Check a Project ZIP for Secrets Before Sharing It",
+   "primary": "check code ZIP for secrets",
+   "parent": "M01"
+  },
+  "M01-S2": {
+   "slug": "dependency-files-ai-review",
+   "title": "Which Dependency Files Should You Keep for AI Review?",
+   "primary": "dependency files for AI code review",
+   "parent": "M01"
+  },
+  "M01-S3": {
+   "slug": "task-focused-code-bundle",
+   "title": "Build a Task-Focused Code Bundle With Tests",
+   "primary": "task focused code bundle",
+   "parent": "M01"
+  },
+  "M02-S1": {
+   "slug": "rotated-scan-ocr-check",
+   "title": "Check Rotated Scans Before Running OCR",
+   "primary": "rotated scan OCR check",
+   "parent": "M02"
+  },
+  "M02-S2": {
+   "slug": "verify-ocr-numbers",
+   "title": "Verify Numbers and Identifiers in OCR Output",
+   "primary": "verify numbers in OCR output",
+   "parent": "M02"
+  },
+  "M02-S3": {
+   "slug": "mixed-pdf-ocr-coverage",
+   "title": "Check OCR Coverage in a Mixed PDF",
+   "primary": "mixed PDF OCR coverage",
+   "parent": "M02"
+  },
+  "M03-S1": {
+   "slug": "excel-leading-zeros-ai",
+   "title": "Keep Leading Zeros When Preparing Excel Data for AI",
+   "primary": "Excel leading zeros AI",
+   "parent": "M03"
+  },
+  "M03-S2": {
+   "slug": "excel-formula-results-conversion",
+   "title": "Check Excel Formula Results Before Conversion",
+   "primary": "Excel formula results conversion",
+   "parent": "M03"
+  },
+  "M03-S3": {
+   "slug": "merged-excel-headers-markdown",
+   "title": "Prepare Merged Excel Headers for Markdown Tables",
+   "primary": "merged Excel headers Markdown",
+   "parent": "M03"
+  },
+  "M04-S1": {
+   "slug": "word-heading-styles-markdown",
+   "title": "Use Word Heading Styles Before Markdown Conversion",
+   "primary": "Word heading styles Markdown",
+   "parent": "M04"
+  },
+  "M04-S2": {
+   "slug": "nested-word-lists-markdown",
+   "title": "Check Nested Word Lists in Markdown Output",
+   "primary": "nested Word lists Markdown",
+   "parent": "M04"
+  },
+  "M04-S3": {
+   "slug": "word-revisions-ai-sharing",
+   "title": "Prepare Word Revisions and Comments for AI Sharing",
+   "primary": "Word tracked changes AI sharing",
+   "parent": "M04"
+  },
+  "M05-S1": {
+   "slug": "powerpoint-speaker-notes-markdown",
+   "title": "Check PowerPoint Speaker Notes After Conversion",
+   "primary": "PowerPoint speaker notes Markdown",
+   "parent": "M05"
+  },
+  "M05-S2": {
+   "slug": "slide-chart-context-ai",
+   "title": "Carry Chart Context From Slides Into AI Prompts",
+   "primary": "PowerPoint chart context AI",
+   "parent": "M05"
+  },
+  "M05-S3": {
+   "slug": "slide-order-markdown",
+   "title": "Keep Slide Titles and Order Clear in Markdown",
+   "primary": "PowerPoint slide order Markdown",
+   "parent": "M05"
+  },
+  "M06-S1": {
+   "slug": "csv-quoted-cells-markdown",
+   "title": "Handle Commas and Quotes Inside CSV Cells",
+   "primary": "CSV quoted cells Markdown",
+   "parent": "M06"
+  },
+  "M06-S2": {
+   "slug": "csv-encoding-ai",
+   "title": "Check CSV Encoding Before Sharing Text With AI",
+   "primary": "CSV encoding AI",
+   "parent": "M06"
+  },
+  "M06-S3": {
+   "slug": "csv-empty-missing-fields",
+   "title": "Distinguish Empty CSV Cells From Missing Fields",
+   "primary": "empty CSV cells missing fields",
+   "parent": "M06"
+  },
+  "M07-S1": {
+   "slug": "mixed-file-batch-llmiser",
+   "title": "Plan a Batch With Different Supported File Types",
+   "primary": "LLMiser mixed file batch",
+   "parent": "M07"
+  },
+  "M07-S2": {
+   "slug": "partial-batch-conversion",
+   "title": "Handle Partial Conversion Failures in a Batch",
+   "primary": "LLMiser partial batch failure",
+   "parent": "M07"
+  },
+  "M07-S3": {
+   "slug": "split-batch-upload-limits",
+   "title": "Split a File Batch Around LLMiser's Upload Limits",
+   "primary": "LLMiser upload limits batch",
+   "parent": "M07"
+  },
+  "M08-S1": {
+   "slug": "llmiser-standard-vs-clean",
+   "title": "Standard vs Clean: Compare LLMiser Output",
+   "primary": "LLMiser Standard vs Clean",
+   "parent": "M08"
+  },
+  "M08-S2": {
+   "slug": "llmiser-compact-markdown-check",
+   "title": "Check Compact Markdown Before You Use It",
+   "primary": "LLMiser Compact Markdown",
+   "parent": "M08"
+  },
+  "M08-S3": {
+   "slug": "llmiser-rag-ready-markers",
+   "title": "What LLMiser's RAG-ready Markers Do",
+   "primary": "LLMiser RAG-ready markers",
+   "parent": "M08"
+  },
+  "M09-S1": {
+   "slug": "original-edited-markdown",
+   "title": "Original or Edited Markdown: Which File Are You Saving?",
+   "primary": "LLMiser original versus edited Markdown",
+   "parent": "M09"
+  },
+  "M09-S2": {
+   "slug": "long-markdown-preview",
+   "title": "Check Long Markdown Beyond the Preview",
+   "primary": "LLMiser long Markdown preview",
+   "parent": "M09"
+  },
+  "M09-S3": {
+   "slug": "copy-download-markdown",
+   "title": "Copy or Download Markdown: Check the Result",
+   "primary": "LLMiser copy versus download",
+   "parent": "M09"
+  },
+  "M10-S1": {
+   "slug": "read-project-index-paths",
+   "title": "Find Relevant Files in PROJECT_INDEX.md",
+   "primary": "LLMiser project index paths",
+   "parent": "M10"
+  },
+  "M10-S2": {
+   "slug": "reconcile-zip-manifest",
+   "title": "Reconcile a ZIP Manifest With Your Source Files",
+   "primary": "LLMiser manifest completeness",
+   "parent": "M10"
+  },
+  "M10-S3": {
+   "slug": "missing-zip-conversion-content",
+   "title": "Investigate Missing Content in a ZIP Conversion",
+   "primary": "LLMiser missing ZIP content",
+   "parent": "M10"
+  },
+  "M11-S1": {
+   "slug": "untrusted-document-instructions",
+   "title": "Recognize Instructions Inside an Untrusted Document",
+   "primary": "untrusted document instructions",
+   "parent": "M11"
+  },
+  "M11-S2": {
+   "slug": "markdown-conversion-prompt-injection",
+   "title": "Why Markdown Conversion Does Not Remove Prompt Injection",
+   "primary": "Markdown conversion prompt injection",
+   "parent": "M11"
+  },
+  "M11-S3": {
+   "slug": "ai-actions-external-documents",
+   "title": "Review AI Actions After Reading External Documents",
+   "primary": "AI actions from external documents",
+   "parent": "M11"
+  },
+  "M12-S1": {
+   "slug": "label-document-versions-ai",
+   "title": "Label Document Versions Before Building AI Context",
+   "primary": "label document versions AI",
+   "parent": "M12"
+  },
+  "M12-S2": {
+   "slug": "conflicting-policy-passages-ai",
+   "title": "Resolve Conflicting Policy Passages Before Asking AI",
+   "primary": "conflicting policy passages AI",
+   "parent": "M12"
+  },
+  "M12-S3": {
+   "slug": "stale-excerpts-ai-context",
+   "title": "Remove Stale Excerpts From an AI Context Packet",
+   "primary": "stale excerpts AI context",
+   "parent": "M12"
+  }
+ }
+}
