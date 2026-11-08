@@ -39,6 +39,9 @@ M07 "How to Convert Multiple Files With LLMiser" (slug convert-multiple-files-ll
 - M02: blank page in a mixed PDF adds "_No extractable text found in this document._" to merged output.
 - M03: Excel conversion drops leading zeros from all-text ID columns (pandas inference); CSV keeps them.
 - E08 published figure naive-vs-pipeline.svg has two sub-labels spilling out of their boxes (not edited).
+- M08: Compact profile deletes every "---" (breaks Markdown tables, alters text and code), keeps the source note despite the site FAQ wording; RAG-ready inserts chunk markers inside fenced code.
+- M07: the skipped-files notice gives counts only and lumps empty files under "unsupported or too large".
+- Renderer: mono text now disables JetBrains Mono ligatures so <!--, --> and --- render literally (all figures re-rendered).
 
 ## Blockers
 

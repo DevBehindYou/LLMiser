@@ -1,0 +1,71 @@
+{
+  "slug": "llmiser-processing-profiles",
+  "date": "2026-11-08T17:53:20.652Z",
+  "viewport": "2 x 375px columns, deviceScaleFactor 2",
+  "themes": [
+    "dark",
+    "light"
+  ],
+  "fontsLoaded": [
+    "LLMiser Inter",
+    "LLMiser JetBrains Mono",
+    "LLMiser Patrick Hand"
+  ],
+  "figures": [
+    {
+      "figure": "banner.svg",
+      "viewBox": [
+        1200,
+        400
+      ],
+      "renderedWidthPx": 343,
+      "minFontPxAt375": "4.0",
+      "texts": 13,
+      "issues": []
+    },
+    {
+      "figure": "profile-diff.svg",
+      "viewBox": [
+        600,
+        431
+      ],
+      "renderedWidthPx": 343,
+      "minFontPxAt375": "6.3",
+      "texts": 45,
+      "issues": []
+    },
+    {
+      "figure": "compact-table.svg",
+      "viewBox": [
+        600,
+        470
+      ],
+      "renderedWidthPx": 343,
+      "minFontPxAt375": "6.3",
+      "texts": 16,
+      "issues": []
+    },
+    {
+      "figure": "rag-markers.svg",
+      "viewBox": [
+        600,
+        465
+      ],
+      "renderedWidthPx": 343,
+      "minFontPxAt375": "6.3",
+      "texts": 17,
+      "issues": []
+    },
+    {
+      "figure": "choose-profile.svg",
+      "viewBox": [
+        600,
+        511
+      ],
+      "renderedWidthPx": 343,
+      "minFontPxAt375": "6.3",
+      "texts": 13,
+      "issues": []
+    }
+  ]
+}

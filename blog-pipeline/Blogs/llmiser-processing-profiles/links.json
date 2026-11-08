@@ -1,0 +1,17 @@
+{
+  "article": "M08",
+  "checked": "2026-11-08",
+  "in_draft": [
+    { "url": "https://github.github.com/gfm/#tables-extension-", "owner": "external", "status": "CHECKED_200, anchor present" },
+    { "url": "https://spec.commonmark.org/0.31.2/", "owner": "external", "status": "CHECKED_200" },
+    { "url": "/blog/document-to-llm-pipeline", "owner": "E08", "status": "LIVE" },
+    { "url": "/usecase", "owner": "USE", "status": "LIVE" },
+    { "url": "/", "owner": "HOME", "status": "LIVE", "placement": "CTA" }
+  ],
+  "planned_when_released": [
+    { "target": "M08-S1", "url": "/blog/llmiser-standard-vs-clean", "status": "UNPUBLISHED", "placement": "3. Clean output" },
+    { "target": "M08-S2", "url": "/blog/llmiser-compact-markdown-check", "status": "UNPUBLISHED", "placement": "4. Compact output" },
+    { "target": "M08-S3", "url": "/blog/llmiser-rag-ready-markers", "status": "UNPUBLISHED", "placement": "5. RAG-ready output" },
+    { "target": "E05", "url": "/blog/hidden-token-tax-rag-pipelines", "status": "LIVE", "placement": "Not used: retrieval tuning is out of scope" }
+  ]
+}

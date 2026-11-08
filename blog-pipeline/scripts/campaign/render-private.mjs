@@ -8,6 +8,11 @@
 // inspectSvg and writes ONLY to Blogs/{slug}/visuals/. It never touches
 // frontend/public. Stale SVGs are removed from that private folder only.
 // There is deliberately no --all option.
+//
+// Mono text: JetBrains Mono draws "<!--", "-->", "->" and "---" as ligatures
+// (arrows, one long dash), which misstates exact syntax in figures about
+// Markdown. Every JetBrains Mono run gets font-feature-settings 'calt' 0 and
+// 'liga' 0 so the characters render as typed. kit.mjs is unchanged.
 
 import fs from 'node:fs';
 import path from 'node:path';
@@ -15,6 +20,10 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 import { inspectSvg, SLUG_PATTERN } from '../../../frontend/lib/blog.mjs';
 
 const PIPELINE = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
+
+export function noMonoLigatures(svg) {
+  return svg.replace(/font-family:var\(--font-jetbrains-mono/g, "font-feature-settings:'calt' 0,'liga' 0;font-family:var(--font-jetbrains-mono");
+}
 
 export async function renderPrivate(slug) {
   if (!SLUG_PATTERN.test(slug)) throw new Error(`Not a slug: ${slug}`);
@@ -25,7 +34,8 @@ export async function renderPrivate(slug) {
   const outDir = path.join(PIPELINE, 'Blogs', slug, 'visuals');
   fs.mkdirSync(outDir, { recursive: true });
   const written = [];
-  for (const [name, svg] of Object.entries(files)) {
+  for (const [name, raw] of Object.entries(files)) {
+    const svg = noMonoLigatures(raw);
     if (!SLUG_PATTERN.test(name)) throw new Error(`${slug}: figure name "${name}" must be lowercase words joined by hyphens`);
     const { problems, width, height } = inspectSvg(svg);
     if (problems.length) throw new Error(`${slug}/${name}.svg: ${problems.join(', ')}`);

@@ -1,0 +1,19 @@
+{
+  "article": "M08",
+  "slug": "llmiser-processing-profiles",
+  "checked": "2026-11-08",
+  "claims": [
+    { "id": "C01", "text": "Profiles apply a few text rules after conversion; conversion itself is identical", "state": "VERIFIED_CODE", "source": "S-CODE-PROFILES" },
+    { "id": "C02", "text": "Standard adds title if missing and a source note naming file, size and engine", "state": "VERIFIED_CODE", "source": "S-CODE-PROFILES" },
+    { "id": "C03", "text": "Standard 98 words; Clean 90 words, 469 bytes, smallest; Compact 95; RAG-ready 118", "state": "VERIFIED_LOCAL_RUN", "source": "F-M08 run.json" },
+    { "id": "C04", "text": "Clean differed from Standard by exactly the source note on this file", "state": "VERIFIED_LOCAL_RUN", "source": "F-M08" },
+    { "id": "C05", "text": "Compact removes every blank line and every triple hyphen anywhere", "state": "VERIFIED_CODE", "source": "S-CODE-PROFILES", "also": "F-M08" },
+    { "id": "C06", "text": "Table separator became |  |  |; GFM delimiter row needs hyphens, so rows stop being a table", "state": "VERIFIED_LOCAL_RUN + VERIFIED_SOURCE", "source": "F-M08, S-GFM" },
+    { "id": "C07", "text": "March---April became MarchApril; blank line in code removed; Compact kept the source note", "state": "VERIFIED_LOCAL_RUN", "source": "F-M08" },
+    { "id": "C08", "text": "Compact is also applied to ZIP results", "state": "VERIFIED_CODE", "source": "backendZ/app/archive_tasks.py write_outputs calls finalize_markdown with the job profile" },
+    { "id": "C09", "text": "RAG-ready added a marker inside the code block before ## a comment; code fence content is literal text", "state": "VERIFIED_LOCAL_RUN + VERIFIED_SOURCE", "source": "F-M08, S-COMMONMARK" },
+    { "id": "C10", "text": "No markers before H1 or ###; RAG-ready does not embed, index, retrieve or store", "state": "VERIFIED_CODE", "source": "S-CODE-PROFILES" },
+    { "id": "C11", "text": "Token count shown is an estimate, not provider billing", "state": "VERIFIED_CODE", "source": "documentStats.js, backend count_words x 1.33" },
+    { "id": "C12", "text": "To change profile after converting: remove, re-add, select profile, convert", "state": "VERIFIED_CODE", "source": "S-CODE-QUEUE" }
+  ]
+}
