@@ -1,0 +1,16 @@
+{
+  "article": "M03",
+  "checked": "2026-11-08",
+  "in_draft": [
+    { "url": "https://support.microsoft.com/en-us/excel/keeping-leading-zeros-and-large-numbers", "owner": "external", "status": "CHECKED_200" },
+    { "url": "/usecase", "owner": "USE", "status": "LIVE" },
+    { "url": "/blog/document-to-llm-pipeline", "owner": "E08", "status": "LIVE" },
+    { "url": "/", "owner": "HOME", "status": "LIVE", "placement": "CTA" }
+  ],
+  "planned_when_released": [
+    { "target": "M03-S1", "url": "/blog/excel-leading-zeros-ai", "status": "UNPUBLISHED", "placement": "3. Leading zeros, after the CSV workaround", "anchor": "why leading zeros disappear" },
+    { "target": "M03-S2", "url": "/blog/excel-formula-results-conversion", "status": "UNPUBLISHED", "placement": "5. Formula results", "anchor": "check formula results before conversion" },
+    { "target": "M03-S3", "url": "/blog/merged-excel-headers-markdown", "status": "UNPUBLISHED", "placement": "6. Merged cells, merged two-level headers sentence", "anchor": "flatten merged headers" },
+    { "target": "M06", "url": "/blog/prepare-csv-data-for-ai", "status": "UNPUBLISHED", "placement": "3. Leading zeros, CSV workaround sentence", "anchor": "prepare CSV data for AI" }
+  ]
+}

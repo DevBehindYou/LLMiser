@@ -1,0 +1,22 @@
+{
+  "article": "M03",
+  "slug": "excel-data-checks-for-ai",
+  "checked": "2026-11-08",
+  "claims": [
+    { "id": "C01", "text": "LLMiser turns each sheet into a ## heading and a Markdown pipe table, in workbook order", "state": "VERIFIED_CODE", "source": "S-CODE-XLSX", "also": "F-M03" },
+    { "id": "C02", "text": "The hidden Q3 old sheet was converted with no note that it was hidden", "state": "VERIFIED_LOCAL_RUN", "source": "F-M03" },
+    { "id": "C03", "text": "The Read me title line became the table's only column header; units lived only on Read me", "state": "VERIFIED_LOCAL_RUN", "source": "F-M03" },
+    { "id": "C04", "text": "ZIP codes stored as text, e.g. 02134, came out as 2134 because every value looked numeric", "state": "VERIFIED_LOCAL_RUN", "source": "F-M03 probe-text-ids" },
+    { "id": "C05", "text": "A number formatted to display as 00123 came out as 123; text 00123 survived in a mixed column", "state": "VERIFIED_LOCAL_RUN", "source": "F-M03" },
+    { "id": "C06", "text": "Excel keeps 15 significant digits and turns later digits into zeros; 16+ digit codes need text format", "state": "VERIFIED_SOURCE", "source": "S-MS-ZEROS" },
+    { "id": "C07", "text": "The 19-digit ID shown as ...230000 came out as 4012345678901230080", "state": "VERIFIED_LOCAL_RUN", "source": "F-M03" },
+    { "id": "C08", "text": "Exporting the sheet to CSV and converting the CSV kept the zeros", "state": "VERIFIED_LOCAL_RUN", "source": "F-M03 probe-text-ids, S-CODE-CSV" },
+    { "id": "C09", "text": "Dates 03/04/2026 became 2026-03-04; 7.5% became 0.075; $1,250.00 became 1250.00; 12 became 12.0", "state": "VERIFIED_LOCAL_RUN", "source": "F-M03" },
+    { "id": "C10", "text": "Output carries the last saved formula result; app-saved file showed 126.00, 3,750.00 and total 3,876.75", "state": "VERIFIED_LOCAL_RUN", "source": "F-M03" },
+    { "id": "C11", "text": "The script-written copy without cached results showed NaN for every formula cell", "state": "VERIFIED_LOCAL_RUN", "source": "F-M03 out-src" },
+    { "id": "C12", "text": "Merged North cell: second row NaN; blank row NaN with NaT in the date column; totals row empty except Amount", "state": "VERIFIED_LOCAL_RUN", "source": "F-M03" },
+    { "id": "C13", "text": "The bar chart had no trace in the output", "state": "VERIFIED_LOCAL_RUN", "source": "F-M03" },
+    { "id": "C14", "text": "Colors, comments and pictures do not come through as cell values", "state": "PARTIAL", "source": "S-CODE-XLSX (pandas reads values only)", "note": "Chart verified by fixture; colors, comments and pictures inferred from the value-only reading path, not separately tested." },
+    { "id": "C15", "text": "LLMiser accepts .xlsx and .xls up to 15 MB; both become one table per sheet", "state": "VERIFIED_CODE", "source": "S-CODE-FORMATS, S-CODE-XLSX" }
+  ]
+}

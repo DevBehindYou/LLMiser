@@ -1,0 +1,71 @@
+{
+  "slug": "excel-data-checks-for-ai",
+  "date": "2026-11-08T17:35:21.009Z",
+  "viewport": "2 x 375px columns, deviceScaleFactor 2",
+  "themes": [
+    "dark",
+    "light"
+  ],
+  "fontsLoaded": [
+    "LLMiser Inter",
+    "LLMiser JetBrains Mono",
+    "LLMiser Patrick Hand"
+  ],
+  "figures": [
+    {
+      "figure": "banner.svg",
+      "viewBox": [
+        1200,
+        400
+      ],
+      "renderedWidthPx": 343,
+      "minFontPxAt375": "4.0",
+      "texts": 21,
+      "issues": []
+    },
+    {
+      "figure": "workbook-to-markdown.svg",
+      "viewBox": [
+        600,
+        377
+      ],
+      "renderedWidthPx": 343,
+      "minFontPxAt375": "6.3",
+      "texts": 21,
+      "issues": []
+    },
+    {
+      "figure": "id-comparison.svg",
+      "viewBox": [
+        600,
+        422
+      ],
+      "renderedWidthPx": 343,
+      "minFontPxAt375": "6.3",
+      "texts": 34,
+      "issues": []
+    },
+    {
+      "figure": "merged-blank-decision.svg",
+      "viewBox": [
+        600,
+        511
+      ],
+      "renderedWidthPx": 343,
+      "minFontPxAt375": "6.3",
+      "texts": 13,
+      "issues": []
+    },
+    {
+      "figure": "workbook-checklist.svg",
+      "viewBox": [
+        600,
+        435
+      ],
+      "renderedWidthPx": 343,
+      "minFontPxAt375": "6.3",
+      "texts": 12,
+      "issues": []
+    }
+  ]
+}

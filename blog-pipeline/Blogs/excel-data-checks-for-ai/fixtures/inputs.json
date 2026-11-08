@@ -1,0 +1,13 @@
+{
+  "label": "Synthetic workbook; LibreOffice saved field-orders.xlsx with cached formula results.",
+  "files": {
+    "field-orders-src.xlsx": {
+      "bytes": 8030,
+      "sha256": "28fcb41cd71310aa0c27e8168be284f6c6551d82276add38575760394b2012f3"
+    },
+    "field-orders.xlsx": {
+      "bytes": 11567,
+      "sha256": "fa0ba90c0ef1f146fd9241909dcae09123132650061ebf2cc1e6261a9a9bec8f"
+    }
+  }
+}

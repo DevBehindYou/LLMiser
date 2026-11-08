@@ -136,7 +136,8 @@ export function columns({ left, right, lineH = 22 }) {
  * Field comparison table: { headers: [label, ...columns], rows: [{ label,
  * cells: [{ t, ok }] }], widths }. The first cell column is the reference
  * (no mark). Other cells get a drawn tick (ok: true) or cross (ok: false),
- * plus bold waste-colored text when wrong; ok: null draws a neutral dash.
+ * plus bold waste-colored text when wrong; ok: null draws a neutral dash and
+ * an omitted ok draws no mark.
  * A cell may carry `u: [index, ...]` to underline single characters in the
  * keep color, for look-alike glyphs such as the letter O among zeros.
  */
@@ -162,7 +163,7 @@ export function compare({ headers, rows, widths, rowH = 30, size = 13 }) {
         if (i > 0) {
           if (c.ok === true) svg += path(`M${mx} ${yy - 5}L${mx + 4} ${yy - 1}L${mx + 10} ${yy - 10}`, { stroke: C.s1, sw: 2.2 });
           else if (bad) svg += path(`M${mx} ${yy - 10}L${mx + 9} ${yy - 1}M${mx + 9} ${yy - 10}L${mx} ${yy - 1}`, { stroke: C.s3, sw: 2.2 });
-          else svg += line(mx, yy - 5, mx + 9, yy - 5, { stroke: C.faint, sw: 2 });
+          else if (c.ok === null) svg += line(mx, yy - 5, mx + 9, yy - 5, { stroke: C.faint, sw: 2 });
         }
         const tx = i > 0 ? mx + 16 : cx + 12;
         svg += text(tx, yy, c.t, { size, font: F.mono, fill: bad ? C.s3 : C.ink, weight: bad ? 700 : undefined });
