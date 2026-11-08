@@ -1,0 +1,15 @@
+{
+  "article": "M10",
+  "checked": "2026-11-08",
+  "in_draft": [
+    { "url": "/usecase", "owner": "USE", "status": "LIVE" },
+    { "url": "/", "owner": "HOME", "status": "LIVE", "placement": "CTA" }
+  ],
+  "planned_when_released": [
+    { "target": "M01", "url": "/blog/prepare-codebase-for-ai", "status": "UNPUBLISHED", "placement": "4. Account for files, sharing-copy sentence", "anchor": "what to remove before sharing a codebase" },
+    { "target": "M10-S1", "url": "/blog/read-project-index-paths", "status": "UNPUBLISHED", "placement": "2. Read paths" },
+    { "target": "M10-S2", "url": "/blog/reconcile-zip-manifest", "status": "UNPUBLISHED", "placement": "4. Account for files" },
+    { "target": "M10-S3", "url": "/blog/missing-zip-conversion-content", "status": "UNPUBLISHED", "placement": "5. Partial results" },
+    { "target": "M09", "url": "/blog/edit-export-markdown-llmiser", "status": "UNPUBLISHED", "placement": "1. Artifacts, edits sentence" }
+  ]
+}

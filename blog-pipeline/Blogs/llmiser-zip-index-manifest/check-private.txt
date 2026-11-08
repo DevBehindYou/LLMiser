@@ -1,0 +1,15 @@
+LLMiser PRIVATE draft check (adapter; staged visuals, not production validation): Blogs/llmiser-zip-index-manifest/draft.md
+Date: 2026-11-08T17:59:50.230Z
+Words (app wordCount): 1468, read time 6 min
+Info: Intro: 87 words
+Info: H2 opening word counts: 32, 40, 35, 38, 32, 31
+Info: Links: 2 (0 external)
+
+Errors (0):
+  none
+
+Warnings (2):
+  ! Three sentences in a row of similar length, starting "The reader shows the combined Markdown, and all three origin..."
+  ! draft: true. The post stays out of the Blog dialog until you set it to false.
+
+RESULT: PASS (private draft adapter)

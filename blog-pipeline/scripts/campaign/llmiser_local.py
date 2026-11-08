@@ -13,6 +13,10 @@ Usage (one backend per process, because each backend has its own `app` package):
   python llmiser_local.py doc  INPUT.ext  OUTDIR [--profile Standard]
   python llmiser_local.py ocr  IMAGE.ext  OUTDIR [--profile Standard]
   python llmiser_local.py profiles INPUT.ext OUTDIR      (all four profiles, doc or zip)
+  python llmiser_local.py zip-ocr INPUT.zip OUTDIR [--profile Standard]
+      Storage-path archive emulation: images become OCR items (raw OCR in a
+      subprocess, as backendO returns for work items) and the outputs are
+      written with their recognised text, as archive_tasks.merge does.
   python llmiser_local.py pdf  INPUT.pdf  OUTDIR [--profile Standard]
       Storage-path PDF emulation using backendN.app.pdf_tasks functions in the
       production order: classify_pages, page_runs, sub_pdf + converter for
@@ -101,6 +105,37 @@ def run_zip(src: Path, outdir: Path, profile: str) -> dict:
     files.append(write(outdir, "PROJECT_INDEX.md", archive.project_index(src.name, entries, {})))
     files.append(write(outdir, "manifest.json", archive.manifest(None, src.name, len(data), entries, {})))
     return {"kind": "zip", "words": words, "estimated_tokens_backend": tokens, "outputs": files,
+            "entries": [{"path": e.path, "status": e.status, "type": e.node_type, "reason": e.skip_reason} for e in entries]}
+
+
+def run_zip_ocr(src: Path, outdir: Path, profile: str) -> dict:
+    use_backend("backendZ")
+    from app import archive  # type: ignore
+    from app.common.files import split_name, title_from_stem  # type: ignore
+    from app.common.profiles import finalize_markdown  # type: ignore
+    from app.converter import DocumentEngine  # type: ignore
+
+    data = src.read_bytes()
+    entries = archive.process_archive(data, DocumentEngine(), ocr_available=True)
+    ocr_texts: dict = {}
+    for e in entries:
+        if e.status == "PENDING" and e.data is not None:
+            img = outdir / f"ocr-{e.node_id}.{e.path.rsplit('.', 1)[-1].lower()}"
+            img.write_bytes(e.data)
+            out = subprocess.run([sys.executable, __file__, "ocr-raw", str(img), str(outdir)], capture_output=True, text=True)
+            ocr_texts[e.node_id] = json.loads(out.stdout)["text"] if out.returncode == 0 else None
+            img.unlink()
+    stem, _ = split_name(src.name)
+    title = title_from_stem(stem)
+    content, words, tokens = finalize_markdown(
+        archive.combined_body(entries, ocr_texts) or "_No convertible files were found in this archive._",
+        title=title, original_name=src.name, size_bytes=len(data), engine=archive.ENGINE, profile=profile,
+    )
+    parts = archive.split_parts(content, title)
+    files = [write(outdir, "combined.md" if len(parts) == 1 else f"combined-{i:03d}.md", part) for i, part in enumerate(parts, start=1)]
+    files.append(write(outdir, "PROJECT_INDEX.md", archive.project_index(src.name, entries, ocr_texts)))
+    files.append(write(outdir, "manifest.json", archive.manifest(None, src.name, len(data), entries, ocr_texts)))
+    return {"kind": "zip-ocr", "words": words, "estimated_tokens_backend": tokens, "outputs": files,
             "entries": [{"path": e.path, "status": e.status, "type": e.node_type, "reason": e.skip_reason} for e in entries]}
 
 
@@ -214,7 +249,7 @@ def run_pdf(src: Path, outdir: Path, profile: str) -> dict:
 
 def main() -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("mode", choices=["zip", "doc", "ocr", "profiles", "pdf", "ocr-raw"])
+    ap.add_argument("mode", choices=["zip", "zip-ocr", "doc", "ocr", "profiles", "pdf", "ocr-raw"])
     ap.add_argument("input")
     ap.add_argument("outdir")
     ap.add_argument("--profile", default="Standard", choices=PROFILES)
@@ -236,7 +271,7 @@ def main() -> int:
             runs.append({"profile": profile, **(run_zip if kind == "zip" else run_doc)(src, sub, profile)})
             # Reload the backend modules cleanly for the next profile run is not needed: same backend.
     else:
-        fn = {"zip": run_zip, "doc": run_doc, "ocr": run_ocr, "pdf": run_pdf}[args.mode]
+        fn = {"zip": run_zip, "zip-ocr": run_zip_ocr, "doc": run_doc, "ocr": run_ocr, "pdf": run_pdf}[args.mode]
         runs.append({"profile": args.profile, **fn(src, outdir, args.profile)})
     record = {
         "label": "LOCAL CODE-LEVEL RUN of repository backend code; not a live production conversion",

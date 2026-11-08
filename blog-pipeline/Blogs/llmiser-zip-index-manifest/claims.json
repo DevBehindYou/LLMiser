@@ -1,0 +1,17 @@
+{
+  "article": "M10",
+  "slug": "llmiser-zip-index-manifest",
+  "checked": "2026-11-08",
+  "claims": [
+    { "id": "C01", "text": "A ZIP returns combined Markdown, PROJECT_INDEX.md and manifest.json; reader shows the Markdown; all three under Original output files", "state": "VERIFIED_CODE", "source": "S-ZIP-README, S-CODE-OUTPUTS" },
+    { "id": "C02", "text": "Each converted file under a path heading in backticks; parts above 4 MB joined automatically by the reader", "state": "VERIFIED_CODE", "source": "S-ZIP-README" },
+    { "id": "C03", "text": "Index lists every entry by full path; nested paths include the outer archive", "state": "VERIFIED_LOCAL_RUN", "source": "F-M10" },
+    { "id": "C04", "text": "src/config.txt and docs/config.txt both converted under their own headings", "state": "VERIFIED_LOCAL_RUN", "source": "F-M10" },
+    { "id": "C05", "text": "../escape.txt labeled (unsafe) and skipped; readme.md labeled (duplicate) and skipped", "state": "VERIFIED_LOCAL_RUN", "source": "F-M10" },
+    { "id": "C06", "text": "Manifest fields: source, limits (2,000 files, one nested level, 50 images), nodes with path, depth, size, node_type, classification, status, engine, skip_reason, language, node_id; no contents", "state": "VERIFIED_LOCAL_RUN + VERIFIED_CODE", "source": "F-M10, S-CODE-ARCHIVE" },
+    { "id": "C07", "text": "14 entries, 16 found; 9 converted, 7 skipped, 0 failed; seven listed reasons", "state": "VERIFIED_LOCAL_RUN", "source": "F-M10" },
+    { "id": "C08", "text": "Blank photo counted among two recognized images; section said No text detected", "state": "VERIFIED_LOCAL_RUN", "source": "F-M10" },
+    { "id": "C09", "text": "Duplicate check ignores case; older readme content did not reach the Markdown; deeper.zip skipped as too deep", "state": "VERIFIED_LOCAL_RUN + VERIFIED_CODE", "source": "F-M10, S-CODE-ARCHIVE (casefold)" },
+    { "id": "C10", "text": "Original output files don't include reader edits; use .md or .zip export", "state": "VERIFIED_CODE", "source": "S-CODE-OUTPUTS" }
+  ]
+}
