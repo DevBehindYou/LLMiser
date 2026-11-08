@@ -1,0 +1,51 @@
+{
+  "label": "LOCAL CODE-LEVEL RUN of frontend/lib/models/queueModel.js planAddFiles; file-like objects, no upload",
+  "date": "2026-11-08T17:47:53.093Z",
+  "selected": 27,
+  "accepted": [
+    "policy.docx",
+    "q3-review.pptx",
+    "orders.csv",
+    "scan.png",
+    "repo.zip",
+    "notes-01.md",
+    "notes-02.md",
+    "notes-03.md",
+    "notes-04.md",
+    "notes-05.md",
+    "notes-06.md",
+    "notes-07.md",
+    "notes-08.md",
+    "notes-09.md",
+    "notes-10.md",
+    "notes-11.md",
+    "notes-12.md",
+    "notes-13.md",
+    "notes-14.md",
+    "notes-15.md"
+  ],
+  "rejected": [
+    {
+      "name": "old-memo.doc",
+      "reason": "Unsupported format: .doc"
+    },
+    {
+      "name": "empty.txt",
+      "reason": "The file is empty"
+    },
+    {
+      "name": "annual-report.pdf",
+      "reason": "Exceeds the 15MB limit"
+    },
+    {
+      "name": "photo.jpg",
+      "reason": "Images are limited to 10MB"
+    }
+  ],
+  "duplicates": 1,
+  "overflow": 2,
+  "notice": "Skipped 4 files — unsupported or too large · 1 already in queue · Queue limit is 20 — 2 not added",
+  "limits": {
+    "MAX_QUEUE_FILES": 20
+  }
+}

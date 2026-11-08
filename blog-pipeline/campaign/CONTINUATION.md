@@ -8,12 +8,13 @@ Updated 2026-11-08. Branch `claude/stoic-pasteur-raqnqy`. Owner decision on 2026
 | --- | --- | --- | --- |
 | 0 | tooling | scripts/campaign/*, visuals/campaign-parts.mjs, campaign/slug-map.json, campaign/production-status.json | Working |
 | A1 | M01 | Blogs/prepare-codebase-for-ai/ (all 12 contract files, fixtures, banner + 4 figures, preview) | READY_FOR_REVIEW |
+| A2 | M02-M06 | Blogs/ocr-checks-before-ai, excel-data-checks-for-ai, prepare-word-documents-for-ai, powerpoint-to-markdown-checks, prepare-csv-data-for-ai | READY_FOR_REVIEW |
 
-Counts: mains 1/12, supports 0/36, posts 0/108. Banners 1/48, figures 4 (minimum 192), rendered previews 1/48.
+Counts: mains 6/12, supports 0/36, posts 0/108. Banners 6/48, figures 24 (minimum 192), rendered previews 6/48.
 
 ## Next action
 
-M02 "9 OCR Checks Before You Send Scanned Text to AI" (slug ocr-checks-before-ai). Read campaign/main-briefs/M02.md and support briefs M02-S1..S3 first. Then continue M03 to M12, then supports M01-S1 onward, then posts.
+M07 "How to Convert Multiple Files With LLMiser" (slug convert-multiple-files-llmiser). Then M08 to M12, then supports M01-S1 onward, then posts.
 
 ## How to work (per article)
 
@@ -32,6 +33,12 @@ M02 "9 OCR Checks Before You Send Scanned Text to AI" (slug ocr-checks-before-ai
 ## Known pre-existing validator result
 
 `node blog-pipeline/scripts/validate-plan.mjs --preservation` reports 11 errors in this Linux checkout. All are line-ending artifacts: the baseline and registry hashes were taken from Windows CRLF working copies. Every file matches exactly after LF to CRLF normalization (checked 2026-11-08). The 10 regression tests pass. Do not rewrite the baseline for this.
+
+## Product observations logged for the owner
+
+- M02: blank page in a mixed PDF adds "_No extractable text found in this document._" to merged output.
+- M03: Excel conversion drops leading zeros from all-text ID columns (pandas inference); CSV keeps them.
+- E08 published figure naive-vs-pipeline.svg has two sub-labels spilling out of their boxes (not edited).
 
 ## Blockers
 

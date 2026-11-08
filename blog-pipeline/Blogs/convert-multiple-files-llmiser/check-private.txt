@@ -1,0 +1,14 @@
+LLMiser PRIVATE draft check (adapter; staged visuals, not production validation): Blogs/convert-multiple-files-llmiser/draft.md
+Date: 2026-11-08T17:50:41.447Z
+Words (app wordCount): 1410, read time 6 min
+Info: Intro: 71 words
+Info: H2 opening word counts: 40, 35, 31, 34, 32, 32
+Info: Links: 3 (0 external)
+
+Errors (0):
+  none
+
+Warnings (1):
+  ! draft: true. The post stays out of the Blog dialog until you set it to false.
+
+RESULT: PASS (private draft adapter)

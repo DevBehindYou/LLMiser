@@ -1,0 +1,17 @@
+{
+  "article": "M07",
+  "checked": "2026-11-08",
+  "in_draft": [
+    { "url": "/privacy", "owner": "PRIVACY", "status": "LIVE" },
+    { "url": "/usecase", "owner": "USE", "status": "LIVE" },
+    { "url": "/", "owner": "HOME", "status": "LIVE", "placement": "CTA" }
+  ],
+  "planned_when_released": [
+    { "target": "M07-S1", "url": "/blog/mixed-file-batch-llmiser", "status": "UNPUBLISHED", "placement": "1. Choose supported files" },
+    { "target": "M07-S2", "url": "/blog/partial-batch-conversion", "status": "UNPUBLISHED", "placement": "6. Handle failures" },
+    { "target": "M07-S3", "url": "/blog/split-batch-upload-limits", "status": "UNPUBLISHED", "placement": "2. Add files, after the intake result" },
+    { "target": "M08", "url": "/blog/llmiser-processing-profiles", "status": "UNPUBLISHED", "placement": "3. Choose a profile" },
+    { "target": "M09", "url": "/blog/edit-export-markdown-llmiser", "status": "UNPUBLISHED", "placement": "5. Review and download results" },
+    { "target": "M10", "url": "/blog/llmiser-zip-index-manifest", "status": "UNPUBLISHED", "placement": "4. Read each file's outcome, ZIP sentence" }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "article": "M07",
+  "slug": "convert-multiple-files-llmiser",
+  "checked": "2026-11-08",
+  "claims": [
+    { "id": "C01", "text": "Up to 20 files per batch, 15 MB per document or ZIP, 10 MB per image", "state": "VERIFIED_CODE", "source": "S-CODE-FORMATS" },
+    { "id": "C02", "text": "Supported formats list; .doc and .ppt unsupported; empty files rejected; extension mismatch checked on the server", "state": "VERIFIED_CODE", "source": "S-CODE-FORMATS, S-CODE-NORMAL" },
+    { "id": "C03", "text": "Each file is checked as it joins the queue; notice reports skipped counts", "state": "VERIFIED_CODE", "source": "S-CODE-QUEUE, S-CODE-VM" },
+    { "id": "C04", "text": "27 entries: 20 added; .doc, empty, 16 MB PDF, 11 MB photo rejected; 1 duplicate; 2 overflow", "state": "VERIFIED_LOCAL_RUN", "source": "F-M07 queue-plan.json" },
+    { "id": "C05", "text": "The notice gave counts, did not name the four files or say one was empty", "state": "VERIFIED_LOCAL_RUN", "source": "F-M07 (notice text reproduced from describeSkipped)" },
+    { "id": "C06", "text": "Convert all runs two files at a time in queue order; profile read when each file starts", "state": "VERIFIED_CODE", "source": "S-CODE-VM" },
+    { "id": "C07", "text": "Profile descriptions: Standard source note, Clean removes it and extra blank lines, Compact also removes dividers, RAG-ready adds chunk markers before section headings", "state": "VERIFIED_CODE", "source": "backendN/app/common/profiles.py" },
+    { "id": "C08", "text": "Six-file batch: five done; renamed text file failed with the extension mismatch message; others unaffected", "state": "VERIFIED_LOCAL_RUN", "source": "F-M07 out/" },
+    { "id": "C09", "text": "Copy and .md act on the viewed result; .zip packs every result", "state": "VERIFIED_CODE", "source": "S-CODE-UI" },
+    { "id": "C10", "text": "Failed row has a retry link that resends only that file; its title shows the error", "state": "VERIFIED_CODE", "source": "S-CODE-UI, S-CODE-VM" },
+    { "id": "C11", "text": "A ZIP becomes one combined result with a project index", "state": "VERIFIED_CODE", "source": "backendZ/README.md, F-M01" },
+    { "id": "C12", "text": "Uploaded files kept for 48 hours by default", "state": "VERIFIED_CODE", "source": "S-PRIVACY" }
+  ]
+}
