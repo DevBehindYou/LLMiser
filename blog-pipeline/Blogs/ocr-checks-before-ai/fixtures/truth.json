@@ -1,0 +1,56 @@
+{
+  "label": "Synthetic. Invented company, people and numbers.",
+  "truth": {
+    "invoice_number": "INV-00123",
+    "customer_id": "C0O1-7781",
+    "po_number": "PO 10O5-B",
+    "date_slash": "03/04/2026",
+    "date_iso": "2026-04-17",
+    "rows": [
+      [
+        "Gasket 1/2 in",
+        "12",
+        "10.50",
+        "126.00"
+      ],
+      [
+        "Valve, brass",
+        "3",
+        "1,250.00",
+        "3,750.00"
+      ],
+      [
+        "Seal kit",
+        "1",
+        "0.75",
+        "0.75"
+      ]
+    ],
+    "subtotal": "3,876.75",
+    "tax": "290.76",
+    "total": "4,167.51",
+    "small_print": "Terms: net 30. A late fee of 1.5% per month applies after 2026-05-17."
+  },
+  "files": {
+    "invoice-clean.png": {
+      "bytes": 63783,
+      "sha256": "47029fb815797c063eac269bff0650e3a5ff712e015e33db564d9037d2dd808e"
+    },
+    "invoice-rot90.png": {
+      "bytes": 83233,
+      "sha256": "4853751e187d124777aa88d50228f59e0e646b27059871f0f9dbb647a07c2a0d"
+    },
+    "invoice-degraded.png": {
+      "bytes": 68043,
+      "sha256": "9160d2be18a54ebe1ea57a6a2ebda0db81a18696b43544199fd871bd3d45228c"
+    },
+    "two-column.png": {
+      "bytes": 40942,
+      "sha256": "b3cb193dad51b297eeb69a44789ebb8d04db537435b0edc5a1bc0037f30fb03f"
+    },
+    "mixed.pdf": {
+      "bytes": 122500,
+      "sha256": "e25762ec3631b3a6ce06e3b070eee010e8d4f91b5daa564caeaf689dcafc3d60"
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "article": "M02",
+  "slug": "ocr-checks-before-ai",
+  "checked": "2026-11-08",
+  "claims": [
+    { "id": "C01", "text": "Recognized text can read smoothly and still be wrong; a model repeats the error", "state": "EDITORIAL", "note": "Supported by F-M02 examples; no general rate claimed." },
+    { "id": "C02", "text": "Runs used LLMiser's recognition code with its production English model on a local machine, not the live service", "state": "VERIFIED_CODE", "source": "S-CODE-OCR, backendO/Dockerfile" },
+    { "id": "C03", "text": "Empty image returns 'No text detected in this image'; failed PDF page gets a page warning; empty native run returns 'No extractable text found in this document'", "state": "VERIFIED_CODE", "source": "S-CODE-OCR, S-CODE-PDF, S-CODE-NORMAL" },
+    { "id": "C04", "text": "Recognized pages start with <!-- page N: text recognition -->; text and blank pages carry no label; up to 100 scanned pages per PDF with a warning listing the rest", "state": "VERIFIED_CODE", "source": "S-CODE-PDF" },
+    { "id": "C05", "text": "LLMiser checks orientation only when its first read looks weak", "state": "VERIFIED_CODE", "source": "S-CODE-OCR (ORIENTATION_CHECK_BELOW_CONF=75, WEAK_MIN_WORDS=3)" },
+    { "id": "C06", "text": "LLMiser enlarges small images to twice their size, boosts contrast, renders scanned PDF pages at 200 dpi", "state": "VERIFIED_CODE", "source": "S-CODE-OCR, S-CODE-PDF", "note": "2x only when long side under 1,000 px and within the 12 MP target." },
+    { "id": "C07", "text": "In the mixed PDF the blank third page added the 'No extractable text' line at the end", "state": "VERIFIED_LOCAL_RUN", "source": "F-M02 out-mixed" },
+    { "id": "C08", "text": "The 90-degree copy read confidently, no rotation ran, text in order, Qty column kept", "state": "VERIFIED_LOCAL_RUN", "source": "F-M02 out-invoice-rot90 and orientation log" },
+    { "id": "C10", "text": "Clean scan: 7-pt terms line exact; degraded: 'Terme not DO A late fee of 1:5 per mance appten ater 2006-0517'", "state": "VERIFIED_LOCAL_RUN", "source": "F-M02" },
+    { "id": "C11", "text": "Degraded copy turned 10.50 into '40. 50' and separated amounts from item names", "state": "VERIFIED_LOCAL_RUN", "source": "F-M02" },
+    { "id": "C12", "text": "3,876.75 plus 290.76 is 4,167.51", "state": "VERIFIED_ARITHMETIC" },
+    { "id": "C13", "text": "Clean scan read 'PO 10O5-B' as 'PO 1005-B'; 'L5' became 'LS'; 'C0O1-7781' read correctly", "state": "VERIFIED_LOCAL_RUN", "source": "F-M02" },
+    { "id": "C14", "text": "Recognition cannot settle whether 03/04/2026 is March 4 or April 3", "state": "EDITORIAL" },
+    { "id": "C15", "text": "Two-column page came back in order, left five then right five", "state": "VERIFIED_LOCAL_RUN", "source": "F-M02" },
+    { "id": "C16", "text": "Degraded invoice labels appeared in one block with values several lines later", "state": "VERIFIED_LOCAL_RUN", "source": "F-M02" },
+    { "id": "C17", "text": "Clean upright invoice lost the Qty column and header with no warning", "state": "VERIFIED_LOCAL_RUN", "source": "F-M02", "note": "Local tesseract 5.3.4; production binary may differ." },
+    { "id": "C18", "text": "Spreadsheet or Word source keeps table structure without recognition", "state": "VERIFIED_CODE", "source": "backendN converter (MarkItDown DOCX/XLSX to pipe tables per siteContent FORMAT_GROUPS)", "note": "Table fidelity per format is examined in M03/M04." },
+    { "id": "C19", "text": "Recognition is configured for English printed text; handwriting not tested; interface languages do not change recognition language", "state": "VERIFIED_CODE", "source": "S-CODE-OCR OCR_LANG=eng; docs LLMISER_LOCALIZATION" },
+    { "id": "C20", "text": "Images up to 10 MB each", "state": "VERIFIED_CODE", "source": "S-CODE-FORMATS" }
+  ]
+}

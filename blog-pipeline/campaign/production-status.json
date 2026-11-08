@@ -15,12 +15,12 @@
   "M02": {
    "type": "main",
    "slug": "ocr-checks-before-ai",
-   "writing": "NOT_STARTED",
-   "fixture": "NOT_STARTED",
-   "visual_qa": "NOT_STARTED",
+   "writing": "READY_FOR_REVIEW",
+   "fixture": "VERIFIED_LOCAL_RUN",
+   "visual_qa": "RENDERED_INSPECTED",
    "publication": "NOT_PUBLISHED",
    "indexing": "NOT_INDEXED",
-   "notes": ""
+   "notes": "Local OCR and PDF-path runs; production tesseract binary version not checked."
   },
   "M03": {
    "type": "main",

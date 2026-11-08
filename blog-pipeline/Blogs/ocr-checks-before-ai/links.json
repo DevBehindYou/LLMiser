@@ -1,0 +1,17 @@
+{
+  "article": "M02",
+  "checked": "2026-11-08",
+  "rule": "Only live pages in draft.md. Campaign links wait here until released.",
+  "in_draft": [
+    { "url": "/blog/document-to-llm-pipeline", "owner": "E08", "status": "LIVE", "placement": "What we tested, last paragraph" },
+    { "url": "/usecase", "owner": "USE", "status": "LIVE", "placement": "9. Manual comparison, last paragraph" },
+    { "url": "/", "owner": "HOME", "status": "LIVE", "placement": "CTA" }
+  ],
+  "planned_when_released": [
+    { "target": "M02-S1", "url": "/blog/rotated-scan-ocr-check", "status": "UNPUBLISHED", "placement": "3. Rotation and orientation, after the 90-degree paragraph", "anchor": "what rotation did to a sample scan" },
+    { "target": "M02-S2", "url": "/blog/verify-ocr-numbers", "status": "UNPUBLISHED", "placement": "5. Numbers or 6. Dates and identifiers", "anchor": "verify numbers and identifiers in OCR output" },
+    { "target": "M02-S3", "url": "/blog/mixed-pdf-ocr-coverage", "status": "UNPUBLISHED", "placement": "2. Page coverage and order", "anchor": "check coverage in a mixed PDF" },
+    { "target": "E06", "url": "/blog/why-pdfs-are-expensive-for-ai", "status": "LIVE", "placement": "Optional context only if cost is raised; not used in this draft" },
+    { "target": "M09", "url": "/blog/edit-export-markdown-llmiser", "status": "UNPUBLISHED", "placement": "9. Manual comparison, editor sentence", "anchor": "edit and export the corrected Markdown" }
+  ]
+}

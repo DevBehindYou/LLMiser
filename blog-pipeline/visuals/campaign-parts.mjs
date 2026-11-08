@@ -131,3 +131,46 @@ export function columns({ left, right, lineH = 22 }) {
     return { svg, h };
   };
 }
+
+/**
+ * Field comparison table: { headers: [label, ...columns], rows: [{ label,
+ * cells: [{ t, ok }] }], widths }. The first cell column is the reference
+ * (no mark). Other cells get a drawn tick (ok: true) or cross (ok: false),
+ * plus bold waste-colored text when wrong; ok: null draws a neutral dash.
+ * A cell may carry `u: [index, ...]` to underline single characters in the
+ * keep color, for look-alike glyphs such as the letter O among zeros.
+ */
+export function compare({ headers, rows, widths, rowH = 30, size = 13 }) {
+  const total = W - PAD * 2;
+  const ws = widths || [total * 0.24, ...Array(headers.length - 1).fill((total * 0.76) / (headers.length - 1))];
+  return (y) => {
+    let svg = rect(PAD, y, total, 36 + rows.length * rowH + 6, { fill: C.surface2, stroke: C.border3, r: 10 });
+    let x = PAD;
+    headers.forEach((h, i) => {
+      svg += text(x + 12, y + 24, h, { size: 12.5, fill: C.faint, weight: 700, spacing: '0.3px' });
+      x += ws[i];
+    });
+    svg += line(PAD, y + 34, PAD + total, y + 34, { stroke: C.border3, sw: 1 });
+    rows.forEach((r, j) => {
+      const yy = y + 36 + j * rowH + rowH / 2 + 5;
+      if (j) svg += line(PAD + 8, y + 36 + j * rowH, PAD + total - 8, y + 36 + j * rowH, { stroke: C.border, sw: 1 });
+      svg += text(PAD + 12, yy, r.label, { size: 13.5, weight: 600 });
+      let cx = PAD + ws[0];
+      r.cells.forEach((c, i) => {
+        const bad = c.ok === false;
+        const mx = cx + 12;
+        if (i > 0) {
+          if (c.ok === true) svg += path(`M${mx} ${yy - 5}L${mx + 4} ${yy - 1}L${mx + 10} ${yy - 10}`, { stroke: C.s1, sw: 2.2 });
+          else if (bad) svg += path(`M${mx} ${yy - 10}L${mx + 9} ${yy - 1}M${mx + 9} ${yy - 10}L${mx} ${yy - 1}`, { stroke: C.s3, sw: 2.2 });
+          else svg += line(mx, yy - 5, mx + 9, yy - 5, { stroke: C.faint, sw: 2 });
+        }
+        const tx = i > 0 ? mx + 16 : cx + 12;
+        svg += text(tx, yy, c.t, { size, font: F.mono, fill: bad ? C.s3 : C.ink, weight: bad ? 700 : undefined });
+        // `u`: character indexes to underline (e.g. a letter O among zeros). Mono advance is 0.6em.
+        for (const k of c.u || []) svg += line(tx + k * size * 0.6 + 0.5, yy + 4, tx + (k + 1) * size * 0.6 - 0.5, yy + 4, { stroke: C.s1, sw: 2.4, cap: 'butt' });
+        cx += ws[i + 1];
+      });
+    });
+    return { svg, h: 36 + rows.length * rowH + 6 };
+  };
+}

@@ -1,0 +1,71 @@
+{
+  "slug": "ocr-checks-before-ai",
+  "date": "2026-11-08T17:28:31.747Z",
+  "viewport": "2 x 375px columns, deviceScaleFactor 2",
+  "themes": [
+    "dark",
+    "light"
+  ],
+  "fontsLoaded": [
+    "LLMiser Inter",
+    "LLMiser JetBrains Mono",
+    "LLMiser Patrick Hand"
+  ],
+  "figures": [
+    {
+      "figure": "banner.svg",
+      "viewBox": [
+        1200,
+        400
+      ],
+      "renderedWidthPx": 343,
+      "minFontPxAt375": "4.0",
+      "texts": 10,
+      "issues": []
+    },
+    {
+      "figure": "nine-checks.svg",
+      "viewBox": [
+        600,
+        451
+      ],
+      "renderedWidthPx": 343,
+      "minFontPxAt375": "6.3",
+      "texts": 32,
+      "issues": []
+    },
+    {
+      "figure": "field-comparison.svg",
+      "viewBox": [
+        600,
+        461
+      ],
+      "renderedWidthPx": 343,
+      "minFontPxAt375": "6.3",
+      "texts": 41,
+      "issues": []
+    },
+    {
+      "figure": "verify-decision.svg",
+      "viewBox": [
+        600,
+        511
+      ],
+      "renderedWidthPx": 343,
+      "minFontPxAt375": "6.3",
+      "texts": 13,
+      "issues": []
+    },
+    {
+      "figure": "final-checklist.svg",
+      "viewBox": [
+        600,
+        433
+      ],
+      "renderedWidthPx": 343,
+      "minFontPxAt375": "6.3",
+      "texts": 13,
+      "issues": []
+    }
+  ]
+}

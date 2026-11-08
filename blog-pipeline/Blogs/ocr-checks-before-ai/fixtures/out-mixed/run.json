@@ -1,0 +1,79 @@
+{
+  "label": "LOCAL CODE-LEVEL RUN of repository backend code; not a live production conversion",
+  "date_utc": "2026-11-08T17:23:44+00:00",
+  "revision": "6f7b791e68eb5e14a3fe07244879d06a523e7cac",
+  "versions": {
+    "python": "3.13.18",
+    "markitdown": "0.1.9",
+    "tesseract": "tesseract 5.3.4"
+  },
+  "input": {
+    "file": "mixed.pdf",
+    "bytes": 122500,
+    "sha256": "e25762ec3631b3a6ce06e3b070eee010e8d4f91b5daa564caeaf689dcafc3d60"
+  },
+  "mode": "pdf",
+  "runs": [
+    {
+      "profile": "Standard",
+      "kind": "pdf",
+      "path": "storage-path emulation (scanned pages present)",
+      "pages": [
+        {
+          "page": 1,
+          "chars": 159,
+          "image_coverage": 0.0,
+          "kind": "native"
+        },
+        {
+          "page": 2,
+          "chars": 0,
+          "image_coverage": 1.0,
+          "kind": "scan"
+        },
+        {
+          "page": 3,
+          "chars": 0,
+          "image_coverage": 0.0,
+          "kind": "empty"
+        }
+      ],
+      "segments": [
+        {
+          "kind": "native",
+          "pages": [
+            1,
+            1
+          ],
+          "chars": 159
+        },
+        {
+          "kind": "ocr",
+          "pages": [
+            2,
+            2
+          ],
+          "note": null,
+          "chars": 385
+        },
+        {
+          "kind": "native",
+          "pages": [
+            3,
+            3
+          ],
+          "chars": 45
+        }
+      ],
+      "words": 112,
+      "estimated_tokens_backend": 149,
+      "outputs": [
+        {
+          "file": "mixed.Standard.md",
+          "bytes": 713,
+          "sha256": "91c7856d5ed0303e60fa03959ed6b433559f532fb7767ead9136dbc88a9080e8"
+        }
+      ]
+    }
+  ]
+}
