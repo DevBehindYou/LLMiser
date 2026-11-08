@@ -1,0 +1,15 @@
+LLMiser PRIVATE draft check (adapter; staged visuals, not production validation): Blogs/edit-export-markdown-llmiser/draft.md
+Date: 2026-11-08T17:56:31.932Z
+Words (app wordCount): 1356, read time 6 min
+Info: Intro: 75 words
+Info: H2 opening word counts: 34, 32, 30, 34, 34, 32
+Info: Links: 3 (0 external)
+
+Errors (0):
+  none
+
+Warnings (2):
+  ! Three sentences in a row of similar length, starting "The reader has three views...."
+  ! draft: true. The post stays out of the Blog dialog until you set it to false.
+
+RESULT: PASS (private draft adapter)

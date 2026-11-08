@@ -1,0 +1,17 @@
+{
+  "article": "M09",
+  "slug": "edit-export-markdown-llmiser",
+  "checked": "2026-11-08",
+  "claims": [
+    { "id": "C01", "text": "Reader has Rendered, Raw and Split views; each converted file is its own document", "state": "VERIFIED_CODE", "source": "S-CODE-READER" },
+    { "id": "C02", "text": "Edit in Raw view or Split view's raw column; Rendered view is display-only", "state": "VERIFIED_CODE", "source": "S-CODE-READER" },
+    { "id": "C03", "text": "Page-label and chunk-marker comments appear as plain text in the rendered reader", "state": "VERIFIED_LOCAL_RUN", "source": "F-M09 render-comments-check (react-markdown 10.1.0, remark-gfm 4.0.1)" },
+    { "id": "C04", "text": "Exports include the edited text, including the last unsaved keystrokes", "state": "VERIFIED_LOCAL_RUN", "source": "F-M09 export-behavior.json, S-CODE-EXPORT" },
+    { "id": "C05", "text": "Session saved at conversion, up to five; after an edit it still held the original; retried download fetches the stored result", "state": "VERIFIED_LOCAL_RUN", "source": "F-M09, S-CODE-SESSION" },
+    { "id": "C06", "text": "Over 50,000 characters the formatted preview pauses in Split and Rendered; Raw and exports keep full text; Render full preview button; edits and switching pause again", "state": "VERIFIED_CODE", "source": "S-CODE-READER, S-DOC-PREVIEW" },
+    { "id": "C07", "text": "Copy is current document, .md is current document, .zip is every result", "state": "VERIFIED_CODE", "source": "S-CODE-EXPORT" },
+    { "id": "C08", "text": "Second report.md saved as report (2).md in the ZIP; clipboard block shows a notice", "state": "VERIFIED_LOCAL_RUN", "source": "F-M09, S-CODE-EXPORT" },
+    { "id": "C09", "text": "Files deleted from the service 48 hours after upload by default", "state": "VERIFIED_CODE", "source": "S-PRIVACY" },
+    { "id": "C10", "text": "Edits are not uploaded and don't change the stored converted result", "state": "VERIFIED_CODE", "source": "contentUpdated only updates local state (queueModel.js); no API call in useConverterViewModel.updateContent" }
+  ]
+}

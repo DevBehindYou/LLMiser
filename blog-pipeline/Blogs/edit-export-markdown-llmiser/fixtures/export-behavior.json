@@ -1,0 +1,23 @@
+{
+  "label": "LOCAL CODE-LEVEL RUN of frontend export/session models; no browser",
+  "date": "2026-11-08T17:54:56.650Z",
+  "export_snapshot": {
+    "active_content_exported": "# Report\n\nTotal: 4,167.51 (USD, checked against the scan)\n",
+    "includes_pending_edit": true,
+    "pending_edit_committed": true,
+    "other_documents_unchanged": true
+  },
+  "zip_entry_names": [
+    "report.md",
+    "report (2).md",
+    "notes.md"
+  ],
+  "zip_file_name": "llmiser-converted.zip (default in downloadMarkdownZip)",
+  "recent_session": {
+    "max_sessions": 5,
+    "stored_content_after_conversion": "# Report\n\nTotal: 4,167.51\n",
+    "stored_content_after_edit": "# Report\n\nTotal: 4,167.51\n",
+    "edit_reflected_in_session": false
+  },
+  "automatic_preview_limit_utf16_units": 50000
+}

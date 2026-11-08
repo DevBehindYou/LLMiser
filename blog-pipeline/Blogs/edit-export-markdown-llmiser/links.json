@@ -1,0 +1,16 @@
+{
+  "article": "M09",
+  "checked": "2026-11-08",
+  "in_draft": [
+    { "url": "/privacy", "owner": "PRIVACY", "status": "LIVE" },
+    { "url": "/usecase", "owner": "USE", "status": "LIVE" },
+    { "url": "/", "owner": "HOME", "status": "LIVE", "placement": "CTA" }
+  ],
+  "planned_when_released": [
+    { "target": "M09-S1", "url": "/blog/original-edited-markdown", "status": "UNPUBLISHED", "placement": "3. Original versus edited" },
+    { "target": "M09-S2", "url": "/blog/long-markdown-preview", "status": "UNPUBLISHED", "placement": "4. Long text" },
+    { "target": "M09-S3", "url": "/blog/copy-download-markdown", "status": "UNPUBLISHED", "placement": "5. Copy or download" },
+    { "target": "M07", "url": "/blog/convert-multiple-files-llmiser", "status": "UNPUBLISHED", "placement": "1. Open results, batch sentence" },
+    { "target": "M08", "url": "/blog/llmiser-processing-profiles", "status": "UNPUBLISHED", "placement": "1. Comments and markers sentence" }
+  ]
+}
