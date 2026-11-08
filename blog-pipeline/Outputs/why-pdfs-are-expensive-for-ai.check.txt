@@ -1,0 +1,11 @@
+LLMiser article check: frontend/content/blog/why-pdfs-are-expensive-for-ai.md
+Date: 2026-10-20T15:28:19.435Z
+Words: 1610, read time 7 min
+
+Errors (0):
+  none
+
+Warnings (0):
+  none
+
+RESULT: PASS

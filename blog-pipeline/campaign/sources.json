@@ -1,0 +1,102 @@
+{
+  "updated": "2026-11-05",
+  "note": "Starting sources, not blanket verification of article claims. Recheck at drafting time. Local code inspection and external documentation do not replace the proposed original fixtures.",
+  "sources": [
+    {
+      "id": "SRC-LOCAL",
+      "type": "repository",
+      "paths": [
+        "frontend/lib/formats.js",
+        "frontend/lib/siteContent.js",
+        "frontend/lib/documentStats.js",
+        "frontend/lib/models/editorExport.js",
+        "backendN/app/common/profiles.py",
+        "docs/ai-handover/HANDOVER.md"
+      ],
+      "status": "SOURCE_INSPECTED_OR_EXISTING_DATED_EVIDENCE",
+      "note": "Verify the relevant UI/control and conversion behavior before each demonstration. No new live conversion performed for this pack."
+    },
+    {
+      "id": "SRC-GIT",
+      "type": "official_documentation",
+      "url": "https://docs.github.com/en/get-started/git-basics/ignoring-files",
+      "retrieved": "2026-11-05",
+      "status": "READ",
+      "note": "Ignore rules are not a secret scrubber or a guarantee about ZIP contents. Inspect the actual sharing copy."
+    },
+    {
+      "id": "SRC-EXCEL",
+      "type": "official_documentation",
+      "url": "https://support.microsoft.com/en-us/excel/keeping-leading-zeros-and-large-numbers",
+      "retrieved": "2026-11-05",
+      "status": "READ",
+      "note": "Supports researching stored values and displayed formatting. Formula/cache and merged-header claims still need specific sources and fixtures."
+    },
+    {
+      "id": "SRC-HEADINGS",
+      "type": "official_documentation",
+      "url": "https://www.w3.org/WAI/tutorials/page-structure/headings/",
+      "retrieved": "2026-11-05",
+      "status": "READ",
+      "note": "General semantic heading guidance, not evidence of DOCX parser behavior; obtain Word-specific revision/list documentation when drafting."
+    },
+    {
+      "id": "SRC-CSV",
+      "type": "informational_RFC",
+      "url": "https://www.rfc-editor.org/rfc/rfc4180",
+      "retrieved": "2026-11-05",
+      "status": "READ",
+      "note": "CSV format reference, informational rather than universal dialect support. Confirm actual delimiters/encoding behavior."
+    },
+    {
+      "id": "SRC-MARKDOWN",
+      "type": "specification",
+      "url": "https://spec.commonmark.org/0.31.2/",
+      "retrieved": "2026-11-05",
+      "status": "READ",
+      "note": "Pinned Markdown version for blocks and fences. Tables are an extension; inspect current renderer and table dialect separately."
+    },
+    {
+      "id": "SRC-OWASP",
+      "type": "security_guidance",
+      "url": "https://cheatsheetseries.owasp.org/cheatsheets/LLM_Prompt_Injection_Prevention_Cheat_Sheet.html",
+      "retrieved": "2026-11-05",
+      "status": "READ",
+      "note": "Defense guidance does not imply LLMiser implements those controls or that any single control is complete."
+    },
+    {
+      "id": "SRC-INJECTION",
+      "type": "primary_research",
+      "url": "https://www.anthropic.com/research/prompt-injection-defenses",
+      "retrieved": "2026-11-04",
+      "status": "PRIOR_RESEARCH",
+      "note": "Dated prior topic research. Recheck before claiming current defenses."
+    },
+    {
+      "id": "SRC-RETRIEVAL",
+      "type": "official_documentation",
+      "url": "https://learn.microsoft.com/en-us/azure/architecture/ai-ml/guide/rag/rag-information-retrieval",
+      "retrieved": "2026-11-05",
+      "status": "READ",
+      "note": "Filtering/index guidance. Applying it to manual document provenance is an editorial inference, not a LLMiser feature."
+    },
+    {
+      "id": "SRC-OCR-RESEARCH",
+      "type": "local_research_notes",
+      "paths": [
+        "blog-pipeline/research/RESEARCH.md",
+        "blog-pipeline/MAIN_BLOG_AUDIT.md"
+      ],
+      "status": "RESEARCH_STARTING_POINT",
+      "note": "Prior observed search excerpts and audit, not OCR accuracy evidence. Obtain authoritative OCR sources for actual claims."
+    }
+  ],
+  "access_failures": [
+    {
+      "url": "https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/document-embedding",
+      "date": "2026-11-05",
+      "result": "Unavailable through web tool; no claims derived."
+    }
+  ],
+  "metric_access": "No new authenticated keyword dataset or per-engine SERP audit obtained. Keywords are editorial candidates."
+}

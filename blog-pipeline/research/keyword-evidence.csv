@@ -1,0 +1,64 @@
+owner_id,keyword,role,evidence_status,tool,country,language,network,observed_at,data_period,monthly_volume,global_volume,organic_difficulty,cpc_usd,source,note
+HOME,pdf to markdown,reserved_alias,INHERITED_NOT_REQUERIED,Semrush,US,not recorded,not recorded,2026-10-26,not exposed,2400,12000,33,1.77,docs/README_KEYWORD_RESEARCH.md,Historical local report; estimates not attainable traffic; no fresh keyword report obtained
+HOME,LLM cost optimizer,primary,UNMEASURED,,US intended,en intended,,2026-11-04,,,,,,intent-registry.json,"Editorial candidate, not verified high volume; locale not enforced by discovery search"
+HOME,pdf to markdown converter,reserved_alias,UNMEASURED,,US intended,en intended,,2026-11-04,,,,,,intent-registry.json,"Editorial candidate, not verified high volume; locale not enforced by discovery search"
+HOME,pdf to md,reserved_alias,UNMEASURED,,US intended,en intended,,2026-11-04,,,,,,intent-registry.json,"Editorial candidate, not verified high volume; locale not enforced by discovery search"
+HOME,markdown converter,reserved_alias,UNMEASURED,,US intended,en intended,,2026-11-04,,,,,,intent-registry.json,"Editorial candidate, not verified high volume; locale not enforced by discovery search"
+USE,why use LLMiser,primary,UNMEASURED,,US intended,en intended,,2026-11-04,,,,,,intent-registry.json,"Editorial candidate, not verified high volume; locale not enforced by discovery search"
+E01,reduce LLM API costs,primary,UNMEASURED,,US intended,en intended,,2026-11-04,,,,,,intent-registry.json,"Editorial candidate, not verified high volume; locale not enforced by discovery search"
+E01,LLM cost optimization,reserved_alias,UNMEASURED,,US intended,en intended,,2026-11-04,,,,,,intent-registry.json,"Editorial candidate, not verified high volume; locale not enforced by discovery search"
+E02,LLM API cost,primary,UNMEASURED,,US intended,en intended,,2026-11-04,,,,,,intent-registry.json,"Editorial candidate, not verified high volume; locale not enforced by discovery search"
+E03,LLM token usage,primary,UNMEASURED,,US intended,en intended,,2026-11-04,,,,,,intent-registry.json,"Editorial candidate, not verified high volume; locale not enforced by discovery search"
+E04,RAG cost,primary,UNMEASURED,,US intended,en intended,,2026-11-04,,,,,,intent-registry.json,"Editorial candidate, not verified high volume; locale not enforced by discovery search"
+E05,RAG token optimization,primary,UNMEASURED,,US intended,en intended,,2026-11-04,,,,,,intent-registry.json,"Editorial candidate, not verified high volume; locale not enforced by discovery search"
+E06,PDF LLM tokens,primary,UNMEASURED,,US intended,en intended,,2026-11-04,,,,,,intent-registry.json,"Editorial candidate, not verified high volume; locale not enforced by discovery search"
+E07,Markdown vs PDF for LLM,primary,UNMEASURED,,US intended,en intended,,2026-11-04,,,,,,intent-registry.json,"Editorial candidate, not verified high volume; locale not enforced by discovery search"
+E08,document to LLM pipeline,primary,UNMEASURED,,US intended,en intended,,2026-11-04,,,,,,intent-registry.json,"Editorial candidate, not verified high volume; locale not enforced by discovery search"
+M01,prepare codebase for AI,primary,UNMEASURED,,US intended,en intended,,2026-11-05,,,,,,intent-registry.json,Editorial target; no measured volume or difficulty
+M02,OCR quality checks for AI,primary,UNMEASURED,,US intended,en intended,,2026-11-05,,,,,,intent-registry.json,Editorial target; no measured volume or difficulty
+M03,prepare Excel data for AI,primary,UNMEASURED,,US intended,en intended,,2026-11-05,,,,,,intent-registry.json,Editorial target; no measured volume or difficulty
+M04,prepare Word documents for AI,primary,UNMEASURED,,US intended,en intended,,2026-11-05,,,,,,intent-registry.json,Editorial target; no measured volume or difficulty
+M05,PowerPoint to Markdown,primary,UNMEASURED,,US intended,en intended,,2026-11-05,,,,,,intent-registry.json,Editorial target; no measured volume or difficulty
+M06,prepare CSV data for AI,primary,UNMEASURED,,US intended,en intended,,2026-11-05,,,,,,intent-registry.json,Editorial target; no measured volume or difficulty
+M07,LLMiser batch conversion,primary,UNMEASURED,,US intended,en intended,,2026-11-05,,,,,,intent-registry.json,Editorial target; no measured volume or difficulty
+M08,LLMiser processing profiles,primary,UNMEASURED,,US intended,en intended,,2026-11-05,,,,,,intent-registry.json,Editorial target; no measured volume or difficulty
+M09,edit Markdown in LLMiser,primary,UNMEASURED,,US intended,en intended,,2026-11-05,,,,,,intent-registry.json,Editorial target; no measured volume or difficulty
+M10,LLMiser ZIP manifest,primary,UNMEASURED,,US intended,en intended,,2026-11-05,,,,,,intent-registry.json,Editorial target; no measured volume or difficulty
+M11,document prompt injection,primary,UNMEASURED,,US intended,en intended,,2026-11-05,,,,,,intent-registry.json,Editorial target; no measured volume or difficulty
+M12,conflicting document versions AI,primary,UNMEASURED,,US intended,en intended,,2026-11-05,,,,,,intent-registry.json,Editorial target; no measured volume or difficulty
+M01-S1,check code ZIP for secrets,primary,UNMEASURED,,US intended,en intended,,2026-11-05,,,,,,intent-registry.json,Editorial target; no measured volume or difficulty
+M01-S2,dependency files for AI code review,primary,UNMEASURED,,US intended,en intended,,2026-11-05,,,,,,intent-registry.json,Editorial target; no measured volume or difficulty
+M01-S3,task focused code bundle,primary,UNMEASURED,,US intended,en intended,,2026-11-05,,,,,,intent-registry.json,Editorial target; no measured volume or difficulty
+M02-S1,rotated scan OCR check,primary,UNMEASURED,,US intended,en intended,,2026-11-05,,,,,,intent-registry.json,Editorial target; no measured volume or difficulty
+M02-S2,verify numbers in OCR output,primary,UNMEASURED,,US intended,en intended,,2026-11-05,,,,,,intent-registry.json,Editorial target; no measured volume or difficulty
+M02-S3,mixed PDF OCR coverage,primary,UNMEASURED,,US intended,en intended,,2026-11-05,,,,,,intent-registry.json,Editorial target; no measured volume or difficulty
+M03-S1,Excel leading zeros AI,primary,UNMEASURED,,US intended,en intended,,2026-11-05,,,,,,intent-registry.json,Editorial target; no measured volume or difficulty
+M03-S2,Excel formula results conversion,primary,UNMEASURED,,US intended,en intended,,2026-11-05,,,,,,intent-registry.json,Editorial target; no measured volume or difficulty
+M03-S3,merged Excel headers Markdown,primary,UNMEASURED,,US intended,en intended,,2026-11-05,,,,,,intent-registry.json,Editorial target; no measured volume or difficulty
+M04-S1,Word heading styles Markdown,primary,UNMEASURED,,US intended,en intended,,2026-11-05,,,,,,intent-registry.json,Editorial target; no measured volume or difficulty
+M04-S2,nested Word lists Markdown,primary,UNMEASURED,,US intended,en intended,,2026-11-05,,,,,,intent-registry.json,Editorial target; no measured volume or difficulty
+M04-S3,Word tracked changes AI sharing,primary,UNMEASURED,,US intended,en intended,,2026-11-05,,,,,,intent-registry.json,Editorial target; no measured volume or difficulty
+M05-S1,PowerPoint speaker notes Markdown,primary,UNMEASURED,,US intended,en intended,,2026-11-05,,,,,,intent-registry.json,Editorial target; no measured volume or difficulty
+M05-S2,PowerPoint chart context AI,primary,UNMEASURED,,US intended,en intended,,2026-11-05,,,,,,intent-registry.json,Editorial target; no measured volume or difficulty
+M05-S3,PowerPoint slide order Markdown,primary,UNMEASURED,,US intended,en intended,,2026-11-05,,,,,,intent-registry.json,Editorial target; no measured volume or difficulty
+M06-S1,CSV quoted cells Markdown,primary,UNMEASURED,,US intended,en intended,,2026-11-05,,,,,,intent-registry.json,Editorial target; no measured volume or difficulty
+M06-S2,CSV encoding AI,primary,UNMEASURED,,US intended,en intended,,2026-11-05,,,,,,intent-registry.json,Editorial target; no measured volume or difficulty
+M06-S3,empty CSV cells missing fields,primary,UNMEASURED,,US intended,en intended,,2026-11-05,,,,,,intent-registry.json,Editorial target; no measured volume or difficulty
+M07-S1,LLMiser mixed file batch,primary,UNMEASURED,,US intended,en intended,,2026-11-05,,,,,,intent-registry.json,Editorial target; no measured volume or difficulty
+M07-S2,LLMiser partial batch failure,primary,UNMEASURED,,US intended,en intended,,2026-11-05,,,,,,intent-registry.json,Editorial target; no measured volume or difficulty
+M07-S3,LLMiser upload limits batch,primary,UNMEASURED,,US intended,en intended,,2026-11-05,,,,,,intent-registry.json,Editorial target; no measured volume or difficulty
+M08-S1,LLMiser Standard vs Clean,primary,UNMEASURED,,US intended,en intended,,2026-11-05,,,,,,intent-registry.json,Editorial target; no measured volume or difficulty
+M08-S2,LLMiser Compact Markdown,primary,UNMEASURED,,US intended,en intended,,2026-11-05,,,,,,intent-registry.json,Editorial target; no measured volume or difficulty
+M08-S3,LLMiser RAG-ready markers,primary,UNMEASURED,,US intended,en intended,,2026-11-05,,,,,,intent-registry.json,Editorial target; no measured volume or difficulty
+M09-S1,LLMiser original versus edited Markdown,primary,UNMEASURED,,US intended,en intended,,2026-11-05,,,,,,intent-registry.json,Editorial target; no measured volume or difficulty
+M09-S2,LLMiser long Markdown preview,primary,UNMEASURED,,US intended,en intended,,2026-11-05,,,,,,intent-registry.json,Editorial target; no measured volume or difficulty
+M09-S3,LLMiser copy versus download,primary,UNMEASURED,,US intended,en intended,,2026-11-05,,,,,,intent-registry.json,Editorial target; no measured volume or difficulty
+M10-S1,LLMiser project index paths,primary,UNMEASURED,,US intended,en intended,,2026-11-05,,,,,,intent-registry.json,Editorial target; no measured volume or difficulty
+M10-S2,LLMiser manifest completeness,primary,UNMEASURED,,US intended,en intended,,2026-11-05,,,,,,intent-registry.json,Editorial target; no measured volume or difficulty
+M10-S3,LLMiser missing ZIP content,primary,UNMEASURED,,US intended,en intended,,2026-11-05,,,,,,intent-registry.json,Editorial target; no measured volume or difficulty
+M11-S1,untrusted document instructions,primary,UNMEASURED,,US intended,en intended,,2026-11-05,,,,,,intent-registry.json,Editorial target; no measured volume or difficulty
+M11-S2,Markdown conversion prompt injection,primary,UNMEASURED,,US intended,en intended,,2026-11-05,,,,,,intent-registry.json,Editorial target; no measured volume or difficulty
+M11-S3,AI actions from external documents,primary,UNMEASURED,,US intended,en intended,,2026-11-05,,,,,,intent-registry.json,Editorial target; no measured volume or difficulty
+M12-S1,label document versions AI,primary,UNMEASURED,,US intended,en intended,,2026-11-05,,,,,,intent-registry.json,Editorial target; no measured volume or difficulty
+M12-S2,conflicting policy passages AI,primary,UNMEASURED,,US intended,en intended,,2026-11-05,,,,,,intent-registry.json,Editorial target; no measured volume or difficulty
+M12-S3,stale excerpts AI context,primary,UNMEASURED,,US intended,en intended,,2026-11-05,,,,,,intent-registry.json,Editorial target; no measured volume or difficulty

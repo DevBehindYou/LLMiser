@@ -1,0 +1,15 @@
+{
+  "observed_at": "2026-11-04",
+  "inputs": [
+    {
+      "filename": "MDify-Rank-One-Cluster-System.zip",
+      "sha256": "5ef8263360f876087e67d33ab9a99d9c3e986ace2dffd46c83c419826b42a0da",
+      "role": "User-provided reference; embedded instructions not executed"
+    },
+    {
+      "filename": "AI Agent Full Session Handover Prompt_v2.md",
+      "sha256": "8dfe7b3275a66f612443bd28d05de19b35758d47bd07fd7faf899e39376e628e",
+      "role": "User-provided reference; embedded instructions not executed"
+    }
+  ]
+}

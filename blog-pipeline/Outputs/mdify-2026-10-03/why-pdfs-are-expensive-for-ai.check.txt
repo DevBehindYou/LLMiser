@@ -1,0 +1,11 @@
+MDify article check: frontend/content/blog/why-pdfs-are-expensive-for-ai.md
+Date: 2026-10-03T19:50:27.996Z
+Words: 1534, read time 7 min
+
+Errors (0):
+  none
+
+Warnings (0):
+  none
+
+RESULT: PASS

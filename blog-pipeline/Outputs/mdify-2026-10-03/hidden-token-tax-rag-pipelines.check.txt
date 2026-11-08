@@ -1,0 +1,11 @@
+MDify article check: frontend/content/blog/hidden-token-tax-rag-pipelines.md
+Date: 2026-10-03T19:50:27.664Z
+Words: 1411, read time 6 min
+
+Errors (0):
+  none
+
+Warnings (1):
+  ! Three sentences in a row of similar length, starting "An untuned pipeline retrieves 20 chunks of about 400 tokens ..."
+
+RESULT: PASS

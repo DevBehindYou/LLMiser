@@ -1,0 +1,71 @@
+{
+  "updated": "2026-11-04",
+  "note": "Review signals and evidence gaps; no measured cannibalization claim.",
+  "issues": [
+    {
+      "id": "R01",
+      "status": "OPEN",
+      "title": "Existing cost strategy and diagnosis overlap",
+      "owners": [
+        "E01",
+        "E02"
+      ],
+      "action": "Review query/page data and introductions. E01 owns actions; E02 owns diagnosing the bill. Preserve URLs; no public edits made."
+    },
+    {
+      "id": "R02",
+      "status": "OPEN",
+      "title": "Existing RAG lifecycle and context-waste overlap",
+      "owners": [
+        "E04",
+        "E05"
+      ],
+      "action": "Keep full-lifecycle cost on E04; chunk/overlap/top-K details on E05. Verify observed ownership before consolidation."
+    },
+    {
+      "id": "R03",
+      "status": "OPEN",
+      "title": "Existing PDF cost explanation and format comparison overlap",
+      "owners": [
+        "E06",
+        "E07"
+      ],
+      "action": "E06 explains ingestion charges; E07 compares representations under explicit conditions. Do not create another broad PDF savings article."
+    },
+    {
+      "id": "R04",
+      "status": "OPEN",
+      "title": "CSV article is conditional on distinction from Excel",
+      "owners": [
+        "S03",
+        "S10"
+      ],
+      "action": "S10 must answer delimiter/quoted-cell troubleshooting. If SERPs and outline match S03, fold it into S03 instead; no second URL."
+    },
+    {
+      "id": "R05",
+      "status": "OPEN",
+      "title": "Direct named-engine audits and new keyword volumes unavailable",
+      "owners": [
+        "S01",
+        "S02",
+        "S03",
+        "S04",
+        "S05",
+        "S06",
+        "S07",
+        "S08",
+        "S09",
+        "S10"
+      ],
+      "action": "Record unavailable metrics honestly. Research before final outline; do not label high volume or rankings without evidence."
+    },
+    {
+      "id": "R06",
+      "status": "OPEN",
+      "title": "Historical Keyword Planner table lacks corroborating export",
+      "owners": [],
+      "action": "Quarantined in history; do not reuse numbers until the actual dated export can be checked."
+    }
+  ]
+}

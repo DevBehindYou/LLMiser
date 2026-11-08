@@ -1,0 +1,511 @@
+{
+  "schema_version": 1,
+  "updated": "2026-11-04",
+  "base_commit": "8eb8c5091e1b370ebf7ed9631621d07226960b7a",
+  "origin": "https://llmiser.devbehindyou.com",
+  "language": "en-US",
+  "scope": "Editorial planning; no publication",
+  "records": [
+    {
+      "id": "HOME",
+      "canonical": "https://llmiser.devbehindyou.com",
+      "kind": "product",
+      "status": "IMPLEMENTED",
+      "intent_key": "converter-transaction",
+      "primary_keyword": "LLM cost optimizer",
+      "reserved_aliases": [
+        "pdf to markdown",
+        "pdf to markdown converter",
+        "pdf to md",
+        "markdown converter"
+      ],
+      "intent": "Use the live document converter",
+      "source": "frontend/lib/siteContent.js",
+      "owner": null
+    },
+    {
+      "id": "USE",
+      "canonical": "https://llmiser.devbehindyou.com/usecase",
+      "kind": "product",
+      "status": "IMPLEMENTED",
+      "intent_key": "product-benefits",
+      "primary_keyword": "why use LLMiser",
+      "reserved_aliases": [],
+      "intent": "Understand product benefits and limitations",
+      "source": "frontend/lib/siteContent.js",
+      "owner": null
+    },
+    {
+      "id": "E01",
+      "canonical": "https://llmiser.devbehindyou.com/blog/reduce-llm-api-costs",
+      "kind": "existing",
+      "status": "IMPLEMENTED",
+      "intent_key": "existing-reduce-llm-api-costs",
+      "primary_keyword": "reduce LLM API costs",
+      "reserved_aliases": [
+        "LLM cost optimization"
+      ],
+      "observed_secondary_keywords": [
+        "LLM cost optimization",
+        "AI API cost reduction"
+      ],
+      "intent": "Reduce provider API spend through actionable techniques",
+      "title": "How to Reduce LLM API Costs Without Losing Quality",
+      "description": "Reduce LLM API costs without hurting quality: batch async work, cache repeated prompts, shrink documents, route easy requests and cap output. With real prices.",
+      "source": "frontend/content/blog/reduce-llm-api-costs.md",
+      "source_sha256": "83f7d1cd950e6b9595e65d1fc259e0db570bf72020922d21c5c4d977e61b1aac",
+      "owner": null,
+      "notes": "Source inventory only; current indexing and performance not verified."
+    },
+    {
+      "id": "E02",
+      "canonical": "https://llmiser.devbehindyou.com/blog/why-your-llm-bill-is-too-high",
+      "kind": "existing",
+      "status": "IMPLEMENTED",
+      "intent_key": "existing-why-your-llm-bill-is-too-high",
+      "primary_keyword": "LLM API cost",
+      "reserved_aliases": [],
+      "observed_secondary_keywords": [
+        "AI API costs",
+        "LLM cost optimization"
+      ],
+      "intent": "Diagnose why an API bill is unexpectedly high",
+      "title": "Why Your LLM Bill Is Too High, and Where the Waste Hides",
+      "description": "Your LLM API cost is often inflated by repeated prompts, endless history, raw PDFs, off-topic retrieval, wordy output and an overkill model. Find the leaks.",
+      "source": "frontend/content/blog/why-your-llm-bill-is-too-high.md",
+      "source_sha256": "dcd885cd252de23be5c2af4234466a94ee2baba5709e93f835dff397bbe97a6f",
+      "owner": null,
+      "notes": "Source inventory only; current indexing and performance not verified."
+    },
+    {
+      "id": "E03",
+      "canonical": "https://llmiser.devbehindyou.com/blog/reduce-llm-token-usage",
+      "kind": "existing",
+      "status": "IMPLEMENTED",
+      "intent_key": "existing-reduce-llm-token-usage",
+      "primary_keyword": "LLM token usage",
+      "reserved_aliases": [],
+      "observed_secondary_keywords": [
+        "reduce token usage",
+        "LLM token optimization"
+      ],
+      "intent": "Audit excess input history and output tokens",
+      "title": "Why Your LLM Token Usage Is So High, and How to Fix It",
+      "description": "High LLM token usage rarely comes from your questions. Find the hidden causes: raw PDFs, chat history, big prompts, duplicate text and whole documents.",
+      "source": "frontend/content/blog/reduce-llm-token-usage.md",
+      "source_sha256": "46c1e047421a15a6d384d485f6f1c23d49378d382ef1d434ce64d46c94563e5c",
+      "owner": null,
+      "notes": "Source inventory only; current indexing and performance not verified."
+    },
+    {
+      "id": "E04",
+      "canonical": "https://llmiser.devbehindyou.com/blog/rag-cost-optimization",
+      "kind": "existing",
+      "status": "IMPLEMENTED",
+      "intent_key": "existing-rag-cost-optimization",
+      "primary_keyword": "RAG cost",
+      "reserved_aliases": [],
+      "observed_secondary_keywords": [
+        "RAG cost optimization",
+        "RAG token usage"
+      ],
+      "intent": "Understand full-lifecycle RAG costs",
+      "title": "The Real Cost of RAG: Embeddings, Tokens and Re-Ranking",
+      "description": "The real RAG cost is rarely embeddings. See where retrieval pipelines spend, from parsing to generation, and how to cut cost without hurting relevance.",
+      "source": "frontend/content/blog/rag-cost-optimization.md",
+      "source_sha256": "0fb8ba2292563c67259ebc451e7a4d9784d98e0490424c095031305bb9e4d5ad",
+      "owner": null,
+      "notes": "Source inventory only; current indexing and performance not verified."
+    },
+    {
+      "id": "E05",
+      "canonical": "https://llmiser.devbehindyou.com/blog/hidden-token-tax-rag-pipelines",
+      "kind": "existing",
+      "status": "IMPLEMENTED",
+      "intent_key": "existing-hidden-token-tax-rag-pipelines",
+      "primary_keyword": "RAG token optimization",
+      "reserved_aliases": [],
+      "observed_secondary_keywords": [
+        "RAG token cost",
+        "RAG context optimization"
+      ],
+      "intent": "Tune retrieved context waste overlap and top-K",
+      "title": "The Hidden Token Tax in RAG Pipelines",
+      "description": "RAG token optimization starts before generation: oversized chunks, overlap, duplicate retrieval and loose top-K inflate context. Learn to cut the tax.",
+      "source": "frontend/content/blog/hidden-token-tax-rag-pipelines.md",
+      "source_sha256": "a70faafd99908bd2307b8df23fbcabfa829d90e6e43cea8ee2bd92dccf1decf7",
+      "owner": null,
+      "notes": "Source inventory only; current indexing and performance not verified."
+    },
+    {
+      "id": "E06",
+      "canonical": "https://llmiser.devbehindyou.com/blog/why-pdfs-are-expensive-for-ai",
+      "kind": "existing",
+      "status": "IMPLEMENTED",
+      "intent_key": "existing-why-pdfs-are-expensive-for-ai",
+      "primary_keyword": "PDF LLM tokens",
+      "reserved_aliases": [],
+      "observed_secondary_keywords": [
+        "PDF processing for AI",
+        "PDF to Markdown"
+      ],
+      "intent": "Explain how PDF ingestion paths affect tokens",
+      "title": "PDFs Are Expensive for AI: Here's Why",
+      "description": "PDF LLM tokens add up fast: page images, repeated headers, broken columns and flattened tables. See why PDFs cost AI more, and the fix that works.",
+      "source": "frontend/content/blog/why-pdfs-are-expensive-for-ai.md",
+      "source_sha256": "c68924be71eb0879091e448f4568de79467ae46e3d7b2ab0b5987caf80f13c9b",
+      "owner": null,
+      "notes": "Source inventory only; current indexing and performance not verified."
+    },
+    {
+      "id": "E07",
+      "canonical": "https://llmiser.devbehindyou.com/blog/markdown-vs-pdf-llm-tokens",
+      "kind": "existing",
+      "status": "IMPLEMENTED",
+      "intent_key": "existing-markdown-vs-pdf-llm-tokens",
+      "primary_keyword": "Markdown vs PDF for LLM",
+      "reserved_aliases": [],
+      "observed_secondary_keywords": [
+        "PDF to Markdown for AI",
+        "reduce LLM tokens"
+      ],
+      "intent": "Compare PDF and Markdown input representations conditionally",
+      "title": "Markdown vs Raw PDFs: Which Uses Fewer LLM Tokens?",
+      "description": "Markdown vs PDF for LLM input: in our worked example, a 500-word page is about 667 tokens as Markdown and 2,235 as a PDF page. See where the gap comes from.",
+      "source": "frontend/content/blog/markdown-vs-pdf-llm-tokens.md",
+      "source_sha256": "81334d9c984e3fe4c4470139dcc7cb2a4f31116cc1b849ab56cd47b633921d4a",
+      "owner": null,
+      "notes": "Source inventory only; current indexing and performance not verified."
+    },
+    {
+      "id": "E08",
+      "canonical": "https://llmiser.devbehindyou.com/blog/document-to-llm-pipeline",
+      "kind": "existing",
+      "status": "IMPLEMENTED",
+      "intent_key": "existing-document-to-llm-pipeline",
+      "primary_keyword": "document to LLM pipeline",
+      "reserved_aliases": [],
+      "observed_secondary_keywords": [
+        "LLM document processing",
+        "AI document pipeline"
+      ],
+      "intent": "Understand the end-to-end document ingestion pipeline",
+      "title": "Stop Sending Whole Documents to AI: Build a Better Pipeline",
+      "description": "Build a document to LLM pipeline that extracts, cleans, chunks and retrieves, so each question sends a few relevant sections instead of the whole file.",
+      "source": "frontend/content/blog/document-to-llm-pipeline.md",
+      "source_sha256": "a10444f6b8c5e3620fc89ee23b3c615411a60d26bdf20dbcf0226c1db1cf7ca3",
+      "owner": null,
+      "notes": "Source inventory only; current indexing and performance not verified."
+    },
+    {
+      "id": "S01",
+      "canonical": "https://llmiser.devbehindyou.com/blog/scanned-pdf-to-markdown",
+      "kind": "planned",
+      "status": "PROPOSED",
+      "intent_key": "scanned-pdf-to-markdown",
+      "primary_keyword": "scanned PDF to Markdown",
+      "reserved_aliases": [
+        "OCR PDF to Markdown",
+        "convert scanned PDF to Markdown"
+      ],
+      "intent": "Convert an English scanned or mixed PDF, then check the extracted text.",
+      "title": "Scanned PDF to Markdown: OCR Steps and Quality Checks",
+      "description": "Learn how to convert scanned PDFs to Markdown, check OCR errors and reading order, and review the text before using it with AI.",
+      "parent_id": "E06",
+      "nearest_ids": [
+        "E07",
+        "S06",
+        "S07"
+      ],
+      "excludes": "PDF cost math belongs to E06/E07; image-file tutorial to S06; deep text-layer cleanup to S07.",
+      "phase": "1",
+      "brief": "briefs/S01.md",
+      "source_refs": [
+        "SR-OCR"
+      ],
+      "owner": null,
+      "volume": null,
+      "difficulty": null,
+      "measurement_status": "UNMEASURED",
+      "publication_gate": "Research, fixture, factual and semantic review pending"
+    },
+    {
+      "id": "S02",
+      "canonical": "https://llmiser.devbehindyou.com/blog/zip-project-to-markdown",
+      "kind": "planned",
+      "status": "PROPOSED",
+      "intent_key": "zip-project-to-markdown",
+      "primary_keyword": "codebase to Markdown",
+      "reserved_aliases": [
+        "ZIP to Markdown",
+        "repository to Markdown",
+        "GitHub repo to Markdown"
+      ],
+      "intent": "Select relevant project files and convert a prepared ZIP into inspectable context.",
+      "title": "Codebase to Markdown: Prepare a ZIP for AI Review",
+      "description": "Turn a codebase ZIP into Markdown for AI review. Choose relevant files, inspect the output and avoid sending unnecessary project context.",
+      "parent_id": "E08",
+      "nearest_ids": [
+        "S08",
+        "E03"
+      ],
+      "excludes": "Manifest schema deep dive belongs to S08; generic context-window theory to E03/E08. No remote GitHub URL import or secret scanning claim.",
+      "phase": "1",
+      "brief": "briefs/S02.md",
+      "source_refs": [
+        "SR-ZIP"
+      ],
+      "owner": null,
+      "volume": null,
+      "difficulty": null,
+      "measurement_status": "UNMEASURED",
+      "publication_gate": "Research, fixture, factual and semantic review pending"
+    },
+    {
+      "id": "S03",
+      "canonical": "https://llmiser.devbehindyou.com/blog/excel-to-markdown",
+      "kind": "planned",
+      "status": "PROPOSED",
+      "intent_key": "excel-to-markdown",
+      "primary_keyword": "Excel to Markdown",
+      "reserved_aliases": [
+        "XLSX to Markdown",
+        "XLS to Markdown"
+      ],
+      "intent": "Convert a workbook into Markdown and validate sheet content and cell meaning.",
+      "title": "Excel to Markdown: Check Sheets, Tables and Values",
+      "description": "Convert Excel workbooks to Markdown tables. Review sheets, values, dates and missing context before pasting the result into an AI workflow.",
+      "parent_id": "E08",
+      "nearest_ids": [
+        "S10",
+        "E08"
+      ],
+      "excludes": "CSV delimiter/encoding debugging reserved for S10. Generic table converter transaction remains homepage; this is a workbook tutorial.",
+      "phase": "1",
+      "brief": "briefs/S03.md",
+      "source_refs": [
+        "SR-XLS"
+      ],
+      "owner": null,
+      "volume": null,
+      "difficulty": null,
+      "measurement_status": "UNMEASURED",
+      "publication_gate": "Research, fixture, factual and semantic review pending"
+    },
+    {
+      "id": "S04",
+      "canonical": "https://llmiser.devbehindyou.com/blog/word-to-markdown",
+      "kind": "planned",
+      "status": "PROPOSED",
+      "intent_key": "word-to-markdown",
+      "primary_keyword": "Word to Markdown",
+      "reserved_aliases": [
+        "DOCX to Markdown",
+        "convert Word to Markdown"
+      ],
+      "intent": "Convert DOCX while checking document structure and lost visual context.",
+      "title": "Word to Markdown: Review Headings, Lists and Tables",
+      "description": "Convert Word documents to Markdown and review headings, lists and tables. Check what changes before using the text as AI context.",
+      "parent_id": "E08",
+      "nearest_ids": [
+        "S03",
+        "E08"
+      ],
+      "excludes": "No legacy .doc, reverse conversion, perfect layout or image understanding claims; spreadsheet workflow belongs to S03.",
+      "phase": "3",
+      "brief": "briefs/S04.md",
+      "source_refs": [
+        "SR-DOCX"
+      ],
+      "owner": null,
+      "volume": null,
+      "difficulty": null,
+      "measurement_status": "UNMEASURED",
+      "publication_gate": "Research, fixture, factual and semantic review pending"
+    },
+    {
+      "id": "S05",
+      "canonical": "https://llmiser.devbehindyou.com/blog/powerpoint-to-markdown",
+      "kind": "planned",
+      "status": "PROPOSED",
+      "intent_key": "powerpoint-to-markdown",
+      "primary_keyword": "PowerPoint to Markdown",
+      "reserved_aliases": [
+        "PPTX to Markdown"
+      ],
+      "intent": "Convert a PPTX deck to reviewable text while identifying visual meaning at risk.",
+      "title": "PowerPoint to Markdown: Review Slides and Missing Context",
+      "description": "Convert PowerPoint slides to Markdown, check slide order and text, and identify charts or visual context that need separate review.",
+      "parent_id": "E08",
+      "nearest_ids": [
+        "S04",
+        "E07"
+      ],
+      "excludes": "No guaranteed notes/chart extraction; no .ppt. Cost representation comparison belongs to E07.",
+      "phase": "3",
+      "brief": "briefs/S05.md",
+      "source_refs": [
+        "SR-PPTX"
+      ],
+      "owner": null,
+      "volume": null,
+      "difficulty": null,
+      "measurement_status": "UNMEASURED",
+      "publication_gate": "Research, fixture, factual and semantic review pending"
+    },
+    {
+      "id": "S06",
+      "canonical": "https://llmiser.devbehindyou.com/blog/image-to-markdown-ocr",
+      "kind": "planned",
+      "status": "PROPOSED",
+      "intent_key": "image-to-markdown-ocr",
+      "primary_keyword": "image to Markdown",
+      "reserved_aliases": [
+        "image OCR to Markdown",
+        "PNG to Markdown"
+      ],
+      "intent": "Extract English text from an image file and review recognition errors.",
+      "title": "Image to Markdown: Review OCR Text Before Using AI",
+      "description": "Turn an image into editable Markdown with OCR. Check text, numbers and orientation before using the result in an AI prompt.",
+      "parent_id": "S01",
+      "nearest_ids": [
+        "S01",
+        "E06"
+      ],
+      "excludes": "Scanned/mixed PDF walkthrough belongs to S01. No generic multilingual image-to-text portal or visual reasoning claim.",
+      "phase": "3",
+      "brief": "briefs/S06.md",
+      "source_refs": [
+        "SR-OCR"
+      ],
+      "owner": null,
+      "volume": null,
+      "difficulty": null,
+      "measurement_status": "UNMEASURED",
+      "publication_gate": "Research, fixture, factual and semantic review pending"
+    },
+    {
+      "id": "S07",
+      "canonical": "https://llmiser.devbehindyou.com/blog/pdf-to-markdown-cleanup",
+      "kind": "planned",
+      "status": "PROPOSED",
+      "intent_key": "pdf-to-markdown-cleanup",
+      "primary_keyword": "PDF to Markdown reading order",
+      "reserved_aliases": [
+        "clean PDF text for AI",
+        "remove PDF headers before RAG"
+      ],
+      "intent": "Inspect and manually clean extracted PDF text before downstream use.",
+      "title": "PDF to Markdown: Fix Reading Order and Repeated Text",
+      "description": "Review PDF-to-Markdown output for reading order, repeated headers and broken tables before sending document context to AI.",
+      "parent_id": "E08",
+      "nearest_ids": [
+        "S01",
+        "E07",
+        "E05"
+      ],
+      "excludes": "No broad converter page or token benchmark; scanned-PDF OCR belongs to S01, cost comparison E07.",
+      "phase": "4",
+      "brief": "briefs/S07.md",
+      "source_refs": [
+        "SR-OCR"
+      ],
+      "owner": null,
+      "volume": null,
+      "difficulty": null,
+      "measurement_status": "UNMEASURED",
+      "publication_gate": "Research, fixture, factual and semantic review pending"
+    },
+    {
+      "id": "S08",
+      "canonical": "https://llmiser.devbehindyou.com/blog/zip-project-index-manifest",
+      "kind": "planned",
+      "status": "PROPOSED",
+      "intent_key": "zip-project-index-manifest",
+      "primary_keyword": "LLMiser ZIP manifest",
+      "reserved_aliases": [
+        "LLMiser PROJECT_INDEX.md"
+      ],
+      "intent": "Interpret actual ZIP index and manifest output and check completeness.",
+      "title": "Read Your ZIP Conversion's Project Index and Manifest",
+      "description": "Use a ZIP conversion's project index and manifest to inspect file paths and results before choosing context for an AI task.",
+      "parent_id": "S02",
+      "nearest_ids": [
+        "S02",
+        "E08"
+      ],
+      "excludes": "Do not repeat packing/upload tutorial; do not invent manifest fields, successful extraction or agent integration.",
+      "phase": "4",
+      "brief": "briefs/S08.md",
+      "source_refs": [
+        "SR-ZIP"
+      ],
+      "owner": null,
+      "volume": null,
+      "difficulty": null,
+      "measurement_status": "UNMEASURED",
+      "publication_gate": "Research, fixture, factual and semantic review pending"
+    },
+    {
+      "id": "S09",
+      "canonical": "https://llmiser.devbehindyou.com/blog/llmiser-processing-profiles",
+      "kind": "planned",
+      "status": "PROPOSED",
+      "intent_key": "llmiser-processing-profiles",
+      "primary_keyword": "LLMiser processing profiles",
+      "reserved_aliases": [
+        "LLMiser RAG-ready profile",
+        "LLMiser Compact profile"
+      ],
+      "intent": "Choose among existing profiles based on observed transformations and information needs.",
+      "title": "Choose a LLMiser Profile: Standard, Clean, Compact or RAG-ready",
+      "description": "Compare LLMiser's Standard, Clean, Compact and RAG-ready profiles. Review their output and choose what fits your document workflow.",
+      "parent_id": "E08",
+      "nearest_ids": [
+        "E03",
+        "E05",
+        "E08"
+      ],
+      "excludes": "Only product configuration; no new broad chunking or RAG guide and no quality guarantees.",
+      "phase": "4",
+      "brief": "briefs/S09.md",
+      "source_refs": [
+        "SR-LOCAL"
+      ],
+      "owner": null,
+      "volume": null,
+      "difficulty": null,
+      "measurement_status": "UNMEASURED",
+      "publication_gate": "Research, fixture, factual and semantic review pending"
+    },
+    {
+      "id": "S10",
+      "canonical": "https://llmiser.devbehindyou.com/blog/csv-to-markdown",
+      "kind": "planned",
+      "status": "PROPOSED",
+      "intent_key": "csv-to-markdown",
+      "primary_keyword": "CSV to Markdown",
+      "reserved_aliases": [
+        "TSV to Markdown"
+      ],
+      "intent": "Troubleshoot delimited text conversion when table structure or encoding is wrong.",
+      "title": "CSV to Markdown: Check Delimiters, Quotes and Table Shape",
+      "description": "Convert CSV or TSV to Markdown and inspect delimiters, quoted cells and table shape before using the output in documentation or AI.",
+      "parent_id": "S03",
+      "nearest_ids": [
+        "S03"
+      ],
+      "excludes": "Workbook/sheet handling belongs to S03. If search and outline overlap substantially, make this a section there instead.",
+      "phase": "5",
+      "brief": "briefs/S10.md",
+      "source_refs": [
+        "SR-XLS"
+      ],
+      "owner": null,
+      "volume": null,
+      "difficulty": null,
+      "measurement_status": "UNMEASURED",
+      "publication_gate": "Research, fixture, factual and semantic review pending; R04 must be resolved"
+    }
+  ]
+}

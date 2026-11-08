@@ -1,0 +1,1153 @@
+# MDify Social Media Content Pack — 50 Unique Posts
+
+**Brand:** MDify  
+**Website:** https://markdify.com  
+**Positioning:** Convert messy documents and project files into cleaner, structured Markdown for LLMs, RAG pipelines, AI agents, and developer workflows.
+
+> **Claim note:** Use “up to 70% token-cost savings” only where you have benchmark evidence for the specific workflow. Where possible, frame it as “can reduce unnecessary token usage” or “up to 70% in tested/eligible workflows.”
+
+---
+
+# X.com — 10 Posts
+
+## X Post 1 — Token Waste
+
+Your LLM bill may be higher because of the files you send it.
+
+Raw PDFs can contain repeated headers, broken layouts, OCR noise and irrelevant text.
+
+MDify converts them into cleaner Markdown before they reach your AI stack.
+
+→ https://markdify.com
+
+#LLM #AI #RAG
+
+---
+
+## X Post 2 — PDF → Markdown
+
+A 100-page PDF shouldn’t automatically become 100 pages of LLM context.
+
+Extract. Clean. Structure. Chunk. Retrieve only what matters.
+
+That’s the workflow MDify is being built for.
+
+https://markdify.com
+
+#AI #LLM #Markdown
+
+---
+
+## X Post 3 — RAG Cost
+
+RAG isn’t cheap by default.
+
+Bad chunking + duplicate retrieval + noisy PDFs + oversized context = wasted tokens on every request.
+
+Cleaner documents are one of the easiest places to start.
+
+MDify → https://markdify.com
+
+#RAG #LLM #AI
+
+---
+
+## X Post 4 — ZIP Projects
+
+A ZIP file is not “one document.”
+
+It can contain:
+• code
+• PDFs
+• screenshots
+• nested ZIPs
+• binaries
+• docs
+
+MDify is being designed to inspect, classify and process each type correctly—then rebuild the project into AI-ready output.
+
+https://markdify.com
+
+---
+
+## X Post 5 — AI Cost Cutting
+
+Want to reduce AI costs?
+
+Don’t start by downgrading your model.
+
+Start by reducing the junk you send to it:
+• duplicate context
+• raw PDF noise
+• repeated headers
+• irrelevant chunks
+• oversized prompts
+
+MDify helps clean the document layer first.
+
+markdify.com
+
+---
+
+## X Post 6 — Hybrid PDFs
+
+Not every PDF is really “text.”
+
+One file can contain:
+31 native pages  
+9 mixed pages  
+8 scanned pages
+
+A smarter pipeline extracts text where possible and uses OCR only where needed.
+
+That’s the direction behind MDify.
+
+https://markdify.com
+
+---
+
+## X Post 7 — AI-Ready Context
+
+Raw file → LLM is convenient.
+
+Raw file → clean structure → chunk → retrieve → LLM is usually smarter.
+
+MDify focuses on that middle layer: turning messy files into AI-ready Markdown.
+
+https://markdify.com
+
+#AIEngineering #RAG
+
+---
+
+## X Post 8 — Developers
+
+If you’re building with OpenAI, Claude, Gemini or local LLMs, document quality matters.
+
+Cleaner Markdown means:
+• better chunking
+• easier retrieval
+• less layout noise
+• fewer wasted tokens
+
+Try MDify: https://markdify.com
+
+---
+
+## X Post 9 — Token Cost
+
+The cheapest token is the one you never send.
+
+Before optimizing model pricing, optimize your input.
+
+MDify converts documents into structured Markdown so your AI pipeline works with cleaner context.
+
+https://markdify.com
+
+#TokenOptimization #LLM
+
+---
+
+## X Post 10 — Product Launch
+
+I built MDify to solve a problem I kept seeing in AI workflows:
+
+We spend too much time optimizing models while feeding them messy documents.
+
+MDify turns files into cleaner, structured Markdown for LLMs, RAG and agents.
+
+Live: https://markdify.com
+
+---
+
+# LinkedIn — 10 Posts
+
+## LinkedIn Post 1 — The Hidden Cost Before the LLM
+
+Most teams trying to reduce LLM costs look at one thing first:
+
+**Model pricing.**
+
+But a large part of the waste can happen *before* the model is called.
+
+Raw PDFs often contain:
+
+- repeated headers and footers
+- broken reading order
+- OCR noise
+- unnecessary metadata
+- duplicated text
+- content that should never have been included in the prompt
+
+That means you can optimize your model and still keep paying for bad input.
+
+This is one of the reasons I built **MDify**.
+
+MDify converts documents into cleaner, structured Markdown that is easier to use with:
+
+- LLM applications
+- RAG pipelines
+- AI agents
+- vector databases
+- knowledge systems
+
+The idea is simple:
+
+**Cleaner input → less wasted context → more efficient AI workflows.**
+
+Try it at: https://markdify.com
+
+#AI #LLM #RAG #GenerativeAI #AIEngineering #MDify
+
+---
+
+## LinkedIn Post 2 — Stop Sending Whole Documents
+
+A bigger context window doesn’t mean we should fill it.
+
+One of the most expensive habits in AI applications is:
+
+**“Just send the whole document.”**
+
+A better pipeline is:
+
+**Document → Extract → Clean → Structure → Chunk → Retrieve → Send only what matters**
+
+This improves more than cost.
+
+It can also improve:
+
+- retrieval quality
+- prompt clarity
+- debugging
+- source traceability
+- consistency across models
+
+MDify is built around this document-to-AI layer.
+
+Instead of treating a PDF, image or project file as one giant blob, the goal is to turn it into structured content that downstream AI systems can actually use efficiently.
+
+https://markdify.com
+
+#LLM #RAG #AIArchitecture #DocumentAI
+
+---
+
+## LinkedIn Post 3 — PDFs Are Not Simple
+
+A PDF extension tells you almost nothing about what’s actually inside the file.
+
+A single PDF can contain:
+
+- native selectable text
+- screenshots with embedded text
+- scanned pages
+- diagrams
+- tables
+- image-only pages
+
+Running OCR on everything wastes compute.
+
+Running text extraction on everything misses scanned content.
+
+The better approach is **content-aware processing**.
+
+That’s where MDify is heading:
+
+**PDF Analyzer → page classification → native extraction / hybrid processing / OCR → ordered Markdown output**
+
+The user still gets one result.
+
+The complexity stays inside the platform.
+
+That’s the kind of abstraction I want MDify to provide.
+
+https://markdify.com
+
+#PDF #OCR #AI #LLM #SoftwareArchitecture
+
+---
+
+## LinkedIn Post 4 — Why ZIP Analysis Is Hard
+
+“Upload the project ZIP to AI.”
+
+Sounds simple.
+
+Until the ZIP contains:
+
+- 300 source files
+- screenshots
+- PDFs
+- generated folders
+- binaries
+- nested archives
+- documentation
+- dependency folders
+
+A ZIP is really a tree of different workloads.
+
+For MDify, the architecture I’m building is:
+
+**Safe Archive Inspector  
+→ Directory Tree  
+→ Recursive File Classifier  
+→ Code/Text | Documents | Images | Nested ZIP  
+→ Parallel processing  
+→ Project Merger  
+→ AI-ready output**
+
+Instead of flattening a project into one unreadable blob, MDify preserves its structure.
+
+This matters for codebase analysis, RAG ingestion and AI agents that need context—not chaos.
+
+https://markdify.com
+
+#AI #DeveloperTools #LLM #RAG #Codebase
+
+---
+
+## LinkedIn Post 5 — AI Cost Optimization
+
+If your AI bill is growing, there are several places to optimize before sacrificing quality:
+
+1. Reduce repeated context
+2. Compress oversized prompts
+3. Cache reusable results
+4. Route simple tasks to cheaper models
+5. Improve chunking
+6. Retrieve fewer, better chunks
+7. Clean documents before ingestion
+8. Limit unnecessary output tokens
+9. Avoid sending full files when only sections matter
+
+Model choice is only one part of AI cost optimization.
+
+Input quality matters just as much.
+
+MDify focuses on that input layer—turning files into structured Markdown for cleaner LLM and RAG workflows.
+
+https://markdify.com
+
+#AIOptimization #LLM #RAG #SaaS
+
+---
+
+## LinkedIn Post 6 — Building MDify
+
+A quick architecture note from building **MDify**.
+
+The platform is designed around four processing paths:
+
+**N1 + N2** → normal document processing  
+**O1 + O2** → OCR-heavy workloads
+
+Files and generated results are stored through **Supabase Storage**, while job metadata, KPIs and audit data live in **Supabase Postgres**.
+
+The important part isn’t the number of services.
+
+It’s workload separation.
+
+A large OCR task shouldn’t block a normal document conversion.
+
+A complex ZIP shouldn’t launch 1,000 child processes at once.
+
+A scanned PDF shouldn’t force every native-text page through OCR.
+
+The architecture is being optimized around **bounded parallelism and content-aware routing**.
+
+That keeps the user experience simple while the processing layer becomes smarter.
+
+https://markdify.com
+
+#SystemDesign #AIEngineering #Supabase #Vercel #LLM
+
+---
+
+## LinkedIn Post 7 — Markdown as an AI Interface
+
+Markdown is becoming an underrated interface between documents and AI systems.
+
+Why?
+
+Because it gives you:
+
+- explicit headings
+- cleaner hierarchy
+- predictable text
+- easier chunking
+- simpler parsing
+- better portability
+- less layout noise than raw document extraction
+
+It’s not that Markdown magically makes an LLM smarter.
+
+It makes the *input pipeline* easier to control.
+
+That distinction matters.
+
+MDify is built around converting messy source files into structured Markdown that developers can use across models and AI stacks.
+
+https://markdify.com
+
+#Markdown #AI #RAG #LLM #DeveloperTools
+
+---
+
+## LinkedIn Post 8 — 70% Cost Positioning
+
+We’re testing a simple question with MDify:
+
+**How much unnecessary LLM cost can be removed before changing the model?**
+
+In eligible workflows, document cleanup and context reduction can make a major difference.
+
+Our focus is on:
+
+- removing document noise
+- reducing duplicated content
+- preserving useful structure
+- improving chunking
+- preventing irrelevant text from reaching the model
+
+The target is not “use less AI.”
+
+It’s **use AI more efficiently**.
+
+Where benchmarked workflows support it, MDify can help reduce token-related costs significantly—potentially up to 70%.
+
+Try it: https://markdify.com
+
+#LLMCost #AI #TokenOptimization #RAG
+
+---
+
+## LinkedIn Post 9 — RAG Quality Starts at Ingestion
+
+A lot of RAG debugging starts too late.
+
+Teams tune:
+
+- embeddings
+- vector databases
+- top-K
+- rerankers
+- prompts
+
+…but ignore the document that entered the pipeline.
+
+If your source content contains repeated headers, broken tables, OCR artifacts and bad reading order, the retrieval layer inherits those problems.
+
+RAG quality starts at ingestion.
+
+That’s one of the core ideas behind MDify:
+
+**clean and structure the content before embedding it.**
+
+Better retrieval starts with better source material.
+
+https://markdify.com
+
+#RAG #VectorDatabase #Embeddings #AIEngineering
+
+---
+
+## LinkedIn Post 10 — Product Invitation
+
+I’ve been building **MDify** around a simple problem:
+
+AI tools are getting better, but the files we feed them are still messy.
+
+PDFs. Screenshots. Spreadsheets. Documents. Project archives.
+
+The goal of MDify is to turn those inputs into structured, AI-ready Markdown without forcing users to understand OCR pipelines, parsers or conversion architecture.
+
+For developers, it means cleaner inputs for:
+
+- LLM prompts
+- RAG
+- AI agents
+- knowledge bases
+- indexing pipelines
+
+For everyone else, it means:
+
+**upload a file → get useful structured output.**
+
+MDify is live at:
+
+https://markdify.com
+
+If you work with document-heavy AI workflows, I’d genuinely like to hear what file type causes you the most trouble.
+
+#AI #SaaS #LLM #RAG #BuildInPublic
+
+---
+
+# Reddit — 10 Posts
+
+> **Reddit note:** These are intentionally discussion-first and transparent. Check each subreddit’s self-promotion rules before posting.
+
+## Reddit Post 1 — LLM Cost Discussion
+
+**Title:** I think we focus too much on model pricing and not enough on document/token waste
+
+I’ve been working on a document preprocessing tool called MDify, and one thing that keeps showing up is how much junk can enter an LLM pipeline before inference even starts.
+
+PDF extraction can introduce repeated headers, footers, broken columns, OCR artifacts, etc. Then RAG adds chunk overlap and sometimes duplicate retrieval on top of that.
+
+So even if the model itself is cheap, the context can still be unnecessarily expensive.
+
+The workflow I’m experimenting with is:
+
+`file → clean structured Markdown → chunk → retrieve → LLM`
+
+rather than:
+
+`raw file → LLM`
+
+Curious how people here handle document cleanup before embedding/inference. Are you doing it at ingestion time or relying on the model to work around messy extraction?
+
+I’m building around this idea at https://markdify.com, but mainly interested in how others are solving it.
+
+---
+
+## Reddit Post 2 — Mixed PDFs
+
+**Title:** How do you handle PDFs that are half native text and half scanned pages?
+
+This turned into a bigger problem than I expected.
+
+A PDF can have:
+
+- native text on some pages
+- screenshots with text on others
+- fully scanned pages
+- empty/image-heavy pages
+
+Running OCR on the entire document is wasteful and can actually make good text worse.
+
+Only doing native extraction obviously misses the scans.
+
+For MDify I’m moving toward page-level classification:
+
+`native → normal extraction`  
+`mixed → native + OCR regions`  
+`scan → OCR`
+
+Then merge everything back in page order.
+
+Has anyone here implemented something similar at scale? I’d be interested in what heuristics you use to distinguish “mixed” pages from image-only ones.
+
+---
+
+## Reddit Post 3 — ZIP Projects
+
+**Title:** How would you preprocess a 500-file ZIP before giving it to an LLM?
+
+I don’t think “upload the ZIP” is enough for serious project analysis.
+
+A typical archive might contain source code, PDFs, images, generated folders, dependencies, nested archives and binaries.
+
+I’m working on this architecture for MDify:
+
+`safe archive inspect → directory tree → recursive classifier → process by type → merge`
+
+Code/text stays code. Documents go through normal parsing. Images go through OCR. Nested ZIPs recurse with depth/size limits.
+
+The output is a project index + structured Markdown + converted project bundle.
+
+Would you prefer a single combined Markdown file or per-file Markdown + a manifest for LLM/RAG workflows?
+
+---
+
+## Reddit Post 4 — RAG Cost
+
+**Title:** What actually reduced your RAG costs the most?
+
+I’ve been looking at RAG cost optimization and I’m curious what has made the biggest measurable difference for others.
+
+My current list:
+
+- better chunk sizes
+- less overlap
+- lower top-K
+- reranking
+- metadata filters
+- caching
+- cheaper model routing
+- document cleanup before embedding
+
+The last one seems underrated.
+
+If the source document is noisy, every downstream step is working with bad material.
+
+I’m testing this with MDify by converting source files into cleaner Markdown before ingestion.
+
+What change produced the biggest cost/quality improvement in your setup?
+
+---
+
+## Reddit Post 5 — Markdown
+
+**Title:** Is Markdown becoming the default intermediate format for LLM pipelines?
+
+I keep coming back to Markdown as an intermediate representation.
+
+Not because LLMs “prefer Markdown” in some magical way, but because it gives you predictable headings, hierarchy, code blocks, lists and plain text without carrying a lot of visual document baggage.
+
+For document pipelines it makes chunking and debugging much easier.
+
+I’m using this idea heavily in MDify: source files → structured Markdown → whatever LLM/RAG stack the user wants.
+
+What format are you using internally—Markdown, plain text, HTML, JSON blocks, something custom?
+
+---
+
+## Reddit Post 6 — Architecture Feedback
+
+**Title:** Architecture feedback: 2 normal workers + 2 OCR workers for document conversion
+
+I’d appreciate feedback on a workload split I’m using for MDify.
+
+Normal pool:
+- N1
+- N2
+- document parsing / text extraction
+
+OCR pool:
+- O1
+- O2
+- image OCR / scanned PDF regions
+
+Uploads/results live in Supabase Storage and job/work-item state is in Postgres.
+
+A content analyzer creates small work items and dispatches them with bounded concurrency instead of sending a whole complex file to one worker.
+
+The goal is to keep OCR-heavy jobs from blocking normal conversions.
+
+Would you keep these as separate pools or collapse them and use one worker type with capability flags?
+
+---
+
+## Reddit Post 7 — Context Windows
+
+**Title:** Bigger context windows seem to encourage worse pipeline design
+
+One thing I’ve noticed: as context windows get larger, it becomes tempting to stop filtering.
+
+“Just send the whole document.”
+
+That works until costs rise, latency grows, retrieval quality suffers or the file is too messy to use directly.
+
+I’d rather treat long context as a safety net than a reason to skip preprocessing.
+
+For MDify I’m focusing on cleaning/structuring documents before they reach the model.
+
+Do you think larger context windows will eventually kill RAG for most workflows, or just change how aggressively we retrieve?
+
+---
+
+## Reddit Post 8 — OCR Orientation
+
+**Title:** OCR pipelines: how are you handling rotated scans reliably?
+
+During testing I found a very simple failure case: a 90° rotated image could completely destroy OCR accuracy if orientation handling is weak.
+
+Now I’m treating 0/90/180/270° cases as permanent regression tests.
+
+The pipeline is roughly:
+
+`inspect → orient → resize → grayscale → OCR`
+
+Trying to keep dependencies lightweight instead of pulling OpenCV into everything.
+
+What are people using for reliable orientation detection before Tesseract?
+
+---
+
+## Reddit Post 9 — Build in Public
+
+**Title:** I built a document-to-Markdown tool because I was tired of cleaning files before using AI
+
+Whenever I wanted to use documents with LLMs, I kept doing the same manual work:
+
+- clean PDF extraction
+- remove noise
+- fix structure
+- OCR screenshots
+- convert things into Markdown
+- prepare content for RAG
+
+So I turned that workflow into a product called MDify.
+
+It’s live at https://markdify.com.
+
+I’m still improving hybrid PDFs, archive/project processing and token-efficiency benchmarks.
+
+If you use AI with documents regularly, I’d love feedback on what format/file type is still the most painful for you.
+
+---
+
+## Reddit Post 10 — Benchmark Discussion
+
+**Title:** What would you consider a fair benchmark for “token savings” in a document preprocessing tool?
+
+I’m trying to avoid vague marketing around token savings.
+
+For MDify, I want any percentage claim to be backed by a reproducible benchmark.
+
+My thinking is to compare:
+
+1. raw extraction output
+2. cleaned structured Markdown
+3. token count using the same tokenizer
+4. same document/content coverage
+5. retrieval quality before/after
+
+Possibly across PDFs, DOCX, scans and mixed documents.
+
+What else would you include to make a “saved X% tokens” claim technically fair?
+
+---
+
+# Patreon — 10 Posts
+
+## Patreon Post 1 — Behind the Build
+
+**Title:** Building MDify: Why Document Cleanup Matters More Than I Expected
+
+AI models are improving incredibly fast, but one part of the workflow still feels surprisingly primitive: getting clean information out of files.
+
+While building MDify, I’ve seen how much unnecessary content can appear before an LLM even sees a document—duplicate headers, OCR noise, bad reading order and layout artifacts.
+
+That’s why I’m focusing MDify on the layer *before* the model.
+
+The goal is simple:
+
+**Take messy files and turn them into structured, AI-ready Markdown.**
+
+That means better inputs for RAG, agents, knowledge bases and everyday LLM workflows.
+
+You can try the current version here:
+
+https://markdify.com
+
+I’ll keep sharing architecture decisions, performance tests and features as MDify evolves.
+
+---
+
+## Patreon Post 2 — Hybrid PDF Update
+
+**Title:** MDify Dev Update: Smarter PDFs Are Coming
+
+A PDF is rarely just a PDF.
+
+Some pages contain perfect selectable text.
+
+Others are scans.
+
+Others combine native text with screenshots or image-based tables.
+
+I’m working on a hybrid processing pipeline for MDify that analyzes pages individually instead of forcing the entire document through one converter.
+
+The plan:
+
+**Native page → text extraction**  
+**Scanned page → OCR**  
+**Mixed page → combine both**
+
+Then MDify merges everything back into the original order.
+
+This should improve quality while avoiding unnecessary OCR work.
+
+More soon.
+
+https://markdify.com
+
+---
+
+## Patreon Post 3 — ZIP Architecture
+
+**Title:** How MDify Will Handle Complex Project ZIPs
+
+One of the more ambitious parts of MDify is project/archive conversion.
+
+Instead of treating a ZIP as a black box, MDify will inspect the structure and classify what’s inside:
+
+- source code
+- documents
+- PDFs
+- images
+- nested archives
+- unsupported binaries
+
+Each type is processed differently, then everything is rebuilt into an AI-friendly project output.
+
+The planned output includes:
+
+- `PROJECT_INDEX.md`
+- `manifest.json`
+- structured converted files
+- a converted project ZIP
+
+This is especially useful for AI agents, codebase analysis and RAG over project repositories.
+
+---
+
+## Patreon Post 4 — Architecture Note
+
+**Title:** Why MDify Uses Separate OCR and Normal Processing Pools
+
+OCR and normal document conversion behave very differently.
+
+OCR is CPU-heavy and memory-sensitive.
+
+Normal document extraction is usually lighter and faster.
+
+Instead of forcing them through the same worker, MDify separates them:
+
+**N1 + N2 → normal processing**  
+**O1 + O2 → OCR**
+
+That allows the platform to keep normal jobs moving even when OCR workloads are heavy.
+
+It also makes performance testing more realistic because we can measure both pools separately.
+
+That’s the kind of engineering work happening behind what looks like a simple “upload → Markdown” experience.
+
+---
+
+## Patreon Post 5 — Token Efficiency
+
+**Title:** The Token-Cost Problem MDify Is Trying to Solve
+
+When people talk about AI cost, they usually talk about model prices.
+
+But there’s another cost:
+
+**unnecessary context.**
+
+If your document pipeline repeatedly sends headers, irrelevant sections, broken extraction and duplicate text, you pay for those tokens every time.
+
+MDify’s goal is not to “use less AI.”
+
+It’s to make the data sent to AI cleaner and more intentional.
+
+I’m currently working on reproducible benchmarks so any token-savings claim can be tied to actual documents and workflows rather than vague percentages.
+
+---
+
+## Patreon Post 6 — Supabase Migration
+
+**Title:** MDify Infrastructure Update: Moving Storage and Jobs to Supabase
+
+I recently simplified MDify’s infrastructure around Supabase.
+
+The current direction is:
+
+- Supabase Storage for input/output files
+- Supabase Postgres for jobs, file metadata, KPIs and audit
+- Vercel for normal processing/frontend
+- Render for OCR workers
+
+This gives MDify one durable place to track complex workflows such as multi-page PDFs and project ZIPs.
+
+It also makes retention, cleanup and admin visibility easier to manage.
+
+The less glamorous infrastructure work is what makes the bigger features possible.
+
+---
+
+## Patreon Post 7 — 48-Hour Retention
+
+**Title:** How MDify Handles Uploaded Files
+
+Privacy matters even more when a product processes documents.
+
+MDify’s storage architecture is being designed around a default file-retention window of 48 hours, with controlled cleanup and operational tracking.
+
+That means uploaded files and generated results are not intended to become permanent storage by default.
+
+I’m also building internal audit/cleanup tools so failed deletions or orphaned files can be detected rather than silently ignored.
+
+Trust should be an engineering feature, not just a sentence in a privacy policy.
+
+---
+
+## Patreon Post 8 — Performance Testing
+
+**Title:** What Happens When All 4 MDify Workers Run at Once?
+
+I’ve been testing MDify under parallel workloads.
+
+The important thing isn’t just whether four workers can run.
+
+It’s what happens to:
+
+- latency
+- throughput
+- CPU contention
+- storage
+- database writes
+- failover
+
+Parallel processing can improve total makespan while still making each individual job slower because workers share physical resources.
+
+That’s why I’m measuring throughput separately from single-job latency.
+
+I’ll share more benchmark details once the test matrix is complete.
+
+---
+
+## Patreon Post 9 — RAG Ingestion
+
+**Title:** Better RAG Starts Before Embeddings
+
+A lot of RAG optimization focuses on vector databases and rerankers.
+
+But bad input stays bad input.
+
+If the extracted document contains repeated text, broken structure or OCR noise, embeddings simply encode that mess.
+
+MDify is designed around improving the ingestion layer first.
+
+The intended workflow:
+
+**Document → clean Markdown → chunk → embed → retrieve → LLM**
+
+It’s a small architectural change that can improve everything downstream.
+
+---
+
+## Patreon Post 10 — Supporter Update
+
+**Title:** What I’m Building Next for MDify
+
+The next major MDify improvements are centered around complex files:
+
+1. Hybrid PDFs
+2. Page-level OCR routing
+3. Project ZIP processing
+4. Nested archive safety
+5. Structured project output
+6. Better token-efficiency benchmarks
+7. Admin monitoring and cleanup
+8. More performance testing
+
+The public experience should stay simple:
+
+**Upload → Convert → Use**
+
+The complexity belongs behind the product.
+
+You can follow the live product at:
+
+https://markdify.com
+
+Thanks for following the build.
+
+---
+
+# Ko-fi — 10 Posts
+
+## Ko-fi Post 1 — Launch Update
+
+**Title:** MDify Is Live 🚀
+
+I’ve launched **MDify** — a tool for converting documents into cleaner, structured Markdown for AI workflows.
+
+It’s designed for people working with:
+
+- LLMs
+- RAG
+- AI agents
+- knowledge bases
+- document-heavy automation
+
+Try it here:
+
+https://markdify.com
+
+I’ll be sharing development updates and new features here as I continue building it.
+
+---
+
+## Ko-fi Post 2 — Why I Built It
+
+**Title:** Why I Built MDify
+
+I kept running into the same problem:
+
+Before using a PDF or document with AI, I had to clean the extracted text first.
+
+Broken layouts. Repeated headers. OCR noise. Unnecessary content.
+
+MDify is my attempt to make that step easier.
+
+Upload a document → get structured Markdown → use it in your AI workflow.
+
+https://markdify.com
+
+---
+
+## Ko-fi Post 3 — Token Savings
+
+**Title:** Cleaner Files = Less Wasted AI Context
+
+One of MDify’s main goals is to help reduce unnecessary LLM token usage.
+
+The idea isn’t complicated:
+
+If a document contains less noise, duplicate text and irrelevant content, your AI pipeline has less useless context to process.
+
+I’m currently benchmarking different document types so future cost-saving claims are backed by real measurements.
+
+Try MDify:
+
+https://markdify.com
+
+---
+
+## Ko-fi Post 4 — PDF Update
+
+**Title:** Making MDify Smarter With Mixed PDFs
+
+I’m working on smarter PDF processing.
+
+Instead of treating every page the same, MDify will be able to distinguish between:
+
+- native text
+- mixed text + images
+- scanned pages
+
+Then it can use normal extraction or OCR only where needed.
+
+That means better results without wasting OCR processing on pages that don’t need it.
+
+---
+
+## Ko-fi Post 5 — Project ZIPs
+
+**Title:** Coming to MDify: Smarter ZIP Project Processing
+
+A ZIP can contain a full project—not just one document.
+
+I’m designing MDify to safely inspect a ZIP, understand its directory structure and process each supported file differently.
+
+Code stays code.
+
+Documents are converted.
+
+Images can use OCR.
+
+Nested archives are handled with safety limits.
+
+Then MDify builds the project back into structured AI-ready output.
+
+---
+
+## Ko-fi Post 6 — Behind the Architecture
+
+**Title:** 4 Workers Behind One Simple Upload
+
+MDify’s processing architecture separates normal files from OCR-heavy work.
+
+**N1 + N2:** normal document processing  
+**O1 + O2:** OCR processing
+
+The user doesn’t need to think about any of that.
+
+The goal is still:
+
+**Upload → Convert → Download**
+
+But separating workloads behind the scenes helps keep processing faster and more reliable.
+
+---
+
+## Ko-fi Post 7 — AI + Markdown
+
+**Title:** Why MDify Uses Markdown
+
+Markdown is simple, portable and easy for AI pipelines to work with.
+
+It keeps:
+
+- headings
+- lists
+- code blocks
+- structure
+
+without carrying the same layout baggage as many document formats.
+
+That makes it useful for chunking, RAG, indexing and prompts.
+
+MDify turns source files into this cleaner intermediate format.
+
+https://markdify.com
+
+---
+
+## Ko-fi Post 8 — Build Update
+
+**Title:** MDify Build Update: Storage + Job Tracking
+
+I’m improving MDify’s backend around Supabase.
+
+Files are stored in Supabase Storage while job state, processing metadata, KPIs and audit events live in Postgres.
+
+This will support more complex workflows like:
+
+- large PDFs
+- project ZIPs
+- multiple processing workers
+- retention cleanup
+- admin monitoring
+
+Lots of infrastructure work—but it unlocks much better features later.
+
+---
+
+## Ko-fi Post 9 — RAG Tip
+
+**Title:** Quick RAG Tip: Clean Before You Embed
+
+If you use RAG, don’t ignore document preprocessing.
+
+Bad extraction gets embedded too.
+
+Repeated headers, OCR mistakes and broken text can all reduce retrieval quality.
+
+A cleaner workflow is:
+
+**document → structured Markdown → chunk → embed**
+
+That’s one of the workflows MDify is built to support.
+
+https://markdify.com
+
+---
+
+## Ko-fi Post 10 — Thank You / CTA
+
+**Title:** Thanks for Supporting MDify 💛
+
+MDify started from a simple idea:
+
+Make documents easier to use with modern AI.
+
+I’m continuing to work on:
+
+- smarter PDF processing
+- OCR improvements
+- project ZIP support
+- token-efficiency benchmarks
+- better performance
+- safer file handling
+
+If you’d like to try what’s live now:
+
+https://markdify.com
+
+And if you’re following/supporting the project here—thank you. It genuinely helps me keep building.

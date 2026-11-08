@@ -1,0 +1,11 @@
+LLMiser article check: frontend/content/blog/reduce-llm-api-costs.md
+Date: 2026-10-20T15:28:18.801Z
+Words: 1829, read time 8 min
+
+Errors (0):
+  none
+
+Warnings (0):
+  none
+
+RESULT: PASS

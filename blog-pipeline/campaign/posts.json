@@ -1,0 +1,2958 @@
+{
+  "updated": "2026-11-05",
+  "scope": "108 individual post briefs; no final copy, publication or selected accounts",
+  "posts": [
+    {
+      "id": "M01-S1-P1",
+      "support_id": "M01-S1",
+      "main_id": "M01",
+      "status": "PROPOSED",
+      "format": "Practical walkthrough",
+      "channel": null,
+      "suggested_channels": [
+        "LinkedIn"
+      ],
+      "hook": "A renamed .env file is still sensitive",
+      "beats": [
+        "Open with the specific review problem: How do I review a sharing copy for credentials and private data?",
+        "Give an actionable sequence: Locate configuration and logs; Inspect an extracted sharing copy; Remove sensitive material and recheck",
+        "State the limit: Do not use real secrets or imply the converter detects credentials."
+      ],
+      "visual": "Decision/checklist tied to Locate configuration and logs",
+      "source_refs": [
+        "SRC-GIT",
+        "SRC-LOCAL"
+      ],
+      "evidence_required": "Toy repo with clearly fake keys, a synthetic log and harmless config. Compare the original and sharing inventory.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/project-zip-secret-review",
+      "utm_content": "m01-s1-p1",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M01-S1.md"
+    },
+    {
+      "id": "M01-S1-P2",
+      "support_id": "M01-S1",
+      "main_id": "M01",
+      "status": "PROPOSED",
+      "format": "Annotated example",
+      "channel": null,
+      "suggested_channels": [
+        "LinkedIn carousel",
+        "Instagram carousel"
+      ],
+      "hook": "Show a sharing-copy review checklist",
+      "beats": [
+        "Introduce the original fixture: Toy repo with clearly fake keys, a synthetic log and harmless config. Compare the original and sharing inventory.",
+        "Show the relevant source and actual output side by side; label expected output separately until tested",
+        "Point out one discrepancy or confirmed match and the next review step"
+      ],
+      "visual": "Annotated source/output fixture comparison",
+      "source_refs": [
+        "SRC-GIT",
+        "SRC-LOCAL"
+      ],
+      "evidence_required": "Toy repo with clearly fake keys, a synthetic log and harmless config. Compare the original and sharing inventory.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/project-zip-secret-review",
+      "utm_content": "m01-s1-p2",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M01-S1.md"
+    },
+    {
+      "id": "M01-S1-P3",
+      "support_id": "M01-S1",
+      "main_id": "M01",
+      "status": "PROPOSED",
+      "format": "Misconception and limitation",
+      "channel": null,
+      "suggested_channels": [
+        "X",
+        "Threads"
+      ],
+      "hook": "Removing a filename is not a secret scan",
+      "beats": [
+        "Challenge the assumption named in the hook without presenting a hypothetical failure as an observed result",
+        "Explain the boundary: Do not use real secrets or imply the converter detects credentials.",
+        "Offer a concrete check: Remove sensitive material and recheck"
+      ],
+      "visual": "Two-panel assumption versus verification boundary",
+      "source_refs": [
+        "SRC-GIT",
+        "SRC-LOCAL"
+      ],
+      "evidence_required": "Toy repo with clearly fake keys, a synthetic log and harmless config. Compare the original and sharing inventory.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/project-zip-secret-review",
+      "utm_content": "m01-s1-p3",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M01-S1.md"
+    },
+    {
+      "id": "M01-S2-P1",
+      "support_id": "M01-S2",
+      "main_id": "M01",
+      "status": "PROPOSED",
+      "format": "Practical walkthrough",
+      "channel": null,
+      "suggested_channels": [
+        "LinkedIn"
+      ],
+      "hook": "Keep the dependency map, review the bulk",
+      "beats": [
+        "Open with the specific review problem: What should remain when installed packages are removed?",
+        "Give an actionable sequence: Separate manifests from installed packages; Match files to the review question; Keep version context",
+        "State the limit: Do not prescribe removing all lockfiles or all vendored source."
+      ],
+      "visual": "Decision/checklist tied to Separate manifests from installed packages",
+      "source_refs": [
+        "SRC-GIT",
+        "SRC-LOCAL"
+      ],
+      "evidence_required": "Toy project with package manifest, lockfile, vendor folder and import requiring version context.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/dependency-files-ai-review",
+      "utm_content": "m01-s2-p1",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M01-S2.md"
+    },
+    {
+      "id": "M01-S2-P2",
+      "support_id": "M01-S2",
+      "main_id": "M01",
+      "status": "PROPOSED",
+      "format": "Annotated example",
+      "channel": null,
+      "suggested_channels": [
+        "LinkedIn carousel",
+        "Instagram carousel"
+      ],
+      "hook": "Compare a manifest with an installed package tree",
+      "beats": [
+        "Introduce the original fixture: Toy project with package manifest, lockfile, vendor folder and import requiring version context.",
+        "Show the relevant source and actual output side by side; label expected output separately until tested",
+        "Point out one discrepancy or confirmed match and the next review step"
+      ],
+      "visual": "Annotated source/output fixture comparison",
+      "source_refs": [
+        "SRC-GIT",
+        "SRC-LOCAL"
+      ],
+      "evidence_required": "Toy project with package manifest, lockfile, vendor folder and import requiring version context.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/dependency-files-ai-review",
+      "utm_content": "m01-s2-p2",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M01-S2.md"
+    },
+    {
+      "id": "M01-S2-P3",
+      "support_id": "M01-S2",
+      "main_id": "M01",
+      "status": "PROPOSED",
+      "format": "Misconception and limitation",
+      "channel": null,
+      "suggested_channels": [
+        "X",
+        "Threads"
+      ],
+      "hook": "When vendored code is the code under review",
+      "beats": [
+        "Challenge the assumption named in the hook without presenting a hypothetical failure as an observed result",
+        "Explain the boundary: Do not prescribe removing all lockfiles or all vendored source.",
+        "Offer a concrete check: Keep version context"
+      ],
+      "visual": "Two-panel assumption versus verification boundary",
+      "source_refs": [
+        "SRC-GIT",
+        "SRC-LOCAL"
+      ],
+      "evidence_required": "Toy project with package manifest, lockfile, vendor folder and import requiring version context.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/dependency-files-ai-review",
+      "utm_content": "m01-s2-p3",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M01-S2.md"
+    },
+    {
+      "id": "M01-S3-P1",
+      "support_id": "M01-S3",
+      "main_id": "M01",
+      "status": "PROPOSED",
+      "format": "Practical walkthrough",
+      "channel": null,
+      "suggested_channels": [
+        "LinkedIn"
+      ],
+      "hook": "One bug can span more than one file",
+      "beats": [
+        "Open with the specific review problem: How do I select enough source and tests for one code question?",
+        "Give an actionable sequence: Define the question; Trace relevant imports and tests; Review omissions",
+        "State the limit: No universal file-count or answer-quality improvement promise."
+      ],
+      "visual": "Decision/checklist tied to Define the question",
+      "source_refs": [
+        "SRC-GIT",
+        "SRC-LOCAL"
+      ],
+      "evidence_required": "Toy bug spanning a caller, helper and test; compare a minimal sufficient bundle with an incomplete one.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/task-focused-code-bundle",
+      "utm_content": "m01-s3-p1",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M01-S3.md"
+    },
+    {
+      "id": "M01-S3-P2",
+      "support_id": "M01-S3",
+      "main_id": "M01",
+      "status": "PROPOSED",
+      "format": "Annotated example",
+      "channel": null,
+      "suggested_channels": [
+        "LinkedIn carousel",
+        "Instagram carousel"
+      ],
+      "hook": "Show the caller-helper-test evidence chain",
+      "beats": [
+        "Introduce the original fixture: Toy bug spanning a caller, helper and test; compare a minimal sufficient bundle with an incomplete one.",
+        "Show the relevant source and actual output side by side; label expected output separately until tested",
+        "Point out one discrepancy or confirmed match and the next review step"
+      ],
+      "visual": "Annotated source/output fixture comparison",
+      "source_refs": [
+        "SRC-GIT",
+        "SRC-LOCAL"
+      ],
+      "evidence_required": "Toy bug spanning a caller, helper and test; compare a minimal sufficient bundle with an incomplete one.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/task-focused-code-bundle",
+      "utm_content": "m01-s3-p2",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M01-S3.md"
+    },
+    {
+      "id": "M01-S3-P3",
+      "support_id": "M01-S3",
+      "main_id": "M01",
+      "status": "PROPOSED",
+      "format": "Misconception and limitation",
+      "channel": null,
+      "suggested_channels": [
+        "X",
+        "Threads"
+      ],
+      "hook": "Smallest is not always sufficient",
+      "beats": [
+        "Challenge the assumption named in the hook without presenting a hypothetical failure as an observed result",
+        "Explain the boundary: No universal file-count or answer-quality improvement promise.",
+        "Offer a concrete check: Review omissions"
+      ],
+      "visual": "Two-panel assumption versus verification boundary",
+      "source_refs": [
+        "SRC-GIT",
+        "SRC-LOCAL"
+      ],
+      "evidence_required": "Toy bug spanning a caller, helper and test; compare a minimal sufficient bundle with an incomplete one.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/task-focused-code-bundle",
+      "utm_content": "m01-s3-p3",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M01-S3.md"
+    },
+    {
+      "id": "M02-S1-P1",
+      "support_id": "M02-S1",
+      "main_id": "M02",
+      "status": "PROPOSED",
+      "format": "Practical walkthrough",
+      "channel": null,
+      "suggested_channels": [
+        "LinkedIn"
+      ],
+      "hook": "A readable scan can still face the wrong way",
+      "beats": [
+        "Open with the specific review problem: How does orientation affect recognition in a specific sample?",
+        "Give an actionable sequence: Inspect orientation; Compare original and corrected copy; Check output against both",
+        "State the limit: Do not claim LLMiser always corrects rotation automatically."
+      ],
+      "visual": "Decision/checklist tied to Inspect orientation",
+      "source_refs": [
+        "SRC-LOCAL",
+        "SRC-OCR-RESEARCH"
+      ],
+      "evidence_required": "Synthetic English image at 0 and 90 degrees, plus a carefully rotated copy; save actual outputs.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/rotated-scan-ocr-check",
+      "utm_content": "m02-s1-p1",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M02-S1.md"
+    },
+    {
+      "id": "M02-S1-P2",
+      "support_id": "M02-S1",
+      "main_id": "M02",
+      "status": "PROPOSED",
+      "format": "Annotated example",
+      "channel": null,
+      "suggested_channels": [
+        "LinkedIn carousel",
+        "Instagram carousel"
+      ],
+      "hook": "Compare orientation using one controlled sample",
+      "beats": [
+        "Introduce the original fixture: Synthetic English image at 0 and 90 degrees, plus a carefully rotated copy; save actual outputs.",
+        "Show the relevant source and actual output side by side; label expected output separately until tested",
+        "Point out one discrepancy or confirmed match and the next review step"
+      ],
+      "visual": "Annotated source/output fixture comparison",
+      "source_refs": [
+        "SRC-LOCAL",
+        "SRC-OCR-RESEARCH"
+      ],
+      "evidence_required": "Synthetic English image at 0 and 90 degrees, plus a carefully rotated copy; save actual outputs.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/rotated-scan-ocr-check",
+      "utm_content": "m02-s1-p2",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M02-S1.md"
+    },
+    {
+      "id": "M02-S1-P3",
+      "support_id": "M02-S1",
+      "main_id": "M02",
+      "status": "PROPOSED",
+      "format": "Misconception and limitation",
+      "channel": null,
+      "suggested_channels": [
+        "X",
+        "Threads"
+      ],
+      "hook": "Rotation and blur need different checks",
+      "beats": [
+        "Challenge the assumption named in the hook without presenting a hypothetical failure as an observed result",
+        "Explain the boundary: Do not claim LLMiser always corrects rotation automatically.",
+        "Offer a concrete check: Check output against both"
+      ],
+      "visual": "Two-panel assumption versus verification boundary",
+      "source_refs": [
+        "SRC-LOCAL",
+        "SRC-OCR-RESEARCH"
+      ],
+      "evidence_required": "Synthetic English image at 0 and 90 degrees, plus a carefully rotated copy; save actual outputs.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/rotated-scan-ocr-check",
+      "utm_content": "m02-s1-p3",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M02-S1.md"
+    },
+    {
+      "id": "M02-S2-P1",
+      "support_id": "M02-S2",
+      "main_id": "M02",
+      "status": "PROPOSED",
+      "format": "Practical walkthrough",
+      "channel": null,
+      "suggested_channels": [
+        "LinkedIn"
+      ],
+      "hook": "A single zero can change the meaning",
+      "beats": [
+        "Open with the specific review problem: How do I verify digits and labels without trusting fluent OCR text?",
+        "Give an actionable sequence: Locate high-impact fields; Compare exact characters and separators; Record corrections",
+        "State the limit: No financial recommendation; report character fidelity, not invented accuracy rates."
+      ],
+      "visual": "Decision/checklist tied to Locate high-impact fields",
+      "source_refs": [
+        "SRC-LOCAL",
+        "SRC-OCR-RESEARCH"
+      ],
+      "evidence_required": "Synthetic invoice with 00123, 10.50, a date and letter O/zero examples.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/verify-ocr-numbers",
+      "utm_content": "m02-s2-p1",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M02-S2.md"
+    },
+    {
+      "id": "M02-S2-P2",
+      "support_id": "M02-S2",
+      "main_id": "M02",
+      "status": "PROPOSED",
+      "format": "Annotated example",
+      "channel": null,
+      "suggested_channels": [
+        "LinkedIn carousel",
+        "Instagram carousel"
+      ],
+      "hook": "Use a source-to-output number checklist",
+      "beats": [
+        "Introduce the original fixture: Synthetic invoice with 00123, 10.50, a date and letter O/zero examples.",
+        "Show the relevant source and actual output side by side; label expected output separately until tested",
+        "Point out one discrepancy or confirmed match and the next review step"
+      ],
+      "visual": "Annotated source/output fixture comparison",
+      "source_refs": [
+        "SRC-LOCAL",
+        "SRC-OCR-RESEARCH"
+      ],
+      "evidence_required": "Synthetic invoice with 00123, 10.50, a date and letter O/zero examples.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/verify-ocr-numbers",
+      "utm_content": "m02-s2-p2",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M02-S2.md"
+    },
+    {
+      "id": "M02-S2-P3",
+      "support_id": "M02-S2",
+      "main_id": "M02",
+      "status": "PROPOSED",
+      "format": "Misconception and limitation",
+      "channel": null,
+      "suggested_channels": [
+        "X",
+        "Threads"
+      ],
+      "hook": "Fluent text is not verified data",
+      "beats": [
+        "Challenge the assumption named in the hook without presenting a hypothetical failure as an observed result",
+        "Explain the boundary: No financial recommendation; report character fidelity, not invented accuracy rates.",
+        "Offer a concrete check: Record corrections"
+      ],
+      "visual": "Two-panel assumption versus verification boundary",
+      "source_refs": [
+        "SRC-LOCAL",
+        "SRC-OCR-RESEARCH"
+      ],
+      "evidence_required": "Synthetic invoice with 00123, 10.50, a date and letter O/zero examples.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/verify-ocr-numbers",
+      "utm_content": "m02-s2-p3",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M02-S2.md"
+    },
+    {
+      "id": "M02-S3-P1",
+      "support_id": "M02-S3",
+      "main_id": "M02",
+      "status": "PROPOSED",
+      "format": "Practical walkthrough",
+      "channel": null,
+      "suggested_channels": [
+        "LinkedIn"
+      ],
+      "hook": "Did every meaningful page make it through?",
+      "beats": [
+        "Open with the specific review problem: How do I confirm that a PDF with text and scanned pages is represented?",
+        "Give an actionable sequence: Inventory page types; Locate each page in output; Investigate missing or duplicate text",
+        "State the limit: No page-level OCR routing or page-count guarantee without observed evidence."
+      ],
+      "visual": "Decision/checklist tied to Inventory page types",
+      "source_refs": [
+        "SRC-LOCAL",
+        "SRC-OCR-RESEARCH"
+      ],
+      "evidence_required": "Three-page fixture with native text, image-only text and an intentional blank page.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/mixed-pdf-ocr-coverage",
+      "utm_content": "m02-s3-p1",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M02-S3.md"
+    },
+    {
+      "id": "M02-S3-P2",
+      "support_id": "M02-S3",
+      "main_id": "M02",
+      "status": "PROPOSED",
+      "format": "Annotated example",
+      "channel": null,
+      "suggested_channels": [
+        "LinkedIn carousel",
+        "Instagram carousel"
+      ],
+      "hook": "Map three source pages to output passages",
+      "beats": [
+        "Introduce the original fixture: Three-page fixture with native text, image-only text and an intentional blank page.",
+        "Show the relevant source and actual output side by side; label expected output separately until tested",
+        "Point out one discrepancy or confirmed match and the next review step"
+      ],
+      "visual": "Annotated source/output fixture comparison",
+      "source_refs": [
+        "SRC-LOCAL",
+        "SRC-OCR-RESEARCH"
+      ],
+      "evidence_required": "Three-page fixture with native text, image-only text and an intentional blank page.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/mixed-pdf-ocr-coverage",
+      "utm_content": "m02-s3-p2",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M02-S3.md"
+    },
+    {
+      "id": "M02-S3-P3",
+      "support_id": "M02-S3",
+      "main_id": "M02",
+      "status": "PROPOSED",
+      "format": "Misconception and limitation",
+      "channel": null,
+      "suggested_channels": [
+        "X",
+        "Threads"
+      ],
+      "hook": "A blank page differs from a missing page",
+      "beats": [
+        "Challenge the assumption named in the hook without presenting a hypothetical failure as an observed result",
+        "Explain the boundary: No page-level OCR routing or page-count guarantee without observed evidence.",
+        "Offer a concrete check: Investigate missing or duplicate text"
+      ],
+      "visual": "Two-panel assumption versus verification boundary",
+      "source_refs": [
+        "SRC-LOCAL",
+        "SRC-OCR-RESEARCH"
+      ],
+      "evidence_required": "Three-page fixture with native text, image-only text and an intentional blank page.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/mixed-pdf-ocr-coverage",
+      "utm_content": "m02-s3-p3",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M02-S3.md"
+    },
+    {
+      "id": "M03-S1-P1",
+      "support_id": "M03-S1",
+      "main_id": "M03",
+      "status": "PROPOSED",
+      "format": "Practical walkthrough",
+      "channel": null,
+      "suggested_channels": [
+        "LinkedIn"
+      ],
+      "hook": "00123 and 123 may name different records",
+      "beats": [
+        "Open with the specific review problem: How do I distinguish identifiers from numeric quantities?",
+        "Give an actionable sequence: Identify identifier columns; Inspect stored value versus formatting; Compare converted output",
+        "State the limit: Display formatting and stored values may differ; conversion cannot restore lost digits."
+      ],
+      "visual": "Decision/checklist tied to Identify identifier columns",
+      "source_refs": [
+        "SRC-EXCEL",
+        "SRC-LOCAL"
+      ],
+      "evidence_required": "Workbook with text 00123, numeric 123 formatted as 00000 and a long ID.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/excel-leading-zeros-ai",
+      "utm_content": "m03-s1-p1",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M03-S1.md"
+    },
+    {
+      "id": "M03-S1-P2",
+      "support_id": "M03-S1",
+      "main_id": "M03",
+      "status": "PROPOSED",
+      "format": "Annotated example",
+      "channel": null,
+      "suggested_channels": [
+        "LinkedIn carousel",
+        "Instagram carousel"
+      ],
+      "hook": "Compare text IDs with formatted numbers",
+      "beats": [
+        "Introduce the original fixture: Workbook with text 00123, numeric 123 formatted as 00000 and a long ID.",
+        "Show the relevant source and actual output side by side; label expected output separately until tested",
+        "Point out one discrepancy or confirmed match and the next review step"
+      ],
+      "visual": "Annotated source/output fixture comparison",
+      "source_refs": [
+        "SRC-EXCEL",
+        "SRC-LOCAL"
+      ],
+      "evidence_required": "Workbook with text 00123, numeric 123 formatted as 00000 and a long ID.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/excel-leading-zeros-ai",
+      "utm_content": "m03-s1-p2",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M03-S1.md"
+    },
+    {
+      "id": "M03-S1-P3",
+      "support_id": "M03-S1",
+      "main_id": "M03",
+      "status": "PROPOSED",
+      "format": "Misconception and limitation",
+      "channel": null,
+      "suggested_channels": [
+        "X",
+        "Threads"
+      ],
+      "hook": "Formatting is not the stored value",
+      "beats": [
+        "Challenge the assumption named in the hook without presenting a hypothetical failure as an observed result",
+        "Explain the boundary: Display formatting and stored values may differ; conversion cannot restore lost digits.",
+        "Offer a concrete check: Compare converted output"
+      ],
+      "visual": "Two-panel assumption versus verification boundary",
+      "source_refs": [
+        "SRC-EXCEL",
+        "SRC-LOCAL"
+      ],
+      "evidence_required": "Workbook with text 00123, numeric 123 formatted as 00000 and a long ID.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/excel-leading-zeros-ai",
+      "utm_content": "m03-s1-p3",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M03-S1.md"
+    },
+    {
+      "id": "M03-S2-P1",
+      "support_id": "M03-S2",
+      "main_id": "M03",
+      "status": "PROPOSED",
+      "format": "Practical walkthrough",
+      "channel": null,
+      "suggested_channels": [
+        "LinkedIn"
+      ],
+      "hook": "A formula is not proof of a fresh result",
+      "beats": [
+        "Open with the specific review problem: What evidence shows whether formula results are current?",
+        "Give an actionable sequence: Separate formulas from calculated values; Save a reviewed source copy; Inspect actual Markdown values",
+        "State the limit: Do not claim the converter recalculates formulas; record app and workbook provenance."
+      ],
+      "visual": "Decision/checklist tied to Separate formulas from calculated values",
+      "source_refs": [
+        "SRC-EXCEL",
+        "SRC-LOCAL"
+      ],
+      "evidence_required": "Workbook with formula, known result and a stale/absent cached-value case where reproducible.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/excel-formula-results-conversion",
+      "utm_content": "m03-s2-p1",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M03-S2.md"
+    },
+    {
+      "id": "M03-S2-P2",
+      "support_id": "M03-S2",
+      "main_id": "M03",
+      "status": "PROPOSED",
+      "format": "Annotated example",
+      "channel": null,
+      "suggested_channels": [
+        "LinkedIn carousel",
+        "Instagram carousel"
+      ],
+      "hook": "Trace formula, saved value and Markdown output",
+      "beats": [
+        "Introduce the original fixture: Workbook with formula, known result and a stale/absent cached-value case where reproducible.",
+        "Show the relevant source and actual output side by side; label expected output separately until tested",
+        "Point out one discrepancy or confirmed match and the next review step"
+      ],
+      "visual": "Annotated source/output fixture comparison",
+      "source_refs": [
+        "SRC-EXCEL",
+        "SRC-LOCAL"
+      ],
+      "evidence_required": "Workbook with formula, known result and a stale/absent cached-value case where reproducible.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/excel-formula-results-conversion",
+      "utm_content": "m03-s2-p2",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M03-S2.md"
+    },
+    {
+      "id": "M03-S2-P3",
+      "support_id": "M03-S2",
+      "main_id": "M03",
+      "status": "PROPOSED",
+      "format": "Misconception and limitation",
+      "channel": null,
+      "suggested_channels": [
+        "X",
+        "Threads"
+      ],
+      "hook": "Conversion is not spreadsheet recalculation",
+      "beats": [
+        "Challenge the assumption named in the hook without presenting a hypothetical failure as an observed result",
+        "Explain the boundary: Do not claim the converter recalculates formulas; record app and workbook provenance.",
+        "Offer a concrete check: Inspect actual Markdown values"
+      ],
+      "visual": "Two-panel assumption versus verification boundary",
+      "source_refs": [
+        "SRC-EXCEL",
+        "SRC-LOCAL"
+      ],
+      "evidence_required": "Workbook with formula, known result and a stale/absent cached-value case where reproducible.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/excel-formula-results-conversion",
+      "utm_content": "m03-s2-p3",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M03-S2.md"
+    },
+    {
+      "id": "M03-S3-P1",
+      "support_id": "M03-S3",
+      "main_id": "M03",
+      "status": "PROPOSED",
+      "format": "Practical walkthrough",
+      "channel": null,
+      "suggested_channels": [
+        "LinkedIn"
+      ],
+      "hook": "Which unit belongs to this column?",
+      "beats": [
+        "Open with the specific review problem: How can I make multi-level spreadsheet labels unambiguous?",
+        "Give an actionable sequence: Identify grouped labels; Create a clearly labeled sharing copy; Compare row-column meaning",
+        "State the limit: Manual flattening must preserve meaning; no automatic merged-cell repair claim."
+      ],
+      "visual": "Decision/checklist tied to Identify grouped labels",
+      "source_refs": [
+        "SRC-EXCEL",
+        "SRC-LOCAL"
+      ],
+      "evidence_required": "Small two-level header workbook and manually flattened copy with units retained.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/merged-excel-headers-markdown",
+      "utm_content": "m03-s3-p1",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M03-S3.md"
+    },
+    {
+      "id": "M03-S3-P2",
+      "support_id": "M03-S3",
+      "main_id": "M03",
+      "status": "PROPOSED",
+      "format": "Annotated example",
+      "channel": null,
+      "suggested_channels": [
+        "LinkedIn carousel",
+        "Instagram carousel"
+      ],
+      "hook": "Before-and-after header map with real values",
+      "beats": [
+        "Introduce the original fixture: Small two-level header workbook and manually flattened copy with units retained.",
+        "Show the relevant source and actual output side by side; label expected output separately until tested",
+        "Point out one discrepancy or confirmed match and the next review step"
+      ],
+      "visual": "Annotated source/output fixture comparison",
+      "source_refs": [
+        "SRC-EXCEL",
+        "SRC-LOCAL"
+      ],
+      "evidence_required": "Small two-level header workbook and manually flattened copy with units retained.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/merged-excel-headers-markdown",
+      "utm_content": "m03-s3-p2",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M03-S3.md"
+    },
+    {
+      "id": "M03-S3-P3",
+      "support_id": "M03-S3",
+      "main_id": "M03",
+      "status": "PROPOSED",
+      "format": "Misconception and limitation",
+      "channel": null,
+      "suggested_channels": [
+        "X",
+        "Threads"
+      ],
+      "hook": "Blank merged cells do not mean missing data",
+      "beats": [
+        "Challenge the assumption named in the hook without presenting a hypothetical failure as an observed result",
+        "Explain the boundary: Manual flattening must preserve meaning; no automatic merged-cell repair claim.",
+        "Offer a concrete check: Compare row-column meaning"
+      ],
+      "visual": "Two-panel assumption versus verification boundary",
+      "source_refs": [
+        "SRC-EXCEL",
+        "SRC-LOCAL"
+      ],
+      "evidence_required": "Small two-level header workbook and manually flattened copy with units retained.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/merged-excel-headers-markdown",
+      "utm_content": "m03-s3-p3",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M03-S3.md"
+    },
+    {
+      "id": "M04-S1-P1",
+      "support_id": "M04-S1",
+      "main_id": "M04",
+      "status": "PROPOSED",
+      "format": "Practical walkthrough",
+      "channel": null,
+      "suggested_channels": [
+        "LinkedIn"
+      ],
+      "hook": "Bold text and a heading are different inputs",
+      "beats": [
+        "Open with the specific review problem: How do semantic styles differ from large bold text?",
+        "Give an actionable sequence: Inspect Word styles; Apply a consistent hierarchy; Check Markdown heading levels",
+        "State the limit: General semantic-heading sources do not prove exact DOCX parser behavior; test it."
+      ],
+      "visual": "Decision/checklist tied to Inspect Word styles",
+      "source_refs": [
+        "SRC-HEADINGS",
+        "SRC-LOCAL"
+      ],
+      "evidence_required": "DOCX pair with visually similar bold text versus actual heading styles.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/word-heading-styles-markdown",
+      "utm_content": "m04-s1-p1",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M04-S1.md"
+    },
+    {
+      "id": "M04-S1-P2",
+      "support_id": "M04-S1",
+      "main_id": "M04",
+      "status": "PROPOSED",
+      "format": "Annotated example",
+      "channel": null,
+      "suggested_channels": [
+        "LinkedIn carousel",
+        "Instagram carousel"
+      ],
+      "hook": "Compare look-alike headings after conversion",
+      "beats": [
+        "Introduce the original fixture: DOCX pair with visually similar bold text versus actual heading styles.",
+        "Show the relevant source and actual output side by side; label expected output separately until tested",
+        "Point out one discrepancy or confirmed match and the next review step"
+      ],
+      "visual": "Annotated source/output fixture comparison",
+      "source_refs": [
+        "SRC-HEADINGS",
+        "SRC-LOCAL"
+      ],
+      "evidence_required": "DOCX pair with visually similar bold text versus actual heading styles.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/word-heading-styles-markdown",
+      "utm_content": "m04-s1-p2",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M04-S1.md"
+    },
+    {
+      "id": "M04-S1-P3",
+      "support_id": "M04-S1",
+      "main_id": "M04",
+      "status": "PROPOSED",
+      "format": "Misconception and limitation",
+      "channel": null,
+      "suggested_channels": [
+        "X",
+        "Threads"
+      ],
+      "hook": "Check hierarchy rather than font size",
+      "beats": [
+        "Challenge the assumption named in the hook without presenting a hypothetical failure as an observed result",
+        "Explain the boundary: General semantic-heading sources do not prove exact DOCX parser behavior; test it.",
+        "Offer a concrete check: Check Markdown heading levels"
+      ],
+      "visual": "Two-panel assumption versus verification boundary",
+      "source_refs": [
+        "SRC-HEADINGS",
+        "SRC-LOCAL"
+      ],
+      "evidence_required": "DOCX pair with visually similar bold text versus actual heading styles.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/word-heading-styles-markdown",
+      "utm_content": "m04-s1-p3",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M04-S1.md"
+    },
+    {
+      "id": "M04-S2-P1",
+      "support_id": "M04-S2",
+      "main_id": "M04",
+      "status": "PROPOSED",
+      "format": "Practical walkthrough",
+      "channel": null,
+      "suggested_channels": [
+        "LinkedIn"
+      ],
+      "hook": "A sub-step should not become a new instruction",
+      "beats": [
+        "Open with the specific review problem: How do I verify parent-child relationships in converted lists?",
+        "Give an actionable sequence: Identify list levels; Compare item order and nesting; Repair a working copy and recheck",
+        "State the limit: Do not promise lossless numbering; preserve the original."
+      ],
+      "visual": "Decision/checklist tied to Identify list levels",
+      "source_refs": [
+        "SRC-HEADINGS",
+        "SRC-LOCAL"
+      ],
+      "evidence_required": "DOCX with nested numbered and bulleted items, including restarted numbering.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/nested-word-lists-markdown",
+      "utm_content": "m04-s2-p1",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M04-S2.md"
+    },
+    {
+      "id": "M04-S2-P2",
+      "support_id": "M04-S2",
+      "main_id": "M04",
+      "status": "PROPOSED",
+      "format": "Annotated example",
+      "channel": null,
+      "suggested_channels": [
+        "LinkedIn carousel",
+        "Instagram carousel"
+      ],
+      "hook": "Map a parent item to its child steps",
+      "beats": [
+        "Introduce the original fixture: DOCX with nested numbered and bulleted items, including restarted numbering.",
+        "Show the relevant source and actual output side by side; label expected output separately until tested",
+        "Point out one discrepancy or confirmed match and the next review step"
+      ],
+      "visual": "Annotated source/output fixture comparison",
+      "source_refs": [
+        "SRC-HEADINGS",
+        "SRC-LOCAL"
+      ],
+      "evidence_required": "DOCX with nested numbered and bulleted items, including restarted numbering.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/nested-word-lists-markdown",
+      "utm_content": "m04-s2-p2",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M04-S2.md"
+    },
+    {
+      "id": "M04-S2-P3",
+      "support_id": "M04-S2",
+      "main_id": "M04",
+      "status": "PROPOSED",
+      "format": "Misconception and limitation",
+      "channel": null,
+      "suggested_channels": [
+        "X",
+        "Threads"
+      ],
+      "hook": "Correct words can have the wrong nesting",
+      "beats": [
+        "Challenge the assumption named in the hook without presenting a hypothetical failure as an observed result",
+        "Explain the boundary: Do not promise lossless numbering; preserve the original.",
+        "Offer a concrete check: Repair a working copy and recheck"
+      ],
+      "visual": "Two-panel assumption versus verification boundary",
+      "source_refs": [
+        "SRC-HEADINGS",
+        "SRC-LOCAL"
+      ],
+      "evidence_required": "DOCX with nested numbered and bulleted items, including restarted numbering.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/nested-word-lists-markdown",
+      "utm_content": "m04-s2-p3",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M04-S2.md"
+    },
+    {
+      "id": "M04-S3-P1",
+      "support_id": "M04-S3",
+      "main_id": "M04",
+      "status": "PROPOSED",
+      "format": "Practical walkthrough",
+      "channel": null,
+      "suggested_channels": [
+        "LinkedIn"
+      ],
+      "hook": "Which draft did you mean to share?",
+      "beats": [
+        "Open with the specific review problem: Which revision view and comments should a shared document represent?",
+        "Give an actionable sequence: Decide the intended revision; Create a reviewed sharing copy; Compare extracted text with that copy",
+        "State the limit: Do not silently accept changes or claim all comments are extracted/removed."
+      ],
+      "visual": "Decision/checklist tied to Decide the intended revision",
+      "source_refs": [
+        "SRC-HEADINGS",
+        "SRC-LOCAL"
+      ],
+      "evidence_required": "Synthetic DOCX containing a harmless tracked replacement and comment; record the chosen revision view.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/word-revisions-ai-sharing",
+      "utm_content": "m04-s3-p1",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M04-S3.md"
+    },
+    {
+      "id": "M04-S3-P2",
+      "support_id": "M04-S3",
+      "main_id": "M04",
+      "status": "PROPOSED",
+      "format": "Annotated example",
+      "channel": null,
+      "suggested_channels": [
+        "LinkedIn carousel",
+        "Instagram carousel"
+      ],
+      "hook": "Compare original, revised and sharing views",
+      "beats": [
+        "Introduce the original fixture: Synthetic DOCX containing a harmless tracked replacement and comment; record the chosen revision view.",
+        "Show the relevant source and actual output side by side; label expected output separately until tested",
+        "Point out one discrepancy or confirmed match and the next review step"
+      ],
+      "visual": "Annotated source/output fixture comparison",
+      "source_refs": [
+        "SRC-HEADINGS",
+        "SRC-LOCAL"
+      ],
+      "evidence_required": "Synthetic DOCX containing a harmless tracked replacement and comment; record the chosen revision view.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/word-revisions-ai-sharing",
+      "utm_content": "m04-s3-p2",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M04-S3.md"
+    },
+    {
+      "id": "M04-S3-P3",
+      "support_id": "M04-S3",
+      "main_id": "M04",
+      "status": "PROPOSED",
+      "format": "Misconception and limitation",
+      "channel": null,
+      "suggested_channels": [
+        "X",
+        "Threads"
+      ],
+      "hook": "Hidden review text needs an explicit decision",
+      "beats": [
+        "Challenge the assumption named in the hook without presenting a hypothetical failure as an observed result",
+        "Explain the boundary: Do not silently accept changes or claim all comments are extracted/removed.",
+        "Offer a concrete check: Compare extracted text with that copy"
+      ],
+      "visual": "Two-panel assumption versus verification boundary",
+      "source_refs": [
+        "SRC-HEADINGS",
+        "SRC-LOCAL"
+      ],
+      "evidence_required": "Synthetic DOCX containing a harmless tracked replacement and comment; record the chosen revision view.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/word-revisions-ai-sharing",
+      "utm_content": "m04-s3-p3",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M04-S3.md"
+    },
+    {
+      "id": "M05-S1-P1",
+      "support_id": "M05-S1",
+      "main_id": "M05",
+      "status": "PROPOSED",
+      "format": "Practical walkthrough",
+      "channel": null,
+      "suggested_channels": [
+        "LinkedIn"
+      ],
+      "hook": "The slide may not contain the whole explanation",
+      "beats": [
+        "Open with the specific review problem: Are important speaker notes represented in this output?",
+        "Give an actionable sequence: Inventory slides with notes; Compare slide text and note text; Provide missing context explicitly",
+        "State the limit: Notes extraction is a test question, not an advertised verified feature."
+      ],
+      "visual": "Decision/checklist tied to Inventory slides with notes",
+      "source_refs": [
+        "SRC-LOCAL"
+      ],
+      "evidence_required": "Three-slide deck with notes on one slide and no notes on another.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/powerpoint-speaker-notes-markdown",
+      "utm_content": "m05-s1-p1",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M05-S1.md"
+    },
+    {
+      "id": "M05-S1-P2",
+      "support_id": "M05-S1",
+      "main_id": "M05",
+      "status": "PROPOSED",
+      "format": "Annotated example",
+      "channel": null,
+      "suggested_channels": [
+        "LinkedIn carousel",
+        "Instagram carousel"
+      ],
+      "hook": "Make a slide-text versus notes checklist",
+      "beats": [
+        "Introduce the original fixture: Three-slide deck with notes on one slide and no notes on another.",
+        "Show the relevant source and actual output side by side; label expected output separately until tested",
+        "Point out one discrepancy or confirmed match and the next review step"
+      ],
+      "visual": "Annotated source/output fixture comparison",
+      "source_refs": [
+        "SRC-LOCAL"
+      ],
+      "evidence_required": "Three-slide deck with notes on one slide and no notes on another.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/powerpoint-speaker-notes-markdown",
+      "utm_content": "m05-s1-p2",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M05-S1.md"
+    },
+    {
+      "id": "M05-S1-P3",
+      "support_id": "M05-S1",
+      "main_id": "M05",
+      "status": "PROPOSED",
+      "format": "Misconception and limitation",
+      "channel": null,
+      "suggested_channels": [
+        "X",
+        "Threads"
+      ],
+      "hook": "Do not assume notes survived conversion",
+      "beats": [
+        "Challenge the assumption named in the hook without presenting a hypothetical failure as an observed result",
+        "Explain the boundary: Notes extraction is a test question, not an advertised verified feature.",
+        "Offer a concrete check: Provide missing context explicitly"
+      ],
+      "visual": "Two-panel assumption versus verification boundary",
+      "source_refs": [
+        "SRC-LOCAL"
+      ],
+      "evidence_required": "Three-slide deck with notes on one slide and no notes on another.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/powerpoint-speaker-notes-markdown",
+      "utm_content": "m05-s1-p3",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M05-S1.md"
+    },
+    {
+      "id": "M05-S2-P1",
+      "support_id": "M05-S2",
+      "main_id": "M05",
+      "status": "PROPOSED",
+      "format": "Practical walkthrough",
+      "channel": null,
+      "suggested_channels": [
+        "LinkedIn"
+      ],
+      "hook": "A chart title is not its data",
+      "beats": [
+        "Open with the specific review problem: What chart information must accompany a text-only slide export?",
+        "Give an actionable sequence: Identify the question and chart evidence; Record axes units and legend; Keep the visual when needed",
+        "State the limit: Never infer values that were not readable or claim automatic chart understanding."
+      ],
+      "visual": "Decision/checklist tied to Identify the question and chart evidence",
+      "source_refs": [
+        "SRC-LOCAL"
+      ],
+      "evidence_required": "Original chart with labels, units and a visible trend; write a checked textual description.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/slide-chart-context-ai",
+      "utm_content": "m05-s2-p1",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M05-S2.md"
+    },
+    {
+      "id": "M05-S2-P2",
+      "support_id": "M05-S2",
+      "main_id": "M05",
+      "status": "PROPOSED",
+      "format": "Annotated example",
+      "channel": null,
+      "suggested_channels": [
+        "LinkedIn carousel",
+        "Instagram carousel"
+      ],
+      "hook": "Show the labels a text description needs",
+      "beats": [
+        "Introduce the original fixture: Original chart with labels, units and a visible trend; write a checked textual description.",
+        "Show the relevant source and actual output side by side; label expected output separately until tested",
+        "Point out one discrepancy or confirmed match and the next review step"
+      ],
+      "visual": "Annotated source/output fixture comparison",
+      "source_refs": [
+        "SRC-LOCAL"
+      ],
+      "evidence_required": "Original chart with labels, units and a visible trend; write a checked textual description.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/slide-chart-context-ai",
+      "utm_content": "m05-s2-p2",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M05-S2.md"
+    },
+    {
+      "id": "M05-S2-P3",
+      "support_id": "M05-S2",
+      "main_id": "M05",
+      "status": "PROPOSED",
+      "format": "Misconception and limitation",
+      "channel": null,
+      "suggested_channels": [
+        "X",
+        "Threads"
+      ],
+      "hook": "Keep the chart when shape is the evidence",
+      "beats": [
+        "Challenge the assumption named in the hook without presenting a hypothetical failure as an observed result",
+        "Explain the boundary: Never infer values that were not readable or claim automatic chart understanding.",
+        "Offer a concrete check: Keep the visual when needed"
+      ],
+      "visual": "Two-panel assumption versus verification boundary",
+      "source_refs": [
+        "SRC-LOCAL"
+      ],
+      "evidence_required": "Original chart with labels, units and a visible trend; write a checked textual description.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/slide-chart-context-ai",
+      "utm_content": "m05-s2-p3",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M05-S2.md"
+    },
+    {
+      "id": "M05-S3-P1",
+      "support_id": "M05-S3",
+      "main_id": "M05",
+      "status": "PROPOSED",
+      "format": "Practical walkthrough",
+      "channel": null,
+      "suggested_channels": [
+        "LinkedIn"
+      ],
+      "hook": "Repeated slide titles can hide a sequence change",
+      "beats": [
+        "Open with the specific review problem: How do I retain the sequence needed to interpret a deck?",
+        "Give an actionable sequence: Map slide sequence; Check title-to-body association; Verify rearranged or repeated titles",
+        "State the limit: No artificial page/slide numbers unless traced to the source."
+      ],
+      "visual": "Decision/checklist tied to Map slide sequence",
+      "source_refs": [
+        "SRC-LOCAL"
+      ],
+      "evidence_required": "Deck with repeated titles, a section slide and a sequence-dependent explanation.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/slide-order-markdown",
+      "utm_content": "m05-s3-p1",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M05-S3.md"
+    },
+    {
+      "id": "M05-S3-P2",
+      "support_id": "M05-S3",
+      "main_id": "M05",
+      "status": "PROPOSED",
+      "format": "Annotated example",
+      "channel": null,
+      "suggested_channels": [
+        "LinkedIn carousel",
+        "Instagram carousel"
+      ],
+      "hook": "Trace one narrative across three slides",
+      "beats": [
+        "Introduce the original fixture: Deck with repeated titles, a section slide and a sequence-dependent explanation.",
+        "Show the relevant source and actual output side by side; label expected output separately until tested",
+        "Point out one discrepancy or confirmed match and the next review step"
+      ],
+      "visual": "Annotated source/output fixture comparison",
+      "source_refs": [
+        "SRC-LOCAL"
+      ],
+      "evidence_required": "Deck with repeated titles, a section slide and a sequence-dependent explanation.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/slide-order-markdown",
+      "utm_content": "m05-s3-p2",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M05-S3.md"
+    },
+    {
+      "id": "M05-S3-P3",
+      "support_id": "M05-S3",
+      "main_id": "M05",
+      "status": "PROPOSED",
+      "format": "Misconception and limitation",
+      "channel": null,
+      "suggested_channels": [
+        "X",
+        "Threads"
+      ],
+      "hook": "Order is part of the context",
+      "beats": [
+        "Challenge the assumption named in the hook without presenting a hypothetical failure as an observed result",
+        "Explain the boundary: No artificial page/slide numbers unless traced to the source.",
+        "Offer a concrete check: Verify rearranged or repeated titles"
+      ],
+      "visual": "Two-panel assumption versus verification boundary",
+      "source_refs": [
+        "SRC-LOCAL"
+      ],
+      "evidence_required": "Deck with repeated titles, a section slide and a sequence-dependent explanation.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/slide-order-markdown",
+      "utm_content": "m05-s3-p3",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M05-S3.md"
+    },
+    {
+      "id": "M06-S1-P1",
+      "support_id": "M06-S1",
+      "main_id": "M06",
+      "status": "PROPOSED",
+      "format": "Practical walkthrough",
+      "channel": null,
+      "suggested_channels": [
+        "LinkedIn"
+      ],
+      "hook": "A comma inside a name is not a new column",
+      "beats": [
+        "Open with the specific review problem: How do I verify that quoted separators remain inside a cell?",
+        "Give an actionable sequence: Identify separator and quoting; Test embedded commas and newlines; Check resulting row widths",
+        "State the limit: Do not recommend global comma replacement or splitting on commas without a CSV parser."
+      ],
+      "visual": "Decision/checklist tied to Identify separator and quoting",
+      "source_refs": [
+        "SRC-CSV",
+        "SRC-LOCAL"
+      ],
+      "evidence_required": "Synthetic CSV with comma inside quotes, escaped quote and embedded newline.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/csv-quoted-cells-markdown",
+      "utm_content": "m06-s1-p1",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M06-S1.md"
+    },
+    {
+      "id": "M06-S1-P2",
+      "support_id": "M06-S1",
+      "main_id": "M06",
+      "status": "PROPOSED",
+      "format": "Annotated example",
+      "channel": null,
+      "suggested_channels": [
+        "LinkedIn carousel",
+        "Instagram carousel"
+      ],
+      "hook": "Show one quoted row and its expected cells",
+      "beats": [
+        "Introduce the original fixture: Synthetic CSV with comma inside quotes, escaped quote and embedded newline.",
+        "Show the relevant source and actual output side by side; label expected output separately until tested",
+        "Point out one discrepancy or confirmed match and the next review step"
+      ],
+      "visual": "Annotated source/output fixture comparison",
+      "source_refs": [
+        "SRC-CSV",
+        "SRC-LOCAL"
+      ],
+      "evidence_required": "Synthetic CSV with comma inside quotes, escaped quote and embedded newline.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/csv-quoted-cells-markdown",
+      "utm_content": "m06-s1-p2",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M06-S1.md"
+    },
+    {
+      "id": "M06-S1-P3",
+      "support_id": "M06-S1",
+      "main_id": "M06",
+      "status": "PROPOSED",
+      "format": "Misconception and limitation",
+      "channel": null,
+      "suggested_channels": [
+        "X",
+        "Threads"
+      ],
+      "hook": "Line breaks can belong inside one cell",
+      "beats": [
+        "Challenge the assumption named in the hook without presenting a hypothetical failure as an observed result",
+        "Explain the boundary: Do not recommend global comma replacement or splitting on commas without a CSV parser.",
+        "Offer a concrete check: Check resulting row widths"
+      ],
+      "visual": "Two-panel assumption versus verification boundary",
+      "source_refs": [
+        "SRC-CSV",
+        "SRC-LOCAL"
+      ],
+      "evidence_required": "Synthetic CSV with comma inside quotes, escaped quote and embedded newline.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/csv-quoted-cells-markdown",
+      "utm_content": "m06-s1-p3",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M06-S1.md"
+    },
+    {
+      "id": "M06-S2-P1",
+      "support_id": "M06-S2",
+      "main_id": "M06",
+      "status": "PROPOSED",
+      "format": "Practical walkthrough",
+      "channel": null,
+      "suggested_channels": [
+        "LinkedIn"
+      ],
+      "hook": "Broken accents are a data problem",
+      "beats": [
+        "Open with the specific review problem: How can I diagnose corrupted text before using converted output?",
+        "Give an actionable sequence: Identify the source encoding; Compare representative characters; Export a verified copy",
+        "State the limit: Do not claim encoding detection is infallible or imply interface languages change OCR."
+      ],
+      "visual": "Decision/checklist tied to Identify the source encoding",
+      "source_refs": [
+        "SRC-CSV",
+        "SRC-LOCAL"
+      ],
+      "evidence_required": "UTF-8 sample with accented names and a deliberately misdecoded demonstration; no personal data.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/csv-encoding-ai",
+      "utm_content": "m06-s2-p1",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M06-S2.md"
+    },
+    {
+      "id": "M06-S2-P2",
+      "support_id": "M06-S2",
+      "main_id": "M06",
+      "status": "PROPOSED",
+      "format": "Annotated example",
+      "channel": null,
+      "suggested_channels": [
+        "LinkedIn carousel",
+        "Instagram carousel"
+      ],
+      "hook": "Compare the same characters before and after decoding",
+      "beats": [
+        "Introduce the original fixture: UTF-8 sample with accented names and a deliberately misdecoded demonstration; no personal data.",
+        "Show the relevant source and actual output side by side; label expected output separately until tested",
+        "Point out one discrepancy or confirmed match and the next review step"
+      ],
+      "visual": "Annotated source/output fixture comparison",
+      "source_refs": [
+        "SRC-CSV",
+        "SRC-LOCAL"
+      ],
+      "evidence_required": "UTF-8 sample with accented names and a deliberately misdecoded demonstration; no personal data.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/csv-encoding-ai",
+      "utm_content": "m06-s2-p2",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M06-S2.md"
+    },
+    {
+      "id": "M06-S2-P3",
+      "support_id": "M06-S2",
+      "main_id": "M06",
+      "status": "PROPOSED",
+      "format": "Misconception and limitation",
+      "channel": null,
+      "suggested_channels": [
+        "X",
+        "Threads"
+      ],
+      "hook": "Changing the filename does not change encoding",
+      "beats": [
+        "Challenge the assumption named in the hook without presenting a hypothetical failure as an observed result",
+        "Explain the boundary: Do not claim encoding detection is infallible or imply interface languages change OCR.",
+        "Offer a concrete check: Export a verified copy"
+      ],
+      "visual": "Two-panel assumption versus verification boundary",
+      "source_refs": [
+        "SRC-CSV",
+        "SRC-LOCAL"
+      ],
+      "evidence_required": "UTF-8 sample with accented names and a deliberately misdecoded demonstration; no personal data.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/csv-encoding-ai",
+      "utm_content": "m06-s2-p3",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M06-S2.md"
+    },
+    {
+      "id": "M06-S3-P1",
+      "support_id": "M06-S3",
+      "main_id": "M06",
+      "status": "PROPOSED",
+      "format": "Practical walkthrough",
+      "channel": null,
+      "suggested_channels": [
+        "LinkedIn"
+      ],
+      "hook": "An empty cell is not a shifted column",
+      "beats": [
+        "Open with the specific review problem: How do missing delimiters differ from intentionally blank values?",
+        "Give an actionable sequence: Define expected columns; Compare blank and absent fields; Validate a reviewed sample",
+        "State the limit: Keep missing-value decisions explicit; do not fill invented values."
+      ],
+      "visual": "Decision/checklist tied to Define expected columns",
+      "source_refs": [
+        "SRC-CSV",
+        "SRC-LOCAL"
+      ],
+      "evidence_required": "Rows with a blank middle cell, missing last field and extra delimiter.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/csv-empty-missing-fields",
+      "utm_content": "m06-s3-p1",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M06-S3.md"
+    },
+    {
+      "id": "M06-S3-P2",
+      "support_id": "M06-S3",
+      "main_id": "M06",
+      "status": "PROPOSED",
+      "format": "Annotated example",
+      "channel": null,
+      "suggested_channels": [
+        "LinkedIn carousel",
+        "Instagram carousel"
+      ],
+      "hook": "Compare three rows with different shapes",
+      "beats": [
+        "Introduce the original fixture: Rows with a blank middle cell, missing last field and extra delimiter.",
+        "Show the relevant source and actual output side by side; label expected output separately until tested",
+        "Point out one discrepancy or confirmed match and the next review step"
+      ],
+      "visual": "Annotated source/output fixture comparison",
+      "source_refs": [
+        "SRC-CSV",
+        "SRC-LOCAL"
+      ],
+      "evidence_required": "Rows with a blank middle cell, missing last field and extra delimiter.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/csv-empty-missing-fields",
+      "utm_content": "m06-s3-p2",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M06-S3.md"
+    },
+    {
+      "id": "M06-S3-P3",
+      "support_id": "M06-S3",
+      "main_id": "M06",
+      "status": "PROPOSED",
+      "format": "Misconception and limitation",
+      "channel": null,
+      "suggested_channels": [
+        "X",
+        "Threads"
+      ],
+      "hook": "Do not guess what missing data should mean",
+      "beats": [
+        "Challenge the assumption named in the hook without presenting a hypothetical failure as an observed result",
+        "Explain the boundary: Keep missing-value decisions explicit; do not fill invented values.",
+        "Offer a concrete check: Validate a reviewed sample"
+      ],
+      "visual": "Two-panel assumption versus verification boundary",
+      "source_refs": [
+        "SRC-CSV",
+        "SRC-LOCAL"
+      ],
+      "evidence_required": "Rows with a blank middle cell, missing last field and extra delimiter.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/csv-empty-missing-fields",
+      "utm_content": "m06-s3-p3",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M06-S3.md"
+    },
+    {
+      "id": "M07-S1-P1",
+      "support_id": "M07-S1",
+      "main_id": "M07",
+      "status": "PROPOSED",
+      "format": "Practical walkthrough",
+      "channel": null,
+      "suggested_channels": [
+        "LinkedIn"
+      ],
+      "hook": "A batch can contain different review tasks",
+      "beats": [
+        "Open with the specific review problem: How do I organize a supported mixed-format batch?",
+        "Give an actionable sequence: Check each format against current UI; Group files by review needs; Track each output separately",
+        "State the limit: Not a worker architecture article; no unsupported formats or uniform-speed promise."
+      ],
+      "visual": "Decision/checklist tied to Check each format against current UI",
+      "source_refs": [
+        "SRC-LOCAL"
+      ],
+      "evidence_required": "Small PDF, DOCX and image fixture set with identifiable content in each.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/mixed-file-batch-llmiser",
+      "utm_content": "m07-s1-p1",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M07-S1.md"
+    },
+    {
+      "id": "M07-S1-P2",
+      "support_id": "M07-S1",
+      "main_id": "M07",
+      "status": "PROPOSED",
+      "format": "Annotated example",
+      "channel": null,
+      "suggested_channels": [
+        "LinkedIn carousel",
+        "Instagram carousel"
+      ],
+      "hook": "Build a file-to-output checklist",
+      "beats": [
+        "Introduce the original fixture: Small PDF, DOCX and image fixture set with identifiable content in each.",
+        "Show the relevant source and actual output side by side; label expected output separately until tested",
+        "Point out one discrepancy or confirmed match and the next review step"
+      ],
+      "visual": "Annotated source/output fixture comparison",
+      "source_refs": [
+        "SRC-LOCAL"
+      ],
+      "evidence_required": "Small PDF, DOCX and image fixture set with identifiable content in each.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/mixed-file-batch-llmiser",
+      "utm_content": "m07-s1-p2",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M07-S1.md"
+    },
+    {
+      "id": "M07-S1-P3",
+      "support_id": "M07-S1",
+      "main_id": "M07",
+      "status": "PROPOSED",
+      "format": "Misconception and limitation",
+      "channel": null,
+      "suggested_channels": [
+        "X",
+        "Threads"
+      ],
+      "hook": "One successful file does not prove the whole batch",
+      "beats": [
+        "Challenge the assumption named in the hook without presenting a hypothetical failure as an observed result",
+        "Explain the boundary: Not a worker architecture article; no unsupported formats or uniform-speed promise.",
+        "Offer a concrete check: Track each output separately"
+      ],
+      "visual": "Two-panel assumption versus verification boundary",
+      "source_refs": [
+        "SRC-LOCAL"
+      ],
+      "evidence_required": "Small PDF, DOCX and image fixture set with identifiable content in each.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/mixed-file-batch-llmiser",
+      "utm_content": "m07-s1-p3",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M07-S1.md"
+    },
+    {
+      "id": "M07-S2-P1",
+      "support_id": "M07-S2",
+      "main_id": "M07",
+      "status": "PROPOSED",
+      "format": "Practical walkthrough",
+      "channel": null,
+      "suggested_channels": [
+        "LinkedIn"
+      ],
+      "hook": "Keep the results that already finished",
+      "beats": [
+        "Open with the specific review problem: How do I recover when some files finish and others fail?",
+        "Give an actionable sequence: Identify completed and failed items; Save successful results; Retry only where current UI supports it",
+        "State the limit: Do not create production load; verify retry controls and avoid automatic full-batch reuploads."
+      ],
+      "visual": "Decision/checklist tied to Identify completed and failed items",
+      "source_refs": [
+        "SRC-LOCAL"
+      ],
+      "evidence_required": "One valid document plus an intentionally invalid supported-format fixture in a controlled local/test environment.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/partial-batch-conversion",
+      "utm_content": "m07-s2-p1",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M07-S2.md"
+    },
+    {
+      "id": "M07-S2-P2",
+      "support_id": "M07-S2",
+      "main_id": "M07",
+      "status": "PROPOSED",
+      "format": "Annotated example",
+      "channel": null,
+      "suggested_channels": [
+        "LinkedIn carousel",
+        "Instagram carousel"
+      ],
+      "hook": "Walk through a mixed success-and-failure queue",
+      "beats": [
+        "Introduce the original fixture: One valid document plus an intentionally invalid supported-format fixture in a controlled local/test environment.",
+        "Show the relevant source and actual output side by side; label expected output separately until tested",
+        "Point out one discrepancy or confirmed match and the next review step"
+      ],
+      "visual": "Annotated source/output fixture comparison",
+      "source_refs": [
+        "SRC-LOCAL"
+      ],
+      "evidence_required": "One valid document plus an intentionally invalid supported-format fixture in a controlled local/test environment.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/partial-batch-conversion",
+      "utm_content": "m07-s2-p2",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M07-S2.md"
+    },
+    {
+      "id": "M07-S2-P3",
+      "support_id": "M07-S2",
+      "main_id": "M07",
+      "status": "PROPOSED",
+      "format": "Misconception and limitation",
+      "channel": null,
+      "suggested_channels": [
+        "X",
+        "Threads"
+      ],
+      "hook": "Retry is not the same as starting everything over",
+      "beats": [
+        "Challenge the assumption named in the hook without presenting a hypothetical failure as an observed result",
+        "Explain the boundary: Do not create production load; verify retry controls and avoid automatic full-batch reuploads.",
+        "Offer a concrete check: Retry only where current UI supports it"
+      ],
+      "visual": "Two-panel assumption versus verification boundary",
+      "source_refs": [
+        "SRC-LOCAL"
+      ],
+      "evidence_required": "One valid document plus an intentionally invalid supported-format fixture in a controlled local/test environment.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/partial-batch-conversion",
+      "utm_content": "m07-s2-p3",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M07-S2.md"
+    },
+    {
+      "id": "M07-S3-P1",
+      "support_id": "M07-S3",
+      "main_id": "M07",
+      "status": "PROPOSED",
+      "format": "Practical walkthrough",
+      "channel": null,
+      "suggested_channels": [
+        "LinkedIn"
+      ],
+      "hook": "Batch count and file size are different limits",
+      "beats": [
+        "Open with the specific review problem: How do I plan a batch that meets documented per-file and queue limits?",
+        "Give an actionable sequence: Read current limits; Separate queue count from file size; Choose a smaller source or batch",
+        "State the limit: Do not promise splitting the queue fixes an oversized individual file."
+      ],
+      "visual": "Decision/checklist tied to Read current limits",
+      "source_refs": [
+        "SRC-LOCAL"
+      ],
+      "evidence_required": "Local file-size/count inventory and UI validation checks; no oversized production upload necessary.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/split-batch-upload-limits",
+      "utm_content": "m07-s3-p1",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M07-S3.md"
+    },
+    {
+      "id": "M07-S3-P2",
+      "support_id": "M07-S3",
+      "main_id": "M07",
+      "status": "PROPOSED",
+      "format": "Annotated example",
+      "channel": null,
+      "suggested_channels": [
+        "LinkedIn carousel",
+        "Instagram carousel"
+      ],
+      "hook": "Sort a sample inventory into valid batches",
+      "beats": [
+        "Introduce the original fixture: Local file-size/count inventory and UI validation checks; no oversized production upload necessary.",
+        "Show the relevant source and actual output side by side; label expected output separately until tested",
+        "Point out one discrepancy or confirmed match and the next review step"
+      ],
+      "visual": "Annotated source/output fixture comparison",
+      "source_refs": [
+        "SRC-LOCAL"
+      ],
+      "evidence_required": "Local file-size/count inventory and UI validation checks; no oversized production upload necessary.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/split-batch-upload-limits",
+      "utm_content": "m07-s3-p2",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M07-S3.md"
+    },
+    {
+      "id": "M07-S3-P3",
+      "support_id": "M07-S3",
+      "main_id": "M07",
+      "status": "PROPOSED",
+      "format": "Misconception and limitation",
+      "channel": null,
+      "suggested_channels": [
+        "X",
+        "Threads"
+      ],
+      "hook": "An oversized file stays oversized in a smaller batch",
+      "beats": [
+        "Challenge the assumption named in the hook without presenting a hypothetical failure as an observed result",
+        "Explain the boundary: Do not promise splitting the queue fixes an oversized individual file.",
+        "Offer a concrete check: Choose a smaller source or batch"
+      ],
+      "visual": "Two-panel assumption versus verification boundary",
+      "source_refs": [
+        "SRC-LOCAL"
+      ],
+      "evidence_required": "Local file-size/count inventory and UI validation checks; no oversized production upload necessary.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/split-batch-upload-limits",
+      "utm_content": "m07-s3-p3",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M07-S3.md"
+    },
+    {
+      "id": "M08-S1-P1",
+      "support_id": "M08-S1",
+      "main_id": "M08",
+      "status": "PROPOSED",
+      "format": "Practical walkthrough",
+      "channel": null,
+      "suggested_channels": [
+        "LinkedIn"
+      ],
+      "hook": "What did Clean actually change?",
+      "beats": [
+        "Open with the specific review problem: What changes between Standard and Clean for the same input?",
+        "Give an actionable sequence: Use one fixture; Compare source line and whitespace; Check content retained",
+        "State the limit: Do not claim semantic cleanup, deduplication or privacy sanitization."
+      ],
+      "visual": "Decision/checklist tied to Use one fixture",
+      "source_refs": [
+        "SRC-LOCAL",
+        "SRC-MARKDOWN"
+      ],
+      "evidence_required": "Same short Markdown/document input under both profiles, saved as an actual diff.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/llmiser-standard-vs-clean",
+      "utm_content": "m08-s1-p1",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M08-S1.md"
+    },
+    {
+      "id": "M08-S1-P2",
+      "support_id": "M08-S1",
+      "main_id": "M08",
+      "status": "PROPOSED",
+      "format": "Annotated example",
+      "channel": null,
+      "suggested_channels": [
+        "LinkedIn carousel",
+        "Instagram carousel"
+      ],
+      "hook": "Use a two-column output diff",
+      "beats": [
+        "Introduce the original fixture: Same short Markdown/document input under both profiles, saved as an actual diff.",
+        "Show the relevant source and actual output side by side; label expected output separately until tested",
+        "Point out one discrepancy or confirmed match and the next review step"
+      ],
+      "visual": "Annotated source/output fixture comparison",
+      "source_refs": [
+        "SRC-LOCAL",
+        "SRC-MARKDOWN"
+      ],
+      "evidence_required": "Same short Markdown/document input under both profiles, saved as an actual diff.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/llmiser-standard-vs-clean",
+      "utm_content": "m08-s1-p2",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M08-S1.md"
+    },
+    {
+      "id": "M08-S1-P3",
+      "support_id": "M08-S1",
+      "main_id": "M08",
+      "status": "PROPOSED",
+      "format": "Misconception and limitation",
+      "channel": null,
+      "suggested_channels": [
+        "X",
+        "Threads"
+      ],
+      "hook": "Cleaner formatting is not a content audit",
+      "beats": [
+        "Challenge the assumption named in the hook without presenting a hypothetical failure as an observed result",
+        "Explain the boundary: Do not claim semantic cleanup, deduplication or privacy sanitization.",
+        "Offer a concrete check: Check content retained"
+      ],
+      "visual": "Two-panel assumption versus verification boundary",
+      "source_refs": [
+        "SRC-LOCAL",
+        "SRC-MARKDOWN"
+      ],
+      "evidence_required": "Same short Markdown/document input under both profiles, saved as an actual diff.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/llmiser-standard-vs-clean",
+      "utm_content": "m08-s1-p3",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M08-S1.md"
+    },
+    {
+      "id": "M08-S2-P1",
+      "support_id": "M08-S2",
+      "main_id": "M08",
+      "status": "PROPOSED",
+      "format": "Practical walkthrough",
+      "channel": null,
+      "suggested_channels": [
+        "LinkedIn"
+      ],
+      "hook": "Less whitespace can change how Markdown reads",
+      "beats": [
+        "Open with the specific review problem: What needs checking when compact formatting removes separators or spacing?",
+        "Give an actionable sequence: Inspect the actual transformations; Check structure-sensitive content; Choose readability versus compactness",
+        "State the limit: No assumed token savings or universally valid table preservation; record unexpected changes."
+      ],
+      "visual": "Decision/checklist tied to Inspect the actual transformations",
+      "source_refs": [
+        "SRC-LOCAL",
+        "SRC-MARKDOWN"
+      ],
+      "evidence_required": "Fixture with blank lines, horizontal rules, table syntax and hyphen sequences; compare all bytes.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/llmiser-compact-markdown-check",
+      "utm_content": "m08-s2-p1",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M08-S2.md"
+    },
+    {
+      "id": "M08-S2-P2",
+      "support_id": "M08-S2",
+      "main_id": "M08",
+      "status": "PROPOSED",
+      "format": "Annotated example",
+      "channel": null,
+      "suggested_channels": [
+        "LinkedIn carousel",
+        "Instagram carousel"
+      ],
+      "hook": "Compare a structure-sensitive fragment",
+      "beats": [
+        "Introduce the original fixture: Fixture with blank lines, horizontal rules, table syntax and hyphen sequences; compare all bytes.",
+        "Show the relevant source and actual output side by side; label expected output separately until tested",
+        "Point out one discrepancy or confirmed match and the next review step"
+      ],
+      "visual": "Annotated source/output fixture comparison",
+      "source_refs": [
+        "SRC-LOCAL",
+        "SRC-MARKDOWN"
+      ],
+      "evidence_required": "Fixture with blank lines, horizontal rules, table syntax and hyphen sequences; compare all bytes.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/llmiser-compact-markdown-check",
+      "utm_content": "m08-s2-p2",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M08-S2.md"
+    },
+    {
+      "id": "M08-S2-P3",
+      "support_id": "M08-S2",
+      "main_id": "M08",
+      "status": "PROPOSED",
+      "format": "Misconception and limitation",
+      "channel": null,
+      "suggested_channels": [
+        "X",
+        "Threads"
+      ],
+      "hook": "The shortest output is not always the best input",
+      "beats": [
+        "Challenge the assumption named in the hook without presenting a hypothetical failure as an observed result",
+        "Explain the boundary: No assumed token savings or universally valid table preservation; record unexpected changes.",
+        "Offer a concrete check: Choose readability versus compactness"
+      ],
+      "visual": "Two-panel assumption versus verification boundary",
+      "source_refs": [
+        "SRC-LOCAL",
+        "SRC-MARKDOWN"
+      ],
+      "evidence_required": "Fixture with blank lines, horizontal rules, table syntax and hyphen sequences; compare all bytes.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/llmiser-compact-markdown-check",
+      "utm_content": "m08-s2-p3",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M08-S2.md"
+    },
+    {
+      "id": "M08-S3-P1",
+      "support_id": "M08-S3",
+      "main_id": "M08",
+      "status": "PROPOSED",
+      "format": "Practical walkthrough",
+      "channel": null,
+      "suggested_channels": [
+        "LinkedIn"
+      ],
+      "hook": "A chunk marker is a hint, not a retrieval system",
+      "beats": [
+        "Open with the specific review problem: What does a chunk-boundary marker communicate and what does it not do?",
+        "Give an actionable sequence: Locate markers in real output; Explain heading alignment; Separate markers from downstream splitting",
+        "State the limit: No embedding/retrieval service or semantic chunking guarantee; heed existing E08 code audit."
+      ],
+      "visual": "Decision/checklist tied to Locate markers in real output",
+      "source_refs": [
+        "SRC-LOCAL",
+        "SRC-MARKDOWN"
+      ],
+      "evidence_required": "Fixture with H1/H2/H3 and fenced text; inspect marker placement without publishing a fragile splitter.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/llmiser-rag-ready-markers",
+      "utm_content": "m08-s3-p1",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M08-S3.md"
+    },
+    {
+      "id": "M08-S3-P2",
+      "support_id": "M08-S3",
+      "main_id": "M08",
+      "status": "PROPOSED",
+      "format": "Annotated example",
+      "channel": null,
+      "suggested_channels": [
+        "LinkedIn carousel",
+        "Instagram carousel"
+      ],
+      "hook": "Annotate one heading and its marker",
+      "beats": [
+        "Introduce the original fixture: Fixture with H1/H2/H3 and fenced text; inspect marker placement without publishing a fragile splitter.",
+        "Show the relevant source and actual output side by side; label expected output separately until tested",
+        "Point out one discrepancy or confirmed match and the next review step"
+      ],
+      "visual": "Annotated source/output fixture comparison",
+      "source_refs": [
+        "SRC-LOCAL",
+        "SRC-MARKDOWN"
+      ],
+      "evidence_required": "Fixture with H1/H2/H3 and fenced text; inspect marker placement without publishing a fragile splitter.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/llmiser-rag-ready-markers",
+      "utm_content": "m08-s3-p2",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M08-S3.md"
+    },
+    {
+      "id": "M08-S3-P3",
+      "support_id": "M08-S3",
+      "main_id": "M08",
+      "status": "PROPOSED",
+      "format": "Misconception and limitation",
+      "channel": null,
+      "suggested_channels": [
+        "X",
+        "Threads"
+      ],
+      "hook": "Your downstream splitter still needs testing",
+      "beats": [
+        "Challenge the assumption named in the hook without presenting a hypothetical failure as an observed result",
+        "Explain the boundary: No embedding/retrieval service or semantic chunking guarantee; heed existing E08 code audit.",
+        "Offer a concrete check: Separate markers from downstream splitting"
+      ],
+      "visual": "Two-panel assumption versus verification boundary",
+      "source_refs": [
+        "SRC-LOCAL",
+        "SRC-MARKDOWN"
+      ],
+      "evidence_required": "Fixture with H1/H2/H3 and fenced text; inspect marker placement without publishing a fragile splitter.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/llmiser-rag-ready-markers",
+      "utm_content": "m08-s3-p3",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M08-S3.md"
+    },
+    {
+      "id": "M09-S1-P1",
+      "support_id": "M09-S1",
+      "main_id": "M09",
+      "status": "PROPOSED",
+      "format": "Practical walkthrough",
+      "channel": null,
+      "suggested_channels": [
+        "LinkedIn"
+      ],
+      "hook": "Which version reached your download?",
+      "beats": [
+        "Open with the specific review problem: How can I tell whether an export includes my edits?",
+        "Give an actionable sequence: Identify source result and editor state; Make a harmless visible edit; Compare saved outputs",
+        "State the limit: Verify each action in current UI; do not assume edits persist across refresh or recovery."
+      ],
+      "visual": "Decision/checklist tied to Identify source result and editor state",
+      "source_refs": [
+        "SRC-LOCAL",
+        "SRC-MARKDOWN"
+      ],
+      "evidence_required": "Tiny fixture with a unique marker inserted in editor; compare copy/download/recovery behavior.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/original-edited-markdown",
+      "utm_content": "m09-s1-p1",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M09-S1.md"
+    },
+    {
+      "id": "M09-S1-P2",
+      "support_id": "M09-S1",
+      "main_id": "M09",
+      "status": "PROPOSED",
+      "format": "Annotated example",
+      "channel": null,
+      "suggested_channels": [
+        "LinkedIn carousel",
+        "Instagram carousel"
+      ],
+      "hook": "Trace one visible edit through export",
+      "beats": [
+        "Introduce the original fixture: Tiny fixture with a unique marker inserted in editor; compare copy/download/recovery behavior.",
+        "Show the relevant source and actual output side by side; label expected output separately until tested",
+        "Point out one discrepancy or confirmed match and the next review step"
+      ],
+      "visual": "Annotated source/output fixture comparison",
+      "source_refs": [
+        "SRC-LOCAL",
+        "SRC-MARKDOWN"
+      ],
+      "evidence_required": "Tiny fixture with a unique marker inserted in editor; compare copy/download/recovery behavior.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/original-edited-markdown",
+      "utm_content": "m09-s1-p2",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M09-S1.md"
+    },
+    {
+      "id": "M09-S1-P3",
+      "support_id": "M09-S1",
+      "main_id": "M09",
+      "status": "PROPOSED",
+      "format": "Misconception and limitation",
+      "channel": null,
+      "suggested_channels": [
+        "X",
+        "Threads"
+      ],
+      "hook": "Recovered output may not be your edited draft",
+      "beats": [
+        "Challenge the assumption named in the hook without presenting a hypothetical failure as an observed result",
+        "Explain the boundary: Verify each action in current UI; do not assume edits persist across refresh or recovery.",
+        "Offer a concrete check: Compare saved outputs"
+      ],
+      "visual": "Two-panel assumption versus verification boundary",
+      "source_refs": [
+        "SRC-LOCAL",
+        "SRC-MARKDOWN"
+      ],
+      "evidence_required": "Tiny fixture with a unique marker inserted in editor; compare copy/download/recovery behavior.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/original-edited-markdown",
+      "utm_content": "m09-s1-p3",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M09-S1.md"
+    },
+    {
+      "id": "M09-S2-P1",
+      "support_id": "M09-S2",
+      "main_id": "M09",
+      "status": "PROPOSED",
+      "format": "Practical walkthrough",
+      "channel": null,
+      "suggested_channels": [
+        "LinkedIn"
+      ],
+      "hook": "A preview is not the whole verification",
+      "beats": [
+        "Open with the specific review problem: How do I distinguish a limited rendering view from incomplete output?",
+        "Give an actionable sequence: Identify the preview mode; Locate start middle and end; Compare raw export coverage",
+        "State the limit: No current size threshold claim without code/UI verification; missing content must be reported."
+      ],
+      "visual": "Decision/checklist tied to Identify the preview mode",
+      "source_refs": [
+        "SRC-LOCAL",
+        "SRC-MARKDOWN"
+      ],
+      "evidence_required": "Synthetic long text with markers at start, middle and end; inspect current preview/export behavior.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/long-markdown-preview",
+      "utm_content": "m09-s2-p1",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M09-S2.md"
+    },
+    {
+      "id": "M09-S2-P2",
+      "support_id": "M09-S2",
+      "main_id": "M09",
+      "status": "PROPOSED",
+      "format": "Annotated example",
+      "channel": null,
+      "suggested_channels": [
+        "LinkedIn carousel",
+        "Instagram carousel"
+      ],
+      "hook": "Check three landmarks in a long export",
+      "beats": [
+        "Introduce the original fixture: Synthetic long text with markers at start, middle and end; inspect current preview/export behavior.",
+        "Show the relevant source and actual output side by side; label expected output separately until tested",
+        "Point out one discrepancy or confirmed match and the next review step"
+      ],
+      "visual": "Annotated source/output fixture comparison",
+      "source_refs": [
+        "SRC-LOCAL",
+        "SRC-MARKDOWN"
+      ],
+      "evidence_required": "Synthetic long text with markers at start, middle and end; inspect current preview/export behavior.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/long-markdown-preview",
+      "utm_content": "m09-s2-p2",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M09-S2.md"
+    },
+    {
+      "id": "M09-S2-P3",
+      "support_id": "M09-S2",
+      "main_id": "M09",
+      "status": "PROPOSED",
+      "format": "Misconception and limitation",
+      "channel": null,
+      "suggested_channels": [
+        "X",
+        "Threads"
+      ],
+      "hook": "Rendering limits and data loss are different problems",
+      "beats": [
+        "Challenge the assumption named in the hook without presenting a hypothetical failure as an observed result",
+        "Explain the boundary: No current size threshold claim without code/UI verification; missing content must be reported.",
+        "Offer a concrete check: Compare raw export coverage"
+      ],
+      "visual": "Two-panel assumption versus verification boundary",
+      "source_refs": [
+        "SRC-LOCAL",
+        "SRC-MARKDOWN"
+      ],
+      "evidence_required": "Synthetic long text with markers at start, middle and end; inspect current preview/export behavior.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/long-markdown-preview",
+      "utm_content": "m09-s2-p3",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M09-S2.md"
+    },
+    {
+      "id": "M09-S3-P1",
+      "support_id": "M09-S3",
+      "main_id": "M09",
+      "status": "PROPOSED",
+      "format": "Practical walkthrough",
+      "channel": null,
+      "suggested_channels": [
+        "LinkedIn"
+      ],
+      "hook": "Check the destination, not just the copy button",
+      "beats": [
+        "Open with the specific review problem: What should I check after moving Markdown to another app?",
+        "Give an actionable sequence: Choose clipboard or file transfer; Check characters and code fences; Compare the destination with saved text",
+        "State the limit: Destination apps may reformat; no promise of every platform preserving Markdown."
+      ],
+      "visual": "Decision/checklist tied to Choose clipboard or file transfer",
+      "source_refs": [
+        "SRC-LOCAL",
+        "SRC-MARKDOWN"
+      ],
+      "evidence_required": "Small Unicode, pipe-table and fenced-code fixture copied to a plain text editor and downloaded.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/copy-download-markdown",
+      "utm_content": "m09-s3-p1",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M09-S3.md"
+    },
+    {
+      "id": "M09-S3-P2",
+      "support_id": "M09-S3",
+      "main_id": "M09",
+      "status": "PROPOSED",
+      "format": "Annotated example",
+      "channel": null,
+      "suggested_channels": [
+        "LinkedIn carousel",
+        "Instagram carousel"
+      ],
+      "hook": "Compare clipboard text with a downloaded file",
+      "beats": [
+        "Introduce the original fixture: Small Unicode, pipe-table and fenced-code fixture copied to a plain text editor and downloaded.",
+        "Show the relevant source and actual output side by side; label expected output separately until tested",
+        "Point out one discrepancy or confirmed match and the next review step"
+      ],
+      "visual": "Annotated source/output fixture comparison",
+      "source_refs": [
+        "SRC-LOCAL",
+        "SRC-MARKDOWN"
+      ],
+      "evidence_required": "Small Unicode, pipe-table and fenced-code fixture copied to a plain text editor and downloaded.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/copy-download-markdown",
+      "utm_content": "m09-s3-p2",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M09-S3.md"
+    },
+    {
+      "id": "M09-S3-P3",
+      "support_id": "M09-S3",
+      "main_id": "M09",
+      "status": "PROPOSED",
+      "format": "Misconception and limitation",
+      "channel": null,
+      "suggested_channels": [
+        "X",
+        "Threads"
+      ],
+      "hook": "Formatting changes can happen after export",
+      "beats": [
+        "Challenge the assumption named in the hook without presenting a hypothetical failure as an observed result",
+        "Explain the boundary: Destination apps may reformat; no promise of every platform preserving Markdown.",
+        "Offer a concrete check: Compare the destination with saved text"
+      ],
+      "visual": "Two-panel assumption versus verification boundary",
+      "source_refs": [
+        "SRC-LOCAL",
+        "SRC-MARKDOWN"
+      ],
+      "evidence_required": "Small Unicode, pipe-table and fenced-code fixture copied to a plain text editor and downloaded.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/copy-download-markdown",
+      "utm_content": "m09-s3-p3",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M09-S3.md"
+    },
+    {
+      "id": "M10-S1-P1",
+      "support_id": "M10-S1",
+      "main_id": "M10",
+      "status": "PROPOSED",
+      "format": "Practical walkthrough",
+      "channel": null,
+      "suggested_channels": [
+        "LinkedIn"
+      ],
+      "hook": "Two config files can have different jobs",
+      "beats": [
+        "Open with the specific review problem: How do source paths help locate the right converted file?",
+        "Give an actionable sequence: Read the actual index layout; Distinguish repeated basenames; Find the corresponding content",
+        "State the limit: Use actual current index format; no invented links or schema fields."
+      ],
+      "visual": "Decision/checklist tied to Read the actual index layout",
+      "source_refs": [
+        "SRC-LOCAL"
+      ],
+      "evidence_required": "ZIP with src/config.txt and docs/config.txt containing different text; inspect index and combined output.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/read-project-index-paths",
+      "utm_content": "m10-s1-p1",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M10-S1.md"
+    },
+    {
+      "id": "M10-S1-P2",
+      "support_id": "M10-S1",
+      "main_id": "M10",
+      "status": "PROPOSED",
+      "format": "Annotated example",
+      "channel": null,
+      "suggested_channels": [
+        "LinkedIn carousel",
+        "Instagram carousel"
+      ],
+      "hook": "Follow a full path from index to content",
+      "beats": [
+        "Introduce the original fixture: ZIP with src/config.txt and docs/config.txt containing different text; inspect index and combined output.",
+        "Show the relevant source and actual output side by side; label expected output separately until tested",
+        "Point out one discrepancy or confirmed match and the next review step"
+      ],
+      "visual": "Annotated source/output fixture comparison",
+      "source_refs": [
+        "SRC-LOCAL"
+      ],
+      "evidence_required": "ZIP with src/config.txt and docs/config.txt containing different text; inspect index and combined output.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/read-project-index-paths",
+      "utm_content": "m10-s1-p2",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M10-S1.md"
+    },
+    {
+      "id": "M10-S1-P3",
+      "support_id": "M10-S1",
+      "main_id": "M10",
+      "status": "PROPOSED",
+      "format": "Misconception and limitation",
+      "channel": null,
+      "suggested_channels": [
+        "X",
+        "Threads"
+      ],
+      "hook": "A basename alone may be ambiguous",
+      "beats": [
+        "Challenge the assumption named in the hook without presenting a hypothetical failure as an observed result",
+        "Explain the boundary: Use actual current index format; no invented links or schema fields.",
+        "Offer a concrete check: Find the corresponding content"
+      ],
+      "visual": "Two-panel assumption versus verification boundary",
+      "source_refs": [
+        "SRC-LOCAL"
+      ],
+      "evidence_required": "ZIP with src/config.txt and docs/config.txt containing different text; inspect index and combined output.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/read-project-index-paths",
+      "utm_content": "m10-s1-p3",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M10-S1.md"
+    },
+    {
+      "id": "M10-S2-P1",
+      "support_id": "M10-S2",
+      "main_id": "M10",
+      "status": "PROPOSED",
+      "format": "Practical walkthrough",
+      "channel": null,
+      "suggested_channels": [
+        "LinkedIn"
+      ],
+      "hook": "Success does not mean every file was included",
+      "beats": [
+        "Open with the specific review problem: How do I account for every intended source item after conversion?",
+        "Give an actionable sequence: Create an expected inventory; Read actual outcome fields; Reconcile counts and unresolved items",
+        "State the limit: Never infer that every source was converted from a successful overall status."
+      ],
+      "visual": "Decision/checklist tied to Create an expected inventory",
+      "source_refs": [
+        "SRC-LOCAL"
+      ],
+      "evidence_required": "Tiny ZIP inventory with valid supported entries and a deliberately unsupported harmless item; save actual manifest.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/reconcile-zip-manifest",
+      "utm_content": "m10-s2-p1",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M10-S2.md"
+    },
+    {
+      "id": "M10-S2-P2",
+      "support_id": "M10-S2",
+      "main_id": "M10",
+      "status": "PROPOSED",
+      "format": "Annotated example",
+      "channel": null,
+      "suggested_channels": [
+        "LinkedIn carousel",
+        "Instagram carousel"
+      ],
+      "hook": "Compare expected entries with reported outcomes",
+      "beats": [
+        "Introduce the original fixture: Tiny ZIP inventory with valid supported entries and a deliberately unsupported harmless item; save actual manifest.",
+        "Show the relevant source and actual output side by side; label expected output separately until tested",
+        "Point out one discrepancy or confirmed match and the next review step"
+      ],
+      "visual": "Annotated source/output fixture comparison",
+      "source_refs": [
+        "SRC-LOCAL"
+      ],
+      "evidence_required": "Tiny ZIP inventory with valid supported entries and a deliberately unsupported harmless item; save actual manifest.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/reconcile-zip-manifest",
+      "utm_content": "m10-s2-p2",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M10-S2.md"
+    },
+    {
+      "id": "M10-S2-P3",
+      "support_id": "M10-S2",
+      "main_id": "M10",
+      "status": "PROPOSED",
+      "format": "Misconception and limitation",
+      "channel": null,
+      "suggested_channels": [
+        "X",
+        "Threads"
+      ],
+      "hook": "Count converted, skipped and unresolved separately",
+      "beats": [
+        "Challenge the assumption named in the hook without presenting a hypothetical failure as an observed result",
+        "Explain the boundary: Never infer that every source was converted from a successful overall status.",
+        "Offer a concrete check: Reconcile counts and unresolved items"
+      ],
+      "visual": "Two-panel assumption versus verification boundary",
+      "source_refs": [
+        "SRC-LOCAL"
+      ],
+      "evidence_required": "Tiny ZIP inventory with valid supported entries and a deliberately unsupported harmless item; save actual manifest.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/reconcile-zip-manifest",
+      "utm_content": "m10-s2-p3",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M10-S2.md"
+    },
+    {
+      "id": "M10-S3-P1",
+      "support_id": "M10-S3",
+      "main_id": "M10",
+      "status": "PROPOSED",
+      "format": "Practical walkthrough",
+      "channel": null,
+      "suggested_channels": [
+        "LinkedIn"
+      ],
+      "hook": "Where did that archive entry go?",
+      "beats": [
+        "Open with the specific review problem: How do I distinguish an intentional exclusion from a conversion omission?",
+        "Give an actionable sequence: Locate the expected entry; Inspect reported restrictions or outcomes; Retry a permitted small source separately",
+        "State the limit: Do not claim all nested ZIPs are expanded or recommend bypassing limits; separate from pre-upload exclusions in M01."
+      ],
+      "visual": "Decision/checklist tied to Locate the expected entry",
+      "source_refs": [
+        "SRC-LOCAL"
+      ],
+      "evidence_required": "Controlled nested-archive or unsupported-entry fixture with documented limits; inspect actual result.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/missing-zip-conversion-content",
+      "utm_content": "m10-s3-p1",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M10-S3.md"
+    },
+    {
+      "id": "M10-S3-P2",
+      "support_id": "M10-S3",
+      "main_id": "M10",
+      "status": "PROPOSED",
+      "format": "Annotated example",
+      "channel": null,
+      "suggested_channels": [
+        "LinkedIn carousel",
+        "Instagram carousel"
+      ],
+      "hook": "Trace a missing item through the result artifacts",
+      "beats": [
+        "Introduce the original fixture: Controlled nested-archive or unsupported-entry fixture with documented limits; inspect actual result.",
+        "Show the relevant source and actual output side by side; label expected output separately until tested",
+        "Point out one discrepancy or confirmed match and the next review step"
+      ],
+      "visual": "Annotated source/output fixture comparison",
+      "source_refs": [
+        "SRC-LOCAL"
+      ],
+      "evidence_required": "Controlled nested-archive or unsupported-entry fixture with documented limits; inspect actual result.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/missing-zip-conversion-content",
+      "utm_content": "m10-s3-p2",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M10-S3.md"
+    },
+    {
+      "id": "M10-S3-P3",
+      "support_id": "M10-S3",
+      "main_id": "M10",
+      "status": "PROPOSED",
+      "format": "Misconception and limitation",
+      "channel": null,
+      "suggested_channels": [
+        "X",
+        "Threads"
+      ],
+      "hook": "Omitted content needs an explanation",
+      "beats": [
+        "Challenge the assumption named in the hook without presenting a hypothetical failure as an observed result",
+        "Explain the boundary: Do not claim all nested ZIPs are expanded or recommend bypassing limits; separate from pre-upload exclusions in M01.",
+        "Offer a concrete check: Retry a permitted small source separately"
+      ],
+      "visual": "Two-panel assumption versus verification boundary",
+      "source_refs": [
+        "SRC-LOCAL"
+      ],
+      "evidence_required": "Controlled nested-archive or unsupported-entry fixture with documented limits; inspect actual result.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/missing-zip-conversion-content",
+      "utm_content": "m10-s3-p3",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M10-S3.md"
+    },
+    {
+      "id": "M11-S1-P1",
+      "support_id": "M11-S1",
+      "main_id": "M11",
+      "status": "PROPOSED",
+      "format": "Practical walkthrough",
+      "channel": null,
+      "suggested_channels": [
+        "LinkedIn"
+      ],
+      "hook": "Who actually asked the AI to do that?",
+      "beats": [
+        "Open with the specific review problem: How do I recognize source text attempting to redirect the task?",
+        "Give an actionable sequence: Separate user task from source claims; Identify role-like imperatives; Treat suspicious passages as quoted evidence",
+        "State the limit: Recognition is not proof of detection completeness; cite OWASP and do not execute embedded commands."
+      ],
+      "visual": "Decision/checklist tied to Separate user task from source claims",
+      "source_refs": [
+        "SRC-OWASP",
+        "SRC-INJECTION"
+      ],
+      "evidence_required": "Inert local excerpt asking for an unrelated summary style, clearly labeled illustrative; no secret extraction or live attack.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/untrusted-document-instructions",
+      "utm_content": "m11-s1-p1",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M11-S1.md"
+    },
+    {
+      "id": "M11-S1-P2",
+      "support_id": "M11-S1",
+      "main_id": "M11",
+      "status": "PROPOSED",
+      "format": "Annotated example",
+      "channel": null,
+      "suggested_channels": [
+        "LinkedIn carousel",
+        "Instagram carousel"
+      ],
+      "hook": "Label task instruction versus document quotation",
+      "beats": [
+        "Introduce the original fixture: Inert local excerpt asking for an unrelated summary style, clearly labeled illustrative; no secret extraction or live attack.",
+        "Show the relevant source and actual output side by side; label expected output separately until tested",
+        "Point out one discrepancy or confirmed match and the next review step"
+      ],
+      "visual": "Annotated source/output fixture comparison",
+      "source_refs": [
+        "SRC-OWASP",
+        "SRC-INJECTION"
+      ],
+      "evidence_required": "Inert local excerpt asking for an unrelated summary style, clearly labeled illustrative; no secret extraction or live attack.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/untrusted-document-instructions",
+      "utm_content": "m11-s1-p2",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M11-S1.md"
+    },
+    {
+      "id": "M11-S1-P3",
+      "support_id": "M11-S1",
+      "main_id": "M11",
+      "status": "PROPOSED",
+      "format": "Misconception and limitation",
+      "channel": null,
+      "suggested_channels": [
+        "X",
+        "Threads"
+      ],
+      "hook": "Official-looking wording does not grant authority",
+      "beats": [
+        "Challenge the assumption named in the hook without presenting a hypothetical failure as an observed result",
+        "Explain the boundary: Recognition is not proof of detection completeness; cite OWASP and do not execute embedded commands.",
+        "Offer a concrete check: Treat suspicious passages as quoted evidence"
+      ],
+      "visual": "Two-panel assumption versus verification boundary",
+      "source_refs": [
+        "SRC-OWASP",
+        "SRC-INJECTION"
+      ],
+      "evidence_required": "Inert local excerpt asking for an unrelated summary style, clearly labeled illustrative; no secret extraction or live attack.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/untrusted-document-instructions",
+      "utm_content": "m11-s1-p3",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M11-S1.md"
+    },
+    {
+      "id": "M11-S2-P1",
+      "support_id": "M11-S2",
+      "main_id": "M11",
+      "status": "PROPOSED",
+      "format": "Practical walkthrough",
+      "channel": null,
+      "suggested_channels": [
+        "LinkedIn"
+      ],
+      "hook": "A new format does not make text trusted",
+      "beats": [
+        "Open with the specific review problem: Why can an instruction attempt survive a change of file format?",
+        "Give an actionable sequence: Trace source text into Markdown; Separate formatting from trust; Describe downstream review and permissions",
+        "State the limit: No claim conversion is a sanitizer or that keyword removal is a complete defense."
+      ],
+      "visual": "Decision/checklist tied to Trace source text into Markdown",
+      "source_refs": [
+        "SRC-OWASP",
+        "SRC-INJECTION"
+      ],
+      "evidence_required": "Harmless imperative preserved through an original text/document conversion; inspect strings only.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/markdown-conversion-prompt-injection",
+      "utm_content": "m11-s2-p1",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M11-S2.md"
+    },
+    {
+      "id": "M11-S2-P2",
+      "support_id": "M11-S2",
+      "main_id": "M11",
+      "status": "PROPOSED",
+      "format": "Annotated example",
+      "channel": null,
+      "suggested_channels": [
+        "LinkedIn carousel",
+        "Instagram carousel"
+      ],
+      "hook": "Follow one harmless instruction-shaped sentence",
+      "beats": [
+        "Introduce the original fixture: Harmless imperative preserved through an original text/document conversion; inspect strings only.",
+        "Show the relevant source and actual output side by side; label expected output separately until tested",
+        "Point out one discrepancy or confirmed match and the next review step"
+      ],
+      "visual": "Annotated source/output fixture comparison",
+      "source_refs": [
+        "SRC-OWASP",
+        "SRC-INJECTION"
+      ],
+      "evidence_required": "Harmless imperative preserved through an original text/document conversion; inspect strings only.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/markdown-conversion-prompt-injection",
+      "utm_content": "m11-s2-p2",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M11-S2.md"
+    },
+    {
+      "id": "M11-S2-P3",
+      "support_id": "M11-S2",
+      "main_id": "M11",
+      "status": "PROPOSED",
+      "format": "Misconception and limitation",
+      "channel": null,
+      "suggested_channels": [
+        "X",
+        "Threads"
+      ],
+      "hook": "Removing formatting is not removing intent",
+      "beats": [
+        "Challenge the assumption named in the hook without presenting a hypothetical failure as an observed result",
+        "Explain the boundary: No claim conversion is a sanitizer or that keyword removal is a complete defense.",
+        "Offer a concrete check: Describe downstream review and permissions"
+      ],
+      "visual": "Two-panel assumption versus verification boundary",
+      "source_refs": [
+        "SRC-OWASP",
+        "SRC-INJECTION"
+      ],
+      "evidence_required": "Harmless imperative preserved through an original text/document conversion; inspect strings only.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/markdown-conversion-prompt-injection",
+      "utm_content": "m11-s2-p3",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M11-S2.md"
+    },
+    {
+      "id": "M11-S3-P1",
+      "support_id": "M11-S3",
+      "main_id": "M11",
+      "status": "PROPOSED",
+      "format": "Practical walkthrough",
+      "channel": null,
+      "suggested_channels": [
+        "LinkedIn"
+      ],
+      "hook": "Reading a document should not grant it permissions",
+      "beats": [
+        "Open with the specific review problem: What should a reader check before allowing actions derived from a document?",
+        "Give an actionable sequence: Identify the requested action; Trace it to user authorization; Review tool permissions and proposed effects",
+        "State the limit: Stay defensive; LLMiser does not enforce downstream tool permissions."
+      ],
+      "visual": "Decision/checklist tied to Identify the requested action",
+      "source_refs": [
+        "SRC-OWASP",
+        "SRC-INJECTION"
+      ],
+      "evidence_required": "Paper exercise comparing summarize-only task with a source requesting an external action; no messages sent.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/ai-actions-external-documents",
+      "utm_content": "m11-s3-p1",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M11-S3.md"
+    },
+    {
+      "id": "M11-S3-P2",
+      "support_id": "M11-S3",
+      "main_id": "M11",
+      "status": "PROPOSED",
+      "format": "Annotated example",
+      "channel": null,
+      "suggested_channels": [
+        "LinkedIn carousel",
+        "Instagram carousel"
+      ],
+      "hook": "Draw the boundary between reading and acting",
+      "beats": [
+        "Introduce the original fixture: Paper exercise comparing summarize-only task with a source requesting an external action; no messages sent.",
+        "Show the relevant source and actual output side by side; label expected output separately until tested",
+        "Point out one discrepancy or confirmed match and the next review step"
+      ],
+      "visual": "Annotated source/output fixture comparison",
+      "source_refs": [
+        "SRC-OWASP",
+        "SRC-INJECTION"
+      ],
+      "evidence_required": "Paper exercise comparing summarize-only task with a source requesting an external action; no messages sent.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/ai-actions-external-documents",
+      "utm_content": "m11-s3-p2",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M11-S3.md"
+    },
+    {
+      "id": "M11-S3-P3",
+      "support_id": "M11-S3",
+      "main_id": "M11",
+      "status": "PROPOSED",
+      "format": "Misconception and limitation",
+      "channel": null,
+      "suggested_channels": [
+        "X",
+        "Threads"
+      ],
+      "hook": "A citation is not approval to perform an action",
+      "beats": [
+        "Challenge the assumption named in the hook without presenting a hypothetical failure as an observed result",
+        "Explain the boundary: Stay defensive; LLMiser does not enforce downstream tool permissions.",
+        "Offer a concrete check: Review tool permissions and proposed effects"
+      ],
+      "visual": "Two-panel assumption versus verification boundary",
+      "source_refs": [
+        "SRC-OWASP",
+        "SRC-INJECTION"
+      ],
+      "evidence_required": "Paper exercise comparing summarize-only task with a source requesting an external action; no messages sent.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/ai-actions-external-documents",
+      "utm_content": "m11-s3-p3",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M11-S3.md"
+    },
+    {
+      "id": "M12-S1-P1",
+      "support_id": "M12-S1",
+      "main_id": "M12",
+      "status": "PROPOSED",
+      "format": "Practical walkthrough",
+      "channel": null,
+      "suggested_channels": [
+        "LinkedIn"
+      ],
+      "hook": "Downloaded today does not mean effective today",
+      "beats": [
+        "Open with the specific review problem: Which provenance fields distinguish two versions of a source?",
+        "Give an actionable sequence: Record source identity and revision; Separate effective date from download date; Include a compact provenance note",
+        "State the limit: No fabricated author/date; keep unknown fields explicit and no built-in version-management claim."
+      ],
+      "visual": "Decision/checklist tied to Record source identity and revision",
+      "source_refs": [
+        "SRC-RETRIEVAL"
+      ],
+      "evidence_required": "Two synthetic policy revisions with filename, version and effective date, plus a stable source ID.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/label-document-versions-ai",
+      "utm_content": "m12-s1-p1",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M12-S1.md"
+    },
+    {
+      "id": "M12-S1-P2",
+      "support_id": "M12-S1",
+      "main_id": "M12",
+      "status": "PROPOSED",
+      "format": "Annotated example",
+      "channel": null,
+      "suggested_channels": [
+        "LinkedIn carousel",
+        "Instagram carousel"
+      ],
+      "hook": "Compare revision date with effective date",
+      "beats": [
+        "Introduce the original fixture: Two synthetic policy revisions with filename, version and effective date, plus a stable source ID.",
+        "Show the relevant source and actual output side by side; label expected output separately until tested",
+        "Point out one discrepancy or confirmed match and the next review step"
+      ],
+      "visual": "Annotated source/output fixture comparison",
+      "source_refs": [
+        "SRC-RETRIEVAL"
+      ],
+      "evidence_required": "Two synthetic policy revisions with filename, version and effective date, plus a stable source ID.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/label-document-versions-ai",
+      "utm_content": "m12-s1-p2",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M12-S1.md"
+    },
+    {
+      "id": "M12-S1-P3",
+      "support_id": "M12-S1",
+      "main_id": "M12",
+      "status": "PROPOSED",
+      "format": "Misconception and limitation",
+      "channel": null,
+      "suggested_channels": [
+        "X",
+        "Threads"
+      ],
+      "hook": "A filename is only one piece of provenance",
+      "beats": [
+        "Challenge the assumption named in the hook without presenting a hypothetical failure as an observed result",
+        "Explain the boundary: No fabricated author/date; keep unknown fields explicit and no built-in version-management claim.",
+        "Offer a concrete check: Include a compact provenance note"
+      ],
+      "visual": "Two-panel assumption versus verification boundary",
+      "source_refs": [
+        "SRC-RETRIEVAL"
+      ],
+      "evidence_required": "Two synthetic policy revisions with filename, version and effective date, plus a stable source ID.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/label-document-versions-ai",
+      "utm_content": "m12-s1-p3",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M12-S1.md"
+    },
+    {
+      "id": "M12-S2-P1",
+      "support_id": "M12-S2",
+      "main_id": "M12",
+      "status": "PROPOSED",
+      "format": "Practical walkthrough",
+      "channel": null,
+      "suggested_channels": [
+        "LinkedIn"
+      ],
+      "hook": "Both passages can be valid in different contexts",
+      "beats": [
+        "Open with the specific review problem: How do I handle two valid-looking passages with different scopes?",
+        "Give an actionable sequence: Compare audience date and applicability; Identify authorized precedence or uncertainty; Ask for clarification when needed",
+        "State the limit: Do not assume newer always wins or silently choose a policy; generic information, not legal advice."
+      ],
+      "visual": "Decision/checklist tied to Compare audience date and applicability",
+      "source_refs": [
+        "SRC-RETRIEVAL"
+      ],
+      "evidence_required": "Two fictional company policies for different teams with different limits; no real legal interpretation.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/conflicting-policy-passages-ai",
+      "utm_content": "m12-s2-p1",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M12-S2.md"
+    },
+    {
+      "id": "M12-S2-P2",
+      "support_id": "M12-S2",
+      "main_id": "M12",
+      "status": "PROPOSED",
+      "format": "Annotated example",
+      "channel": null,
+      "suggested_channels": [
+        "LinkedIn carousel",
+        "Instagram carousel"
+      ],
+      "hook": "Build a scope-and-date comparison card",
+      "beats": [
+        "Introduce the original fixture: Two fictional company policies for different teams with different limits; no real legal interpretation.",
+        "Show the relevant source and actual output side by side; label expected output separately until tested",
+        "Point out one discrepancy or confirmed match and the next review step"
+      ],
+      "visual": "Annotated source/output fixture comparison",
+      "source_refs": [
+        "SRC-RETRIEVAL"
+      ],
+      "evidence_required": "Two fictional company policies for different teams with different limits; no real legal interpretation.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/conflicting-policy-passages-ai",
+      "utm_content": "m12-s2-p2",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M12-S2.md"
+    },
+    {
+      "id": "M12-S2-P3",
+      "support_id": "M12-S2",
+      "main_id": "M12",
+      "status": "PROPOSED",
+      "format": "Misconception and limitation",
+      "channel": null,
+      "suggested_channels": [
+        "X",
+        "Threads"
+      ],
+      "hook": "The latest document is not always the applicable one",
+      "beats": [
+        "Challenge the assumption named in the hook without presenting a hypothetical failure as an observed result",
+        "Explain the boundary: Do not assume newer always wins or silently choose a policy; generic information, not legal advice.",
+        "Offer a concrete check: Ask for clarification when needed"
+      ],
+      "visual": "Two-panel assumption versus verification boundary",
+      "source_refs": [
+        "SRC-RETRIEVAL"
+      ],
+      "evidence_required": "Two fictional company policies for different teams with different limits; no real legal interpretation.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/conflicting-policy-passages-ai",
+      "utm_content": "m12-s2-p3",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M12-S2.md"
+    },
+    {
+      "id": "M12-S3-P1",
+      "support_id": "M12-S3",
+      "main_id": "M12",
+      "status": "PROPOSED",
+      "format": "Practical walkthrough",
+      "channel": null,
+      "suggested_channels": [
+        "LinkedIn"
+      ],
+      "hook": "Updating the source may leave old excerpts behind",
+      "beats": [
+        "Open with the specific review problem: How do I update a manually assembled packet when a source changes?",
+        "Give an actionable sequence: Identify excerpts tied to the superseded source; Replace and preserve provenance; Test a question affected by the change",
+        "State the limit: No automatic cache/index invalidation feature claimed; distinguish a manual packet from a production RAG index."
+      ],
+      "visual": "Decision/checklist tied to Identify excerpts tied to the superseded source",
+      "source_refs": [
+        "SRC-RETRIEVAL"
+      ],
+      "evidence_required": "Local packet containing old and new fictional deadlines; trace each excerpt to source revision.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/stale-excerpts-ai-context",
+      "utm_content": "m12-s3-p1",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M12-S3.md"
+    },
+    {
+      "id": "M12-S3-P2",
+      "support_id": "M12-S3",
+      "main_id": "M12",
+      "status": "PROPOSED",
+      "format": "Annotated example",
+      "channel": null,
+      "suggested_channels": [
+        "LinkedIn carousel",
+        "Instagram carousel"
+      ],
+      "hook": "Trace one revised fact through the packet",
+      "beats": [
+        "Introduce the original fixture: Local packet containing old and new fictional deadlines; trace each excerpt to source revision.",
+        "Show the relevant source and actual output side by side; label expected output separately until tested",
+        "Point out one discrepancy or confirmed match and the next review step"
+      ],
+      "visual": "Annotated source/output fixture comparison",
+      "source_refs": [
+        "SRC-RETRIEVAL"
+      ],
+      "evidence_required": "Local packet containing old and new fictional deadlines; trace each excerpt to source revision.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/stale-excerpts-ai-context",
+      "utm_content": "m12-s3-p2",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M12-S3.md"
+    },
+    {
+      "id": "M12-S3-P3",
+      "support_id": "M12-S3",
+      "main_id": "M12",
+      "status": "PROPOSED",
+      "format": "Misconception and limitation",
+      "channel": null,
+      "suggested_channels": [
+        "X",
+        "Threads"
+      ],
+      "hook": "Do not keep both versions without explaining why",
+      "beats": [
+        "Challenge the assumption named in the hook without presenting a hypothetical failure as an observed result",
+        "Explain the boundary: No automatic cache/index invalidation feature claimed; distinguish a manual packet from a production RAG index.",
+        "Offer a concrete check: Test a question affected by the change"
+      ],
+      "visual": "Two-panel assumption versus verification boundary",
+      "source_refs": [
+        "SRC-RETRIEVAL"
+      ],
+      "evidence_required": "Local packet containing old and new fictional deadlines; trace each excerpt to source revision.",
+      "canonical_destination": "https://llmiser.devbehindyou.com/blog/stale-excerpts-ai-context",
+      "utm_content": "m12-s3-p3",
+      "publication_status": "NOT_PUBLISHED",
+      "brief": "campaign/post-briefs/M12-S3.md"
+    }
+  ]
+}
