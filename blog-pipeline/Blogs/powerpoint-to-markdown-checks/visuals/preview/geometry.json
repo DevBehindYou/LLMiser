@@ -1,0 +1,71 @@
+{
+  "slug": "powerpoint-to-markdown-checks",
+  "date": "2026-11-08T17:42:41.151Z",
+  "viewport": "2 x 375px columns, deviceScaleFactor 2",
+  "themes": [
+    "dark",
+    "light"
+  ],
+  "fontsLoaded": [
+    "LLMiser Inter",
+    "LLMiser JetBrains Mono",
+    "LLMiser Patrick Hand"
+  ],
+  "figures": [
+    {
+      "figure": "banner.svg",
+      "viewBox": [
+        1200,
+        400
+      ],
+      "renderedWidthPx": 343,
+      "minFontPxAt375": "3.4",
+      "texts": 16,
+      "issues": []
+    },
+    {
+      "figure": "deck-to-markdown.svg",
+      "viewBox": [
+        600,
+        449
+      ],
+      "renderedWidthPx": 343,
+      "minFontPxAt375": "6.3",
+      "texts": 27,
+      "issues": []
+    },
+    {
+      "figure": "chart-output.svg",
+      "viewBox": [
+        600,
+        433
+      ],
+      "renderedWidthPx": 343,
+      "minFontPxAt375": "6.3",
+      "texts": 15,
+      "issues": []
+    },
+    {
+      "figure": "picture-slide-decision.svg",
+      "viewBox": [
+        600,
+        511
+      ],
+      "renderedWidthPx": 343,
+      "minFontPxAt375": "6.3",
+      "texts": 13,
+      "issues": []
+    },
+    {
+      "figure": "deck-checklist.svg",
+      "viewBox": [
+        600,
+        435
+      ],
+      "renderedWidthPx": 343,
+      "minFontPxAt375": "6.3",
+      "texts": 12,
+      "issues": []
+    }
+  ]
+}

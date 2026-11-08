@@ -1,0 +1,18 @@
+{
+  "article": "M05",
+  "slug": "powerpoint-to-markdown-checks",
+  "checked": "2026-11-08",
+  "claims": [
+    { "id": "C01", "text": "Each slide becomes a section starting with <!-- Slide number: N -->, title heading, text, table or chart data and notes", "state": "VERIFIED_LOCAL_RUN", "source": "F-M05" },
+    { "id": "C02", "text": "Hidden slide 8 with superseded figures was converted with no hidden mark", "state": "VERIFIED_LOCAL_RUN", "source": "F-M05" },
+    { "id": "C03", "text": "Section slide became an empty heading; two identical Results headings; picture-only slide had no title", "state": "VERIFIED_LOCAL_RUN", "source": "F-M05" },
+    { "id": "C04", "text": "Three bullet levels came through as plain flush-left lines with no markers", "state": "VERIFIED_LOCAL_RUN", "source": "F-M05" },
+    { "id": "C05", "text": "Speaker notes came through under ### Notes:", "state": "VERIFIED_LOCAL_RUN", "source": "F-M05" },
+    { "id": "C06", "text": "Native chart became ### Chart: heading and a table July 4.2, August 5.1, September 7.8; axis title Month missing", "state": "VERIFIED_LOCAL_RUN", "source": "F-M05" },
+    { "id": "C07", "text": "Picture-only slide: alt text plus an image file name that does not exist in the Markdown; values in the picture lost", "state": "VERIFIED_LOCAL_RUN", "source": "F-M05" },
+    { "id": "C08", "text": "Table converted intact; units text box became a separate line after it", "state": "VERIFIED_LOCAL_RUN", "source": "F-M05" },
+    { "id": "C09", "text": "Two side-by-side text boxes read left to right although the right one was added first", "state": "VERIFIED_LOCAL_RUN", "source": "F-M05", "note": "One layout only." },
+    { "id": "C10", "text": "LLMiser accepts .pptx up to 15 MB; .ppt not supported", "state": "VERIFIED_CODE", "source": "S-CODE-FORMATS" },
+    { "id": "C11", "text": "Text recognition applies to uploaded images, scanned PDF pages and images inside a ZIP, not pictures inside a deck", "state": "VERIFIED_CODE", "source": "frontend/lib/formats.js OCR pool; backendZ ocr_available; F-M05 picture slide" }
+  ]
+}

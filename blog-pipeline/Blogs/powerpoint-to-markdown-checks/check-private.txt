@@ -1,0 +1,15 @@
+LLMiser PRIVATE draft check (adapter; staged visuals, not production validation): Blogs/powerpoint-to-markdown-checks/draft.md
+Date: 2026-11-08T17:42:31.296Z
+Words (app wordCount): 1674, read time 7 min
+Info: Intro: 74 words
+Info: H2 opening word counts: 37, 35, 27, 32, 28, 37, 36, 31, 31
+Info: Numbered items: 8 of 8
+Info: Links: 3 (0 external)
+
+Errors (0):
+  none
+
+Warnings (1):
+  ! draft: true. The post stays out of the Blog dialog until you set it to false.
+
+RESULT: PASS (private draft adapter)

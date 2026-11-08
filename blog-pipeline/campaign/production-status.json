@@ -45,12 +45,12 @@
   "M05": {
    "type": "main",
    "slug": "powerpoint-to-markdown-checks",
-   "writing": "NOT_STARTED",
-   "fixture": "NOT_STARTED",
-   "visual_qa": "NOT_STARTED",
+   "writing": "READY_FOR_REVIEW",
+   "fixture": "VERIFIED_LOCAL_RUN",
+   "visual_qa": "RENDERED_INSPECTED",
    "publication": "NOT_PUBLISHED",
    "indexing": "NOT_INDEXED",
-   "notes": ""
+   "notes": "Deck generated with python-pptx. Primary keyword overlaps HOME keyword list (R08)."
   },
   "M06": {
    "type": "main",

@@ -1,0 +1,15 @@
+{
+  "article": "M05",
+  "checked": "2026-11-08",
+  "in_draft": [
+    { "url": "/blog/document-to-llm-pipeline", "owner": "E08", "status": "LIVE" },
+    { "url": "/usecase", "owner": "USE", "status": "LIVE" },
+    { "url": "/", "owner": "HOME", "status": "LIVE", "placement": "CTA" }
+  ],
+  "planned_when_released": [
+    { "target": "M05-S1", "url": "/blog/powerpoint-speaker-notes-markdown", "status": "UNPUBLISHED", "placement": "4. Speaker notes" },
+    { "target": "M05-S2", "url": "/blog/slide-chart-context-ai", "status": "UNPUBLISHED", "placement": "5. Charts and axis labels" },
+    { "target": "M05-S3", "url": "/blog/slide-order-markdown", "status": "UNPUBLISHED", "placement": "1. Slide order" },
+    { "target": "M04", "url": "/blog/prepare-word-documents-for-ai", "status": "UNPUBLISHED", "placement": "Optional sibling link near bullet hierarchy" }
+  ]
+}
