@@ -1,0 +1,38 @@
+{
+  "article": "M03-S1",
+  "checked": "2026-11-09",
+  "in_draft": [
+    {
+      "url": "/usecase",
+      "owner": "USE",
+      "status": "LIVE"
+    },
+    {
+      "url": "/",
+      "owner": "HOME",
+      "status": "LIVE",
+      "placement": "CTA"
+    }
+  ],
+  "planned_when_released": [
+    {
+      "target": "M03",
+      "url": "/blog/excel-data-checks-for-ai",
+      "status": "UNPUBLISHED",
+      "placement": "Intro or first section, link to the parent checklist",
+      "anchor": "7 Excel Details to Check Before Sharing Data With AI"
+    },
+    {
+      "target": "M03-S2",
+      "url": "/blog/excel-formula-results-conversion",
+      "status": "UNPUBLISHED",
+      "placement": "Optional sibling link where genuinely useful"
+    },
+    {
+      "target": "M03-S3",
+      "url": "/blog/merged-excel-headers-markdown",
+      "status": "UNPUBLISHED",
+      "placement": "Optional sibling link where genuinely useful"
+    }
+  ]
+}

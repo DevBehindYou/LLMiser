@@ -1,0 +1,16 @@
+{
+  "article": "M03-S1",
+  "slug": "excel-leading-zeros-ai",
+  "checked": "2026-11-09",
+  "claims": [
+    { "id": "C01", "text": "Digit-only ID columns lost leading zeros in the workbook route whether stored as text, formatted or built with TEXT", "state": "VERIFIED_LOCAL_RUN", "source": "F-M03S1 out-ids-xlsx" },
+    { "id": "C02", "text": "One blank cell made the column decimals (123.0) and the blank NaN", "state": "VERIFIED_LOCAL_RUN", "source": "F-M03S1 out-ids-xlsx" },
+    { "id": "C03", "text": "SKU (mixed with letters) and phone (spaces) columns kept zeros; Qty unchanged; prices lost $ and separator", "state": "VERIFIED_LOCAL_RUN", "source": "F-M03S1 out-ids-xlsx" },
+    { "id": "C04", "text": "16 and 20-digit text IDs kept their other digits but lost leading zeros", "state": "VERIFIED_LOCAL_RUN", "source": "F-M03S1 out-ids-xlsx" },
+    { "id": "C05", "text": "LLMiser's Excel conversion decides each column's type from its values", "state": "VERIFIED_CODE + VERIFIED_LOCAL_RUN", "source": "S-CODE-XLSX, F-M03S1" },
+    { "id": "C06", "text": "CSV exported with LibreOffice Calc, then converted, kept every zero, left the blank empty and kept $ and separators", "state": "VERIFIED_LOCAL_RUN", "source": "F-M03S1 out-ids-export-csv" },
+    { "id": "C07", "text": "Excel keeps 15 significant digits of a number; later digits become zeros", "state": "VERIFIED_SOURCE", "source": "S-MS-ZEROS" },
+    { "id": "C08", "text": "Saving as CSV saves only the current worksheet; import wizard recommended to keep leading zeros when opening a CSV", "state": "VERIFIED_SOURCE", "source": "S-MS-CSV" }
+  ],
+  "not_claimed": ["Microsoft Excel CSV export behavior for formatted numbers", "that a stray text value is a safe workaround"]
+}

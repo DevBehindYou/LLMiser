@@ -1,0 +1,52 @@
+{
+  "id": "M03-S1",
+  "role": "support",
+  "title": "Keep Leading Zeros When Preparing Excel Data for AI",
+  "title_selection": "EDITORIAL_PROPOSAL (registry title kept unless qa.md records a change)",
+  "slug": "excel-leading-zeros-ai",
+  "canonical": "https://llmiser.devbehindyou.com/blog/excel-leading-zeros-ai",
+  "canonical_status": "RESERVED_NOT_LIVE",
+  "intent_key": "excel-leading-zeros-ai",
+  "reader_task": "How do I distinguish identifiers from numeric quantities?",
+  "scope_exclusions": [
+    "Display formatting and stored values may differ; conversion cannot restore lost digits. Main checklist and sibling questions remain with their owners.",
+    "Parent M03 owns the full checklist or workflow"
+  ],
+  "primary_keyword": "Excel leading zeros AI",
+  "secondary_keywords": [
+    "Excel ID column leading zeros",
+    "stored value vs displayed value Excel"
+  ],
+  "keyword_metrics": "UNMEASURED",
+  "description": "Keep the Excel leading zeros AI models need: sort ID columns from quantities, check what each cell stores and compare the output. A CSV export kept every zero.",
+  "description_change": "Registry proposal was a question template; rewritten as the procedure with the finding; 159 characters.",
+  "excerpt": "We stored account numbers as text, formatted others to show zeros, and built a third set with a formula. All three lost their zeros in one conversion route.",
+  "category": "GUIDE",
+  "tags": [
+    "Excel",
+    "Spreadsheets",
+    "Data quality",
+    "CSV",
+    "AI context"
+  ],
+  "listicle_count": null,
+  "parent_id": "M03",
+  "nearest_ids": [
+    "M03-S2",
+    "M03-S3",
+    "M03"
+  ],
+  "author": "DevBehindYou",
+  "draft_date": "2026-11-09",
+  "publication_date": null,
+  "draft": true,
+  "banner": "/blog/excel-leading-zeros-ai/banner.svg",
+  "figures": [
+    "id-columns",
+    "stored-vs-shown",
+    "xlsx-results",
+    "csv-route",
+    "zeros-checklist"
+  ],
+  "product_revision_checked": "4b16c07 (application code identical to 8eb8c509)"
+}

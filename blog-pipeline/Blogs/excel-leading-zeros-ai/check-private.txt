@@ -1,0 +1,16 @@
+LLMiser PRIVATE draft check (adapter; staged visuals, not production validation): Blogs/excel-leading-zeros-ai/draft.md
+Date: 2026-11-09T08:09:59.586Z
+Words (app wordCount): 1591, read time 7 min
+Info: Intro: 85 words
+Info: H2 opening word counts: 30, 35, 37
+Info: Links: 4 (2 external)
+
+Errors (0):
+  none
+
+Warnings (3):
+  ! 2 sentence(s) over 35 words, e.g. "The identifiers covered the usual cases: text IDs, a text column with one blank,..."
+  ! Three sentences in a row of similar length, starting "If a 16-digit ID was ever entered as a number, the formula b..."
+  ! draft: true. The post stays out of the Blog dialog until you set it to false.
+
+RESULT: PASS (private draft adapter)
