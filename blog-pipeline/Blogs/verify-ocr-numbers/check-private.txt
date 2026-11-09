@@ -1,0 +1,16 @@
+LLMiser PRIVATE draft check (adapter; staged visuals, not production validation): Blogs/verify-ocr-numbers/draft.md
+Date: 2026-11-09T07:58:54.975Z
+Words (app wordCount): 1673, read time 7 min
+Info: Intro: 77 words
+Info: H2 opening word counts: 35, 35, 39
+Info: Links: 2 (0 external)
+
+Errors (0):
+  none
+
+Warnings (3):
+  ! 2 sentence(s) over 35 words, e.g. "On our receipt that meant 24 fields: a receipt number and an account with leadin..."
+  ! Three sentences in a row of similar length, starting "This guide shows how to **verify numbers in OCR output** the..."
+  ! draft: true. The post stays out of the Blog dialog until you set it to false.
+
+RESULT: PASS (private draft adapter)

@@ -1,0 +1,817 @@
+{
+  "label": "Field comparison of LOCAL CODE-LEVEL RUN outputs against the printed values",
+  "date": "2026-11-09T07:53Z",
+  "variants": {
+    "receipt-200.png": {
+      "counts": {
+        "exact": 22,
+        "changed": 2,
+        "missing": 0
+      },
+      "fields": [
+        {
+          "id": "receipt_no",
+          "kind": "leading zeros",
+          "expected": "RCT-000418",
+          "observed": "RCT-000418",
+          "status": "exact",
+          "digits_only_would_pass": true
+        },
+        {
+          "id": "account",
+          "kind": "leading zero",
+          "expected": "0045-1170",
+          "observed": "0045-1170",
+          "status": "exact",
+          "digits_only_would_pass": true
+        },
+        {
+          "id": "order",
+          "kind": "letter O inside digits",
+          "expected": "PO 10O5-B",
+          "observed": "PO 1005-B",
+          "status": "changed",
+          "digits_only_would_pass": false
+        },
+        {
+          "id": "reference",
+          "kind": "letter O then zero",
+          "expected": "O0-2207",
+          "observed": "00-2207",
+          "status": "changed",
+          "digits_only_would_pass": false
+        },
+        {
+          "id": "issued",
+          "kind": "slashed date",
+          "expected": "03/04/2026",
+          "observed": "03/04/2026",
+          "status": "exact",
+          "digits_only_would_pass": true
+        },
+        {
+          "id": "due",
+          "kind": "ISO date",
+          "expected": "2026-04-17",
+          "observed": "2026-04-17",
+          "status": "exact",
+          "digits_only_would_pass": true
+        },
+        {
+          "id": "delivered",
+          "kind": "dotted date and time",
+          "expected": "17.04.2026 09:30",
+          "observed": "17.04.2026 09:30",
+          "status": "exact",
+          "digits_only_would_pass": true
+        },
+        {
+          "id": "row1_qty",
+          "kind": "quantity",
+          "expected": "12",
+          "observed": "12",
+          "status": "exact",
+          "digits_only_would_pass": true
+        },
+        {
+          "id": "row1_unit",
+          "kind": "unit price",
+          "expected": "10.50",
+          "observed": "10.50",
+          "status": "exact",
+          "digits_only_would_pass": true
+        },
+        {
+          "id": "row1_amount",
+          "kind": "amount",
+          "expected": "126.00",
+          "observed": "126.00",
+          "status": "exact",
+          "digits_only_would_pass": true
+        },
+        {
+          "id": "row2_qty",
+          "kind": "quantity",
+          "expected": "3",
+          "observed": "3",
+          "status": "exact",
+          "digits_only_would_pass": true
+        },
+        {
+          "id": "row2_unit",
+          "kind": "unit price",
+          "expected": "1,250.00",
+          "observed": "1,250.00",
+          "status": "exact",
+          "digits_only_would_pass": true
+        },
+        {
+          "id": "row2_amount",
+          "kind": "amount",
+          "expected": "3,750.00",
+          "observed": "3,750.00",
+          "status": "exact",
+          "digits_only_would_pass": true
+        },
+        {
+          "id": "row3_qty",
+          "kind": "quantity",
+          "expected": "1",
+          "observed": "1",
+          "status": "exact",
+          "digits_only_would_pass": true
+        },
+        {
+          "id": "row3_unit",
+          "kind": "unit price",
+          "expected": "0.75",
+          "observed": "0.75",
+          "status": "exact",
+          "digits_only_would_pass": true
+        },
+        {
+          "id": "row3_amount",
+          "kind": "amount",
+          "expected": "0.75",
+          "observed": "0.75",
+          "status": "exact",
+          "digits_only_would_pass": true
+        },
+        {
+          "id": "row4_qty",
+          "kind": "quantity",
+          "expected": "1",
+          "observed": "1",
+          "status": "exact",
+          "digits_only_would_pass": true
+        },
+        {
+          "id": "row4_unit",
+          "kind": "unit price",
+          "expected": "-12.40",
+          "observed": "-12.40",
+          "status": "exact",
+          "digits_only_would_pass": true
+        },
+        {
+          "id": "row4_amount",
+          "kind": "amount",
+          "expected": "-12.40",
+          "observed": "-12.40",
+          "status": "exact",
+          "digits_only_would_pass": true
+        },
+        {
+          "id": "subtotal",
+          "kind": "thousands separator",
+          "expected": "3,864.35",
+          "observed": "3,864.35",
+          "status": "exact",
+          "digits_only_would_pass": true
+        },
+        {
+          "id": "tax",
+          "kind": "decimal",
+          "expected": "289.83",
+          "observed": "289.83",
+          "status": "exact",
+          "digits_only_would_pass": true
+        },
+        {
+          "id": "total",
+          "kind": "thousands separator",
+          "expected": "4,154.18",
+          "observed": "4,154.18",
+          "status": "exact",
+          "digits_only_would_pass": true
+        },
+        {
+          "id": "eur",
+          "kind": "decimal comma",
+          "expected": "1.250,00",
+          "observed": "1.250,00",
+          "status": "exact",
+          "digits_only_would_pass": true
+        },
+        {
+          "id": "terms",
+          "kind": "small print, percent",
+          "expected": "Terms: net 30. Late fee 1.5% per month after 2026-05-17.",
+          "observed": "Terms: net 30. Late fee 1.5% per month after 2026-05-17.",
+          "status": "exact",
+          "digits_only_would_pass": true
+        }
+      ],
+      "digits_only_hidden": []
+    },
+    "receipt-150.jpg": {
+      "counts": {
+        "exact": 21,
+        "changed": 2,
+        "missing": 1
+      },
+      "fields": [
+        {
+          "id": "receipt_no",
+          "kind": "leading zeros",
+          "expected": "RCT-000418",
+          "observed": "RCT-000418",
+          "status": "exact",
+          "digits_only_would_pass": true
+        },
+        {
+          "id": "account",
+          "kind": "leading zero",
+          "expected": "0045-1170",
+          "observed": "0045-1170",
+          "status": "exact",
+          "digits_only_would_pass": true
+        },
+        {
+          "id": "order",
+          "kind": "letter O inside digits",
+          "expected": "PO 10O5-B",
+          "observed": "PO 1005-B",
+          "status": "changed",
+          "digits_only_would_pass": false
+        },
+        {
+          "id": "reference",
+          "kind": "letter O then zero",
+          "expected": "O0-2207",
+          "observed": "00-2207",
+          "status": "changed",
+          "digits_only_would_pass": false
+        },
+        {
+          "id": "issued",
+          "kind": "slashed date",
+          "expected": "03/04/2026",
+          "observed": "03/04/2026",
+          "status": "exact",
+          "digits_only_would_pass": true
+        },
+        {
+          "id": "due",
+          "kind": "ISO date",
+          "expected": "2026-04-17",
+          "observed": "2026-04-17",
+          "status": "exact",
+          "digits_only_would_pass": true
+        },
+        {
+          "id": "delivered",
+          "kind": "dotted date and time",
+          "expected": "17.04.2026 09:30",
+          "observed": "17.04.2026 09:30",
+          "status": "exact",
+          "digits_only_would_pass": true
+        },
+        {
+          "id": "row1_qty",
+          "kind": "quantity",
+          "expected": "12",
+          "observed": "12",
+          "status": "exact",
+          "digits_only_would_pass": true
+        },
+        {
+          "id": "row1_unit",
+          "kind": "unit price",
+          "expected": "10.50",
+          "observed": "10.50",
+          "status": "exact",
+          "digits_only_would_pass": true
+        },
+        {
+          "id": "row1_amount",
+          "kind": "amount",
+          "expected": "126.00",
+          "observed": "126.00",
+          "status": "exact",
+          "digits_only_would_pass": true
+        },
+        {
+          "id": "row2_qty",
+          "kind": "quantity",
+          "expected": "3",
+          "observed": "3",
+          "status": "exact",
+          "digits_only_would_pass": true
+        },
+        {
+          "id": "row2_unit",
+          "kind": "unit price",
+          "expected": "1,250.00",
+          "observed": "1,250.00",
+          "status": "exact",
+          "digits_only_would_pass": true
+        },
+        {
+          "id": "row2_amount",
+          "kind": "amount",
+          "expected": "3,750.00",
+          "observed": "3,750.00",
+          "status": "exact",
+          "digits_only_would_pass": true
+        },
+        {
+          "id": "row3_qty",
+          "kind": "quantity",
+          "expected": "1",
+          "observed": null,
+          "status": "missing",
+          "digits_only_would_pass": false
+        },
+        {
+          "id": "row3_unit",
+          "kind": "unit price",
+          "expected": "0.75",
+          "observed": "0.75",
+          "status": "exact",
+          "digits_only_would_pass": true
+        },
+        {
+          "id": "row3_amount",
+          "kind": "amount",
+          "expected": "0.75",
+          "observed": "0.75",
+          "status": "exact",
+          "digits_only_would_pass": true
+        },
+        {
+          "id": "row4_qty",
+          "kind": "quantity",
+          "expected": "1",
+          "observed": "1",
+          "status": "exact",
+          "digits_only_would_pass": true
+        },
+        {
+          "id": "row4_unit",
+          "kind": "unit price",
+          "expected": "-12.40",
+          "observed": "-12.40",
+          "status": "exact",
+          "digits_only_would_pass": true
+        },
+        {
+          "id": "row4_amount",
+          "kind": "amount",
+          "expected": "-12.40",
+          "observed": "-12.40",
+          "status": "exact",
+          "digits_only_would_pass": true
+        },
+        {
+          "id": "subtotal",
+          "kind": "thousands separator",
+          "expected": "3,864.35",
+          "observed": "3,864.35",
+          "status": "exact",
+          "digits_only_would_pass": true
+        },
+        {
+          "id": "tax",
+          "kind": "decimal",
+          "expected": "289.83",
+          "observed": "289.83",
+          "status": "exact",
+          "digits_only_would_pass": true
+        },
+        {
+          "id": "total",
+          "kind": "thousands separator",
+          "expected": "4,154.18",
+          "observed": "4,154.18",
+          "status": "exact",
+          "digits_only_would_pass": true
+        },
+        {
+          "id": "eur",
+          "kind": "decimal comma",
+          "expected": "1.250,00",
+          "observed": "1.250,00",
+          "status": "exact",
+          "digits_only_would_pass": true
+        },
+        {
+          "id": "terms",
+          "kind": "small print, percent",
+          "expected": "Terms: net 30. Late fee 1.5% per month after 2026-05-17.",
+          "observed": "Terms: net 30. Late fee 1.5% per month after 2026-05-17.",
+          "status": "exact",
+          "digits_only_would_pass": true
+        }
+      ],
+      "digits_only_hidden": []
+    },
+    "receipt-fax.png": {
+      "counts": {
+        "exact": 19,
+        "changed": 4,
+        "missing": 1
+      },
+      "fields": [
+        {
+          "id": "receipt_no",
+          "kind": "leading zeros",
+          "expected": "RCT-000418",
+          "observed": "RCT-000418",
+          "status": "exact",
+          "digits_only_would_pass": true
+        },
+        {
+          "id": "account",
+          "kind": "leading zero",
+          "expected": "0045-1170",
+          "observed": "0045-1170",
+          "status": "exact",
+          "digits_only_would_pass": true
+        },
+        {
+          "id": "order",
+          "kind": "letter O inside digits",
+          "expected": "PO 10O5-B",
+          "observed": "PO 1005-B",
+          "status": "changed",
+          "digits_only_would_pass": false
+        },
+        {
+          "id": "reference",
+          "kind": "letter O then zero",
+          "expected": "O0-2207",
+          "observed": "00-2207",
+          "status": "changed",
+          "digits_only_would_pass": false
+        },
+        {
+          "id": "issued",
+          "kind": "slashed date",
+          "expected": "03/04/2026",
+          "observed": "03/04/2026",
+          "status": "exact",
+          "digits_only_would_pass": true
+        },
+        {
+          "id": "due",
+          "kind": "ISO date",
+          "expected": "2026-04-17",
+          "observed": "2026-04-17",
+          "status": "exact",
+          "digits_only_would_pass": true
+        },
+        {
+          "id": "delivered",
+          "kind": "dotted date and time",
+          "expected": "17.04.2026 09:30",
+          "observed": "17,04.2026 09:30",
+          "status": "changed",
+          "digits_only_would_pass": true
+        },
+        {
+          "id": "row1_qty",
+          "kind": "quantity",
+          "expected": "12",
+          "observed": "12",
+          "status": "exact",
+          "digits_only_would_pass": true
+        },
+        {
+          "id": "row1_unit",
+          "kind": "unit price",
+          "expected": "10.50",
+          "observed": "10.50",
+          "status": "exact",
+          "digits_only_would_pass": true
+        },
+        {
+          "id": "row1_amount",
+          "kind": "amount",
+          "expected": "126.00",
+          "observed": "126.00",
+          "status": "exact",
+          "digits_only_would_pass": true
+        },
+        {
+          "id": "row2_qty",
+          "kind": "quantity",
+          "expected": "3",
+          "observed": "3",
+          "status": "exact",
+          "digits_only_would_pass": true
+        },
+        {
+          "id": "row2_unit",
+          "kind": "unit price",
+          "expected": "1,250.00",
+          "observed": "1,250.00",
+          "status": "exact",
+          "digits_only_would_pass": true
+        },
+        {
+          "id": "row2_amount",
+          "kind": "amount",
+          "expected": "3,750.00",
+          "observed": "3,750.00",
+          "status": "exact",
+          "digits_only_would_pass": true
+        },
+        {
+          "id": "row3_qty",
+          "kind": "quantity",
+          "expected": "1",
+          "observed": null,
+          "status": "missing",
+          "digits_only_would_pass": false
+        },
+        {
+          "id": "row3_unit",
+          "kind": "unit price",
+          "expected": "0.75",
+          "observed": "0.75",
+          "status": "exact",
+          "digits_only_would_pass": true
+        },
+        {
+          "id": "row3_amount",
+          "kind": "amount",
+          "expected": "0.75",
+          "observed": "0.75",
+          "status": "exact",
+          "digits_only_would_pass": true
+        },
+        {
+          "id": "row4_qty",
+          "kind": "quantity",
+          "expected": "1",
+          "observed": "1",
+          "status": "exact",
+          "digits_only_would_pass": true
+        },
+        {
+          "id": "row4_unit",
+          "kind": "unit price",
+          "expected": "-12.40",
+          "observed": "-12.40",
+          "status": "exact",
+          "digits_only_would_pass": true
+        },
+        {
+          "id": "row4_amount",
+          "kind": "amount",
+          "expected": "-12.40",
+          "observed": "-12.40",
+          "status": "exact",
+          "digits_only_would_pass": true
+        },
+        {
+          "id": "subtotal",
+          "kind": "thousands separator",
+          "expected": "3,864.35",
+          "observed": "3,864.35",
+          "status": "exact",
+          "digits_only_would_pass": true
+        },
+        {
+          "id": "tax",
+          "kind": "decimal",
+          "expected": "289.83",
+          "observed": "289.83",
+          "status": "exact",
+          "digits_only_would_pass": true
+        },
+        {
+          "id": "total",
+          "kind": "thousands separator",
+          "expected": "4,154.18",
+          "observed": "4,154.18",
+          "status": "exact",
+          "digits_only_would_pass": true
+        },
+        {
+          "id": "eur",
+          "kind": "decimal comma",
+          "expected": "1.250,00",
+          "observed": "1.250,00",
+          "status": "exact",
+          "digits_only_would_pass": true
+        },
+        {
+          "id": "terms",
+          "kind": "small print, percent",
+          "expected": "Terms: net 30. Late fee 1.5% per month after 2026-05-17.",
+          "observed": "Terms: net 30. Late fee 1.5% per month after 2026-05-17",
+          "status": "changed",
+          "digits_only_would_pass": true
+        }
+      ],
+      "digits_only_hidden": [
+        "delivered",
+        "terms"
+      ]
+    },
+    "receipt-photo.jpg": {
+      "counts": {
+        "exact": 15,
+        "changed": 4,
+        "missing": 5
+      },
+      "fields": [
+        {
+          "id": "receipt_no",
+          "kind": "leading zeros",
+          "expected": "RCT-000418",
+          "observed": "RCT-000418",
+          "status": "exact",
+          "digits_only_would_pass": true
+        },
+        {
+          "id": "account",
+          "kind": "leading zero",
+          "expected": "0045-1170",
+          "observed": "0045-1170",
+          "status": "exact",
+          "digits_only_would_pass": true
+        },
+        {
+          "id": "order",
+          "kind": "letter O inside digits",
+          "expected": "PO 10O5-B",
+          "observed": "PO 1005-B",
+          "status": "changed",
+          "digits_only_would_pass": false
+        },
+        {
+          "id": "reference",
+          "kind": "letter O then zero",
+          "expected": "O0-2207",
+          "observed": "00-2207",
+          "status": "changed",
+          "digits_only_would_pass": false
+        },
+        {
+          "id": "issued",
+          "kind": "slashed date",
+          "expected": "03/04/2026",
+          "observed": "03/04/2026",
+          "status": "exact",
+          "digits_only_would_pass": true
+        },
+        {
+          "id": "due",
+          "kind": "ISO date",
+          "expected": "2026-04-17",
+          "observed": "2026-04-17",
+          "status": "exact",
+          "digits_only_would_pass": true
+        },
+        {
+          "id": "delivered",
+          "kind": "dotted date and time",
+          "expected": "17.04.2026 09:30",
+          "observed": "17.04.2026 09:30",
+          "status": "exact",
+          "digits_only_would_pass": true
+        },
+        {
+          "id": "row1_qty",
+          "kind": "quantity",
+          "expected": "12",
+          "observed": "12",
+          "status": "exact",
+          "digits_only_would_pass": true
+        },
+        {
+          "id": "row1_unit",
+          "kind": "unit price",
+          "expected": "10.50",
+          "observed": "10.50",
+          "status": "exact",
+          "digits_only_would_pass": true
+        },
+        {
+          "id": "row1_amount",
+          "kind": "amount",
+          "expected": "126.00",
+          "observed": "126.00",
+          "status": "exact",
+          "digits_only_would_pass": true
+        },
+        {
+          "id": "row2_qty",
+          "kind": "quantity",
+          "expected": "3",
+          "observed": "3",
+          "status": "exact",
+          "digits_only_would_pass": true
+        },
+        {
+          "id": "row2_unit",
+          "kind": "unit price",
+          "expected": "1,250.00",
+          "observed": "1,250.00",
+          "status": "exact",
+          "digits_only_would_pass": true
+        },
+        {
+          "id": "row2_amount",
+          "kind": "amount",
+          "expected": "3,750.00",
+          "observed": "3,750.00",
+          "status": "exact",
+          "digits_only_would_pass": true
+        },
+        {
+          "id": "row3_qty",
+          "kind": "quantity",
+          "expected": "1",
+          "observed": "i",
+          "status": "changed",
+          "digits_only_would_pass": false
+        },
+        {
+          "id": "row3_unit",
+          "kind": "unit price",
+          "expected": "0.75",
+          "observed": "0.75",
+          "status": "exact",
+          "digits_only_would_pass": true
+        },
+        {
+          "id": "row3_amount",
+          "kind": "amount",
+          "expected": "0.75",
+          "observed": "0.75",
+          "status": "exact",
+          "digits_only_would_pass": true
+        },
+        {
+          "id": "row4_qty",
+          "kind": "quantity",
+          "expected": "1",
+          "observed": "zt",
+          "status": "changed",
+          "digits_only_would_pass": false
+        },
+        {
+          "id": "row4_unit",
+          "kind": "unit price",
+          "expected": "-12.40",
+          "observed": "-12.40",
+          "status": "exact",
+          "digits_only_would_pass": true
+        },
+        {
+          "id": "row4_amount",
+          "kind": "amount",
+          "expected": "-12.40",
+          "observed": "-12.40",
+          "status": "exact",
+          "digits_only_would_pass": true
+        },
+        {
+          "id": "subtotal",
+          "kind": "thousands separator",
+          "expected": "3,864.35",
+          "observed": null,
+          "status": "missing",
+          "digits_only_would_pass": false
+        },
+        {
+          "id": "tax",
+          "kind": "decimal",
+          "expected": "289.83",
+          "observed": null,
+          "status": "missing",
+          "digits_only_would_pass": false
+        },
+        {
+          "id": "total",
+          "kind": "thousands separator",
+          "expected": "4,154.18",
+          "observed": null,
+          "status": "missing",
+          "digits_only_would_pass": false
+        },
+        {
+          "id": "eur",
+          "kind": "decimal comma",
+          "expected": "1.250,00",
+          "observed": null,
+          "status": "missing",
+          "digits_only_would_pass": false
+        },
+        {
+          "id": "terms",
+          "kind": "small print, percent",
+          "expected": "Terms: net 30. Late fee 1.5% per month after 2026-05-17.",
+          "observed": null,
+          "status": "missing",
+          "digits_only_would_pass": false
+        }
+      ],
+      "digits_only_hidden": []
+    }
+  }
+}

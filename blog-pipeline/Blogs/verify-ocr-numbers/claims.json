@@ -1,0 +1,19 @@
+{
+  "article": "M02-S2",
+  "slug": "verify-ocr-numbers",
+  "checked": "2026-11-09",
+  "claims": [
+    { "id": "C01", "text": "Letter O read as zero in PO 10O5-B and O0-2207 in all four copies, including the clean 200 dpi one", "state": "VERIFIED_LOCAL_RUN", "source": "F-M02S2 field-results.json" },
+    { "id": "C02", "text": "JPEG and fax copies returned 'Seal kit 0.75 0.75' (quantity missing); photo read the quantities as 'i' and 'zt'", "state": "VERIFIED_LOCAL_RUN", "source": "F-M02S2 out/*.txt" },
+    { "id": "C03", "text": "Photo-style copy stopped after the credit row; subtotal, tax, total, EUR amount and terms missing; nine fields wrong or missing; clean copy two", "state": "VERIFIED_LOCAL_RUN", "source": "F-M02S2 field-results.json" },
+    { "id": "C04", "text": "Fax-style copy read 17.04.2026 as 17,04.2026; a digits-only check would accept it", "state": "VERIFIED_LOCAL_RUN", "source": "F-M02S2 field-results.json digits_only_hidden" },
+    { "id": "C05", "text": "Leading zeros, minus signs, slashed and ISO dates exact in all copies; decimal comma exact wherever its line came back", "state": "VERIFIED_LOCAL_RUN", "source": "F-M02S2" },
+    { "id": "C06", "text": "Every value that came back stayed on its label's line; header 'Item' read as 'ltem' in the clean copy", "state": "VERIFIED_LOCAL_RUN", "source": "F-M02S2 out/receipt-200.txt" },
+    { "id": "C07", "text": "No copy returned a warning", "state": "VERIFIED_LOCAL_RUN", "source": "F-M02S2 out/runs.json warning null" },
+    { "id": "C08", "text": "Average word confidence 92.4 to 95.2 on all four copies, including the one that lost its totals", "state": "VERIFIED_LOCAL_RUN + VERIFIED_CODE", "source": "F-M02S2 runs.json, S-CODE-OCR (logged value)" },
+    { "id": "C09", "text": "LLMiser lets you edit converted Markdown before copy or download; edits aren't saved in recent sessions", "state": "VERIFIED_CODE", "source": "S-CODE-READER (M09)" },
+    { "id": "C10", "text": "English is LLMiser's only recognition language", "state": "VERIFIED_CODE", "source": "S-CODE-OCR OCR_LANG" },
+    { "id": "C11", "text": "03/04/2026 recognized exactly; the text alone can't say which date order is meant", "state": "VERIFIED_LOCAL_RUN + REASONING", "source": "F-M02S2" }
+  ],
+  "not_claimed": ["error or accuracy rates", "that the confidence value is shown in the interface", "which degradation caused the photo-style loss"]
+}

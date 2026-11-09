@@ -1,0 +1,167 @@
+{
+  "label": "Synthetic. Invented company, accounts and amounts.",
+  "fields": [
+    {
+      "id": "receipt_no",
+      "label": "Receipt no:",
+      "value": "RCT-000418",
+      "kind": "leading zeros"
+    },
+    {
+      "id": "account",
+      "label": "Account:",
+      "value": "0045-1170",
+      "kind": "leading zero"
+    },
+    {
+      "id": "order",
+      "label": "Order:",
+      "value": "PO 10O5-B",
+      "kind": "letter O inside digits"
+    },
+    {
+      "id": "reference",
+      "label": "Reference:",
+      "value": "O0-2207",
+      "kind": "letter O then zero"
+    },
+    {
+      "id": "issued",
+      "label": "Issued:",
+      "value": "03/04/2026",
+      "kind": "slashed date"
+    },
+    {
+      "id": "due",
+      "label": "Due:",
+      "value": "2026-04-17",
+      "kind": "ISO date"
+    },
+    {
+      "id": "delivered",
+      "label": "Delivered:",
+      "value": "17.04.2026 09:30",
+      "kind": "dotted date and time"
+    },
+    {
+      "id": "row1_qty",
+      "label": "Gasket 1/2 in",
+      "value": "12",
+      "kind": "quantity"
+    },
+    {
+      "id": "row1_unit",
+      "label": "Gasket 1/2 in",
+      "value": "10.50",
+      "kind": "unit price"
+    },
+    {
+      "id": "row1_amount",
+      "label": "Gasket 1/2 in",
+      "value": "126.00",
+      "kind": "amount"
+    },
+    {
+      "id": "row2_qty",
+      "label": "Valve, brass",
+      "value": "3",
+      "kind": "quantity"
+    },
+    {
+      "id": "row2_unit",
+      "label": "Valve, brass",
+      "value": "1,250.00",
+      "kind": "unit price"
+    },
+    {
+      "id": "row2_amount",
+      "label": "Valve, brass",
+      "value": "3,750.00",
+      "kind": "amount"
+    },
+    {
+      "id": "row3_qty",
+      "label": "Seal kit",
+      "value": "1",
+      "kind": "quantity"
+    },
+    {
+      "id": "row3_unit",
+      "label": "Seal kit",
+      "value": "0.75",
+      "kind": "unit price"
+    },
+    {
+      "id": "row3_amount",
+      "label": "Seal kit",
+      "value": "0.75",
+      "kind": "amount"
+    },
+    {
+      "id": "row4_qty",
+      "label": "Return credit",
+      "value": "1",
+      "kind": "quantity"
+    },
+    {
+      "id": "row4_unit",
+      "label": "Return credit",
+      "value": "-12.40",
+      "kind": "unit price"
+    },
+    {
+      "id": "row4_amount",
+      "label": "Return credit",
+      "value": "-12.40",
+      "kind": "amount"
+    },
+    {
+      "id": "subtotal",
+      "label": "Subtotal",
+      "value": "3,864.35",
+      "kind": "thousands separator"
+    },
+    {
+      "id": "tax",
+      "label": "Tax 7.5%",
+      "value": "289.83",
+      "kind": "decimal"
+    },
+    {
+      "id": "total",
+      "label": "Total",
+      "value": "4,154.18",
+      "kind": "thousands separator"
+    },
+    {
+      "id": "eur",
+      "label": "Paid in EUR",
+      "value": "1.250,00",
+      "kind": "decimal comma"
+    },
+    {
+      "id": "terms",
+      "label": "Terms",
+      "value": "Terms: net 30. Late fee 1.5% per month after 2026-05-17.",
+      "kind": "small print, percent"
+    }
+  ],
+  "files": {
+    "receipt-200.png": {
+      "bytes": 70097,
+      "sha256": "5a3df758f28cc209c2b06144a5a747ac8b94ac48285cf8a1264cddeb05373fbd"
+    },
+    "receipt-150.jpg": {
+      "bytes": 101479,
+      "sha256": "2ed121933bbf01601af1e17387be2ed048a9ffb5b0a9a668f89a23c7b21ccf6d"
+    },
+    "receipt-fax.png": {
+      "bytes": 7393,
+      "sha256": "5df8294d4ec4c18772cec0ac5e8bd46046d8b8bb870b58855e73d3bb40655efc"
+    },
+    "receipt-photo.jpg": {
+      "bytes": 53118,
+      "sha256": "4c0cfaf265c642271b582013a668e6d778ecbfae67f5d5b01dcbfea0fc1499ab"
+    }
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "slug": "verify-ocr-numbers",
+  "date": "2026-11-09T07:58:55.643Z",
+  "viewport": "2 x 375px columns, deviceScaleFactor 2",
+  "themes": [
+    "dark",
+    "light"
+  ],
+  "fontsLoaded": [
+    "LLMiser Inter",
+    "LLMiser JetBrains Mono",
+    "LLMiser Patrick Hand"
+  ],
+  "figures": [
+    {
+      "figure": "banner.svg",
+      "viewBox": [
+        1200,
+        400
+      ],
+      "renderedWidthPx": 343,
+      "minFontPxAt375": "4.0",
+      "texts": 16,
+      "issues": []
+    },
+    {
+      "figure": "high-impact-fields.svg",
+      "viewBox": [
+        600,
+        485
+      ],
+      "renderedWidthPx": 343,
+      "minFontPxAt375": "6.3",
+      "texts": 35,
+      "issues": []
+    },
+    {
+      "figure": "receipt-results.svg",
+      "viewBox": [
+        600,
+        502
+      ],
+      "renderedWidthPx": 343,
+      "minFontPxAt375": "6.3",
+      "texts": 70,
+      "issues": []
+    },
+    {
+      "figure": "digits-only-trap.svg",
+      "viewBox": [
+        600,
+        387
+      ],
+      "renderedWidthPx": 343,
+      "minFontPxAt375": "6.3",
+      "texts": 13,
+      "issues": []
+    },
+    {
+      "figure": "correction-log.svg",
+      "viewBox": [
+        600,
+        322
+      ],
+      "renderedWidthPx": 343,
+      "minFontPxAt375": "6.3",
+      "texts": 19,
+      "issues": []
+    },
+    {
+      "figure": "number-checklist.svg",
+      "viewBox": [
+        600,
+        380
+      ],
+      "renderedWidthPx": 343,
+      "minFontPxAt375": "6.3",
+      "texts": 10,
+      "issues": []
+    }
+  ]
+}

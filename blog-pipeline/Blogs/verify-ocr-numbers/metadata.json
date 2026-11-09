@@ -1,0 +1,52 @@
+{
+  "id": "M02-S2",
+  "role": "support",
+  "title": "Verify Numbers and Identifiers in OCR Output",
+  "title_selection": "EDITORIAL_PROPOSAL (registry title kept unless qa.md records a change)",
+  "slug": "verify-ocr-numbers",
+  "canonical": "https://llmiser.devbehindyou.com/blog/verify-ocr-numbers",
+  "canonical_status": "RESERVED_NOT_LIVE",
+  "intent_key": "verify-ocr-numbers",
+  "reader_task": "How do I verify digits and labels without trusting fluent OCR text?",
+  "scope_exclusions": [
+    "No financial recommendation; report character fidelity, not invented accuracy rates. Main checklist and sibling questions remain with their owners.",
+    "Parent M02 owns the full checklist or workflow"
+  ],
+  "primary_keyword": "verify numbers in OCR output",
+  "secondary_keywords": [
+    "OCR letter O and zero",
+    "check OCR identifiers"
+  ],
+  "keyword_metrics": "UNMEASURED",
+  "description": "How to verify numbers in OCR output: find the fields that matter, compare every character and separator with the page, and log each correction you make.",
+  "description_change": "Registry proposal was a question template; rewritten as the procedure; 152 characters.",
+  "excerpt": "Recognized text can read perfectly and still carry the wrong ID. We checked 24 fields on one synthetic receipt, character by character, across four copies.",
+  "category": "GUIDE",
+  "tags": [
+    "OCR",
+    "Scanned documents",
+    "Data quality",
+    "Invoices",
+    "AI context"
+  ],
+  "listicle_count": null,
+  "parent_id": "M02",
+  "nearest_ids": [
+    "M02-S1",
+    "M02-S3",
+    "M02"
+  ],
+  "author": "DevBehindYou",
+  "draft_date": "2026-11-09",
+  "publication_date": null,
+  "draft": true,
+  "banner": "/blog/verify-ocr-numbers/banner.svg",
+  "figures": [
+    "high-impact-fields",
+    "receipt-results",
+    "digits-only-trap",
+    "correction-log",
+    "number-checklist"
+  ],
+  "product_revision_checked": "9b3ed09 (application code identical to 8eb8c509)"
+}
