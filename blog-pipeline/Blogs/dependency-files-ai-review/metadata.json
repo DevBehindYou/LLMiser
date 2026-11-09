@@ -1,0 +1,51 @@
+{
+  "id": "M01-S2",
+  "role": "support",
+  "title": "Which Dependency Files Should You Keep for AI Review?",
+  "title_selection": "EDITORIAL_PROPOSAL (registry title kept unless qa.md records a change)",
+  "slug": "dependency-files-ai-review",
+  "canonical": "https://llmiser.devbehindyou.com/blog/dependency-files-ai-review",
+  "canonical_status": "RESERVED_NOT_LIVE",
+  "intent_key": "dependency-files-ai-review",
+  "reader_task": "What should remain when installed packages are removed?",
+  "scope_exclusions": [
+    "Do not prescribe removing all lockfiles or all vendored source. Main checklist and sibling questions remain with their owners.",
+    "Parent M01 owns the full checklist or workflow"
+  ],
+  "primary_keyword": "dependency files for AI code review",
+  "secondary_keywords": [
+    "keep lockfiles for AI",
+    "vendored dependencies"
+  ],
+  "keyword_metrics": "UNMEASURED",
+  "description": "Which dependency files to keep for AI code review: manifests, lockfiles and any patched copy you import, while installed package folders stay out of the copy.",
+  "description_change": "Registry proposal was a question template; rewritten with the answer; 160 characters.",
+  "excerpt": "Drop node_modules, keep the files that say which versions you run. And if you patched a dependency, keep that copy where a converter won't skip it.",
+  "category": "GUIDE",
+  "tags": [
+    "Dependencies",
+    "Code review",
+    "Lockfiles",
+    "AI context",
+    "Sharing code"
+  ],
+  "listicle_count": null,
+  "parent_id": "M01",
+  "nearest_ids": [
+    "M01-S1",
+    "M01-S3",
+    "M01"
+  ],
+  "author": "DevBehindYou",
+  "draft_date": "2026-11-09",
+  "publication_date": null,
+  "draft": true,
+  "banner": "/blog/dependency-files-ai-review/banner.svg",
+  "figures": [
+    "keep-or-leave",
+    "bundle-variants",
+    "vendor-decision",
+    "dependency-checklist"
+  ],
+  "product_revision_checked": "71181ee (application code identical to 8eb8c509)"
+}

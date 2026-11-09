@@ -1,0 +1,125 @@
+{
+  "job_id": null,
+  "source": {
+    "filename": "full.zip",
+    "bytes": 2440,
+    "entries": 9
+  },
+  "limits": {
+    "max_entries": 2000,
+    "max_uncompressed_bytes": 104857600,
+    "max_entry_bytes": 15728640,
+    "max_depth": 1,
+    "max_ocr_images": 50
+  },
+  "nodes": [
+    {
+      "path": "shop/node_modules/acme-money/CHANGELOG.md",
+      "depth": 0,
+      "size": 78,
+      "node_type": "ARCHIVE_ENTRY",
+      "classification": "UNSUPPORTED",
+      "status": "SKIPPED",
+      "engine": null,
+      "skip_reason": "dependency or build folder (smart project mode)",
+      "language": null,
+      "node_id": "522e1861-1919-4b3e-8eb9-850e8daa5617"
+    },
+    {
+      "path": "shop/node_modules/acme-money/package.json",
+      "depth": 0,
+      "size": 43,
+      "node_type": "ARCHIVE_ENTRY",
+      "classification": "UNSUPPORTED",
+      "status": "SKIPPED",
+      "engine": null,
+      "skip_reason": "dependency or build folder (smart project mode)",
+      "language": null,
+      "node_id": "9c32276b-2a79-4280-88cc-f3d60c3a42e5"
+    },
+    {
+      "path": "shop/node_modules/acme-money/round.js",
+      "depth": 0,
+      "size": 105,
+      "node_type": "ARCHIVE_ENTRY",
+      "classification": "UNSUPPORTED",
+      "status": "SKIPPED",
+      "engine": null,
+      "skip_reason": "dependency or build folder (smart project mode)",
+      "language": null,
+      "node_id": "0e752239-b2a2-4f7c-acc7-5e56cb5eb6fd"
+    },
+    {
+      "path": "shop/package-lock.json",
+      "depth": 0,
+      "size": 261,
+      "node_type": "CODE_FILE",
+      "classification": "DIRECT_TEXT",
+      "status": "DONE",
+      "engine": "direct",
+      "skip_reason": null,
+      "language": "json",
+      "node_id": "91462490-f502-4b5f-92d3-523806ec9618"
+    },
+    {
+      "path": "shop/package.json",
+      "depth": 0,
+      "size": 145,
+      "node_type": "CODE_FILE",
+      "classification": "DIRECT_TEXT",
+      "status": "DONE",
+      "engine": "direct",
+      "skip_reason": null,
+      "language": "json",
+      "node_id": "55c32729-7be2-4665-914f-82e11f5580cd"
+    },
+    {
+      "path": "shop/src/invoice.js",
+      "depth": 0,
+      "size": 141,
+      "node_type": "CODE_FILE",
+      "classification": "DIRECT_TEXT",
+      "status": "DONE",
+      "engine": "direct",
+      "skip_reason": null,
+      "language": "javascript",
+      "node_id": "064fc8eb-c70f-4eff-b414-bc00811a5bbc"
+    },
+    {
+      "path": "shop/test/invoice.test.js",
+      "depth": 0,
+      "size": 148,
+      "node_type": "CODE_FILE",
+      "classification": "DIRECT_TEXT",
+      "status": "DONE",
+      "engine": "direct",
+      "skip_reason": null,
+      "language": "javascript",
+      "node_id": "621a6949-3c54-4ef6-b17b-aea85bd19928"
+    },
+    {
+      "path": "shop/vendor/acme-money/PATCH.md",
+      "depth": 0,
+      "size": 76,
+      "node_type": "ARCHIVE_ENTRY",
+      "classification": "UNSUPPORTED",
+      "status": "SKIPPED",
+      "engine": null,
+      "skip_reason": "dependency or build folder (smart project mode)",
+      "language": null,
+      "node_id": "e09a1d51-82fd-4a74-b642-feb103fdcd47"
+    },
+    {
+      "path": "shop/vendor/acme-money/round.js",
+      "depth": 0,
+      "size": 209,
+      "node_type": "ARCHIVE_ENTRY",
+      "classification": "UNSUPPORTED",
+      "status": "SKIPPED",
+      "engine": null,
+      "skip_reason": "dependency or build folder (smart project mode)",
+      "language": null,
+      "node_id": "dfbee69e-026f-4170-b4b6-ec42ef1a6435"
+    }
+  ]
+}

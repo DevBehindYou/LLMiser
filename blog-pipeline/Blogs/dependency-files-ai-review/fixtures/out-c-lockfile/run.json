@@ -1,0 +1,67 @@
+{
+  "label": "LOCAL CODE-LEVEL RUN of repository backend code; not a live production conversion",
+  "date_utc": "2026-11-09T07:44:22+00:00",
+  "revision": "71181ee3ce333076f4db1707cbc300d40a647a29",
+  "versions": {
+    "python": "3.13.18",
+    "markitdown": "0.1.9",
+    "tesseract": "tesseract 5.3.4"
+  },
+  "input": {
+    "file": "c-lockfile.zip",
+    "bytes": 1187,
+    "sha256": "2c91afea36524e8e96b05c3ef4c1367e48a5256951ac8e110eceb89efaf37f7a"
+  },
+  "mode": "zip",
+  "runs": [
+    {
+      "profile": "Standard",
+      "kind": "zip",
+      "words": 105,
+      "estimated_tokens_backend": 140,
+      "outputs": [
+        {
+          "file": "combined.md",
+          "bytes": 968,
+          "sha256": "a251eccdd75473c9bb664548d5d22dd79dff6d44f2a5b2264e462aa92d01efa6"
+        },
+        {
+          "file": "PROJECT_INDEX.md",
+          "bytes": 629,
+          "sha256": "fba2ac8aaac780a1496417dbe0dbfce7fc91d5e261b3787226647d34f70b06f9"
+        },
+        {
+          "file": "manifest.json",
+          "bytes": 1576,
+          "sha256": "500c701c3a1a48da059991cfb7e9f1fcaa9adf90af165bef237238e7fad2dfba"
+        }
+      ],
+      "entries": [
+        {
+          "path": "shop/package-lock.json",
+          "status": "DONE",
+          "type": "CODE_FILE",
+          "reason": null
+        },
+        {
+          "path": "shop/package.json",
+          "status": "DONE",
+          "type": "CODE_FILE",
+          "reason": null
+        },
+        {
+          "path": "shop/src/invoice.js",
+          "status": "DONE",
+          "type": "CODE_FILE",
+          "reason": null
+        },
+        {
+          "path": "shop/test/invoice.test.js",
+          "status": "DONE",
+          "type": "CODE_FILE",
+          "reason": null
+        }
+      ]
+    }
+  ]
+}

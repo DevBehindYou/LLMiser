@@ -1,0 +1,55 @@
+{
+  "label": "Synthetic Node project; acme-money is fictional",
+  "variants": {
+    "full.zip": {
+      "entries": [
+        "shop/node_modules/acme-money/CHANGELOG.md",
+        "shop/node_modules/acme-money/package.json",
+        "shop/node_modules/acme-money/round.js",
+        "shop/package-lock.json",
+        "shop/package.json",
+        "shop/src/invoice.js",
+        "shop/test/invoice.test.js",
+        "shop/vendor/acme-money/PATCH.md",
+        "shop/vendor/acme-money/round.js"
+      ],
+      "sha256": "16ab7d0689cbe860265fa76f38f76f07ba5a6632a8d0b910b5be5ec9c25a791d"
+    },
+    "a-source-only.zip": {
+      "entries": [
+        "shop/src/invoice.js",
+        "shop/test/invoice.test.js"
+      ],
+      "sha256": "5bbf81f1661782d1872f05497f7665d60bec6d1b3dd31e8e16ee72c6dd33515e"
+    },
+    "b-manifest.zip": {
+      "entries": [
+        "shop/package.json",
+        "shop/src/invoice.js",
+        "shop/test/invoice.test.js"
+      ],
+      "sha256": "a0866680d642f1267749ea739e6bcb32225a43f556a85813f470dd37976ab266"
+    },
+    "c-lockfile.zip": {
+      "entries": [
+        "shop/package-lock.json",
+        "shop/package.json",
+        "shop/src/invoice.js",
+        "shop/test/invoice.test.js"
+      ],
+      "sha256": "2c91afea36524e8e96b05c3ef4c1367e48a5256951ac8e110eceb89efaf37f7a"
+    },
+    "d-patch-kept.zip": {
+      "entries": [
+        "shop/README.md",
+        "shop/package-lock.json",
+        "shop/package.json",
+        "shop/patches/acme-money/PATCH.md",
+        "shop/patches/acme-money/round.js",
+        "shop/src/invoice.js",
+        "shop/test/invoice.test.js"
+      ],
+      "sha256": "2a43fc4a30950988dd5bd1bb0a4989277a3dd53dcd8079e20c1896f9c5157aa0"
+    }
+  }
+}

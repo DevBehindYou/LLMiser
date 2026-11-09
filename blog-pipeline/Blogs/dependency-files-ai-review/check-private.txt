@@ -1,0 +1,16 @@
+LLMiser PRIVATE draft check (adapter; staged visuals, not production validation): Blogs/dependency-files-ai-review/draft.md
+Date: 2026-11-09T07:45:29.514Z
+Words (app wordCount): 1207, read time 5 min
+Info: Intro: 74 words
+Info: H2 opening word counts: 36, 38, 33
+Info: Links: 2 (0 external)
+
+Errors (0):
+  none
+
+Warnings (3):
+  ! Three sentences in a row of similar length, starting "A project's dependencies live in two kinds of files...."
+  ! Description does not contain the primary keyword.
+  ! draft: true. The post stays out of the Blog dialog until you set it to false.
+
+RESULT: PASS (private draft adapter)

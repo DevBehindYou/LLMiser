@@ -1,0 +1,85 @@
+{
+  "label": "LOCAL CODE-LEVEL RUN of repository backend code; not a live production conversion",
+  "date_utc": "2026-11-09T07:44:23+00:00",
+  "revision": "71181ee3ce333076f4db1707cbc300d40a647a29",
+  "versions": {
+    "python": "3.13.18",
+    "markitdown": "0.1.9",
+    "tesseract": "tesseract 5.3.4"
+  },
+  "input": {
+    "file": "d-patch-kept.zip",
+    "bytes": 2055,
+    "sha256": "2a43fc4a30950988dd5bd1bb0a4989277a3dd53dcd8079e20c1896f9c5157aa0"
+  },
+  "mode": "zip",
+  "runs": [
+    {
+      "profile": "Standard",
+      "kind": "zip",
+      "words": 190,
+      "estimated_tokens_backend": 253,
+      "outputs": [
+        {
+          "file": "combined.md",
+          "bytes": 1576,
+          "sha256": "1483b3e95ff7a8759a0d0cbab33b3a21008960247ca6147db54f4cace2001768"
+        },
+        {
+          "file": "PROJECT_INDEX.md",
+          "bytes": 959,
+          "sha256": "74a0801ec950279e2684882ca0af6398c7e3605c7f6612e63070f2a2c2be00c4"
+        },
+        {
+          "file": "manifest.json",
+          "bytes": 2551,
+          "sha256": "8c8168bfd3a3eb09c612634059fae5c78aab16892a3c5aa37795ee38976ba72d"
+        }
+      ],
+      "entries": [
+        {
+          "path": "shop/package-lock.json",
+          "status": "DONE",
+          "type": "CODE_FILE",
+          "reason": null
+        },
+        {
+          "path": "shop/package.json",
+          "status": "DONE",
+          "type": "CODE_FILE",
+          "reason": null
+        },
+        {
+          "path": "shop/patches/acme-money/PATCH.md",
+          "status": "DONE",
+          "type": "TEXT_FILE",
+          "reason": null
+        },
+        {
+          "path": "shop/patches/acme-money/round.js",
+          "status": "DONE",
+          "type": "CODE_FILE",
+          "reason": null
+        },
+        {
+          "path": "shop/README.md",
+          "status": "DONE",
+          "type": "TEXT_FILE",
+          "reason": null
+        },
+        {
+          "path": "shop/src/invoice.js",
+          "status": "DONE",
+          "type": "CODE_FILE",
+          "reason": null
+        },
+        {
+          "path": "shop/test/invoice.test.js",
+          "status": "DONE",
+          "type": "CODE_FILE",
+          "reason": null
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "job_id": null,
+  "source": {
+    "filename": "c-lockfile.zip",
+    "bytes": 1187,
+    "entries": 4
+  },
+  "limits": {
+    "max_entries": 2000,
+    "max_uncompressed_bytes": 104857600,
+    "max_entry_bytes": 15728640,
+    "max_depth": 1,
+    "max_ocr_images": 50
+  },
+  "nodes": [
+    {
+      "path": "shop/package-lock.json",
+      "depth": 0,
+      "size": 261,
+      "node_type": "CODE_FILE",
+      "classification": "DIRECT_TEXT",
+      "status": "DONE",
+      "engine": "direct",
+      "skip_reason": null,
+      "language": "json",
+      "node_id": "6c0ff7bc-42e1-469c-8f20-44a1e421143a"
+    },
+    {
+      "path": "shop/package.json",
+      "depth": 0,
+      "size": 145,
+      "node_type": "CODE_FILE",
+      "classification": "DIRECT_TEXT",
+      "status": "DONE",
+      "engine": "direct",
+      "skip_reason": null,
+      "language": "json",
+      "node_id": "95788def-bbf3-409a-8cd0-a52da267f8b5"
+    },
+    {
+      "path": "shop/src/invoice.js",
+      "depth": 0,
+      "size": 141,
+      "node_type": "CODE_FILE",
+      "classification": "DIRECT_TEXT",
+      "status": "DONE",
+      "engine": "direct",
+      "skip_reason": null,
+      "language": "javascript",
+      "node_id": "0302580f-6961-4bc9-b2ae-426862025240"
+    },
+    {
+      "path": "shop/test/invoice.test.js",
+      "depth": 0,
+      "size": 148,
+      "node_type": "CODE_FILE",
+      "classification": "DIRECT_TEXT",
+      "status": "DONE",
+      "engine": "direct",
+      "skip_reason": null,
+      "language": "javascript",
+      "node_id": "7c657fa9-ccbd-488c-943c-cce18f835914"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "article": "M01-S2",
+  "slug": "dependency-files-ai-review",
+  "checked": "2026-11-09",
+  "claims": [
+    { "id": "C01", "text": "Manifest gives a range; lockfile gives the exact version", "state": "EDITORIAL", "note": "Standard package-manager semantics; fixture shows ^2.1.0 versus 2.1.4." },
+    { "id": "C02", "text": "Four bundles: only the patched-copy bundle contained the rounding code", "state": "VERIFIED_LOCAL_RUN", "source": "F-M01S2" },
+    { "id": "C03", "text": "(2.675).toFixed(2) returns 2.67", "state": "VERIFIED_LOCAL_RUN", "source": "F-NODE" },
+    { "id": "C04", "text": "LLMiser skips node_modules, .venv, vendor and similar folders by name", "state": "VERIFIED_CODE", "source": "S-CODE-ARCHIVE" },
+    { "id": "C05", "text": "Full working folder: patched round.js in vendor/ never reached the Markdown", "state": "VERIFIED_LOCAL_RUN", "source": "F-M01S2 out-full" },
+    { "id": "C06", "text": "Moved to patches/, the patch converted", "state": "VERIFIED_LOCAL_RUN", "source": "F-M01S2 out-d-patch-kept" },
+    { "id": "C07", "text": ".lock files read as text; unrecognized text files convert only under 1 MB", "state": "VERIFIED_CODE", "source": "S-CODE-ARCHIVE" }
+  ]
+}

@@ -1,0 +1,97 @@
+{
+  "label": "LOCAL CODE-LEVEL RUN of repository backend code; not a live production conversion",
+  "date_utc": "2026-11-09T07:44:20+00:00",
+  "revision": "71181ee3ce333076f4db1707cbc300d40a647a29",
+  "versions": {
+    "python": "3.13.18",
+    "markitdown": "0.1.9",
+    "tesseract": "tesseract 5.3.4"
+  },
+  "input": {
+    "file": "full.zip",
+    "bytes": 2440,
+    "sha256": "16ab7d0689cbe860265fa76f38f76f07ba5a6632a8d0b910b5be5ec9c25a791d"
+  },
+  "mode": "zip",
+  "runs": [
+    {
+      "profile": "Standard",
+      "kind": "zip",
+      "words": 104,
+      "estimated_tokens_backend": 138,
+      "outputs": [
+        {
+          "file": "combined.md",
+          "bytes": 956,
+          "sha256": "1879089a6e30bf9eda2f503b0f3f9170b0b9d7b79d319420ee1d3c2470b4845e"
+        },
+        {
+          "file": "PROJECT_INDEX.md",
+          "bytes": 1744,
+          "sha256": "844421b829c1b3deefe2af251264e7f19f528d61bb2b6e92801bdbb0c38a6115"
+        },
+        {
+          "file": "manifest.json",
+          "bytes": 3468,
+          "sha256": "82a051d9869c375d185d4d491037d56285b60565f92dc3f87d881c80a2873c7b"
+        }
+      ],
+      "entries": [
+        {
+          "path": "shop/node_modules/acme-money/CHANGELOG.md",
+          "status": "SKIPPED",
+          "type": "ARCHIVE_ENTRY",
+          "reason": "dependency or build folder (smart project mode)"
+        },
+        {
+          "path": "shop/node_modules/acme-money/package.json",
+          "status": "SKIPPED",
+          "type": "ARCHIVE_ENTRY",
+          "reason": "dependency or build folder (smart project mode)"
+        },
+        {
+          "path": "shop/node_modules/acme-money/round.js",
+          "status": "SKIPPED",
+          "type": "ARCHIVE_ENTRY",
+          "reason": "dependency or build folder (smart project mode)"
+        },
+        {
+          "path": "shop/package-lock.json",
+          "status": "DONE",
+          "type": "CODE_FILE",
+          "reason": null
+        },
+        {
+          "path": "shop/package.json",
+          "status": "DONE",
+          "type": "CODE_FILE",
+          "reason": null
+        },
+        {
+          "path": "shop/src/invoice.js",
+          "status": "DONE",
+          "type": "CODE_FILE",
+          "reason": null
+        },
+        {
+          "path": "shop/test/invoice.test.js",
+          "status": "DONE",
+          "type": "CODE_FILE",
+          "reason": null
+        },
+        {
+          "path": "shop/vendor/acme-money/PATCH.md",
+          "status": "SKIPPED",
+          "type": "ARCHIVE_ENTRY",
+          "reason": "dependency or build folder (smart project mode)"
+        },
+        {
+          "path": "shop/vendor/acme-money/round.js",
+          "status": "SKIPPED",
+          "type": "ARCHIVE_ENTRY",
+          "reason": "dependency or build folder (smart project mode)"
+        }
+      ]
+    }
+  ]
+}

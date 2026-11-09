@@ -1,0 +1,101 @@
+{
+  "job_id": null,
+  "source": {
+    "filename": "d-patch-kept.zip",
+    "bytes": 2055,
+    "entries": 7
+  },
+  "limits": {
+    "max_entries": 2000,
+    "max_uncompressed_bytes": 104857600,
+    "max_entry_bytes": 15728640,
+    "max_depth": 1,
+    "max_ocr_images": 50
+  },
+  "nodes": [
+    {
+      "path": "shop/package-lock.json",
+      "depth": 0,
+      "size": 261,
+      "node_type": "CODE_FILE",
+      "classification": "DIRECT_TEXT",
+      "status": "DONE",
+      "engine": "direct",
+      "skip_reason": null,
+      "language": "json",
+      "node_id": "ec9e3fd2-6717-4509-b4e6-d0426da7fb9e"
+    },
+    {
+      "path": "shop/package.json",
+      "depth": 0,
+      "size": 145,
+      "node_type": "CODE_FILE",
+      "classification": "DIRECT_TEXT",
+      "status": "DONE",
+      "engine": "direct",
+      "skip_reason": null,
+      "language": "json",
+      "node_id": "b87856a4-0934-4b7d-b931-c3bd21070b26"
+    },
+    {
+      "path": "shop/patches/acme-money/PATCH.md",
+      "depth": 0,
+      "size": 76,
+      "node_type": "TEXT_FILE",
+      "classification": "DIRECT_TEXT",
+      "status": "DONE",
+      "engine": "direct",
+      "skip_reason": null,
+      "language": null,
+      "node_id": "a33cdd18-2238-4555-82af-ae443622dff2"
+    },
+    {
+      "path": "shop/patches/acme-money/round.js",
+      "depth": 0,
+      "size": 209,
+      "node_type": "CODE_FILE",
+      "classification": "DIRECT_TEXT",
+      "status": "DONE",
+      "engine": "direct",
+      "skip_reason": null,
+      "language": "javascript",
+      "node_id": "67b750f8-54a1-4c49-b88e-7b4b8b56b865"
+    },
+    {
+      "path": "shop/README.md",
+      "depth": 0,
+      "size": 199,
+      "node_type": "TEXT_FILE",
+      "classification": "DIRECT_TEXT",
+      "status": "DONE",
+      "engine": "direct",
+      "skip_reason": null,
+      "language": null,
+      "node_id": "76fdc07a-b9bc-4522-b26d-5454db43d133"
+    },
+    {
+      "path": "shop/src/invoice.js",
+      "depth": 0,
+      "size": 141,
+      "node_type": "CODE_FILE",
+      "classification": "DIRECT_TEXT",
+      "status": "DONE",
+      "engine": "direct",
+      "skip_reason": null,
+      "language": "javascript",
+      "node_id": "a6f46cbd-d06d-4010-b39d-32ee5b19415f"
+    },
+    {
+      "path": "shop/test/invoice.test.js",
+      "depth": 0,
+      "size": 148,
+      "node_type": "CODE_FILE",
+      "classification": "DIRECT_TEXT",
+      "status": "DONE",
+      "engine": "direct",
+      "skip_reason": null,
+      "language": "javascript",
+      "node_id": "cb776239-b84a-46e3-bbc9-894eef39f090"
+    }
+  ]
+}
