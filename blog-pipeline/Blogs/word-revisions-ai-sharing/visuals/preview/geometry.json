@@ -1,0 +1,82 @@
+{
+  "slug": "word-revisions-ai-sharing",
+  "date": "2026-11-09T08:29:57.786Z",
+  "viewport": "2 x 375px columns, deviceScaleFactor 2",
+  "themes": [
+    "dark",
+    "light"
+  ],
+  "fontsLoaded": [
+    "LLMiser Inter",
+    "LLMiser JetBrains Mono",
+    "LLMiser Patrick Hand"
+  ],
+  "figures": [
+    {
+      "figure": "banner.svg",
+      "viewBox": [
+        1200,
+        400
+      ],
+      "renderedWidthPx": 343,
+      "minFontPxAt375": "4.0",
+      "texts": 20,
+      "issues": []
+    },
+    {
+      "figure": "review-items.svg",
+      "viewBox": [
+        600,
+        322
+      ],
+      "renderedWidthPx": 343,
+      "minFontPxAt375": "6.3",
+      "texts": 19,
+      "issues": []
+    },
+    {
+      "figure": "three-readings.svg",
+      "viewBox": [
+        600,
+        549
+      ],
+      "renderedWidthPx": 343,
+      "minFontPxAt375": "6.3",
+      "texts": 19,
+      "issues": []
+    },
+    {
+      "figure": "view-results.svg",
+      "viewBox": [
+        600,
+        382
+      ],
+      "renderedWidthPx": 343,
+      "minFontPxAt375": "6.3",
+      "texts": 25,
+      "issues": []
+    },
+    {
+      "figure": "draft-vs-copy.svg",
+      "viewBox": [
+        600,
+        479
+      ],
+      "renderedWidthPx": 343,
+      "minFontPxAt375": "6.3",
+      "texts": 17,
+      "issues": []
+    },
+    {
+      "figure": "revisions-checklist.svg",
+      "viewBox": [
+        600,
+        380
+      ],
+      "renderedWidthPx": 343,
+      "minFontPxAt375": "6.3",
+      "texts": 10,
+      "issues": []
+    }
+  ]
+}

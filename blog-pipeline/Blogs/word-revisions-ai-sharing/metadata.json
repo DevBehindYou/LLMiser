@@ -1,0 +1,52 @@
+{
+  "id": "M04-S3",
+  "role": "support",
+  "title": "Prepare Word Revisions and Comments for AI Sharing",
+  "title_selection": "EDITORIAL_PROPOSAL (registry title kept unless qa.md records a change)",
+  "slug": "word-revisions-ai-sharing",
+  "canonical": "https://llmiser.devbehindyou.com/blog/word-revisions-ai-sharing",
+  "canonical_status": "RESERVED_NOT_LIVE",
+  "intent_key": "word-revisions-ai-sharing",
+  "reader_task": "Which revision view and comments should a shared document represent?",
+  "scope_exclusions": [
+    "Do not silently accept changes or claim all comments are extracted/removed. Main checklist and sibling questions remain with their owners.",
+    "Parent M04 owns the full checklist or workflow"
+  ],
+  "primary_keyword": "Word tracked changes AI sharing",
+  "secondary_keywords": [
+    "share Word document with comments",
+    "Word hidden text conversion"
+  ],
+  "keyword_metrics": "UNMEASURED",
+  "description": "A Word tracked changes AI sharing check: decide the revision, make a reviewed copy and compare the output. Our draft converted as if every change was accepted.",
+  "description_change": "Registry proposal was a question template; rewritten as the procedure with the finding; 159 characters.",
+  "excerpt": "A draft with one approved change, two pending ones and a hidden note converted as if everything had been accepted. The comments explaining which was which were gone.",
+  "category": "GUIDE",
+  "tags": [
+    "Word",
+    "DOCX",
+    "Tracked changes",
+    "Data quality",
+    "AI context"
+  ],
+  "listicle_count": null,
+  "parent_id": "M04",
+  "nearest_ids": [
+    "M04-S1",
+    "M04-S2",
+    "M04"
+  ],
+  "author": "DevBehindYou",
+  "draft_date": "2026-11-09",
+  "publication_date": null,
+  "draft": true,
+  "banner": "/blog/word-revisions-ai-sharing/banner.svg",
+  "figures": [
+    "review-items",
+    "three-readings",
+    "view-results",
+    "draft-vs-copy",
+    "revisions-checklist"
+  ],
+  "product_revision_checked": "1b6634b (application code identical to 8eb8c509)"
+}

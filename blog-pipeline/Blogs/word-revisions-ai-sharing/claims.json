@@ -1,0 +1,16 @@
+{
+  "article": "M04-S3",
+  "slug": "word-revisions-ai-sharing",
+  "checked": "2026-11-09",
+  "claims": [
+    { "id": "C01", "text": "The converted draft matched the every-change-accepted reading plus the hidden line", "state": "VERIFIED_LOCAL_RUN", "source": "F-M04S3 view-results.json" },
+    { "id": "C02", "text": "The pending insertion appeared as policy; the pending deletion removed a sentence still in force", "state": "VERIFIED_LOCAL_RUN", "source": "F-M04S3 out-draft" },
+    { "id": "C03", "text": "Hidden text appeared as normal text; comments were dropped", "state": "VERIFIED_LOCAL_RUN", "source": "F-M04S3 view-results.json" },
+    { "id": "C04", "text": "The sharing copy converted to exactly the decided reading", "state": "VERIFIED_LOCAL_RUN", "source": "F-M04S3 view-results.json" },
+    { "id": "C05", "text": "Word's markup views: Simple, All, No Markup (changes incorporated), Original; pending changes remain", "state": "VERIFIED_SOURCE", "source": "S-MS-TRACK" },
+    { "id": "C06", "text": "Remove markup by accepting or rejecting before sharing; No Markup only hides changes temporarily", "state": "VERIFIED_SOURCE", "source": "S-MS-ACCEPT" },
+    { "id": "C07", "text": "Review > Tracking has Accept All Changes and Reject All Changes; Document Inspector checks tracked changes, comments, hidden text, personal names", "state": "VERIFIED_SOURCE", "source": "S-MS-ACCEPT" },
+    { "id": "C08", "text": "A conversion reads the file, not the screen view", "state": "REASONING", "source": "No Markup is a view (S-MS-ACCEPT); converter reads document content" }
+  ],
+  "not_claimed": ["effect of Word's stored view settings on conversion", "moved text or comment replies"]
+}

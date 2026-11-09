@@ -1,0 +1,15 @@
+LLMiser PRIVATE draft check (adapter; staged visuals, not production validation): Blogs/word-revisions-ai-sharing/draft.md
+Date: 2026-11-09T08:29:57.183Z
+Words (app wordCount): 1493, read time 6 min
+Info: Intro: 84 words
+Info: H2 opening word counts: 38, 36, 34
+Info: Links: 4 (2 external)
+
+Errors (0):
+  none
+
+Warnings (2):
+  ! 1 sentence(s) over 35 words, e.g. "Our sharing copy accepted the approved change to 10 days, rejected the pending e..."
+  ! draft: true. The post stays out of the Blog dialog until you set it to false.
+
+RESULT: PASS (private draft adapter)

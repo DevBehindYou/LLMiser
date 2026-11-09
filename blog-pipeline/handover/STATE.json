@@ -71,9 +71,9 @@
     "Produce article drafts, visuals and final post copy; publication is not part of this planning pack"
   ],
   "next": {
-    "id": "M04-S1",
+    "id": "M05-S1",
     "action": "Phase B: draft support articles in order, reusing cluster fixtures",
-    "entry": "../campaign/support-briefs/M04-S1.md"
+    "entry": "../campaign/support-briefs/M05-S1.md"
   },
   "evidence": {
     "validation": "../campaign/VALIDATION.md",
@@ -117,16 +117,16 @@
     },
     "support_topics_status": "IMPLEMENTED",
     "post_briefs_status": "IMPLEMENTED",
-    "article_drafts_completed": 21,
+    "article_drafts_completed": 24,
     "published_assets": 0,
     "validation": "VERIFIED_STRUCTURE_ONLY",
     "production": {
       "mains_drafted": 12,
-      "supports_drafted": 9,
+      "supports_drafted": 12,
       "posts_written": 0,
-      "banners": 21,
-      "figures": 90,
-      "rendered_previews": 21,
+      "banners": 24,
+      "figures": 103,
+      "rendered_previews": 24,
       "ledger": "../campaign/production-status.json",
       "checkpoint": "../campaign/CONTINUATION.md"
     }

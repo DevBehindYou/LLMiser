@@ -1,0 +1,31 @@
+{
+  "label": "Synthetic leave policy; expected text per view",
+  "views": {
+    "all_rejected": [
+      "Staff may carry over up to 5 days of leave into the next year.",
+      "Managers may approve exceptions.",
+      "Requests go through the HR portal."
+    ],
+    "all_accepted": [
+      "Staff may carry over up to 10 days of leave into the next year. Unused days expire on 31 March.",
+      "Requests go through the HR portal."
+    ],
+    "decided": [
+      "Staff may carry over up to 10 days of leave into the next year.",
+      "Managers may approve exceptions.",
+      "Requests go through the HR portal.",
+      "A proposed rule that unused days expire on 31 March is under legal review and is not in effect."
+    ]
+  },
+  "hidden_text": "Internal: figures not final.",
+  "files": {
+    "leave-draft.docx": {
+      "bytes": 37554,
+      "sha256": "f9f9ada185373f9ebc265ea81b646a49783d78af9de475456d8c8cc94a16dfb5"
+    },
+    "leave-shared.docx": {
+      "bytes": 36771,
+      "sha256": "ae4274662ade00a8d7980080d6ac6cb83b7f834060699653159fa1a3a5ed396c"
+    }
+  }
+}
