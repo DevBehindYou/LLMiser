@@ -1,0 +1,75 @@
+{
+  "label": "Synthetic sales sheet: original and two sharing copies",
+  "data": [
+    [
+      "North",
+      "Retail",
+      [
+        120,
+        1260.0,
+        54.0
+      ],
+      [
+        135,
+        1417.5,
+        60.8
+      ]
+    ],
+    [
+      "North",
+      "Wholesale",
+      [
+        400,
+        3800.0,
+        180.0
+      ],
+      [
+        380,
+        3610.0,
+        171.0
+      ]
+    ],
+    [
+      "South",
+      "Retail",
+      [
+        90,
+        945.0,
+        40.5
+      ],
+      [
+        110,
+        1155.0,
+        49.5
+      ]
+    ],
+    [
+      "South",
+      "Wholesale",
+      [
+        250,
+        2375.0,
+        112.5
+      ],
+      [
+        300,
+        2850.0,
+        135.0
+      ]
+    ]
+  ],
+  "files": {
+    "sales-grouped.xlsx": {
+      "bytes": 6414,
+      "sha256": "ee4fb40d257dfe1cd39ef1edeca4ce04923eaa6b6e56105fc287c60a00bc1018"
+    },
+    "sales-flat.xlsx": {
+      "bytes": 6323,
+      "sha256": "5e94ede0de2fcd581ef5f950c8157f54636e24b6caf0062473d49a37eb2759ed"
+    },
+    "sales-long.xlsx": {
+      "bytes": 6391,
+      "sha256": "2c348c261462d9d47f5e11b43dfcedccb796e5f5264abf6f26948cbb095a0df3"
+    }
+  }
+}

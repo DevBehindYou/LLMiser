@@ -1,0 +1,82 @@
+{
+  "slug": "merged-excel-headers-markdown",
+  "date": "2026-11-09T08:18:19.812Z",
+  "viewport": "2 x 375px columns, deviceScaleFactor 2",
+  "themes": [
+    "dark",
+    "light"
+  ],
+  "fontsLoaded": [
+    "LLMiser Inter",
+    "LLMiser JetBrains Mono",
+    "LLMiser Patrick Hand"
+  ],
+  "figures": [
+    {
+      "figure": "banner.svg",
+      "viewBox": [
+        1200,
+        400
+      ],
+      "renderedWidthPx": 343,
+      "minFontPxAt375": "4.0",
+      "texts": 15,
+      "issues": []
+    },
+    {
+      "figure": "grouped-labels.svg",
+      "viewBox": [
+        600,
+        393
+      ],
+      "renderedWidthPx": 343,
+      "minFontPxAt375": "6.3",
+      "texts": 50,
+      "issues": []
+    },
+    {
+      "figure": "grouped-output.svg",
+      "viewBox": [
+        600,
+        336
+      ],
+      "renderedWidthPx": 343,
+      "minFontPxAt375": "6.3",
+      "texts": 24,
+      "issues": []
+    },
+    {
+      "figure": "header-map.svg",
+      "viewBox": [
+        600,
+        375
+      ],
+      "renderedWidthPx": 343,
+      "minFontPxAt375": "6.3",
+      "texts": 27,
+      "issues": []
+    },
+    {
+      "figure": "meaning-results.svg",
+      "viewBox": [
+        600,
+        435
+      ],
+      "renderedWidthPx": 343,
+      "minFontPxAt375": "6.3",
+      "texts": 30,
+      "issues": []
+    },
+    {
+      "figure": "headers-checklist.svg",
+      "viewBox": [
+        600,
+        380
+      ],
+      "renderedWidthPx": 343,
+      "minFontPxAt375": "6.3",
+      "texts": 10,
+      "issues": []
+    }
+  ]
+}

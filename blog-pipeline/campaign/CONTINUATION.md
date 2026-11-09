@@ -11,12 +11,13 @@ Updated 2026-11-09. Branch `claude/stoic-pasteur-raqnqy`. Owner decision on 2026
 | A2 | M02-M06 | Blogs/ocr-checks-before-ai, excel-data-checks-for-ai, prepare-word-documents-for-ai, powerpoint-to-markdown-checks, prepare-csv-data-for-ai | READY_FOR_REVIEW |
 | A3 | M07-M12 | Blogs/convert-multiple-files-llmiser, llmiser-processing-profiles, edit-export-markdown-llmiser, llmiser-zip-index-manifest, document-prompt-injection, conflicting-document-versions-ai | READY_FOR_REVIEW |
 | B1 | M01-S1 to M02-S3 | Blogs/project-zip-secret-review, dependency-files-ai-review, task-focused-code-bundle, rotated-scan-ocr-check, verify-ocr-numbers, mixed-pdf-ocr-coverage | READY_FOR_REVIEW |
+| B2 | M03-S1 to M03-S3 | Blogs/excel-leading-zeros-ai, excel-formula-results-conversion, merged-excel-headers-markdown | READY_FOR_REVIEW |
 
-Counts: mains 12/12 (Phase A complete), supports 6/36, posts 0/108. Banners 18/48, figures 75 (minimum 192), rendered previews 18/48. Every drafted article PASSES the private check. Run `node scripts/campaign/status.mjs build` for live counts.
+Counts: mains 12/12 (Phase A complete), supports 9/36, posts 0/108. Run `node scripts/campaign/status.mjs build` for live counts; `python3 scripts/campaign/sync_state.py NEXT_ID "action"` copies them into STATE.json and manifest.json.
 
 ## Next action
 
-Phase B: M03-S1 "excel-leading-zeros-ai", then M03-S2 through M12-S3 in order. Reuse each cluster's fixtures (Blogs/{main-slug}/fixtures) and extend them for the support's narrow question. Per support: `node scripts/campaign/scaffold-support.mjs ID` writes metadata.json and a links.json skeleton. After all 36, revisit main links.json placements.
+Phase B: M04-S1 "word-heading-styles-markdown", then M04-S2 through M12-S3 in order. Reuse each cluster's fixtures (Blogs/{main-slug}/fixtures) and extend them for the support's narrow question. Per support: `node scripts/campaign/scaffold-support.mjs ID` writes metadata.json and a links.json skeleton. After all 36, revisit main links.json placements.
 
 ## How to work (per article)
 
@@ -52,6 +53,9 @@ Phase B: M03-S1 "excel-leading-zeros-ai", then M03-S2 through M12-S3 in order. R
 - M02-S1: a page tilted 8 degrees lost almost all text with no warning (mean confidence stayed above the orientation threshold).
 - M02-S2: the letter O inside identifiers came back as zero even on a clean 200 dpi scan; a photo-style copy lost its totals block at 92.7 mean confidence with no warning.
 - M02-S3: a scanned PDF page carrying 20+ characters of real text (a scanner stamp) is treated as a text page and its image is never recognized; a page whose picture covers 5 to 30% is never recognized; an invisible duplicate text layer comes through twice. None of these raise a warning.
+- M03-S1: Text-formatted digit-only ID columns lose leading zeros (type inference); one blank cell turns the IDs into decimals (123.0) and the blank into NaN.
+- M03-S2: #N/A, #DIV/0! and empty cells all convert to NaN; numeric columns share decimal places (12.000 beside 0.075).
+- M03-S3: merged header groups become "Unnamed: N" columns and the second header row becomes data.
 
 ## Blockers
 

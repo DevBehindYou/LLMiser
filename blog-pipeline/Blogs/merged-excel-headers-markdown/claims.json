@@ -1,0 +1,14 @@
+{
+  "article": "M03-S3",
+  "slug": "merged-excel-headers-markdown",
+  "checked": "2026-11-09",
+  "claims": [
+    { "id": "C01", "text": "Converted header read Region, Channel, Q1 2026, Unnamed: 3, Unnamed: 4, Q2 2026, Unnamed: 6, Unnamed: 7", "state": "VERIFIED_LOCAL_RUN + VERIFIED_CODE", "source": "F-M03S3 out-grouped, S-CODE-XLSX" },
+    { "id": "C02", "text": "A Markdown table has one header row", "state": "VERIFIED_SOURCE", "source": "S-GFM" },
+    { "id": "C03", "text": "The units row became the first data row; the second row under each merged region said NaN", "state": "VERIFIED_LOCAL_RUN", "source": "F-M03S3 out-grouped" },
+    { "id": "C04", "text": "0 of 24 values fully labeled in the original's output (measure 24, quarter 16, region 12 missing); 24 of 24 in both copies", "state": "VERIFIED_LOCAL_RUN", "source": "F-M03S3 meaning-results.json" },
+    { "id": "C05", "text": "Wide copy 4 rows and 8 columns; long copy 8 rows and 6 columns; both hold the same 24 values", "state": "VERIFIED_LOCAL_RUN", "source": "F-M03S3 out-flat, out-long" },
+    { "id": "C06", "text": "1417.5 sat under Unnamed: 6 in a North, Retail row; flat copy header Q2 2026 Revenue (USD)", "state": "VERIFIED_LOCAL_RUN", "source": "F-M03S3 meaning-results.json examples" }
+  ],
+  "not_claimed": ["automatic merged-cell repair", "how a model would interpret the original table"]
+}

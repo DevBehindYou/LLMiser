@@ -1,0 +1,159 @@
+{
+  "label": "Meaning check on LOCAL CODE-LEVEL RUN outputs",
+  "tables": {
+    "grouped": {
+      "value_cells": 24,
+      "fully_labeled": 0,
+      "missing": {
+        "region": 12,
+        "channel": 0,
+        "quarter": 16,
+        "measure": 24
+      },
+      "header": [
+        "Region",
+        "Channel",
+        "Q1 2026",
+        "Unnamed: 3",
+        "Unnamed: 4",
+        "Q2 2026",
+        "Unnamed: 6",
+        "Unnamed: 7"
+      ],
+      "examples": [
+        {
+          "value": "1417.5",
+          "header": "Unnamed: 6",
+          "row": [
+            "North",
+            "Retail",
+            "120"
+          ],
+          "recovered": {
+            "region": "North",
+            "channel": "Retail",
+            "quarter": null,
+            "measure": null
+          }
+        },
+        {
+          "value": "3800",
+          "header": "Unnamed: 3",
+          "row": [
+            "NaN",
+            "Wholesale",
+            "400"
+          ],
+          "recovered": {
+            "region": null,
+            "channel": "Wholesale",
+            "quarter": null,
+            "measure": null
+          }
+        }
+      ]
+    },
+    "flat": {
+      "value_cells": 24,
+      "fully_labeled": 24,
+      "missing": {
+        "region": 0,
+        "channel": 0,
+        "quarter": 0,
+        "measure": 0
+      },
+      "header": [
+        "Region",
+        "Channel",
+        "Q1 2026 Units",
+        "Q1 2026 Revenue (USD)",
+        "Q1 2026 Weight (kg)",
+        "Q2 2026 Units",
+        "Q2 2026 Revenue (USD)",
+        "Q2 2026 Weight (kg)"
+      ],
+      "examples": [
+        {
+          "value": "1417.5",
+          "header": "Q2 2026 Revenue (USD)",
+          "row": [
+            "North",
+            "Retail",
+            "120"
+          ],
+          "recovered": {
+            "region": "North",
+            "channel": "Retail",
+            "quarter": "Q2 2026",
+            "measure": "Revenue (USD)"
+          }
+        },
+        {
+          "value": "3800",
+          "header": "Q1 2026 Revenue (USD)",
+          "row": [
+            "North",
+            "Wholesale",
+            "400"
+          ],
+          "recovered": {
+            "region": "North",
+            "channel": "Wholesale",
+            "quarter": "Q1 2026",
+            "measure": "Revenue (USD)"
+          }
+        }
+      ]
+    },
+    "long": {
+      "value_cells": 24,
+      "fully_labeled": 24,
+      "missing": {
+        "region": 0,
+        "channel": 0,
+        "quarter": 0,
+        "measure": 0
+      },
+      "header": [
+        "Region",
+        "Channel",
+        "Quarter",
+        "Units",
+        "Revenue (USD)",
+        "Weight (kg)"
+      ],
+      "examples": [
+        {
+          "value": "1417.5",
+          "header": "Revenue (USD)",
+          "row": [
+            "North",
+            "Retail",
+            "Q2 2026"
+          ],
+          "recovered": {
+            "region": "North",
+            "channel": "Retail",
+            "quarter": "Q2 2026",
+            "measure": "Revenue (USD)"
+          }
+        },
+        {
+          "value": "3800.0",
+          "header": "Revenue (USD)",
+          "row": [
+            "North",
+            "Wholesale",
+            "Q1 2026"
+          ],
+          "recovered": {
+            "region": "North",
+            "channel": "Wholesale",
+            "quarter": "Q1 2026",
+            "measure": "Revenue (USD)"
+          }
+        }
+      ]
+    }
+  }
+}

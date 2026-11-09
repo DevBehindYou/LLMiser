@@ -1,0 +1,16 @@
+LLMiser PRIVATE draft check (adapter; staged visuals, not production validation): Blogs/merged-excel-headers-markdown/draft.md
+Date: 2026-11-09T08:18:19.179Z
+Words (app wordCount): 1551, read time 7 min
+Info: Intro: 90 words
+Info: H2 opening word counts: 34, 39, 40
+Info: Links: 2 (0 external)
+
+Errors (0):
+  none
+
+Warnings (3):
+  ! 1 sentence(s) over 35 words, e.g. "Find every grouped label, make a sharing copy with one header row that names the..."
+  ! Three sentences in a row of similar length, starting "We built a small sales sheet with two-level headers and merg..."
+  ! draft: true. The post stays out of the Blog dialog until you set it to false.
+
+RESULT: PASS (private draft adapter)

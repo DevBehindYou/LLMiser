@@ -1,0 +1,52 @@
+{
+  "id": "M03-S3",
+  "role": "support",
+  "title": "Prepare Merged Excel Headers for Markdown Tables",
+  "title_selection": "EDITORIAL_PROPOSAL (registry title kept unless qa.md records a change)",
+  "slug": "merged-excel-headers-markdown",
+  "canonical": "https://llmiser.devbehindyou.com/blog/merged-excel-headers-markdown",
+  "canonical_status": "RESERVED_NOT_LIVE",
+  "intent_key": "merged-excel-headers-markdown",
+  "reader_task": "How can I make multi-level spreadsheet labels unambiguous?",
+  "scope_exclusions": [
+    "Manual flattening must preserve meaning; no automatic merged-cell repair claim. Main checklist and sibling questions remain with their owners.",
+    "Parent M03 owns the full checklist or workflow"
+  ],
+  "primary_keyword": "merged Excel headers Markdown",
+  "secondary_keywords": [
+    "flatten Excel headers",
+    "multi-level column headers"
+  ],
+  "keyword_metrics": "UNMEASURED",
+  "description": "Flatten the merged Excel headers Markdown tables can't hold: find grouped labels, build a one-row header copy with units, and test what each value means.",
+  "description_change": "Registry proposal was a question template; rewritten as the procedure; 153 characters.",
+  "excerpt": "A Markdown table has one header row. Our two-level sheet converted into columns named Unnamed: 3, with units pushed into the data. A flat copy fixed all 24 values.",
+  "category": "GUIDE",
+  "tags": [
+    "Excel",
+    "Spreadsheets",
+    "Markdown",
+    "Tables",
+    "AI context"
+  ],
+  "listicle_count": null,
+  "parent_id": "M03",
+  "nearest_ids": [
+    "M03-S1",
+    "M03-S2",
+    "M03"
+  ],
+  "author": "DevBehindYou",
+  "draft_date": "2026-11-09",
+  "publication_date": null,
+  "draft": true,
+  "banner": "/blog/merged-excel-headers-markdown/banner.svg",
+  "figures": [
+    "grouped-labels",
+    "grouped-output",
+    "header-map",
+    "meaning-results",
+    "headers-checklist"
+  ],
+  "product_revision_checked": "a43bb74 (application code identical to 8eb8c509)"
+}
