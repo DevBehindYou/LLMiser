@@ -1,0 +1,6 @@
+PARTS COUNTER
+Receipt 88412
+Shipping label 4.80
+Packing tape 2.15
+
+TOTAL 6.95

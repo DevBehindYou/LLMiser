@@ -1,0 +1,18 @@
+{
+  "article": "M02-S3",
+  "slug": "mixed-pdf-ocr-coverage",
+  "checked": "2026-11-09",
+  "claims": [
+    { "id": "C01", "text": "A page goes to text recognition only with fewer than 20 selectable characters and at least 30% picture coverage; each page checked on its own", "state": "VERIFIED_CODE", "source": "S-CODE-PDF PageInfo.kind" },
+    { "id": "C02", "text": "Scanned pages get a page comment marker; text pages and blanks don't; consecutive text pages are joined", "state": "VERIFIED_CODE + VERIFIED_LOCAL_RUN", "source": "S-CODE-PDF merge, page_runs; F-M02S3" },
+    { "id": "C03", "text": "Page 2's last line ran into page 4's first line", "state": "VERIFIED_LOCAL_RUN", "source": "F-M02S3 packet.Standard.md" },
+    { "id": "C04", "text": "Page 5 (40-character stamp) returned only the stamp; form missing", "state": "VERIFIED_LOCAL_RUN", "source": "F-M02S3 run.json chars 40, output" },
+    { "id": "C05", "text": "Page 6 receipt covering about 19% returned nothing; page 7 text appeared twice; blanks left no trace", "state": "VERIFIED_LOCAL_RUN", "source": "F-M02S3 run.json coverage 0.187, output" },
+    { "id": "C06", "text": "Exported as images, page 5 returned stamp and full form, page 6 the receipt with total 6.95", "state": "VERIFIED_LOCAL_RUN", "source": "F-M02S3 out-workaround" },
+    { "id": "C07", "text": "No page in the packet produced a warning", "state": "VERIFIED_LOCAL_RUN", "source": "F-M02S3 output (no warning lines)" },
+    { "id": "C08", "text": "A blank page grouped with no text page is converted alone and adds 'No extractable text found in this document.'; next to text pages it leaves no trace", "state": "VERIFIED_CODE + VERIFIED_LOCAL_RUN", "source": "S-CODE-PDF page_runs, F-M02, F-M02S3" },
+    { "id": "C09", "text": "Warnings exist only for a scanned page that returns no text and for scans past the 100-page limit", "state": "VERIFIED_CODE", "source": "S-CODE-PDF merge" },
+    { "id": "C10", "text": "Images are limited to 10 MB each and 20 files per batch", "state": "VERIFIED_CODE", "source": "S-PRODUCT-LIMITS" }
+  ],
+  "not_claimed": ["how the interface displays page counts or warnings", "that every PDF tool adds hidden duplicate text"]
+}

@@ -1,0 +1,56 @@
+{
+  "label": "Synthetic. Invented company, people and numbers.",
+  "pages": [
+    {
+      "page": 1,
+      "type": "text",
+      "first": "Returns packet, April 2026",
+      "last": "Questions go to the returns desk."
+    },
+    {
+      "page": 2,
+      "type": "scan",
+      "first": "DELIVERY NOTE DN-0417",
+      "last": "End of delivery note"
+    },
+    {
+      "page": 3,
+      "type": "blank"
+    },
+    {
+      "page": 4,
+      "type": "text",
+      "first": "Inspection notes",
+      "last": "Inspector: K. Osei, 18 April 2026"
+    },
+    {
+      "page": 5,
+      "type": "scan with text stamp",
+      "stamp": "Scanned 2026-04-18 09:14 by FrontDesk-02",
+      "first": "RETURN AUTHORIZATION RA-2207",
+      "last": "Authorized by: M. Chen"
+    },
+    {
+      "page": 6,
+      "type": "small photo",
+      "first": "PARTS COUNTER",
+      "last": "TOTAL           6.95",
+      "image_area": "3.5 x 5 in of 8.5 x 11 in"
+    },
+    {
+      "page": 7,
+      "type": "text plus invisible copy",
+      "first": "Approval",
+      "last": "Approved by: Returns desk, 19 April 2026"
+    },
+    {
+      "page": 8,
+      "type": "blank"
+    }
+  ],
+  "file": {
+    "name": "packet.pdf",
+    "bytes": 143512,
+    "sha256": "cb6089e0e9bca25f8756ab2425f4ad74adb8863c8f9d90e669f41f03dd33737c"
+  }
+}

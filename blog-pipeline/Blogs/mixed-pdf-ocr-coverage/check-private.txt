@@ -1,0 +1,16 @@
+LLMiser PRIVATE draft check (adapter; staged visuals, not production validation): Blogs/mixed-pdf-ocr-coverage/draft.md
+Date: 2026-11-09T08:04:12.795Z
+Words (app wordCount): 1746, read time 8 min
+Info: Intro: 74 words
+Info: H2 opening word counts: 35, 36, 36
+Info: Links: 2 (0 external)
+
+Errors (0):
+  none
+
+Warnings (3):
+  ! 1 sentence(s) over 35 words, e.g. "In an earlier three-page test with the same code, a blank last page that followe..."
+  ! Three sentences in a row of similar length, starting "Our packet had all of these on purpose...."
+  ! draft: true. The post stays out of the Blog dialog until you set it to false.
+
+RESULT: PASS (private draft adapter)

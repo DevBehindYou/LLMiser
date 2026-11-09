@@ -1,0 +1,82 @@
+{
+  "slug": "mixed-pdf-ocr-coverage",
+  "date": "2026-11-09T08:04:13.458Z",
+  "viewport": "2 x 375px columns, deviceScaleFactor 2",
+  "themes": [
+    "dark",
+    "light"
+  ],
+  "fontsLoaded": [
+    "LLMiser Inter",
+    "LLMiser JetBrains Mono",
+    "LLMiser Patrick Hand"
+  ],
+  "figures": [
+    {
+      "figure": "banner.svg",
+      "viewBox": [
+        1200,
+        400
+      ],
+      "renderedWidthPx": 343,
+      "minFontPxAt375": "4.0",
+      "texts": 15,
+      "issues": []
+    },
+    {
+      "figure": "packet-pages.svg",
+      "viewBox": [
+        600,
+        560
+      ],
+      "renderedWidthPx": 343,
+      "minFontPxAt375": "6.3",
+      "texts": 24,
+      "issues": []
+    },
+    {
+      "figure": "page-map.svg",
+      "viewBox": [
+        600,
+        442
+      ],
+      "renderedWidthPx": 343,
+      "minFontPxAt375": "6.3",
+      "texts": 31,
+      "issues": []
+    },
+    {
+      "figure": "gap-causes.svg",
+      "viewBox": [
+        600,
+        385
+      ],
+      "renderedWidthPx": 343,
+      "minFontPxAt375": "6.3",
+      "texts": 22,
+      "issues": []
+    },
+    {
+      "figure": "page5-export.svg",
+      "viewBox": [
+        600,
+        433
+      ],
+      "renderedWidthPx": 343,
+      "minFontPxAt375": "6.3",
+      "texts": 15,
+      "issues": []
+    },
+    {
+      "figure": "coverage-checklist.svg",
+      "viewBox": [
+        600,
+        380
+      ],
+      "renderedWidthPx": 343,
+      "minFontPxAt375": "6.3",
+      "texts": 10,
+      "issues": []
+    }
+  ]
+}

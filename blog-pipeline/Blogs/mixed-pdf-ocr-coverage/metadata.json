@@ -1,0 +1,52 @@
+{
+  "id": "M02-S3",
+  "role": "support",
+  "title": "Check OCR Coverage in a Mixed PDF",
+  "title_selection": "EDITORIAL_PROPOSAL (registry title kept unless qa.md records a change)",
+  "slug": "mixed-pdf-ocr-coverage",
+  "canonical": "https://llmiser.devbehindyou.com/blog/mixed-pdf-ocr-coverage",
+  "canonical_status": "RESERVED_NOT_LIVE",
+  "intent_key": "mixed-pdf-ocr-coverage",
+  "reader_task": "How do I confirm that a PDF with text and scanned pages is represented?",
+  "scope_exclusions": [
+    "No page-level OCR routing or page-count guarantee without observed evidence. Main checklist and sibling questions remain with their owners.",
+    "Parent M02 owns the full checklist or workflow"
+  ],
+  "primary_keyword": "mixed PDF OCR coverage",
+  "secondary_keywords": [
+    "scanned pages in a PDF",
+    "PDF pages missing after conversion"
+  ],
+  "keyword_metrics": "UNMEASURED",
+  "description": "Check mixed PDF OCR coverage page by page: list each page's type, find its first and last line in the output, and trace every gap or repeat to its cause.",
+  "description_change": "Registry proposal was a question template; rewritten as the procedure; 153 characters.",
+  "excerpt": "We converted an eight-page PDF of typed and scanned pages. Two pages were never read, one appeared twice, and nothing in the output said so.",
+  "category": "GUIDE",
+  "tags": [
+    "OCR",
+    "Scanned PDF",
+    "Data quality",
+    "PDF",
+    "AI context"
+  ],
+  "listicle_count": null,
+  "parent_id": "M02",
+  "nearest_ids": [
+    "M02-S1",
+    "M02-S2",
+    "M02"
+  ],
+  "author": "DevBehindYou",
+  "draft_date": "2026-11-09",
+  "publication_date": null,
+  "draft": true,
+  "banner": "/blog/mixed-pdf-ocr-coverage/banner.svg",
+  "figures": [
+    "packet-pages",
+    "page-map",
+    "gap-causes",
+    "page5-export",
+    "coverage-checklist"
+  ],
+  "product_revision_checked": "2570dc6 (application code identical to 8eb8c509)"
+}

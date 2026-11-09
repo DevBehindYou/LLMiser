@@ -1,0 +1,109 @@
+{
+  "label": "LOCAL CODE-LEVEL RUN of repository backend code; not a live production conversion",
+  "date_utc": "2026-11-09T08:01:22+00:00",
+  "revision": "2570dc613d8ee01306464839e0933b3d34d0cfcf",
+  "versions": {
+    "python": "3.13.18",
+    "markitdown": "0.1.9",
+    "tesseract": "tesseract 5.3.4"
+  },
+  "input": {
+    "file": "packet.pdf",
+    "bytes": 143512,
+    "sha256": "cb6089e0e9bca25f8756ab2425f4ad74adb8863c8f9d90e669f41f03dd33737c"
+  },
+  "mode": "pdf",
+  "runs": [
+    {
+      "profile": "Standard",
+      "kind": "pdf",
+      "path": "storage-path emulation (scanned pages present)",
+      "pages": [
+        {
+          "page": 1,
+          "chars": 216,
+          "image_coverage": 0.0,
+          "kind": "native"
+        },
+        {
+          "page": 2,
+          "chars": 0,
+          "image_coverage": 1.0,
+          "kind": "scan"
+        },
+        {
+          "page": 3,
+          "chars": 0,
+          "image_coverage": 0.0,
+          "kind": "empty"
+        },
+        {
+          "page": 4,
+          "chars": 145,
+          "image_coverage": 0.0,
+          "kind": "native"
+        },
+        {
+          "page": 5,
+          "chars": 40,
+          "image_coverage": 1.0,
+          "kind": "native"
+        },
+        {
+          "page": 6,
+          "chars": 0,
+          "image_coverage": 0.187,
+          "kind": "native"
+        },
+        {
+          "page": 7,
+          "chars": 288,
+          "image_coverage": 0.0,
+          "kind": "native"
+        },
+        {
+          "page": 8,
+          "chars": 0,
+          "image_coverage": 0.0,
+          "kind": "empty"
+        }
+      ],
+      "segments": [
+        {
+          "kind": "native",
+          "pages": [
+            1,
+            1
+          ],
+          "chars": 216
+        },
+        {
+          "kind": "ocr",
+          "pages": [
+            2,
+            2
+          ],
+          "note": null,
+          "chars": 141
+        },
+        {
+          "kind": "native",
+          "pages": [
+            3,
+            8
+          ],
+          "chars": 477
+        }
+      ],
+      "words": 159,
+      "estimated_tokens_backend": 211,
+      "outputs": [
+        {
+          "file": "packet.Standard.md",
+          "bytes": 960,
+          "sha256": "12f9c5e0167da2cf18b30116bbcfcb132a1601dce88c5318a0bcf69b2f84c7ea"
+        }
+      ]
+    }
+  ]
+}

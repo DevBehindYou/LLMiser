@@ -10,12 +10,13 @@ Updated 2026-11-09. Branch `claude/stoic-pasteur-raqnqy`. Owner decision on 2026
 | A1 | M01 | Blogs/prepare-codebase-for-ai/ (all 12 contract files, fixtures, banner + 4 figures, preview) | READY_FOR_REVIEW |
 | A2 | M02-M06 | Blogs/ocr-checks-before-ai, excel-data-checks-for-ai, prepare-word-documents-for-ai, powerpoint-to-markdown-checks, prepare-csv-data-for-ai | READY_FOR_REVIEW |
 | A3 | M07-M12 | Blogs/convert-multiple-files-llmiser, llmiser-processing-profiles, edit-export-markdown-llmiser, llmiser-zip-index-manifest, document-prompt-injection, conflicting-document-versions-ai | READY_FOR_REVIEW |
+| B1 | M01-S1 to M02-S3 | Blogs/project-zip-secret-review, dependency-files-ai-review, task-focused-code-bundle, rotated-scan-ocr-check, verify-ocr-numbers, mixed-pdf-ocr-coverage | READY_FOR_REVIEW |
 
-Counts: mains 12/12 (Phase A complete), supports 0/36, posts 0/108. Banners 12/48, figures 48 (minimum 192), rendered previews 12/48. All 12 mains PASS the private check (2026-11-09 sweep).
+Counts: mains 12/12 (Phase A complete), supports 6/36, posts 0/108. Banners 18/48, figures 75 (minimum 192), rendered previews 18/48. Every drafted article PASSES the private check. Run `node scripts/campaign/status.mjs build` for live counts.
 
 ## Next action
 
-Phase B: M01-S1 "Check a Project ZIP for Secrets Before Sharing It" (slug project-zip-secret-review), then M01-S2 through M12-S3 in order. Reuse each cluster's fixtures (Blogs/{main-slug}/fixtures) and extend them for the support's narrow question. After all 36, revisit main links.json placements.
+Phase B: M03-S1 "excel-leading-zeros-ai", then M03-S2 through M12-S3 in order. Reuse each cluster's fixtures (Blogs/{main-slug}/fixtures) and extend them for the support's narrow question. Per support: `node scripts/campaign/scaffold-support.mjs ID` writes metadata.json and a links.json skeleton. After all 36, revisit main links.json placements.
 
 ## How to work (per article)
 
@@ -47,6 +48,10 @@ Phase B: M01-S1 "Check a Project ZIP for Secrets Before Sharing It" (slug projec
 - M10: blank images count as converted and recognized; case-insensitive duplicates dropped even when content differs; index/manifest and the ZIP source note expose third-party engine names; labels use British spelling.
 - M12: DOCX headers and document properties (often where effective dates live) do not appear in converted output.
 - campaign-parts columns(): a leading backslash renders a line literally (needed for Markdown headings).
+- M01-S2: patched dependencies kept under vendor/ are skipped from ZIP conversion.
+- M02-S1: a page tilted 8 degrees lost almost all text with no warning (mean confidence stayed above the orientation threshold).
+- M02-S2: the letter O inside identifiers came back as zero even on a clean 200 dpi scan; a photo-style copy lost its totals block at 92.7 mean confidence with no warning.
+- M02-S3: a scanned PDF page carrying 20+ characters of real text (a scanner stamp) is treated as a text page and its image is never recognized; a page whose picture covers 5 to 30% is never recognized; an invisible duplicate text layer comes through twice. None of these raise a warning.
 
 ## Blockers
 

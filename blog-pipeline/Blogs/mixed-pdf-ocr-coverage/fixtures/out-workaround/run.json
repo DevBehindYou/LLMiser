@@ -1,0 +1,17 @@
+{
+  "label": "LOCAL CODE-LEVEL RUN: packet pages 5 and 6 exported as images, then converted as images",
+  "runs": [
+    {
+      "image": "packet-page-5.png",
+      "sha256": "a48a045986b8ad67aad7dd2cf5b1beb3737f014c9c3db3c7627dd6484dd45a2c",
+      "warning": null,
+      "output": "packet-page-5.txt"
+    },
+    {
+      "image": "packet-page-6.png",
+      "sha256": "781b1c0c114f8e5cf59585bf1ca0e6a090ce325816eeacdbe6ccfac20de88ffe",
+      "warning": null,
+      "output": "packet-page-6.txt"
+    }
+  ]
+}
