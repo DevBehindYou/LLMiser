@@ -1,0 +1,2 @@
+RATE_PER_DAY = 0.25
+HOLIDAYS = []

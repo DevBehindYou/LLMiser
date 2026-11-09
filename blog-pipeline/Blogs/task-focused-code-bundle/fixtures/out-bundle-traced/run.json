@@ -1,0 +1,79 @@
+{
+  "label": "LOCAL CODE-LEVEL RUN of repository backend code; not a live production conversion",
+  "date_utc": "2026-11-09T07:46:35+00:00",
+  "revision": "34da2d35e2291f9f02c6ad3a01df793390373b7c",
+  "versions": {
+    "python": "3.13.18",
+    "markitdown": "0.1.9",
+    "tesseract": "tesseract 5.3.4"
+  },
+  "input": {
+    "file": "bundle-traced.zip",
+    "bytes": 1839,
+    "sha256": "07fef85c051227fc00d71e8a25dc60a0cc8b80b534c4ebcd61512d60fe5a0123"
+  },
+  "mode": "zip",
+  "runs": [
+    {
+      "profile": "Standard",
+      "kind": "zip",
+      "words": 164,
+      "estimated_tokens_backend": 218,
+      "outputs": [
+        {
+          "file": "combined.md",
+          "bytes": 1400,
+          "sha256": "275b969e01c2800a52f829e24c1236754449888ace32eaea945bb516ff6da560"
+        },
+        {
+          "file": "PROJECT_INDEX.md",
+          "bytes": 928,
+          "sha256": "977036b257007f69b675c7d274e7e322f57d6b62ec9b4e51ecf00e1d513b1604"
+        },
+        {
+          "file": "manifest.json",
+          "bytes": 2282,
+          "sha256": "d2fce126cd045e9606fd3319ef64d58816e691db6bb2b17609b9b2bc6e5b605b"
+        }
+      ],
+      "entries": [
+        {
+          "path": "library-fines/pyproject.toml",
+          "status": "DONE",
+          "type": "CODE_FILE",
+          "reason": null
+        },
+        {
+          "path": "library-fines/src/fines/__init__.py",
+          "status": "DONE",
+          "type": "CODE_FILE",
+          "reason": null
+        },
+        {
+          "path": "library-fines/src/fines/calendar.py",
+          "status": "DONE",
+          "type": "CODE_FILE",
+          "reason": null
+        },
+        {
+          "path": "library-fines/src/fines/config.py",
+          "status": "DONE",
+          "type": "CODE_FILE",
+          "reason": null
+        },
+        {
+          "path": "library-fines/src/fines/fines.py",
+          "status": "DONE",
+          "type": "CODE_FILE",
+          "reason": null
+        },
+        {
+          "path": "library-fines/tests/test_fines.py",
+          "status": "DONE",
+          "type": "CODE_FILE",
+          "reason": null
+        }
+      ]
+    }
+  ]
+}

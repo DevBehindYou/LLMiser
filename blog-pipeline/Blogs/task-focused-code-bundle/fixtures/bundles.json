@@ -1,0 +1,41 @@
+{
+  "label": "Synthetic library-fines project",
+  "traced_from": "tests/test_fines.py",
+  "bundles": {
+    "repo": {
+      "files": [
+        "docs/history.md",
+        "pyproject.toml",
+        "src/fines/__init__.py",
+        "src/fines/calendar.py",
+        "src/fines/config.py",
+        "src/fines/emailer.py",
+        "src/fines/fines.py",
+        "src/fines/report.py",
+        "tests/test_fines.py",
+        "tests/test_report.py"
+      ],
+      "sha256": "fdf9abd5c49453c57939d7dfbe820fab6714802a566c876db4dde7b41fae4c7e"
+    },
+    "bundle-incomplete": {
+      "files": [
+        "tests/test_fines.py",
+        "src/fines/fines.py",
+        "src/fines/__init__.py",
+        "pyproject.toml"
+      ],
+      "sha256": "ea6e94fa859ebc404bef9c3bb6daef91b44fa8f72183bc3ae9a6385c1f3368ea"
+    },
+    "bundle-traced": {
+      "files": [
+        "pyproject.toml",
+        "src/fines/__init__.py",
+        "src/fines/calendar.py",
+        "src/fines/config.py",
+        "src/fines/fines.py",
+        "tests/test_fines.py"
+      ],
+      "sha256": "07fef85c051227fc00d71e8a25dc60a0cc8b80b534c4ebcd61512d60fe5a0123"
+    }
+  }
+}

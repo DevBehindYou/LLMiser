@@ -1,0 +1,103 @@
+{
+  "label": "LOCAL CODE-LEVEL RUN of repository backend code; not a live production conversion",
+  "date_utc": "2026-11-09T07:46:36+00:00",
+  "revision": "34da2d35e2291f9f02c6ad3a01df793390373b7c",
+  "versions": {
+    "python": "3.13.18",
+    "markitdown": "0.1.9",
+    "tesseract": "tesseract 5.3.4"
+  },
+  "input": {
+    "file": "repo.zip",
+    "bytes": 3822,
+    "sha256": "fdf9abd5c49453c57939d7dfbe820fab6714802a566c876db4dde7b41fae4c7e"
+  },
+  "mode": "zip",
+  "runs": [
+    {
+      "profile": "Standard",
+      "kind": "zip",
+      "words": 367,
+      "estimated_tokens_backend": 488,
+      "outputs": [
+        {
+          "file": "combined.md",
+          "bytes": 3005,
+          "sha256": "9e3b521607346416027c5717c95550bc80374822d58bb7e04a89239c284543a3"
+        },
+        {
+          "file": "PROJECT_INDEX.md",
+          "bytes": 1346,
+          "sha256": "d3fca4cad824a5dc20a061f9fe37789801f4a9e611200774cd2dca603bdd1fc8"
+        },
+        {
+          "file": "manifest.json",
+          "bytes": 3599,
+          "sha256": "8500be2911bc3f2ecb8aa374d10d8357ce474a6b0377cbbbcf6c6fbebfb25f3d"
+        }
+      ],
+      "entries": [
+        {
+          "path": "library-fines/docs/history.md",
+          "status": "DONE",
+          "type": "TEXT_FILE",
+          "reason": null
+        },
+        {
+          "path": "library-fines/pyproject.toml",
+          "status": "DONE",
+          "type": "CODE_FILE",
+          "reason": null
+        },
+        {
+          "path": "library-fines/src/fines/__init__.py",
+          "status": "DONE",
+          "type": "CODE_FILE",
+          "reason": null
+        },
+        {
+          "path": "library-fines/src/fines/calendar.py",
+          "status": "DONE",
+          "type": "CODE_FILE",
+          "reason": null
+        },
+        {
+          "path": "library-fines/src/fines/config.py",
+          "status": "DONE",
+          "type": "CODE_FILE",
+          "reason": null
+        },
+        {
+          "path": "library-fines/src/fines/emailer.py",
+          "status": "DONE",
+          "type": "CODE_FILE",
+          "reason": null
+        },
+        {
+          "path": "library-fines/src/fines/fines.py",
+          "status": "DONE",
+          "type": "CODE_FILE",
+          "reason": null
+        },
+        {
+          "path": "library-fines/src/fines/report.py",
+          "status": "DONE",
+          "type": "CODE_FILE",
+          "reason": null
+        },
+        {
+          "path": "library-fines/tests/test_fines.py",
+          "status": "DONE",
+          "type": "CODE_FILE",
+          "reason": null
+        },
+        {
+          "path": "library-fines/tests/test_report.py",
+          "status": "DONE",
+          "type": "CODE_FILE",
+          "reason": null
+        }
+      ]
+    }
+  ]
+}

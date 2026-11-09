@@ -1,0 +1,13 @@
+{
+  "article": "M01-S3",
+  "slug": "task-focused-code-bundle",
+  "checked": "2026-11-09",
+  "claims": [
+    { "id": "C01", "text": "Traced set from the failing test: six files of ten", "state": "VERIFIED_LOCAL_RUN", "source": "F-M01S3" },
+    { "id": "C02", "text": "Leaving out unrelated files cut converted text from 367 to 164 words", "state": "VERIFIED_LOCAL_RUN", "source": "F-M01S3", "note": "Fixture only." },
+    { "id": "C03", "text": "Incomplete bundle failed to start with ModuleNotFoundError for fines.calendar", "state": "VERIFIED_LOCAL_RUN", "source": "F-M01S3" },
+    { "id": "C04", "text": "Traced bundle and whole project both failed with assert 0.0 == 0.25", "state": "VERIFIED_LOCAL_RUN", "source": "F-M01S3" },
+    { "id": "C05", "text": "Import traces miss runtime data files, settings, dynamic imports and plugins", "state": "EDITORIAL", "note": "Follows from static import tracing; not separately tested." },
+    { "id": "C06", "text": "LLMiser doesn't build bundles; it converts the ZIP and lists every entry", "state": "VERIFIED_CODE", "source": "S-CODE-ARCHIVE" }
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "slug": "task-focused-code-bundle",
+  "date": "2026-11-09T07:48:08.976Z",
+  "viewport": "2 x 375px columns, deviceScaleFactor 2",
+  "themes": [
+    "dark",
+    "light"
+  ],
+  "fontsLoaded": [
+    "LLMiser Inter",
+    "LLMiser JetBrains Mono",
+    "LLMiser Patrick Hand"
+  ],
+  "figures": [
+    {
+      "figure": "banner.svg",
+      "viewBox": [
+        1200,
+        400
+      ],
+      "renderedWidthPx": 343,
+      "minFontPxAt375": "4.0",
+      "texts": 13,
+      "issues": []
+    },
+    {
+      "figure": "bundle-flow.svg",
+      "viewBox": [
+        600,
+        333
+      ],
+      "renderedWidthPx": 343,
+      "minFontPxAt375": "6.3",
+      "texts": 19,
+      "issues": []
+    },
+    {
+      "figure": "import-trace.svg",
+      "viewBox": [
+        600,
+        425
+      ],
+      "renderedWidthPx": 343,
+      "minFontPxAt375": "6.3",
+      "texts": 24,
+      "issues": []
+    },
+    {
+      "figure": "bundle-results.svg",
+      "viewBox": [
+        600,
+        292
+      ],
+      "renderedWidthPx": 343,
+      "minFontPxAt375": "6.3",
+      "texts": 16,
+      "issues": []
+    },
+    {
+      "figure": "bundle-checklist.svg",
+      "viewBox": [
+        600,
+        380
+      ],
+      "renderedWidthPx": 343,
+      "minFontPxAt375": "6.3",
+      "texts": 10,
+      "issues": []
+    }
+  ]
+}

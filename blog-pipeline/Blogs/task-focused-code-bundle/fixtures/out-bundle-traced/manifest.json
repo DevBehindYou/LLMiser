@@ -1,0 +1,89 @@
+{
+  "job_id": null,
+  "source": {
+    "filename": "bundle-traced.zip",
+    "bytes": 1839,
+    "entries": 6
+  },
+  "limits": {
+    "max_entries": 2000,
+    "max_uncompressed_bytes": 104857600,
+    "max_entry_bytes": 15728640,
+    "max_depth": 1,
+    "max_ocr_images": 50
+  },
+  "nodes": [
+    {
+      "path": "library-fines/pyproject.toml",
+      "depth": 0,
+      "size": 51,
+      "node_type": "CODE_FILE",
+      "classification": "DIRECT_TEXT",
+      "status": "DONE",
+      "engine": "direct",
+      "skip_reason": null,
+      "language": "toml",
+      "node_id": "984622b6-bec2-42d5-a682-e5576873a2fa"
+    },
+    {
+      "path": "library-fines/src/fines/__init__.py",
+      "depth": 0,
+      "size": 0,
+      "node_type": "CODE_FILE",
+      "classification": "DIRECT_TEXT",
+      "status": "DONE",
+      "engine": "direct",
+      "skip_reason": null,
+      "language": "python",
+      "node_id": "ed2ded91-c317-41c2-a49b-6ce6fccf60a7"
+    },
+    {
+      "path": "library-fines/src/fines/calendar.py",
+      "depth": 0,
+      "size": 388,
+      "node_type": "CODE_FILE",
+      "classification": "DIRECT_TEXT",
+      "status": "DONE",
+      "engine": "direct",
+      "skip_reason": null,
+      "language": "python",
+      "node_id": "83a9cf9f-4de9-48b8-b62e-3e382980b072"
+    },
+    {
+      "path": "library-fines/src/fines/config.py",
+      "depth": 0,
+      "size": 34,
+      "node_type": "CODE_FILE",
+      "classification": "DIRECT_TEXT",
+      "status": "DONE",
+      "engine": "direct",
+      "skip_reason": null,
+      "language": "python",
+      "node_id": "077deb01-a1f0-4cac-a1e5-f41e488b5628"
+    },
+    {
+      "path": "library-fines/src/fines/fines.py",
+      "depth": 0,
+      "size": 254,
+      "node_type": "CODE_FILE",
+      "classification": "DIRECT_TEXT",
+      "status": "DONE",
+      "engine": "direct",
+      "skip_reason": null,
+      "language": "python",
+      "node_id": "febc5700-51d1-49b2-a614-3744d5a5ab70"
+    },
+    {
+      "path": "library-fines/tests/test_fines.py",
+      "depth": 0,
+      "size": 242,
+      "node_type": "CODE_FILE",
+      "classification": "DIRECT_TEXT",
+      "status": "DONE",
+      "engine": "direct",
+      "skip_reason": null,
+      "language": "python",
+      "node_id": "8fcd0c29-1f8d-416f-991b-0e057096c000"
+    }
+  ]
+}

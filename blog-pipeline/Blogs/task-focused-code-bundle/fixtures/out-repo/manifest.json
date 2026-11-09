@@ -1,0 +1,137 @@
+{
+  "job_id": null,
+  "source": {
+    "filename": "repo.zip",
+    "bytes": 3822,
+    "entries": 10
+  },
+  "limits": {
+    "max_entries": 2000,
+    "max_uncompressed_bytes": 104857600,
+    "max_entry_bytes": 15728640,
+    "max_depth": 1,
+    "max_ocr_images": 50
+  },
+  "nodes": [
+    {
+      "path": "library-fines/docs/history.md",
+      "depth": 0,
+      "size": 1171,
+      "node_type": "TEXT_FILE",
+      "classification": "DIRECT_TEXT",
+      "status": "DONE",
+      "engine": "direct",
+      "skip_reason": null,
+      "language": null,
+      "node_id": "cb9532c4-2773-4b8c-a2ec-062000d9263f"
+    },
+    {
+      "path": "library-fines/pyproject.toml",
+      "depth": 0,
+      "size": 51,
+      "node_type": "CODE_FILE",
+      "classification": "DIRECT_TEXT",
+      "status": "DONE",
+      "engine": "direct",
+      "skip_reason": null,
+      "language": "toml",
+      "node_id": "3a80eae4-825f-4738-8763-e7e8d162346e"
+    },
+    {
+      "path": "library-fines/src/fines/__init__.py",
+      "depth": 0,
+      "size": 0,
+      "node_type": "CODE_FILE",
+      "classification": "DIRECT_TEXT",
+      "status": "DONE",
+      "engine": "direct",
+      "skip_reason": null,
+      "language": "python",
+      "node_id": "13110b03-d069-44e2-9bde-6c29bd74edd7"
+    },
+    {
+      "path": "library-fines/src/fines/calendar.py",
+      "depth": 0,
+      "size": 388,
+      "node_type": "CODE_FILE",
+      "classification": "DIRECT_TEXT",
+      "status": "DONE",
+      "engine": "direct",
+      "skip_reason": null,
+      "language": "python",
+      "node_id": "4916f143-9aca-4f89-b427-f2e2a4edae84"
+    },
+    {
+      "path": "library-fines/src/fines/config.py",
+      "depth": 0,
+      "size": 34,
+      "node_type": "CODE_FILE",
+      "classification": "DIRECT_TEXT",
+      "status": "DONE",
+      "engine": "direct",
+      "skip_reason": null,
+      "language": "python",
+      "node_id": "c50889a0-43fe-4dd2-b41d-e4f9638fc489"
+    },
+    {
+      "path": "library-fines/src/fines/emailer.py",
+      "depth": 0,
+      "size": 60,
+      "node_type": "CODE_FILE",
+      "classification": "DIRECT_TEXT",
+      "status": "DONE",
+      "engine": "direct",
+      "skip_reason": null,
+      "language": "python",
+      "node_id": "cb040d2f-4cee-4e6c-a9b4-4a77962aaefd"
+    },
+    {
+      "path": "library-fines/src/fines/fines.py",
+      "depth": 0,
+      "size": 254,
+      "node_type": "CODE_FILE",
+      "classification": "DIRECT_TEXT",
+      "status": "DONE",
+      "engine": "direct",
+      "skip_reason": null,
+      "language": "python",
+      "node_id": "17e14a02-f2c2-417b-8834-e5c6eeabf4ed"
+    },
+    {
+      "path": "library-fines/src/fines/report.py",
+      "depth": 0,
+      "size": 69,
+      "node_type": "CODE_FILE",
+      "classification": "DIRECT_TEXT",
+      "status": "DONE",
+      "engine": "direct",
+      "skip_reason": null,
+      "language": "python",
+      "node_id": "85246d95-ad29-402d-8f6b-815a2ed89f0d"
+    },
+    {
+      "path": "library-fines/tests/test_fines.py",
+      "depth": 0,
+      "size": 242,
+      "node_type": "CODE_FILE",
+      "classification": "DIRECT_TEXT",
+      "status": "DONE",
+      "engine": "direct",
+      "skip_reason": null,
+      "language": "python",
+      "node_id": "4b23f7ac-c409-46bb-80ee-07e5e6e188e4"
+    },
+    {
+      "path": "library-fines/tests/test_report.py",
+      "depth": 0,
+      "size": 119,
+      "node_type": "CODE_FILE",
+      "classification": "DIRECT_TEXT",
+      "status": "DONE",
+      "engine": "direct",
+      "skip_reason": null,
+      "language": "python",
+      "node_id": "634fa250-abb7-40e0-b2d0-375043520172"
+    }
+  ]
+}

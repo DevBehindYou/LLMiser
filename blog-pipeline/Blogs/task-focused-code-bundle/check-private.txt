@@ -1,0 +1,15 @@
+LLMiser PRIVATE draft check (adapter; staged visuals, not production validation): Blogs/task-focused-code-bundle/draft.md
+Date: 2026-11-09T07:47:42.817Z
+Words (app wordCount): 1200, read time 5 min
+Info: Intro: 70 words
+Info: H2 opening word counts: 35, 31, 30
+Info: Links: 2 (0 external)
+
+Errors (0):
+  none
+
+Warnings (2):
+  ! Three sentences in a row of similar length, starting "Sending a whole repository to answer one question costs cont..."
+  ! draft: true. The post stays out of the Blog dialog until you set it to false.
+
+RESULT: PASS (private draft adapter)
