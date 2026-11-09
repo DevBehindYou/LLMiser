@@ -1,0 +1,15 @@
+LLMiser PRIVATE draft check (adapter; staged visuals, not production validation): Blogs/rotated-scan-ocr-check/draft.md
+Date: 2026-11-09T07:50:01.995Z
+Words (app wordCount): 1218, read time 5 min
+Info: Intro: 76 words
+Info: H2 opening word counts: 36, 30, 35
+Info: Links: 2 (0 external)
+
+Errors (0):
+  none
+
+Warnings (2):
+  ! Three sentences in a row of similar length, starting "Run the same page in different orientations and compare the ..."
+  ! draft: true. The post stays out of the Blog dialog until you set it to false.
+
+RESULT: PASS (private draft adapter)

@@ -1,0 +1,100 @@
+{
+  "label": "LOCAL CODE-LEVEL RUN of backendO OcrConverter on a synthetic page",
+  "ready": [
+    true,
+    "tesseract 5.3.4, lang=eng, osd"
+  ],
+  "runs": [
+    {
+      "variant": "upright 0",
+      "input_sha256": "47029fb815797c063eac269bff0650e3a5ff712e015e33db564d9037d2dd808e",
+      "osd": "None",
+      "applied_rotation": "0",
+      "mean_conf": 94.5,
+      "words": 59,
+      "warning": null,
+      "similarity_to_upright": 1.0,
+      "has_qty_column": false,
+      "order_line": "Order: PO 1005-B",
+      "first_line": "ACME FIELD SUPPLY INVOICE"
+    },
+    {
+      "variant": "rotated 90 cw",
+      "input_sha256": "4853751e187d124777aa88d50228f59e0e646b27059871f0f9dbb647a07c2a0d",
+      "osd": "None",
+      "applied_rotation": "0",
+      "mean_conf": 94.6,
+      "words": 63,
+      "warning": null,
+      "similarity_to_upright": 0.986,
+      "has_qty_column": true,
+      "order_line": "Order: PO 1005-B",
+      "first_line": "ACME FIELD SUPPLY INVOICE"
+    },
+    {
+      "variant": "rotated 180",
+      "input_sha256": "cb312fa6cd4e419b5aa07a0675e5df62fa280cccf800b16c03078bfdce21ae5c",
+      "osd": "180",
+      "applied_rotation": "180",
+      "mean_conf": 94.5,
+      "words": 59,
+      "warning": "auto-rotated-180",
+      "similarity_to_upright": 1.0,
+      "has_qty_column": false,
+      "order_line": "Order: PO 1005-B",
+      "first_line": "ACME FIELD SUPPLY INVOICE"
+    },
+    {
+      "variant": "rotated 270 cw",
+      "input_sha256": "fbdfcc4601fd7f7edd3835cb93a032de9a8c5e13d973e4c868c8878a09d1f25c",
+      "osd": "90",
+      "applied_rotation": "90",
+      "mean_conf": 94.5,
+      "words": 59,
+      "warning": "auto-rotated-90",
+      "similarity_to_upright": 1.0,
+      "has_qty_column": false,
+      "order_line": "Order: PO 1005-B",
+      "first_line": "ACME FIELD SUPPLY INVOICE"
+    },
+    {
+      "variant": "skew 3",
+      "input_sha256": "1e02cf5c614cc48ef6e517a30c9f458569bbacc9317abc4a7b42ffcfb11f7c1f",
+      "osd": "None",
+      "applied_rotation": "0",
+      "mean_conf": 93.9,
+      "words": 63,
+      "warning": null,
+      "similarity_to_upright": 0.879,
+      "has_qty_column": true,
+      "order_line": "Order: PO 1005-B",
+      "first_line": "ACME FIELD SUPPLY INVOICE"
+    },
+    {
+      "variant": "skew 8",
+      "input_sha256": "342207ee4758a08b4980170817b5a49def19f2c7343d01582e66f54d331b15fd",
+      "osd": "None",
+      "applied_rotation": "0",
+      "mean_conf": 77.3,
+      "words": 14,
+      "warning": null,
+      "similarity_to_upright": 0.274,
+      "has_qty_column": false,
+      "order_line": null,
+      "first_line": "Terms. net 30. 4 late Fee of 15% per Month applies after 2026 05-17"
+    },
+    {
+      "variant": "EXIF orientation 6 (jpg)",
+      "input_sha256": "1388d25d8cc65f1cc71ee0a45eeac143e7d298dba92bb557aa8d4ea8bdb5c561",
+      "osd": "None",
+      "applied_rotation": "0",
+      "mean_conf": 94.5,
+      "words": 59,
+      "warning": null,
+      "similarity_to_upright": 1.0,
+      "has_qty_column": false,
+      "order_line": "Order: PO 1005-B",
+      "first_line": "ACME FIELD SUPPLY INVOICE"
+    }
+  ]
+}

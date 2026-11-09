@@ -1,0 +1,52 @@
+{
+  "id": "M02-S1",
+  "role": "support",
+  "title": "Check Rotated Scans Before Running OCR",
+  "title_selection": "EDITORIAL_PROPOSAL (registry title kept unless qa.md records a change)",
+  "slug": "rotated-scan-ocr-check",
+  "canonical": "https://llmiser.devbehindyou.com/blog/rotated-scan-ocr-check",
+  "canonical_status": "RESERVED_NOT_LIVE",
+  "intent_key": "rotated-scan-ocr-check",
+  "reader_task": "How does orientation affect recognition in a specific sample?",
+  "scope_exclusions": [
+    "Do not claim LLMiser always corrects rotation automatically. Main checklist and sibling questions remain with their owners.",
+    "Parent M02 owns the full checklist or workflow"
+  ],
+  "primary_keyword": "rotated scan OCR check",
+  "secondary_keywords": [
+    "skewed scan OCR",
+    "fix scan orientation"
+  ],
+  "keyword_metrics": "UNMEASURED",
+  "description": "A rotated scan OCR check on one sample: quarter turns were corrected, a camera tag was honored, but an 8-degree tilt lost almost the whole page. Straighten first.",
+  "description_change": "Registry proposal was a question template; rewritten with the finding; 163 characters.",
+  "excerpt": "We fed the same page to LLMiser's text recognition seven ways. Sideways and upside down were fine. A slight tilt was the one that wrecked it.",
+  "category": "GUIDE",
+  "tags": [
+    "OCR",
+    "Scanned documents",
+    "Image preparation",
+    "Data quality",
+    "AI context"
+  ],
+  "listicle_count": null,
+  "parent_id": "M02",
+  "nearest_ids": [
+    "M02-S2",
+    "M02-S3",
+    "M02"
+  ],
+  "author": "DevBehindYou",
+  "draft_date": "2026-11-09",
+  "publication_date": null,
+  "draft": true,
+  "banner": "/blog/rotated-scan-ocr-check/banner.svg",
+  "figures": [
+    "orientation-steps",
+    "orientation-results",
+    "tilt-output",
+    "tilt-decision",
+    "orientation-checklist"
+  ],
+  "product_revision_checked": "02e9b89 (application code identical to 8eb8c509)"
+}

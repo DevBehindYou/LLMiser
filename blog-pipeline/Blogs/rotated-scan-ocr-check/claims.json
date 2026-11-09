@@ -1,0 +1,14 @@
+{
+  "article": "M02-S1",
+  "slug": "rotated-scan-ocr-check",
+  "checked": "2026-11-09",
+  "claims": [
+    { "id": "C01", "text": "LLMiser applies camera orientation tags, reads, checks orientation only on a weak read, keeps a turned copy only if clearly better", "state": "VERIFIED_CODE", "source": "S-CODE-OCR" },
+    { "id": "C02", "text": "Correction works in quarter turns; small tilts are read as they are", "state": "VERIFIED_CODE", "source": "S-CODE-OCR" },
+    { "id": "C03", "text": "180 and 270 copies corrected and identical to upright; 90 read correctly without correction; EXIF JPEG identical", "state": "VERIFIED_LOCAL_RUN", "source": "F-M02S1" },
+    { "id": "C04", "text": "3-degree tilt: C0O1-7781 read as C001-7781", "state": "VERIFIED_LOCAL_RUN", "source": "F-M02S1 skew-3.txt" },
+    { "id": "C05", "text": "8-degree tilt returned one line with 15% for 1.5%; rest missing; no warning", "state": "VERIFIED_LOCAL_RUN", "source": "F-M02S1 skew-8.txt" },
+    { "id": "C06", "text": "Orientation check didn't run because confidence stayed above its threshold", "state": "VERIFIED_LOCAL_RUN + VERIFIED_CODE", "source": "F-M02S1 log (77.3 >= 75), S-CODE-OCR" },
+    { "id": "C07", "text": "Stripped orientation tag means the photo gets the quarter-turn check like any image", "state": "VERIFIED_CODE", "source": "S-CODE-OCR" }
+  ]
+}

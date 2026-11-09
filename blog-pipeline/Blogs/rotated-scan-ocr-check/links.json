@@ -1,0 +1,38 @@
+{
+  "article": "M02-S1",
+  "checked": "2026-11-09",
+  "in_draft": [
+    {
+      "url": "/usecase",
+      "owner": "USE",
+      "status": "LIVE"
+    },
+    {
+      "url": "/",
+      "owner": "HOME",
+      "status": "LIVE",
+      "placement": "CTA"
+    }
+  ],
+  "planned_when_released": [
+    {
+      "target": "M02",
+      "url": "/blog/ocr-checks-before-ai",
+      "status": "UNPUBLISHED",
+      "placement": "Intro or first section, link to the parent checklist",
+      "anchor": "9 OCR Checks Before You Send Scanned Text to AI"
+    },
+    {
+      "target": "M02-S2",
+      "url": "/blog/verify-ocr-numbers",
+      "status": "UNPUBLISHED",
+      "placement": "Optional sibling link where genuinely useful"
+    },
+    {
+      "target": "M02-S3",
+      "url": "/blog/mixed-pdf-ocr-coverage",
+      "status": "UNPUBLISHED",
+      "placement": "Optional sibling link where genuinely useful"
+    }
+  ]
+}

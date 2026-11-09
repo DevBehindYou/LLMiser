@@ -1,0 +1,82 @@
+{
+  "slug": "rotated-scan-ocr-check",
+  "date": "2026-11-09T07:49:54.272Z",
+  "viewport": "2 x 375px columns, deviceScaleFactor 2",
+  "themes": [
+    "dark",
+    "light"
+  ],
+  "fontsLoaded": [
+    "LLMiser Inter",
+    "LLMiser JetBrains Mono",
+    "LLMiser Patrick Hand"
+  ],
+  "figures": [
+    {
+      "figure": "banner.svg",
+      "viewBox": [
+        1200,
+        400
+      ],
+      "renderedWidthPx": 343,
+      "minFontPxAt375": "4.0",
+      "texts": 7,
+      "issues": []
+    },
+    {
+      "figure": "orientation-steps.svg",
+      "viewBox": [
+        600,
+        354
+      ],
+      "renderedWidthPx": 343,
+      "minFontPxAt375": "6.3",
+      "texts": 16,
+      "issues": []
+    },
+    {
+      "figure": "orientation-results.svg",
+      "viewBox": [
+        600,
+        375
+      ],
+      "renderedWidthPx": 343,
+      "minFontPxAt375": "6.3",
+      "texts": 27,
+      "issues": []
+    },
+    {
+      "figure": "tilt-output.svg",
+      "viewBox": [
+        600,
+        447
+      ],
+      "renderedWidthPx": 343,
+      "minFontPxAt375": "6.3",
+      "texts": 15,
+      "issues": []
+    },
+    {
+      "figure": "tilt-decision.svg",
+      "viewBox": [
+        600,
+        511
+      ],
+      "renderedWidthPx": 343,
+      "minFontPxAt375": "6.3",
+      "texts": 13,
+      "issues": []
+    },
+    {
+      "figure": "orientation-checklist.svg",
+      "viewBox": [
+        600,
+        342
+      ],
+      "renderedWidthPx": 343,
+      "minFontPxAt375": "6.3",
+      "texts": 9,
+      "issues": []
+    }
+  ]
+}
