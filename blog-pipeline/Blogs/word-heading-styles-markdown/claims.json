@@ -1,0 +1,16 @@
+{
+  "article": "M04-S1",
+  "slug": "word-heading-styles-markdown",
+  "checked": "2026-11-09",
+  "claims": [
+    { "id": "C01", "text": "Only built-in Heading styles became Markdown headings; custom Section Heading based on Heading 2 became plain text; bold 16 pt Normal became bold; outline-level Normal became plain text", "state": "VERIFIED_LOCAL_RUN", "source": "F-M04S1 out-original" },
+    { "id": "C02", "text": "Title style became plain text and LLMiser added a heading from the file name (Guide Original)", "state": "VERIFIED_LOCAL_RUN + VERIFIED_CODE", "source": "F-M04S1, S-CODE-DOCX ensure_title" },
+    { "id": "C03", "text": "Heading 1 followed by Heading 3 converted as # then ###; a sentence in Heading 3 became a ### heading; an empty Heading 2 vanished", "state": "VERIFIED_LOCAL_RUN", "source": "F-M04S1 out-original" },
+    { "id": "C04", "text": "Heading 4 to 6 map to #### to ######", "state": "VERIFIED_CODE", "source": "S-CODE-DOCX default style map" },
+    { "id": "C05", "text": "Reviewed copy: every title a heading, no skipped levels, real title first", "state": "VERIFIED_LOCAL_RUN", "source": "F-M04S1 out-reviewed" },
+    { "id": "C06", "text": "Navigation pane opens with Ctrl+F or View tab, lists heading-styled headings, excludes tables, text boxes, headers and footers", "state": "VERIFIED_SOURCE", "source": "S-MS-NAV" },
+    { "id": "C07", "text": "Use built-in heading styles in logical order without skipping levels", "state": "VERIFIED_SOURCE", "source": "S-MS-A11Y" },
+    { "id": "C08", "text": "RAG-ready profile adds chunk markers before ## lines", "state": "VERIFIED_CODE", "source": "S-CODE-DOCX profiles.py (M08)" }
+  ],
+  "not_claimed": ["what the Navigation pane shows for custom or outline-level styles", "behavior of Word-saved templates"]
+}

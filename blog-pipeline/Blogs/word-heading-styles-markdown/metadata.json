@@ -1,0 +1,51 @@
+{
+  "id": "M04-S1",
+  "role": "support",
+  "title": "Use Word Heading Styles Before Markdown Conversion",
+  "title_selection": "EDITORIAL_PROPOSAL (registry title kept unless qa.md records a change)",
+  "slug": "word-heading-styles-markdown",
+  "canonical": "https://llmiser.devbehindyou.com/blog/word-heading-styles-markdown",
+  "canonical_status": "RESERVED_NOT_LIVE",
+  "intent_key": "word-heading-styles-markdown",
+  "reader_task": "How do semantic styles differ from large bold text?",
+  "scope_exclusions": [
+    "General semantic-heading sources do not prove exact DOCX parser behavior; test it. Main checklist and sibling questions remain with their owners.",
+    "Parent M04 owns the full checklist or workflow"
+  ],
+  "primary_keyword": "Word heading styles Markdown",
+  "secondary_keywords": [
+    "Word Title style conversion",
+    "custom heading styles Word"
+  ],
+  "keyword_metrics": "UNMEASURED",
+  "description": "Word heading styles Markdown can read: inspect each style, apply one hierarchy, and check heading levels. A look-alike custom style came out as plain text.",
+  "description_change": "Registry proposal was a question template; rewritten as the procedure with the finding; 155 characters.",
+  "excerpt": "Two Word headings can look identical and convert completely differently. In our test, a custom heading style became plain text and a bold line became bold.",
+  "category": "GUIDE",
+  "tags": [
+    "Word",
+    "DOCX",
+    "Markdown",
+    "Document structure",
+    "AI context"
+  ],
+  "listicle_count": null,
+  "parent_id": "M04",
+  "nearest_ids": [
+    "M04-S2",
+    "M04-S3",
+    "M04"
+  ],
+  "author": "DevBehindYou",
+  "draft_date": "2026-11-09",
+  "publication_date": null,
+  "draft": true,
+  "banner": "/blog/word-heading-styles-markdown/banner.svg",
+  "figures": [
+    "style-inventory",
+    "style-results",
+    "outline-before-after",
+    "heading-checklist"
+  ],
+  "product_revision_checked": "2a91b82 (application code identical to 8eb8c509)"
+}

@@ -1,0 +1,110 @@
+{
+  "label": "Synthetic onboarding guide in two versions",
+  "blocks": [
+    [
+      "Northwind Onboarding Guide",
+      "Title",
+      "Heading 1"
+    ],
+    [
+      "Overview",
+      "Heading 1",
+      "Heading 2"
+    ],
+    [
+      "Synthetic sample text for a conversion test.",
+      "Normal",
+      "Normal"
+    ],
+    [
+      "Before your first day",
+      "Heading 2",
+      "Heading 3"
+    ],
+    [
+      "Synthetic sample text for a conversion test.",
+      "Normal",
+      "Normal"
+    ],
+    [
+      "Accounts and access",
+      "bold16",
+      "Heading 2"
+    ],
+    [
+      "Synthetic sample text for a conversion test.",
+      "Normal",
+      "Normal"
+    ],
+    [
+      "Your first week",
+      "Section Heading",
+      "Heading 2"
+    ],
+    [
+      "Synthetic sample text for a conversion test.",
+      "Normal",
+      "Normal"
+    ],
+    [
+      "Equipment",
+      "Heading 3",
+      "Heading 3"
+    ],
+    [
+      "Synthetic sample text for a conversion test.",
+      "Normal",
+      "Normal"
+    ],
+    [
+      "Policies",
+      "outline1",
+      "Heading 2"
+    ],
+    [
+      "Synthetic sample text for a conversion test.",
+      "Normal",
+      "Normal"
+    ],
+    [
+      "Contacts",
+      "Heading 1",
+      "Heading 2"
+    ],
+    [
+      "Helpdesk",
+      "Heading 3",
+      "Heading 3"
+    ],
+    [
+      "Synthetic sample text for a conversion test.",
+      "Normal",
+      "Normal"
+    ],
+    [
+      "Badges must be worn at all times.",
+      "Heading 3",
+      "Normal"
+    ],
+    [
+      "",
+      "Heading 2",
+      null
+    ],
+    [
+      "Questions go to the onboarding desk.",
+      "Normal",
+      "Normal"
+    ]
+  ],
+  "files": {
+    "guide-original.docx": {
+      "bytes": 36909,
+      "sha256": "38c9974153dc337ce1bd1979d7568cadb3766a22dc7de76beadb9fea41e605f0"
+    },
+    "guide-reviewed.docx": {
+      "bytes": 36864,
+      "sha256": "2a337e49aa287ef2574fff25d79d489108ea56ff08b7737550dca3a86507f9ff"
+    }
+  }
+}

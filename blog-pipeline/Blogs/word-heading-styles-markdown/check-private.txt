@@ -1,0 +1,16 @@
+LLMiser PRIVATE draft check (adapter; staged visuals, not production validation): Blogs/word-heading-styles-markdown/draft.md
+Date: 2026-11-09T08:21:38.643Z
+Words (app wordCount): 1496, read time 7 min
+Info: Intro: 77 words
+Info: H2 opening word counts: 30, 33, 34
+Info: Links: 4 (2 external)
+
+Errors (0):
+  none
+
+Warnings (3):
+  ! 3 sentence(s) over 35 words, e.g. "Our original guide used seven ways of marking a title, which is a typical mix fo..."
+  ! Three sentences in a row of similar length, starting "**A skipped level.** "Contacts" at was followed directly by ..."
+  ! draft: true. The post stays out of the Blog dialog until you set it to false.
+
+RESULT: PASS (private draft adapter)
