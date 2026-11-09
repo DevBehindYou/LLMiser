@@ -1,0 +1,82 @@
+{
+  "slug": "powerpoint-speaker-notes-markdown",
+  "date": "2026-11-09T08:34:19.791Z",
+  "viewport": "2 x 375px columns, deviceScaleFactor 2",
+  "themes": [
+    "dark",
+    "light"
+  ],
+  "fontsLoaded": [
+    "LLMiser Inter",
+    "LLMiser JetBrains Mono",
+    "LLMiser Patrick Hand"
+  ],
+  "figures": [
+    {
+      "figure": "banner.svg",
+      "viewBox": [
+        1200,
+        400
+      ],
+      "renderedWidthPx": 343,
+      "minFontPxAt375": "4.0",
+      "texts": 20,
+      "issues": []
+    },
+    {
+      "figure": "notes-inventory.svg",
+      "viewBox": [
+        600,
+        352
+      ],
+      "renderedWidthPx": 343,
+      "minFontPxAt375": "6.3",
+      "texts": 18,
+      "issues": []
+    },
+    {
+      "figure": "route-results.svg",
+      "viewBox": [
+        600,
+        352
+      ],
+      "renderedWidthPx": 343,
+      "minFontPxAt375": "6.3",
+      "texts": 28,
+      "issues": []
+    },
+    {
+      "figure": "slide2-routes.svg",
+      "viewBox": [
+        600,
+        756
+      ],
+      "renderedWidthPx": 343,
+      "minFontPxAt375": "6.3",
+      "texts": 28,
+      "issues": []
+    },
+    {
+      "figure": "slide2-before-after.svg",
+      "viewBox": [
+        600,
+        548
+      ],
+      "renderedWidthPx": 343,
+      "minFontPxAt375": "6.3",
+      "texts": 20,
+      "issues": []
+    },
+    {
+      "figure": "notes-checklist.svg",
+      "viewBox": [
+        600,
+        380
+      ],
+      "renderedWidthPx": 343,
+      "minFontPxAt375": "6.3",
+      "texts": 10,
+      "issues": []
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "label": "LOCAL CODE-LEVEL RUN of repository backend code; not a live production conversion",
+  "date_utc": "2026-11-09T08:31:56+00:00",
+  "revision": "525c026949876e64385543cb6acade09d4bf479f",
+  "versions": {
+    "python": "3.13.18",
+    "markitdown": "0.1.9",
+    "tesseract": "tesseract 5.3.4"
+  },
+  "input": {
+    "file": "pricing-update-notes-pages.pdf",
+    "bytes": 29520,
+    "sha256": "520bfda97ddda6434ddf2de1bfdd777ea04f65d6ee816cbe1a70fe82852ebee7"
+  },
+  "mode": "pdf",
+  "runs": [
+    {
+      "profile": "Standard",
+      "kind": "doc",
+      "note": null,
+      "words": 100,
+      "estimated_tokens_backend": 133,
+      "outputs": [
+        {
+          "file": "pricing-update-notes-pages.Standard.md",
+          "bytes": 625,
+          "sha256": "9f4a2d5846e0751771f4cbd1337cc79a67b23c5a145f8e5a54af6682026d532e"
+        }
+      ],
+      "path": "single-pass (no scanned pages)",
+      "pages": [
+        {
+          "page": 1,
+          "chars": 56,
+          "image_coverage": 0.0,
+          "kind": "native"
+        },
+        {
+          "page": 2,
+          "chars": 272,
+          "image_coverage": 0.0,
+          "kind": "native"
+        },
+        {
+          "page": 3,
+          "chars": 90,
+          "image_coverage": 0.0,
+          "kind": "native"
+        },
+        {
+          "page": 4,
+          "chars": 85,
+          "image_coverage": 0.0,
+          "kind": "native"
+        }
+      ]
+    }
+  ]
+}

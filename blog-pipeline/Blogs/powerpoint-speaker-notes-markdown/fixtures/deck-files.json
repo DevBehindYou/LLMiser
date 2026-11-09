@@ -1,0 +1,26 @@
+{
+  "label": "Synthetic pricing deck; notes on slide 2 only, whitespace notes on slide 4",
+  "notes_slide_2": [
+    "New prices take effect on 1 March.",
+    "Existing customers keep their current price until renewal.",
+    "Do not quote Team pricing to schools yet. Education terms are still being negotiated."
+  ],
+  "files": {
+    "pricing-update.pptx": {
+      "bytes": 36683,
+      "sha256": "dea375e7da4b4715ad71005f8208aa11a310a8e425abdf90233d41c410d34eec"
+    },
+    "pricing-update-reviewed.pptx": {
+      "bytes": 36703,
+      "sha256": "03386c32a7ce24d933bec7250bd4d914b845cb2d8c278804848e545683dc3495"
+    },
+    "pricing-update.pdf": {
+      "bytes": 22845,
+      "sha256": "154122b33b3de84e9cb5f63ce1ad8093a83e9945f64beb2f3bbdc785420a3418"
+    },
+    "pricing-update-notes-pages.pdf": {
+      "bytes": 29520,
+      "sha256": "520bfda97ddda6434ddf2de1bfdd777ea04f65d6ee816cbe1a70fe82852ebee7"
+    }
+  }
+}

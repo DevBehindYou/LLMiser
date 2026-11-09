@@ -1,0 +1,52 @@
+{
+  "id": "M05-S1",
+  "role": "support",
+  "title": "Check PowerPoint Speaker Notes After Conversion",
+  "title_selection": "EDITORIAL_PROPOSAL (registry title kept unless qa.md records a change)",
+  "slug": "powerpoint-speaker-notes-markdown",
+  "canonical": "https://llmiser.devbehindyou.com/blog/powerpoint-speaker-notes-markdown",
+  "canonical_status": "RESERVED_NOT_LIVE",
+  "intent_key": "powerpoint-speaker-notes-markdown",
+  "reader_task": "Are important speaker notes represented in this output?",
+  "scope_exclusions": [
+    "Notes extraction is a test question, not an advertised verified feature. Main checklist and sibling questions remain with their owners.",
+    "Parent M05 owns the full checklist or workflow"
+  ],
+  "primary_keyword": "PowerPoint speaker notes Markdown",
+  "secondary_keywords": [
+    "convert PPTX with notes",
+    "PowerPoint notes PDF export"
+  ],
+  "keyword_metrics": "UNMEASURED",
+  "description": "Check the PowerPoint speaker notes Markdown output carries: list slides with notes, find each one in the output and move must-read notes onto the slide.",
+  "description_change": "Registry proposal was a question template; rewritten as the procedure; 152 characters.",
+  "excerpt": "Our deck's most important caveat lived in the speaker notes. Converting the .pptx kept it. Converting the deck's PDF export lost it without a trace.",
+  "category": "GUIDE",
+  "tags": [
+    "PowerPoint",
+    "PPTX",
+    "Speaker notes",
+    "Markdown",
+    "AI context"
+  ],
+  "listicle_count": null,
+  "parent_id": "M05",
+  "nearest_ids": [
+    "M05-S2",
+    "M05-S3",
+    "M05"
+  ],
+  "author": "DevBehindYou",
+  "draft_date": "2026-11-09",
+  "publication_date": null,
+  "draft": true,
+  "banner": "/blog/powerpoint-speaker-notes-markdown/banner.svg",
+  "figures": [
+    "notes-inventory",
+    "route-results",
+    "slide2-routes",
+    "slide2-before-after",
+    "notes-checklist"
+  ],
+  "product_revision_checked": "525c026 (application code identical to 8eb8c509)"
+}

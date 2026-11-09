@@ -1,0 +1,14 @@
+{
+  "article": "M05-S1",
+  "slug": "powerpoint-speaker-notes-markdown",
+  "checked": "2026-11-09",
+  "claims": [
+    { "id": "C01", "text": "From the .pptx, slide 2's notes appeared under ### Notes: with all three paragraphs; indented bullets became plain lines", "state": "VERIFIED_LOCAL_RUN", "source": "F-M05S1 out-pricing-update" },
+    { "id": "C02", "text": "Slides with no notes or notes of spaces only got no notes section", "state": "VERIFIED_LOCAL_RUN + VERIFIED_CODE", "source": "F-M05S1, S-CODE-PPTX" },
+    { "id": "C03", "text": "Slides-only PDF: no notes, no slide markers, titles as plain lines, one split", "state": "VERIFIED_LOCAL_RUN", "source": "F-M05S1 out-pdf" },
+    { "id": "C04", "text": "Notes-pages PDF: notes present, unlabeled, one sentence split, stray page numbers", "state": "VERIFIED_LOCAL_RUN", "source": "F-M05S1 out-notes-pages" },
+    { "id": "C05", "text": "PowerPoint print layout defaults to Full Page Slides; Notes Pages is the only layout with notes", "state": "VERIFIED_SOURCE", "source": "S-MS-PRINT-NOTES" },
+    { "id": "C06", "text": "Reviewed copy put the caveat and start date on slide 2", "state": "VERIFIED_LOCAL_RUN", "source": "F-M05S1 out-pricing-update-reviewed" }
+  ],
+  "not_claimed": ["PowerPoint's own Save as PDF behavior", "how a model weighs notes against slide text"]
+}

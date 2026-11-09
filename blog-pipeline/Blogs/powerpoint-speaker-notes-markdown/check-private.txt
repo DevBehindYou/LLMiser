@@ -1,0 +1,16 @@
+LLMiser PRIVATE draft check (adapter; staged visuals, not production validation): Blogs/powerpoint-speaker-notes-markdown/draft.md
+Date: 2026-11-09T08:34:19.131Z
+Words (app wordCount): 1436, read time 6 min
+Info: Intro: 91 words
+Info: H2 opening word counts: 41, 40, 40
+Info: Links: 3 (1 external)
+
+Errors (0):
+  none
+
+Warnings (3):
+  ! 2 sentence(s) over 35 words, e.g. "If someone printed the deck to PDF, Microsoft's guide to [printing slides with o..."
+  ! Three sentences in a row of similar length, starting ""Don't quote this price to schools yet" belongs here...."
+  ! draft: true. The post stays out of the Blog dialog until you set it to false.
+
+RESULT: PASS (private draft adapter)

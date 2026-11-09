@@ -1,0 +1,32 @@
+{
+  "label": "LOCAL CODE-LEVEL RUN of repository backend code; not a live production conversion",
+  "date_utc": "2026-11-09T08:31:55+00:00",
+  "revision": "525c026949876e64385543cb6acade09d4bf479f",
+  "versions": {
+    "python": "3.13.18",
+    "markitdown": "0.1.9",
+    "tesseract": "tesseract 5.3.4"
+  },
+  "input": {
+    "file": "pricing-update-reviewed.pptx",
+    "bytes": 36703,
+    "sha256": "03386c32a7ce24d933bec7250bd4d914b845cb2d8c278804848e545683dc3495"
+  },
+  "mode": "doc",
+  "runs": [
+    {
+      "profile": "Standard",
+      "kind": "doc",
+      "note": null,
+      "words": 124,
+      "estimated_tokens_backend": 165,
+      "outputs": [
+        {
+          "file": "pricing-update-reviewed.Standard.md",
+          "bytes": 769,
+          "sha256": "7d5a135bb08e3a20d18a6e010e4936d31ccacf44e560d8a175be791e8c428881"
+        }
+      ]
+    }
+  ]
+}
