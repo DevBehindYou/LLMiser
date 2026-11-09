@@ -1,0 +1,14 @@
+{
+  "article": "M01-S1",
+  "slug": "project-zip-secret-review",
+  "checked": "2026-11-09",
+  "claims": [
+    { "id": "C01", "text": "Test project held 33 files plus two inside a backup ZIP; .git/config had a fake token in a remote URL", "state": "VERIFIED_LOCAL_RUN", "source": "F-M01S1, M01 inventory" },
+    { "id": "C02", "text": "Name pass flagged 13 entries; content pass 8; settings.local.yaml found only by content", "state": "VERIFIED_LOCAL_RUN", "source": "F-M01S1" },
+    { "id": "C03", "text": "Content pass missed the key file, couldn't read the screenshot, missed a key written in a sentence", "state": "VERIFIED_LOCAL_RUN", "source": "F-M01S1" },
+    { "id": "C04", "text": "Reviewed copy had 13 files; recheck flagged only .env.example (empty template line)", "state": "VERIFIED_LOCAL_RUN", "source": "F-M01S1" },
+    { "id": "C05", "text": "CI workflows, Compose files and notebook outputs can hold tokens", "state": "EDITORIAL", "note": "General guidance, not tested here." },
+    { "id": "C07", "text": "LLMiser lists files named like credentials without reading them, skips .git, doesn't scan contents", "state": "VERIFIED_CODE", "source": "S-CODE-ARCHIVE" },
+    { "id": "C08", "text": "Rotate any real secret; GitHub puts revoke or rotate first", "state": "VERIFIED_SOURCE", "source": "S-GITHUB-SENSITIVE" }
+  ]
+}

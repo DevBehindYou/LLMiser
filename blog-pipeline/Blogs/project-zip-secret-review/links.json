@@ -1,0 +1,43 @@
+{
+  "article": "M01-S1",
+  "checked": "2026-11-09",
+  "in_draft": [
+    {
+      "url": "https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository",
+      "owner": "external",
+      "status": "CHECKED_200"
+    },
+    {
+      "url": "/usecase",
+      "owner": "USE",
+      "status": "LIVE"
+    },
+    {
+      "url": "/",
+      "owner": "HOME",
+      "status": "LIVE",
+      "placement": "CTA"
+    }
+  ],
+  "planned_when_released": [
+    {
+      "target": "M01",
+      "url": "/blog/prepare-codebase-for-ai",
+      "status": "UNPUBLISHED",
+      "placement": "Intro or first section, link to the parent checklist",
+      "anchor": "7 Things to Remove Before Sharing a Codebase With AI"
+    },
+    {
+      "target": "M01-S2",
+      "url": "/blog/dependency-files-ai-review",
+      "status": "UNPUBLISHED",
+      "placement": "Optional sibling link where genuinely useful"
+    },
+    {
+      "target": "M01-S3",
+      "url": "/blog/task-focused-code-bundle",
+      "status": "UNPUBLISHED",
+      "placement": "Optional sibling link where genuinely useful"
+    }
+  ]
+}

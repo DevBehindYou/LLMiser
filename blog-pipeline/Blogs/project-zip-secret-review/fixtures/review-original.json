@@ -1,0 +1,292 @@
+{
+  "label": "Illustrative review script on synthetic FAKE data; not a complete scanner",
+  "summary": {
+    "archive": "invoice-tool-original.zip",
+    "entries_including_nested": 35,
+    "flagged_by_name": 13,
+    "flagged_by_content": 8,
+    "flagged_by_content_only": [
+      "invoice-tool/config/settings.local.yaml"
+    ],
+    "flagged_by_name_only": [
+      "invoice-tool/.git/HEAD",
+      "invoice-tool/backup/invoice-tool-2026-09.zip",
+      "invoice-tool/backup/invoice-tool-2026-09.zip/invoice-tool/src/invoice/totals.py",
+      "invoice-tool/docs/screenshot-checkout.png",
+      "invoice-tool/id_ed25519",
+      "invoice-tool/src/invoice/totals (copy).py"
+    ],
+    "flagged_by_both": [
+      "invoice-tool/.env",
+      "invoice-tool/.env.example",
+      "invoice-tool/.git/config",
+      "invoice-tool/backup/invoice-tool-2026-09.zip/invoice-tool/config/settings.old.yaml",
+      "invoice-tool/data/customers-export.csv",
+      "invoice-tool/logs/app-2026-11-02.log",
+      "invoice-tool/tmp/debug-notes.txt"
+    ]
+  },
+  "entries": [
+    {
+      "path": "invoice-tool/.env",
+      "name_flags": [
+        "env or credentials file"
+      ],
+      "content_hits": [
+        {
+          "rule": "key, token or password assignment",
+          "match": "PAYMENTS_API_KEY=FAKE-payments-key-NOT-REAL-0000"
+        },
+        {
+          "rule": "key, token or password assignment",
+          "match": "SMTP_PASSWORD=FAKE-smtp-password-NOT-REAL"
+        }
+      ]
+    },
+    {
+      "path": "invoice-tool/.env.example",
+      "name_flags": [
+        "env or credentials file"
+      ],
+      "content_hits": [
+        {
+          "rule": "key, token or password assignment",
+          "match": "PAYMENTS_API_KEY=\nSMTP_PASSWORD="
+        }
+      ]
+    },
+    {
+      "path": "invoice-tool/.git/HEAD",
+      "name_flags": [
+        "git metadata"
+      ],
+      "content_hits": []
+    },
+    {
+      "path": "invoice-tool/.git/config",
+      "name_flags": [
+        "git metadata"
+      ],
+      "content_hits": [
+        {
+          "rule": "e-mail address",
+          "match": "FAKE-token-NOT-REAL@git.example.com"
+        },
+        {
+          "rule": "credential in URL",
+          "match": "https://FAKE-token-NOT-REAL@"
+        }
+      ]
+    },
+    {
+      "path": "invoice-tool/.gitignore",
+      "name_flags": [],
+      "content_hits": []
+    },
+    {
+      "path": "invoice-tool/.pytest_cache/v/cache/lastfailed",
+      "name_flags": [],
+      "content_hits": []
+    },
+    {
+      "path": "invoice-tool/.venv/lib/python3.12/site-packages/babel/__init__.py",
+      "name_flags": [],
+      "content_hits": []
+    },
+    {
+      "path": "invoice-tool/README.md",
+      "name_flags": [],
+      "content_hits": []
+    },
+    {
+      "path": "invoice-tool/assets/demo-recording.mp4",
+      "name_flags": [],
+      "content_hits": []
+    },
+    {
+      "path": "invoice-tool/backup/invoice-tool-2026-09.zip",
+      "name_flags": [
+        "temp or backup"
+      ],
+      "content_hits": []
+    },
+    {
+      "path": "invoice-tool/backup/invoice-tool-2026-09.zip/invoice-tool/config/settings.old.yaml",
+      "name_flags": [
+        "temp or backup"
+      ],
+      "content_hits": [
+        {
+          "rule": "key, token or password assignment",
+          "match": "payments_api_key: FAKE-old-payments-key-NOT-REAL-9999"
+        }
+      ]
+    },
+    {
+      "path": "invoice-tool/backup/invoice-tool-2026-09.zip/invoice-tool/src/invoice/totals.py",
+      "name_flags": [
+        "temp or backup"
+      ],
+      "content_hits": []
+    },
+    {
+      "path": "invoice-tool/build/lib/invoice/totals.py",
+      "name_flags": [],
+      "content_hits": []
+    },
+    {
+      "path": "invoice-tool/config/app.yaml",
+      "name_flags": [],
+      "content_hits": []
+    },
+    {
+      "path": "invoice-tool/config/settings.local.yaml",
+      "name_flags": [],
+      "content_hits": [
+        {
+          "rule": "key, token or password assignment",
+          "match": "payments_api_key: FAKE-payments-key-NOT-REAL-0000"
+        },
+        {
+          "rule": "key, token or password assignment",
+          "match": "smtp_password: FAKE-smtp-password-NOT-REAL"
+        }
+      ]
+    },
+    {
+      "path": "invoice-tool/data/customers-export.csv",
+      "name_flags": [
+        "data export"
+      ],
+      "content_hits": [
+        {
+          "rule": "e-mail address",
+          "match": "jordan.lee@example.com"
+        },
+        {
+          "rule": "e-mail address",
+          "match": "casey.morgan@example.com"
+        }
+      ]
+    },
+    {
+      "path": "invoice-tool/dist/invoice_tool-0.3.0-py3-none-any.whl",
+      "name_flags": [],
+      "content_hits": []
+    },
+    {
+      "path": "invoice-tool/docs/screenshot-checkout.png",
+      "name_flags": [
+        "image"
+      ],
+      "content_hits": []
+    },
+    {
+      "path": "invoice-tool/id_ed25519",
+      "name_flags": [
+        "private key"
+      ],
+      "content_hits": []
+    },
+    {
+      "path": "invoice-tool/logs/app-2026-11-02.log",
+      "name_flags": [
+        "log file"
+      ],
+      "content_hits": [
+        {
+          "rule": "e-mail address",
+          "match": "jordan.lee@example.com"
+        },
+        {
+          "rule": "e-mail address",
+          "match": "casey.morgan@example.com"
+        }
+      ]
+    },
+    {
+      "path": "invoice-tool/pyproject.toml",
+      "name_flags": [],
+      "content_hits": []
+    },
+    {
+      "path": "invoice-tool/requirements.lock",
+      "name_flags": [],
+      "content_hits": []
+    },
+    {
+      "path": "invoice-tool/src/invoice/__init__.py",
+      "name_flags": [],
+      "content_hits": []
+    },
+    {
+      "path": "invoice-tool/src/invoice/__pycache__/totals.cpython-312.pyc",
+      "name_flags": [],
+      "content_hits": []
+    },
+    {
+      "path": "invoice-tool/src/invoice/cli.py",
+      "name_flags": [],
+      "content_hits": []
+    },
+    {
+      "path": "invoice-tool/src/invoice/totals (copy).py",
+      "name_flags": [
+        "temp or backup"
+      ],
+      "content_hits": []
+    },
+    {
+      "path": "invoice-tool/src/invoice/totals.py",
+      "name_flags": [],
+      "content_hits": []
+    },
+    {
+      "path": "invoice-tool/src/invoice/totals_old.py",
+      "name_flags": [],
+      "content_hits": []
+    },
+    {
+      "path": "invoice-tool/tests/test_totals.py",
+      "name_flags": [],
+      "content_hits": []
+    },
+    {
+      "path": "invoice-tool/tmp/debug-notes.txt",
+      "name_flags": [
+        "temp or backup"
+      ],
+      "content_hits": [
+        {
+          "rule": "e-mail address",
+          "match": "casey.morgan@example.com"
+        }
+      ]
+    },
+    {
+      "path": "invoice-tool/web/node_modules/left-pad/index.js",
+      "name_flags": [],
+      "content_hits": []
+    },
+    {
+      "path": "invoice-tool/web/node_modules/left-pad/package.json",
+      "name_flags": [],
+      "content_hits": []
+    },
+    {
+      "path": "invoice-tool/web/package-lock.json",
+      "name_flags": [],
+      "content_hits": []
+    },
+    {
+      "path": "invoice-tool/web/package.json",
+      "name_flags": [],
+      "content_hits": []
+    },
+    {
+      "path": "invoice-tool/web/src/app.js",
+      "name_flags": [],
+      "content_hits": []
+    }
+  ]
+}

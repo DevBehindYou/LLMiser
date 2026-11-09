@@ -1,0 +1,16 @@
+LLMiser PRIVATE draft check (adapter; staged visuals, not production validation): Blogs/project-zip-secret-review/draft.md
+Date: 2026-11-09T07:43:13.290Z
+Words (app wordCount): 1227, read time 5 min
+Info: Intro: 74 words
+Info: H2 opening word counts: 35, 29, 35
+Info: Links: 3 (1 external)
+
+Errors (0):
+  none
+
+Warnings (3):
+  ! Three sentences in a row of similar length, starting "It didn't flag the private key file, because our fake key ha..."
+  ! Description does not contain the primary keyword.
+  ! draft: true. The post stays out of the Blog dialog until you set it to false.
+
+RESULT: PASS (private draft adapter)

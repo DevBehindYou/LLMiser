@@ -1,0 +1,88 @@
+{
+  "label": "Illustrative review script on synthetic FAKE data; not a complete scanner",
+  "summary": {
+    "archive": "invoice-tool-sharing.zip",
+    "entries_including_nested": 13,
+    "flagged_by_name": 1,
+    "flagged_by_content": 1,
+    "flagged_by_content_only": [],
+    "flagged_by_name_only": [],
+    "flagged_by_both": [
+      "invoice-tool/.env.example"
+    ]
+  },
+  "entries": [
+    {
+      "path": "invoice-tool/.env.example",
+      "name_flags": [
+        "env or credentials file"
+      ],
+      "content_hits": [
+        {
+          "rule": "key, token or password assignment",
+          "match": "PAYMENTS_API_KEY=\nSMTP_PASSWORD="
+        }
+      ]
+    },
+    {
+      "path": "invoice-tool/.gitignore",
+      "name_flags": [],
+      "content_hits": []
+    },
+    {
+      "path": "invoice-tool/README.md",
+      "name_flags": [],
+      "content_hits": []
+    },
+    {
+      "path": "invoice-tool/config/app.yaml",
+      "name_flags": [],
+      "content_hits": []
+    },
+    {
+      "path": "invoice-tool/pyproject.toml",
+      "name_flags": [],
+      "content_hits": []
+    },
+    {
+      "path": "invoice-tool/requirements.lock",
+      "name_flags": [],
+      "content_hits": []
+    },
+    {
+      "path": "invoice-tool/src/invoice/__init__.py",
+      "name_flags": [],
+      "content_hits": []
+    },
+    {
+      "path": "invoice-tool/src/invoice/cli.py",
+      "name_flags": [],
+      "content_hits": []
+    },
+    {
+      "path": "invoice-tool/src/invoice/totals.py",
+      "name_flags": [],
+      "content_hits": []
+    },
+    {
+      "path": "invoice-tool/tests/test_totals.py",
+      "name_flags": [],
+      "content_hits": []
+    },
+    {
+      "path": "invoice-tool/web/package-lock.json",
+      "name_flags": [],
+      "content_hits": []
+    },
+    {
+      "path": "invoice-tool/web/package.json",
+      "name_flags": [],
+      "content_hits": []
+    },
+    {
+      "path": "invoice-tool/web/src/app.js",
+      "name_flags": [],
+      "content_hits": []
+    }
+  ]
+}

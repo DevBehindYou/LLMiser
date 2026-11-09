@@ -1,0 +1,51 @@
+{
+  "id": "M01-S1",
+  "role": "support",
+  "title": "Check a Project ZIP for Secrets Before Sharing It",
+  "title_selection": "EDITORIAL_PROPOSAL (registry title kept unless qa.md records a change)",
+  "slug": "project-zip-secret-review",
+  "canonical": "https://llmiser.devbehindyou.com/blog/project-zip-secret-review",
+  "canonical_status": "RESERVED_NOT_LIVE",
+  "intent_key": "project-zip-secret-review",
+  "reader_task": "How do I review a sharing copy for credentials and private data?",
+  "scope_exclusions": [
+    "Do not use real secrets or imply the converter detects credentials. Main checklist and sibling questions remain with their owners.",
+    "Parent M01 owns the full checklist or workflow"
+  ],
+  "primary_keyword": "check code ZIP for secrets",
+  "secondary_keywords": [
+    "review a sharing copy",
+    "find credentials in a project"
+  ],
+  "keyword_metrics": "UNMEASURED",
+  "description": "Check a code ZIP for secrets before sharing: scan file names and file contents, look inside nested ZIPs and images, remove what you find and recheck the copy.",
+  "description_change": "Registry proposal was a question template; rewritten to state the routine; 159 characters.",
+  "excerpt": "A name scan and a content scan each missed things the other caught. Here's a review routine for a sharing copy, tested on a project full of fake secrets.",
+  "category": "GUIDE",
+  "tags": [
+    "Secrets",
+    "Code review",
+    "ZIP",
+    "AI context",
+    "Sharing code"
+  ],
+  "listicle_count": null,
+  "parent_id": "M01",
+  "nearest_ids": [
+    "M01-S2",
+    "M01-S3",
+    "M01"
+  ],
+  "author": "DevBehindYou",
+  "draft_date": "2026-11-09",
+  "publication_date": null,
+  "draft": true,
+  "banner": "/blog/project-zip-secret-review/banner.svg",
+  "figures": [
+    "review-flow",
+    "two-scans",
+    "flagged-file-decision",
+    "recheck-checklist"
+  ],
+  "product_revision_checked": "73122c5 (application code identical to 8eb8c509)"
+}
