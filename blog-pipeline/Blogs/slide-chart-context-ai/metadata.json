@@ -1,0 +1,52 @@
+{
+  "id": "M05-S2",
+  "role": "support",
+  "title": "Carry Chart Context From Slides Into AI Prompts",
+  "title_selection": "EDITORIAL_PROPOSAL (registry title kept unless qa.md records a change)",
+  "slug": "slide-chart-context-ai",
+  "canonical": "https://llmiser.devbehindyou.com/blog/slide-chart-context-ai",
+  "canonical_status": "RESERVED_NOT_LIVE",
+  "intent_key": "slide-chart-context-ai",
+  "reader_task": "What chart information must accompany a text-only slide export?",
+  "scope_exclusions": [
+    "Never infer values that were not readable or claim automatic chart understanding. Main checklist and sibling questions remain with their owners.",
+    "Parent M05 owns the full checklist or workflow"
+  ],
+  "primary_keyword": "PowerPoint chart context AI",
+  "secondary_keywords": [
+    "chart units lost in conversion",
+    "describe a chart for AI"
+  ],
+  "keyword_metrics": "UNMEASURED",
+  "description": "Keep the PowerPoint chart context AI models need: name each chart's question, move units and labels into text that survives, and keep the image when shape matters.",
+  "description_change": "Registry proposal was a question template; rewritten as the procedure; 163 characters.",
+  "excerpt": "Our churn chart showed 4.2%. The converted text said 0.042. Chart values survive conversion, but the percent signs, currency and axis ranges live in formatting.",
+  "category": "GUIDE",
+  "tags": [
+    "PowerPoint",
+    "Charts",
+    "Data quality",
+    "Markdown",
+    "AI context"
+  ],
+  "listicle_count": null,
+  "parent_id": "M05",
+  "nearest_ids": [
+    "M05-S1",
+    "M05-S3",
+    "M05"
+  ],
+  "author": "DevBehindYou",
+  "draft_date": "2026-11-09",
+  "publication_date": null,
+  "draft": true,
+  "banner": "/blog/slide-chart-context-ai/banner.svg",
+  "figures": [
+    "slide-vs-output",
+    "survives-and-lost",
+    "churn-fix",
+    "keep-visual-decision",
+    "chart-checklist"
+  ],
+  "product_revision_checked": "44584ce (application code identical to 8eb8c509)"
+}

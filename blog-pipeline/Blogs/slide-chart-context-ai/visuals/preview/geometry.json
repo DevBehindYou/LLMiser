@@ -1,0 +1,82 @@
+{
+  "slug": "slide-chart-context-ai",
+  "date": "2026-11-09T08:37:52.275Z",
+  "viewport": "2 x 375px columns, deviceScaleFactor 2",
+  "themes": [
+    "dark",
+    "light"
+  ],
+  "fontsLoaded": [
+    "LLMiser Inter",
+    "LLMiser JetBrains Mono",
+    "LLMiser Patrick Hand"
+  ],
+  "figures": [
+    {
+      "figure": "banner.svg",
+      "viewBox": [
+        1200,
+        400
+      ],
+      "renderedWidthPx": 343,
+      "minFontPxAt375": "4.0",
+      "texts": 15,
+      "issues": []
+    },
+    {
+      "figure": "slide-vs-output.svg",
+      "viewBox": [
+        600,
+        352
+      ],
+      "renderedWidthPx": 343,
+      "minFontPxAt375": "6.3",
+      "texts": 22,
+      "issues": []
+    },
+    {
+      "figure": "survives-and-lost.svg",
+      "viewBox": [
+        600,
+        482
+      ],
+      "renderedWidthPx": 343,
+      "minFontPxAt375": "6.3",
+      "texts": 37,
+      "issues": []
+    },
+    {
+      "figure": "churn-fix.svg",
+      "viewBox": [
+        600,
+        655
+      ],
+      "renderedWidthPx": 343,
+      "minFontPxAt375": "6.3",
+      "texts": 23,
+      "issues": []
+    },
+    {
+      "figure": "keep-visual-decision.svg",
+      "viewBox": [
+        600,
+        442
+      ],
+      "renderedWidthPx": 343,
+      "minFontPxAt375": "6.3",
+      "texts": 12,
+      "issues": []
+    },
+    {
+      "figure": "chart-checklist.svg",
+      "viewBox": [
+        600,
+        380
+      ],
+      "renderedWidthPx": 343,
+      "minFontPxAt375": "6.3",
+      "texts": 10,
+      "issues": []
+    }
+  ]
+}

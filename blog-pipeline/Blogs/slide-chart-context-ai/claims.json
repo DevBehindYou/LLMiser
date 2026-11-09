@@ -1,0 +1,15 @@
+{
+  "article": "M05-S2",
+  "slug": "slide-chart-context-ai",
+  "checked": "2026-11-09",
+  "claims": [
+    { "id": "C01", "text": "Converted charts kept title, category names, series names and stored values", "state": "VERIFIED_LOCAL_RUN", "source": "F-M05S2 out-original" },
+    { "id": "C02", "text": "Churn shown as 4.2% converted as 0.042; revenue shown as $125,000 converted as 125000.0", "state": "VERIFIED_LOCAL_RUN", "source": "F-M05S2 out-original, render" },
+    { "id": "C03", "text": "Pie labels showing 45% converted as 45.0 under Revenue; axis title Revenue (USD) absent; axis start not represented", "state": "VERIFIED_LOCAL_RUN", "source": "F-M05S2" },
+    { "id": "C04", "text": "Reviewed copy: units in every table header and a takeaway sentence on every chart slide", "state": "VERIFIED_LOCAL_RUN", "source": "F-M05S2 out-reviewed" },
+    { "id": "C05", "text": "Renaming the series '(%)' while storing 0.042 put 0.042 under a percent header", "state": "VERIFIED_LOCAL_RUN", "source": "F-M05S2 out-label-trap" },
+    { "id": "C06", "text": "$162,250 is up 23% on $131,500", "state": "ARITHMETIC", "source": "162250 / 131500 = 1.234" },
+    { "id": "C07", "text": "A chart pasted as a picture contributes only its alt text", "state": "VERIFIED_LOCAL_RUN", "source": "F-M05" }
+  ],
+  "not_claimed": ["PowerPoint-saved chart behavior", "how a model interprets fractions"]
+}

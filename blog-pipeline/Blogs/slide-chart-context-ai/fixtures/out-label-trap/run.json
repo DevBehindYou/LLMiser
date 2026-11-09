@@ -1,0 +1,32 @@
+{
+  "label": "LOCAL CODE-LEVEL RUN of repository backend code; not a live production conversion",
+  "date_utc": "2026-11-09T08:35:57+00:00",
+  "revision": "44584ce06119134d283aa3d5506b2d5d8c47bc25",
+  "versions": {
+    "python": "3.13.18",
+    "markitdown": "0.1.9",
+    "tesseract": "tesseract 5.3.4"
+  },
+  "input": {
+    "file": "charts-label-trap.pptx",
+    "bytes": 56856,
+    "sha256": "f90e52a34766a374795b84e4a6968b5843aa38d146b1500cca5c0d231ac22268"
+  },
+  "mode": "doc",
+  "runs": [
+    {
+      "profile": "Standard",
+      "kind": "doc",
+      "note": null,
+      "words": 208,
+      "estimated_tokens_backend": 277,
+      "outputs": [
+        {
+          "file": "charts-label-trap.Standard.md",
+          "bytes": 1051,
+          "sha256": "badc2111f12650662453065a7a8e51cdb4796848772e109c87e314314a7246ae"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "label": "Synthetic chart deck, original and reviewed",
+  "files": {
+    "charts-original.pptx": {
+      "bytes": 56166,
+      "sha256": "a33e029c412838963a3fc3901f1e462dbbbb31daf43424c1739bc20ff58323cc"
+    },
+    "charts-label-trap.pptx": {
+      "bytes": 56856,
+      "sha256": "f90e52a34766a374795b84e4a6968b5843aa38d146b1500cca5c0d231ac22268"
+    },
+    "charts-reviewed.pptx": {
+      "bytes": 56859,
+      "sha256": "0d074378bd9231b53742984e685e6ac7432fb53ced88d25c8e3cabe4d9b3a90d"
+    }
+  }
+}

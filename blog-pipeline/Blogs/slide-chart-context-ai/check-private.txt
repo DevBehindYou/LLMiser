@@ -1,0 +1,16 @@
+LLMiser PRIVATE draft check (adapter; staged visuals, not production validation): Blogs/slide-chart-context-ai/draft.md
+Date: 2026-11-09T08:37:51.652Z
+Words (app wordCount): 1496, read time 7 min
+Info: Intro: 86 words
+Info: H2 opening word counts: 36, 37, 39
+Info: Links: 2 (0 external)
+
+Errors (0):
+  none
+
+Warnings (3):
+  ! 1 sentence(s) over 35 words, e.g. "Then add one sentence on the slide stating the takeaway, with its numbers and un..."
+  ! Three sentences in a row of similar length, starting "This guide shows how to keep the **PowerPoint chart context ..."
+  ! draft: true. The post stays out of the Blog dialog until you set it to false.
+
+RESULT: PASS (private draft adapter)
