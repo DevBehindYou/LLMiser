@@ -1,0 +1,32 @@
+{
+  "label": "LOCAL CODE-LEVEL RUN of repository backend code; not a live production conversion",
+  "date_utc": "2026-11-09T08:12:07+00:00",
+  "revision": "088bc8361c6144f6d6873d9aa69c0538ca264625",
+  "versions": {
+    "python": "3.13.18",
+    "markitdown": "0.1.9",
+    "tesseract": "tesseract 5.3.4"
+  },
+  "input": {
+    "file": "order-recalculated.xlsx",
+    "bytes": 6462,
+    "sha256": "f7c61fbca35008cee9875b4d89f597c7f6af4546522cc981ffe8ad5a4e9e8a9f"
+  },
+  "mode": "doc",
+  "runs": [
+    {
+      "profile": "Standard",
+      "kind": "doc",
+      "note": null,
+      "words": 129,
+      "estimated_tokens_backend": 172,
+      "outputs": [
+        {
+          "file": "order-recalculated.Standard.md",
+          "bytes": 513,
+          "sha256": "2321830370ac1742f786f2755b4c416da9562d0f4c539f2a861ba627c6041dee"
+        }
+      ]
+    }
+  ]
+}

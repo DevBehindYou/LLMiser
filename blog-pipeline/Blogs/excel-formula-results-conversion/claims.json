@@ -1,0 +1,16 @@
+{
+  "article": "M03-S2",
+  "slug": "excel-formula-results-conversion",
+  "checked": "2026-11-09",
+  "claims": [
+    { "id": "C01", "text": "Excel shows formulas with Ctrl+` or Formulas > Show Formulas", "state": "VERIFIED_SOURCE", "source": "S-MS-SHOWF" },
+    { "id": "C02", "text": "LLMiser's conversion reads saved results and doesn't recalculate; stale file converted with the old amount and totals", "state": "VERIFIED_CODE + VERIFIED_LOCAL_RUN", "source": "S-CODE-XLSX, F-M03S2 out-stale" },
+    { "id": "C03", "text": "TODAY()-based cell came out as 39, the value on the save day, with no date in the output", "state": "VERIFIED_LOCAL_RUN", "source": "F-M03S2 out-saved" },
+    { "id": "C04", "text": "Manual calculation turns on Recalculate workbook before saving, which can be cleared", "state": "VERIFIED_SOURCE", "source": "S-MS-RECALC" },
+    { "id": "C05", "text": "Ctrl+Alt+F9 checks dependent formulas and recalculates all formulas in all open workbooks", "state": "VERIFIED_SOURCE", "source": "S-MS-RECALC" },
+    { "id": "C06", "text": "Re-saving with LibreOffice Calc defaults kept stale results; recalculate-on-load produced 210.00 and 4,257.81", "state": "VERIFIED_LOCAL_RUN", "source": "F-M03S2 out-resaved, out-recalculated" },
+    { "id": "C07", "text": "Empty cell, #N/A, #DIV/0! and a formula without a saved result all converted to NaN", "state": "VERIFIED_LOCAL_RUN", "source": "F-M03S2 out-saved, out-script" },
+    { "id": "C08", "text": "Quantities printed as 12.000 with the same three decimals as the 0.075 tax rate in that column", "state": "VERIFIED_LOCAL_RUN", "source": "F-M03S2" }
+  ],
+  "not_claimed": ["Excel re-save behavior", "that the converter evaluates any formula", "a cause for the decimal formatting beyond the observation"]
+}

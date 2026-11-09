@@ -1,0 +1,52 @@
+{
+  "id": "M03-S2",
+  "role": "support",
+  "title": "Check Excel Formula Results Before Conversion",
+  "title_selection": "EDITORIAL_PROPOSAL (registry title kept unless qa.md records a change)",
+  "slug": "excel-formula-results-conversion",
+  "canonical": "https://llmiser.devbehindyou.com/blog/excel-formula-results-conversion",
+  "canonical_status": "RESERVED_NOT_LIVE",
+  "intent_key": "excel-formula-results-conversion",
+  "reader_task": "What evidence shows whether formula results are current?",
+  "scope_exclusions": [
+    "Do not claim the converter recalculates formulas; record app and workbook provenance. Main checklist and sibling questions remain with their owners.",
+    "Parent M03 owns the full checklist or workflow"
+  ],
+  "primary_keyword": "Excel formula results conversion",
+  "secondary_keywords": [
+    "stale formula values Excel",
+    "Excel saved formula results"
+  ],
+  "keyword_metrics": "UNMEASURED",
+  "description": "An Excel formula results conversion check: mark formula cells, recalculate and save a dated copy, then test the converted values. Errors looked like blanks.",
+  "description_change": "Registry proposal was a question template; rewritten as the procedure with a finding; 156 characters.",
+  "excerpt": "A converted workbook carries each formula's last saved result. We changed one quantity, and the old total came straight through. Re-saving didn't fix it.",
+  "category": "GUIDE",
+  "tags": [
+    "Excel",
+    "Spreadsheets",
+    "Formulas",
+    "Data quality",
+    "AI context"
+  ],
+  "listicle_count": null,
+  "parent_id": "M03",
+  "nearest_ids": [
+    "M03-S1",
+    "M03-S3",
+    "M03"
+  ],
+  "author": "DevBehindYou",
+  "draft_date": "2026-11-09",
+  "publication_date": null,
+  "draft": true,
+  "banner": "/blog/excel-formula-results-conversion/banner.svg",
+  "figures": [
+    "formula-cells",
+    "workbook-states",
+    "review-copy-steps",
+    "nan-meanings",
+    "formula-checklist"
+  ],
+  "product_revision_checked": "088bc83 (application code identical to 8eb8c509)"
+}

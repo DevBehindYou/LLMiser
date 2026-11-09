@@ -1,0 +1,15 @@
+LLMiser PRIVATE draft check (adapter; staged visuals, not production validation): Blogs/excel-formula-results-conversion/draft.md
+Date: 2026-11-09T08:14:20.038Z
+Words (app wordCount): 1475, read time 6 min
+Info: Intro: 73 words
+Info: H2 opening word counts: 38, 41, 39
+Info: Links: 4 (2 external)
+
+Errors (0):
+  none
+
+Warnings (2):
+  ! Three sentences in a row of similar length, starting "Mark which cells hold formulas, force a full recalculation a..."
+  ! draft: true. The post stays out of the Blog dialog until you set it to false.
+
+RESULT: PASS (private draft adapter)

@@ -1,0 +1,25 @@
+{
+  "label": "Synthetic order sheet in four states",
+  "files": {
+    "order-script.xlsx": {
+      "bytes": 5178,
+      "sha256": "dc23a4401c9b819082e698205ec963ae63c66335c4e1d19429f669b8a0351f22"
+    },
+    "order-saved.xlsx": {
+      "bytes": 6453,
+      "sha256": "c077d36b2141f54bb39369923581e47a28f61ab6432561def2ca90c56cadd8f8"
+    },
+    "order-stale.xlsx": {
+      "bytes": 6278,
+      "sha256": "45b1e045d9feb7d697746f05632cd6f535c9e4aec3f7e5c2a5a974315a519318"
+    },
+    "order-resaved.xlsx": {
+      "bytes": 6463,
+      "sha256": "86f04eea822ab905cc222e9ea32998925fb433a1d492790348d4e4b329530892"
+    },
+    "order-recalculated.xlsx": {
+      "bytes": 6462,
+      "sha256": "f7c61fbca35008cee9875b4d89f597c7f6af4546522cc981ffe8ad5a4e9e8a9f"
+    }
+  }
+}
