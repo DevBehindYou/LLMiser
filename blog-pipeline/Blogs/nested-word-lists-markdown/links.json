@@ -1,0 +1,38 @@
+{
+  "article": "M04-S2",
+  "checked": "2026-11-09",
+  "in_draft": [
+    {
+      "url": "/usecase",
+      "owner": "USE",
+      "status": "LIVE"
+    },
+    {
+      "url": "/",
+      "owner": "HOME",
+      "status": "LIVE",
+      "placement": "CTA"
+    }
+  ],
+  "planned_when_released": [
+    {
+      "target": "M04",
+      "url": "/blog/prepare-word-documents-for-ai",
+      "status": "UNPUBLISHED",
+      "placement": "Intro or first section, link to the parent checklist",
+      "anchor": "6 Ways to Prepare Word Documents for AI"
+    },
+    {
+      "target": "M04-S1",
+      "url": "/blog/word-heading-styles-markdown",
+      "status": "UNPUBLISHED",
+      "placement": "Optional sibling link where genuinely useful"
+    },
+    {
+      "target": "M04-S3",
+      "url": "/blog/word-revisions-ai-sharing",
+      "status": "UNPUBLISHED",
+      "placement": "Optional sibling link where genuinely useful"
+    }
+  ]
+}

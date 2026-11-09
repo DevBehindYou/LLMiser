@@ -1,0 +1,17 @@
+{
+  "label": "Synthetic equipment-return steps, original and reviewed",
+  "files": {
+    "steps-original.docx": {
+      "bytes": 37047,
+      "sha256": "3a79d8b77f6406c0f055f57ed64425be4d9f8fb0348de7d76b54932c49b7ed41"
+    },
+    "steps-reviewed.docx": {
+      "bytes": 37032,
+      "sha256": "93da0c22a06b6ac1b8bbba9f94c2731cf0ec90ea70ef504631dc79e813a8f613"
+    },
+    "steps-skip-level.docx": {
+      "bytes": 36848,
+      "sha256": "867e6ce575284a997123494c3c226fafb70822867b38af157b38f776fa87db71"
+    }
+  }
+}

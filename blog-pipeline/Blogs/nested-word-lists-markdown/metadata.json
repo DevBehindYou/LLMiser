@@ -1,0 +1,51 @@
+{
+  "id": "M04-S2",
+  "role": "support",
+  "title": "Check Nested Word Lists in Markdown Output",
+  "title_selection": "EDITORIAL_PROPOSAL (registry title kept unless qa.md records a change)",
+  "slug": "nested-word-lists-markdown",
+  "canonical": "https://llmiser.devbehindyou.com/blog/nested-word-lists-markdown",
+  "canonical_status": "RESERVED_NOT_LIVE",
+  "intent_key": "nested-word-lists-markdown",
+  "reader_task": "How do I verify parent-child relationships in converted lists?",
+  "scope_exclusions": [
+    "Do not promise lossless numbering; preserve the original. Main checklist and sibling questions remain with their owners.",
+    "Parent M04 owns the full checklist or workflow"
+  ],
+  "primary_keyword": "nested Word lists Markdown",
+  "secondary_keywords": [
+    "Word multilevel list conversion",
+    "list numbering restarts Markdown"
+  ],
+  "keyword_metrics": "UNMEASURED",
+  "description": "Check nested Word lists Markdown output keeps: outline each list, compare every item's parent and number, then repair a copy. A step after a note became step 1.",
+  "description_change": "Registry proposal was a question template; rewritten as the procedure with the finding; 160 characters.",
+  "excerpt": "All the words were there. But a sub-step had become a step, a lettered step had become a number, and step 3 had quietly become step 1 again.",
+  "category": "GUIDE",
+  "tags": [
+    "Word",
+    "DOCX",
+    "Markdown",
+    "Lists",
+    "AI context"
+  ],
+  "listicle_count": null,
+  "parent_id": "M04",
+  "nearest_ids": [
+    "M04-S1",
+    "M04-S3",
+    "M04"
+  ],
+  "author": "DevBehindYou",
+  "draft_date": "2026-11-09",
+  "publication_date": null,
+  "draft": true,
+  "banner": "/blog/nested-word-lists-markdown/banner.svg",
+  "figures": [
+    "list-outline",
+    "list-results",
+    "before-after",
+    "lists-checklist"
+  ],
+  "product_revision_checked": "b8406d3 (application code identical to 8eb8c509)"
+}

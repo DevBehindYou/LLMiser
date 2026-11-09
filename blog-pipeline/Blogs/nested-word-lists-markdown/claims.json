@@ -1,0 +1,16 @@
+{
+  "article": "M04-S2",
+  "slug": "nested-word-lists-markdown",
+  "checked": "2026-11-09",
+  "claims": [
+    { "id": "C01", "text": "A real multilevel list kept its nesting; lettered sub-steps a and b became 1 and 2", "state": "VERIFIED_LOCAL_RUN", "source": "F-M04S2 out-original, wp-render" },
+    { "id": "C02", "text": "The step after a note paragraph, displayed as 3, converted as 1", "state": "VERIFIED_LOCAL_RUN", "source": "F-M04S2" },
+    { "id": "C03", "text": "List Bullet 2 children became top-level bullets; Gift cards (2) became 1", "state": "VERIFIED_LOCAL_RUN", "source": "F-M04S2" },
+    { "id": "C04", "text": "Bullets indented two levels at once converted as '* + Clearance labels'", "state": "VERIFIED_LOCAL_RUN", "source": "F-M04S2 out-skip-level" },
+    { "id": "C05", "text": "Reviewed copy: step 3 kept, examples nested, Gift cards 2; letters still numbers", "state": "VERIFIED_LOCAL_RUN", "source": "F-M04S2 out-reviewed" },
+    { "id": "C06", "text": "In Word, Enter then Tab indents a new item into a nested list", "state": "VERIFIED_SOURCE", "source": "S-MS-LISTS-SR" },
+    { "id": "C07", "text": "Multilevel lists start from the Multilevel List button on the Home tab", "state": "VERIFIED_SOURCE", "source": "S-MS-MULTI" },
+    { "id": "C08", "text": "LLMiser allows editing the Markdown before copy or download; edits aren't saved in recent sessions", "state": "VERIFIED_CODE", "source": "S-CODE-READER" }
+  ],
+  "not_claimed": ["Microsoft Word's own display of these files", "that every template uses style-based levels"]
+}

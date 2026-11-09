@@ -1,0 +1,15 @@
+LLMiser PRIVATE draft check (adapter; staged visuals, not production validation): Blogs/nested-word-lists-markdown/draft.md
+Date: 2026-11-09T08:25:57.439Z
+Words (app wordCount): 1561, read time 7 min
+Info: Intro: 85 words
+Info: H2 opening word counts: 35, 42, 41
+Info: Links: 4 (2 external)
+
+Errors (0):
+  none
+
+Warnings (2):
+  ! 2 sentence(s) over 35 words, e.g. "The third used List Number for its items and List Bullet 2 for the examples unde..."
+  ! draft: true. The post stays out of the Blog dialog until you set it to false.
+
+RESULT: PASS (private draft adapter)
