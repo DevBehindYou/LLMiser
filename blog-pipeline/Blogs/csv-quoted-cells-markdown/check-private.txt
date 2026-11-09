@@ -1,0 +1,15 @@
+LLMiser PRIVATE draft check (adapter; staged visuals, not production validation): Blogs/csv-quoted-cells-markdown/draft.md
+Date: 2026-11-09T08:44:53.045Z
+Words (app wordCount): 1506, read time 7 min
+Info: Intro: 78 words
+Info: H2 opening word counts: 39, 38, 37
+Info: Links: 3 (1 external)
+
+Errors (0):
+  none
+
+Warnings (2):
+  ! Three sentences in a row of similar length, starting "If a line break separates two items in a cell, they'll run t..."
+  ! draft: true. The post stays out of the Blog dialog until you set it to false.
+
+RESULT: PASS (private draft adapter)

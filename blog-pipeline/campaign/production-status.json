@@ -275,9 +275,9 @@
   "M06-S1": {
    "type": "support",
    "slug": "csv-quoted-cells-markdown",
-   "writing": "NOT_STARTED",
-   "fixture": "NOT_STARTED",
-   "visual_qa": "NOT_STARTED",
+   "writing": "READY_FOR_REVIEW",
+   "fixture": "VERIFIED_LOCAL_RUN",
+   "visual_qa": "RENDERED_INSPECTED",
    "publication": "NOT_PUBLISHED",
    "indexing": "NOT_INDEXED",
    "notes": ""

@@ -1,0 +1,15 @@
+{
+  "article": "M06-S1",
+  "slug": "csv-quoted-cells-markdown",
+  "checked": "2026-11-09",
+  "claims": [
+    { "id": "C01", "text": "RFC 4180: fields with commas, quotes or line breaks are double-quoted, inner quotes doubled", "state": "VERIFIED_SOURCE", "source": "S-RFC4180" },
+    { "id": "C02", "text": "LLMiser's CSV conversion reads commas as separators and doubled quotes inside quoted fields", "state": "VERIFIED_CODE", "source": "S-CODE-CSV" },
+    { "id": "C03", "text": "Standard quoting converted exactly: 4 rows, 3 columns", "state": "VERIFIED_LOCAL_RUN", "source": "F-M06S1 out-rfc" },
+    { "id": "C04", "text": "Space before quote: 5 rows, 4 columns, visible quotes, Line two in Customer; backslash: Morgan split, 4 columns; unclosed: 3 rows, Morgan merged into Lee", "state": "VERIFIED_LOCAL_RUN", "source": "F-M06S1" },
+    { "id": "C05", "text": "Line break inside a cell became a space; pipe escaped as \\|", "state": "VERIFIED_LOCAL_RUN + VERIFIED_CODE", "source": "F-M06S1 out-rfc, S-CODE-CSV" },
+    { "id": "C06", "text": "The table is as wide as its widest record, so one extra field adds an empty column to every row", "state": "VERIFIED_CODE + VERIFIED_LOCAL_RUN", "source": "S-CODE-CSV, F-M06S1" },
+    { "id": "C07", "text": "Width check report for unclosed.csv as printed", "state": "VERIFIED_LOCAL_RUN", "source": "F-M06S1 row-widths.txt" }
+  ],
+  "not_claimed": ["which tools write backslash escapes", "behavior with other delimiters"]
+}

@@ -1,0 +1,15 @@
+rfc.csv: 5 records, header has 3 fields
+space-before.csv: 6 records, header has 3 fields
+  record 2: 4 fields  ['Lee', ' "Paid', ' then refunded"', ' 10.50']
+  record 3: 4 fields  ['Morgan', ' "Said ""urgent""', ' twice"', ' 1250.00']
+  record 4: 2 fields  ['Kim', ' "Line one']
+  record 5: 2 fields  ['Line two"', ' 0.75']
+backslash.csv: 5 records, header has 3 fields
+  record 3: 4 fields  ['Morgan', 'Said \\urgent\\"', ' twice"', '1250.00']
+unclosed.csv: 4 records, header has 3 fields
+  record 2: 4 fields  ['Lee', 'Paid, then refunded,10.50\r\nMorgan,Said ""urgent""', ' twice"', '1250.00']
+unquoted.csv: 6 records, header has 3 fields
+  record 2: 4 fields  ['Lee', 'Paid', ' then refunded', '10.50']
+  record 3: 4 fields  ['Morgan', 'Said "urgent"', ' twice', '1250.00']
+  record 4: 2 fields  ['Kim', 'Line one']
+  record 5: 2 fields  ['Line two', '0.75']

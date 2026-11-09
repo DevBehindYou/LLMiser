@@ -1,0 +1,51 @@
+{
+  "id": "M06-S1",
+  "role": "support",
+  "title": "Handle Commas and Quotes Inside CSV Cells",
+  "title_selection": "EDITORIAL_PROPOSAL (registry title kept unless qa.md records a change)",
+  "slug": "csv-quoted-cells-markdown",
+  "canonical": "https://llmiser.devbehindyou.com/blog/csv-quoted-cells-markdown",
+  "canonical_status": "RESERVED_NOT_LIVE",
+  "intent_key": "csv-quoted-cells-markdown",
+  "reader_task": "How do I verify that quoted separators remain inside a cell?",
+  "scope_exclusions": [
+    "Do not recommend global comma replacement or splitting on commas without a CSV parser. Main checklist and sibling questions remain with their owners.",
+    "Parent M06 owns the full checklist or workflow"
+  ],
+  "primary_keyword": "CSV quoted cells Markdown",
+  "secondary_keywords": [
+    "CSV embedded comma",
+    "CSV row width check"
+  ],
+  "keyword_metrics": "UNMEASURED",
+  "description": "Check the CSV quoted cells Markdown tables depend on: read the quoting in a text editor, test cells with commas and line breaks, and count every row's fields.",
+  "description_change": "Registry proposal was a question template; rewritten as the procedure; 158 characters.",
+  "excerpt": "We wrote one four-row table five ways. A single space before each quote, a backslash escape or one missing quote mark was enough to scramble the converted table.",
+  "category": "GUIDE",
+  "tags": [
+    "CSV",
+    "Markdown",
+    "Tables",
+    "Data quality",
+    "AI context"
+  ],
+  "listicle_count": null,
+  "parent_id": "M06",
+  "nearest_ids": [
+    "M06-S2",
+    "M06-S3",
+    "M06"
+  ],
+  "author": "DevBehindYou",
+  "draft_date": "2026-11-09",
+  "publication_date": null,
+  "draft": true,
+  "banner": "/blog/csv-quoted-cells-markdown/banner.svg",
+  "figures": [
+    "quoting-styles",
+    "quote-results",
+    "broken-tables",
+    "quoting-checklist"
+  ],
+  "product_revision_checked": "ea2af54 (application code identical to 8eb8c509)"
+}

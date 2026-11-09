@@ -1,0 +1,52 @@
+{
+  "label": "Synthetic 4-record table in five quoting styles",
+  "expected_records": [
+    [
+      "Customer",
+      "Note",
+      "Amount"
+    ],
+    [
+      "Lee",
+      "Paid, then refunded",
+      "10.50"
+    ],
+    [
+      "Morgan",
+      "Said \"urgent\", twice",
+      "1250.00"
+    ],
+    [
+      "Kim",
+      "Line one\nLine two",
+      "0.75"
+    ],
+    [
+      "Ada",
+      "Plan A|B",
+      "42.00"
+    ]
+  ],
+  "files": {
+    "rfc.csv": {
+      "bytes": 148,
+      "sha256": "1116d120c08b70b251c6c759fa5e0f82eb10af281012e7941205e7c0a9eabd76"
+    },
+    "space-before.csv": {
+      "bytes": 158,
+      "sha256": "538e669ebaf7086832a8819ec4543e9cf0a09a85d22af5bf2e37f2f30100066f"
+    },
+    "backslash.csv": {
+      "bytes": 148,
+      "sha256": "ae5714a3405bef8c1caed5572b7a8cc7a2a09c0b89d23a89a2f9c37b5d46b42e"
+    },
+    "unclosed.csv": {
+      "bytes": 147,
+      "sha256": "6b8b3d3f28b2ee8ab5d6cb1b859f46b9d03cd925c9b929d57dac7205d9012cb9"
+    },
+    "unquoted.csv": {
+      "bytes": 138,
+      "sha256": "8bd4f69494d0c7fe1cc46bb0d16bcafd9fe48038f0f311e0c9811cca67116d72"
+    }
+  }
+}
