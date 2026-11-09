@@ -1,6 +1,6 @@
 # Campaign continuation checkpoint
 
-Updated 2026-11-08. Branch `claude/stoic-pasteur-raqnqy`. Owner decision on 2026-11-08: blog-pipeline/ is tracked in Git (`.gitignore` entry removed; the owner removed the local `.git/info/exclude` line and pushed the folder). Progress is saved as commits on this branch.
+Updated 2026-11-09. Branch `claude/stoic-pasteur-raqnqy`. Owner decision on 2026-11-08: blog-pipeline/ is tracked in Git (`.gitignore` entry removed; the owner removed the local `.git/info/exclude` line and pushed the folder). Progress is saved as commits on this branch.
 
 ## Completed
 
@@ -9,12 +9,13 @@ Updated 2026-11-08. Branch `claude/stoic-pasteur-raqnqy`. Owner decision on 2026
 | 0 | tooling | scripts/campaign/*, visuals/campaign-parts.mjs, campaign/slug-map.json, campaign/production-status.json | Working |
 | A1 | M01 | Blogs/prepare-codebase-for-ai/ (all 12 contract files, fixtures, banner + 4 figures, preview) | READY_FOR_REVIEW |
 | A2 | M02-M06 | Blogs/ocr-checks-before-ai, excel-data-checks-for-ai, prepare-word-documents-for-ai, powerpoint-to-markdown-checks, prepare-csv-data-for-ai | READY_FOR_REVIEW |
+| A3 | M07-M12 | Blogs/convert-multiple-files-llmiser, llmiser-processing-profiles, edit-export-markdown-llmiser, llmiser-zip-index-manifest, document-prompt-injection, conflicting-document-versions-ai | READY_FOR_REVIEW |
 
-Counts: mains 6/12, supports 0/36, posts 0/108. Banners 6/48, figures 24 (minimum 192), rendered previews 6/48.
+Counts: mains 12/12 (Phase A complete), supports 0/36, posts 0/108. Banners 12/48, figures 48 (minimum 192), rendered previews 12/48. All 12 mains PASS the private check (2026-11-09 sweep).
 
 ## Next action
 
-M07 "How to Convert Multiple Files With LLMiser" (slug convert-multiple-files-llmiser). Then M08 to M12, then supports M01-S1 onward, then posts.
+Phase B: M01-S1 "Check a Project ZIP for Secrets Before Sharing It" (slug project-zip-secret-review), then M01-S2 through M12-S3 in order. Reuse each cluster's fixtures (Blogs/{main-slug}/fixtures) and extend them for the support's narrow question. After all 36, revisit main links.json placements.
 
 ## How to work (per article)
 
@@ -42,6 +43,10 @@ M07 "How to Convert Multiple Files With LLMiser" (slug convert-multiple-files-ll
 - M08: Compact profile deletes every "---" (breaks Markdown tables, alters text and code), keeps the source note despite the site FAQ wording; RAG-ready inserts chunk markers inside fenced code.
 - M07: the skipped-files notice gives counts only and lumps empty files under "unsupported or too large".
 - Renderer: mono text now disables JetBrains Mono ligatures so <!--, --> and --- render literally (all figures re-rendered).
+
+- M10: blank images count as converted and recognized; case-insensitive duplicates dropped even when content differs; index/manifest and the ZIP source note expose third-party engine names; labels use British spelling.
+- M12: DOCX headers and document properties (often where effective dates live) do not appear in converted output.
+- campaign-parts columns(): a leading backslash renders a line literally (needed for Markdown headings).
 
 ## Blockers
 

@@ -1,0 +1,15 @@
+{
+  "article": "M12",
+  "slug": "conflicting-document-versions-ai",
+  "checked": "2026-11-09",
+  "claims": [
+    { "id": "C01", "text": "Two versions matched line for line except receipts 30 vs 14 days and hotel cap 180 vs 200 USD; title and headings identical", "state": "VERIFIED_LOCAL_RUN", "source": "F-M12" },
+    { "id": "C02", "text": "difflib rated the converted texts 0.867 similar", "state": "VERIFIED_LOCAL_RUN", "source": "F-M12", "note": "Clean outputs, SequenceMatcher.ratio on full text." },
+    { "id": "C03", "text": "Effective dates in header and file properties did not survive conversion", "state": "VERIFIED_LOCAL_RUN", "source": "F-M12" },
+    { "id": "C04", "text": "Only label left in Standard was the file name; Clean removed it", "state": "VERIFIED_LOCAL_RUN + VERIFIED_CODE", "source": "F-M12, S-CODE-PROFILES" },
+    { "id": "C05", "text": "Microsoft's RAG retrieval guide: indexes can hold date fields; filtering on fields narrows results", "state": "VERIFIED_SOURCE", "source": "S-MS-RAG", "note": "Version application is editorial inference, stated in prose." },
+    { "id": "C06", "text": "A modified date can change on copy or re-save; names like final or (1) mean little", "state": "EDITORIAL" },
+    { "id": "C07", "text": "Test question answer: 14 days under the July 2026 policy", "state": "VERIFIED_LOCAL_RUN", "source": "F-M12 truth" },
+    { "id": "C08", "text": "LLMiser doesn't decide which version is current or enforce precedence", "state": "VERIFIED_CODE", "source": "No version logic in converters or profiles" }
+  ]
+}

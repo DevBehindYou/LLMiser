@@ -1,0 +1,25 @@
+{
+  "label": "Synthetic policy versions; invented",
+  "files": {
+    "travel-policy.docx": {
+      "bytes": 37390,
+      "sha256": "1975b3a950bbf41810c7140df8cb313439730038b1b6788741c23cd5f31be326"
+    },
+    "travel-policy (1).docx": {
+      "bytes": 37387,
+      "sha256": "5d12b1f54939ec5ee031fdfa1a82d91d24946c5a4ecff44bbb310857917eb5a5"
+    }
+  },
+  "truth": {
+    "travel-policy.docx": {
+      "effective": "2026-01-01",
+      "receipts_days": 30,
+      "hotel_cap_usd": 180
+    },
+    "travel-policy (1).docx": {
+      "effective": "2026-07-01",
+      "receipts_days": 14,
+      "hotel_cap_usd": 200
+    }
+  }
+}

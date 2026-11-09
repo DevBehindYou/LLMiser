@@ -1,5 +1,5 @@
 LLMiser PRIVATE draft check (adapter; staged visuals, not production validation): Blogs/llmiser-processing-profiles/draft.md
-Date: 2026-11-08T17:52:55.509Z
+Date: 2026-11-09T07:40:47.663Z
 Words (app wordCount): 1380, read time 6 min
 Info: Intro: 67 words
 Info: H2 opening word counts: 34, 42, 29, 32, 36, 29

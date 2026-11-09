@@ -1,0 +1,71 @@
+{
+  "slug": "conflicting-document-versions-ai",
+  "date": "2026-11-09T07:39:59.771Z",
+  "viewport": "2 x 375px columns, deviceScaleFactor 2",
+  "themes": [
+    "dark",
+    "light"
+  ],
+  "fontsLoaded": [
+    "LLMiser Inter",
+    "LLMiser JetBrains Mono",
+    "LLMiser Patrick Hand"
+  ],
+  "figures": [
+    {
+      "figure": "banner.svg",
+      "viewBox": [
+        1200,
+        400
+      ],
+      "renderedWidthPx": 343,
+      "minFontPxAt375": "3.4",
+      "texts": 15,
+      "issues": []
+    },
+    {
+      "figure": "version-diff.svg",
+      "viewBox": [
+        600,
+        382
+      ],
+      "renderedWidthPx": 343,
+      "minFontPxAt375": "6.3",
+      "texts": 25,
+      "issues": []
+    },
+    {
+      "figure": "provenance-line.svg",
+      "viewBox": [
+        600,
+        392
+      ],
+      "renderedWidthPx": 343,
+      "minFontPxAt375": "6.3",
+      "texts": 22,
+      "issues": []
+    },
+    {
+      "figure": "superseded-or-scoped.svg",
+      "viewBox": [
+        600,
+        511
+      ],
+      "renderedWidthPx": 343,
+      "minFontPxAt375": "6.3",
+      "texts": 13,
+      "issues": []
+    },
+    {
+      "figure": "version-checklist.svg",
+      "viewBox": [
+        600,
+        380
+      ],
+      "renderedWidthPx": 343,
+      "minFontPxAt375": "6.3",
+      "texts": 10,
+      "issues": []
+    }
+  ]
+}

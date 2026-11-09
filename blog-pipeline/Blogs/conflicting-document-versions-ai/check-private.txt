@@ -1,0 +1,17 @@
+LLMiser PRIVATE draft check (adapter; staged visuals, not production validation): Blogs/conflicting-document-versions-ai/draft.md
+Date: 2026-11-09T07:40:47.826Z
+Words (app wordCount): 1450, read time 6 min
+Info: Intro: 69 words
+Info: H2 opening word counts: 34, 32, 30, 31, 30, 35
+Info: Links: 3 (1 external)
+
+Errors (0):
+  none
+
+Warnings (4):
+  ! Three sentences in a row of similar length, starting "The July version said 14 days and 200 USD...."
+  ! Description does not contain the primary keyword.
+  ! draft: true. The post stays out of the Blog dialog until you set it to false.
+  ! Primary keyword "conflicting document versions AI" is never bolded
+
+RESULT: PASS (private draft adapter)

@@ -101,7 +101,8 @@ export function markLegend(kinds) {
  * Lines are short mono strings. Prefixes: "- " struck through in the waste
  * color (removed), "+ " bold in the keep color (kept), "! " in the waste color
  * with a warning triangle (got through although it should not have), "# " a
- * small sans section label. Others are plain ink.
+ * small sans section label. A leading backslash renders the line literally.
+ * Others are plain ink.
  */
 export function columns({ left, right, lineH = 22 }) {
   const cw = (W - PAD * 2 - 16) / 2;
@@ -116,8 +117,10 @@ export function columns({ left, right, lineH = 22 }) {
       svg += line(x, y + 38, x + cw, y + 38, { stroke: C.border3, sw: 1 });
       col.lines.forEach((ln, j) => {
         const ly = y + 60 + j * lineH;
-        const kind = /^[-+!#] /.test(ln) ? ln[0] : '';
-        const t = kind ? ln.slice(2) : ln;
+        // A leading backslash renders the rest literally (e.g. a Markdown "# Heading").
+        const literal = ln.startsWith('\\');
+        const kind = !literal && /^[-+!#] /.test(ln) ? ln[0] : '';
+        const t = literal ? ln.slice(1) : kind ? ln.slice(2) : ln;
         if (kind === '#') {
           svg += text(x + 14, ly, t, { size: 12.5, fill: C.faint, weight: 600, spacing: '0.3px' });
           return;

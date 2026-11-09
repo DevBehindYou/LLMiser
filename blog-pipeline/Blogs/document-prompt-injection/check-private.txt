@@ -1,5 +1,5 @@
 LLMiser PRIVATE draft check (adapter; staged visuals, not production validation): Blogs/document-prompt-injection/draft.md
-Date: 2026-11-09T07:36:50.610Z
+Date: 2026-11-09T07:40:47.787Z
 Words (app wordCount): 1523, read time 7 min
 Info: Intro: 83 words
 Info: H2 opening word counts: 39, 37, 43, 34, 34, 34

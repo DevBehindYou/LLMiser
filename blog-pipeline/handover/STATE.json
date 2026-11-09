@@ -1,6 +1,6 @@
 {
   "protocol": "AI-HANDOVER/V2 (adapted compact JSON)",
-  "updated": "2026-11-08",
+  "updated": "2026-11-09",
   "project": "LLMiser",
   "scope": "Selected-title campaign production: 12 mains, 36 supports, 108 posts (writing in progress)",
   "repo": {
@@ -64,16 +64,16 @@
     "Earlier ten briefs are reusable research, not extra campaign pages"
   ],
   "pending": [
-    "M02-M12 mains, 36 supports, 108 posts",
+    "36 supports, 108 posts, cross-campaign QA",
     "New measured keyword data and named-engine intent reviews remain unavailable",
     "Existing MAIN_BLOG_AUDIT A01-A03 corrections remain pending",
     "R01-R08 evidence and semantic reviews remain open",
     "Produce article drafts, visuals and final post copy; publication is not part of this planning pack"
   ],
   "next": {
-    "id": "M02",
-    "action": "Draft 9 OCR Checks Before You Send Scanned Text to AI with OCR fixture",
-    "entry": "../campaign/main-briefs/M02.md"
+    "id": "M01-S1",
+    "action": "Phase B: draft support articles in order, reusing cluster fixtures",
+    "entry": "../campaign/support-briefs/M01-S1.md"
   },
   "evidence": {
     "validation": "../campaign/VALIDATION.md",
@@ -117,16 +117,16 @@
     },
     "support_topics_status": "IMPLEMENTED",
     "post_briefs_status": "IMPLEMENTED",
-    "article_drafts_completed": 1,
+    "article_drafts_completed": 12,
     "published_assets": 0,
     "validation": "VERIFIED_STRUCTURE_ONLY",
     "production": {
-      "mains_drafted": 1,
+      "mains_drafted": 12,
       "supports_drafted": 0,
       "posts_written": 0,
-      "banners": 1,
-      "figures": 4,
-      "rendered_previews": 1,
+      "banners": 12,
+      "figures": 48,
+      "rendered_previews": 12,
       "ledger": "../campaign/production-status.json",
       "checkpoint": "../campaign/CONTINUATION.md"
     }

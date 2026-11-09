@@ -1,5 +1,5 @@
 LLMiser PRIVATE draft check (adapter; staged visuals, not production validation): Blogs/prepare-word-documents-for-ai/draft.md
-Date: 2026-11-08T17:39:23.154Z
+Date: 2026-11-09T07:40:47.497Z
 Words (app wordCount): 1557, read time 7 min
 Info: Intro: 82 words
 Info: H2 opening word counts: 32, 37, 31, 30, 29, 35, 37

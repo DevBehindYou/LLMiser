@@ -1,0 +1,16 @@
+{
+  "article": "M12",
+  "checked": "2026-11-09",
+  "in_draft": [
+    { "url": "https://learn.microsoft.com/en-us/azure/architecture/ai-ml/guide/rag/rag-information-retrieval", "owner": "external", "status": "CHECKED_200" },
+    { "url": "/usecase", "owner": "USE", "status": "LIVE" },
+    { "url": "/", "owner": "HOME", "status": "LIVE", "placement": "CTA" }
+  ],
+  "planned_when_released": [
+    { "target": "M12-S1", "url": "/blog/label-document-versions-ai", "status": "UNPUBLISHED", "placement": "2. Preserve dates and provenance" },
+    { "target": "M12-S2", "url": "/blog/conflicting-policy-passages-ai", "status": "UNPUBLISHED", "placement": "3. Superseded versus scoped" },
+    { "target": "M12-S3", "url": "/blog/stale-excerpts-ai-context", "status": "UNPUBLISHED", "placement": "5. Remove stale excerpts" },
+    { "target": "M11", "url": "/blog/document-prompt-injection", "status": "UNPUBLISHED", "placement": "FAQ 3" },
+    { "target": "E05", "url": "/blog/hidden-token-tax-rag-pipelines", "status": "LIVE", "placement": "Optional; not used to avoid a RAG-tuning tangent" }
+  ]
+}

@@ -1,5 +1,5 @@
 LLMiser PRIVATE draft check (adapter; staged visuals, not production validation): Blogs/ocr-checks-before-ai/draft.md
-Date: 2026-11-08T17:27:42.223Z
+Date: 2026-11-09T07:40:47.417Z
 Words (app wordCount): 1991, read time 9 min
 Info: Intro: 84 words
 Info: H2 opening word counts: 32, 38, 39, 35, 33, 34, 35, 32, 32, 34

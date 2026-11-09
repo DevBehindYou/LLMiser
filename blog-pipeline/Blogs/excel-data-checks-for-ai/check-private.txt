@@ -1,5 +1,5 @@
 LLMiser PRIVATE draft check (adapter; staged visuals, not production validation): Blogs/excel-data-checks-for-ai/draft.md
-Date: 2026-11-08T17:35:10.310Z
+Date: 2026-11-09T07:40:47.457Z
 Words (app wordCount): 1727, read time 8 min
 Info: Intro: 81 words
 Info: H2 opening word counts: 27, 32, 38, 34, 30, 31, 39, 32

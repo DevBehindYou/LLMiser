@@ -1,0 +1,32 @@
+{
+  "label": "LOCAL CODE-LEVEL RUN of repository backend code; not a live production conversion",
+  "date_utc": "2026-11-09T07:38:01+00:00",
+  "revision": "fa87da3fa3894c327c733306e352f0d08008429d",
+  "versions": {
+    "python": "3.13.18",
+    "markitdown": "0.1.9",
+    "tesseract": "tesseract 5.3.4"
+  },
+  "input": {
+    "file": "travel-policy (1).docx",
+    "bytes": 37387,
+    "sha256": "5d12b1f54939ec5ee031fdfa1a82d91d24946c5a4ecff44bbb310857917eb5a5"
+  },
+  "mode": "doc",
+  "runs": [
+    {
+      "profile": "Standard",
+      "kind": "doc",
+      "note": null,
+      "words": 50,
+      "estimated_tokens_backend": 66,
+      "outputs": [
+        {
+          "file": "travel-policy (1).Standard.md",
+          "bytes": 331,
+          "sha256": "9acf3ec7348992accc8fb2984888478879cdf7996495e43e54ad474a7b807099"
+        }
+      ]
+    }
+  ]
+}
