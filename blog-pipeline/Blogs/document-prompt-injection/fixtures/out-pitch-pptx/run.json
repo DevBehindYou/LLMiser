@@ -1,0 +1,32 @@
+{
+  "label": "LOCAL CODE-LEVEL RUN of repository backend code; not a live production conversion",
+  "date_utc": "2026-11-09T07:34:54+00:00",
+  "revision": "f1c5f738efa7019ea2ab0472f3f7193645a4426b",
+  "versions": {
+    "python": "3.13.18",
+    "markitdown": "0.1.9",
+    "tesseract": "tesseract 5.3.4"
+  },
+  "input": {
+    "file": "pitch.pptx",
+    "bytes": 33014,
+    "sha256": "1c9308ab6b4d66b48f124a0396e200edbb8bad6cb09384257ad253f47f297edc"
+  },
+  "mode": "doc",
+  "runs": [
+    {
+      "profile": "Standard",
+      "kind": "doc",
+      "note": null,
+      "words": 53,
+      "estimated_tokens_backend": 70,
+      "outputs": [
+        {
+          "file": "pitch.Standard.md",
+          "bytes": 336,
+          "sha256": "bf677b15854a541c17f25a29d5ed85c883c9e738e5b489d7b88b7e9794b27597"
+        }
+      ]
+    }
+  ]
+}

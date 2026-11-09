@@ -1,0 +1,17 @@
+LLMiser PRIVATE draft check (adapter; staged visuals, not production validation): Blogs/document-prompt-injection/draft.md
+Date: 2026-11-09T07:36:50.610Z
+Words (app wordCount): 1523, read time 7 min
+Info: Intro: 83 words
+Info: H2 opening word counts: 39, 37, 43, 34, 34, 34
+Info: Links: 5 (3 external)
+
+Errors (0):
+  none
+
+Warnings (4):
+  ! Three sentences in a row of similar length, starting "OWASP's cheat sheet says it plainly: screening doesn't stop ..."
+  ! draft: true. The post stays out of the Blog dialog until you set it to false.
+  ! Review wording "guarantee": check every guarantee
+  ! Review wording "remove prompt injection": LLMiser does not remove prompt injection
+
+RESULT: PASS (private draft adapter)

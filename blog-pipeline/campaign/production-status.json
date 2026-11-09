@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-08",
+ "updated": "2026-11-09",
  "note": "Private production ledger. Separate fields: writing, fixture, visual_qa, publication, indexing. Registry statuses stay PROPOSED until a real release.",
  "ids": {
   "M01": {
@@ -105,12 +105,12 @@
   "M11": {
    "type": "main",
    "slug": "document-prompt-injection",
-   "writing": "NOT_STARTED",
-   "fixture": "NOT_STARTED",
-   "visual_qa": "NOT_STARTED",
+   "writing": "READY_FOR_REVIEW",
+   "fixture": "VERIFIED_LOCAL_RUN",
+   "visual_qa": "RENDERED_INSPECTED",
    "publication": "NOT_PUBLISHED",
    "indexing": "NOT_INDEXED",
-   "notes": ""
+   "notes": "Inert fixture; no model calls. SERP capture pending."
   },
   "M12": {
    "type": "main",

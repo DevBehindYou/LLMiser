@@ -1,0 +1,17 @@
+{
+  "article": "M11",
+  "slug": "document-prompt-injection",
+  "checked": "2026-11-09",
+  "claims": [
+    { "id": "C01", "text": "Indirect prompt injection: model accepts input from external sources such as websites or files, which alters behavior", "state": "VERIFIED_SOURCE", "source": "S-OWASP-LLM01" },
+    { "id": "C02", "text": "2023 Greshake et al. paper: LLM-integrated applications blur the line between data and instructions", "state": "VERIFIED_SOURCE", "source": "S-GRESHAKE" },
+    { "id": "C03", "text": "Same inert sentence in five places across three files; four reached the converted text; HTML comment dropped", "state": "VERIFIED_LOCAL_RUN", "source": "F-M11" },
+    { "id": "C04", "text": "White 1 pt text and display:none block became ordinary readable lines", "state": "VERIFIED_LOCAL_RUN", "source": "F-M11" },
+    { "id": "C05", "text": "OWASP lists hidden text in web pages, documents or emails and invisible Unicode characters among indirect patterns", "state": "VERIFIED_SOURCE", "source": "S-OWASP-CS" },
+    { "id": "C06", "text": "LLMiser converts faithfully and doesn't detect, label or remove instruction attempts", "state": "VERIFIED_CODE", "source": "backendN/app/converter.py and profiles.py contain no instruction filtering; F-M11" },
+    { "id": "C07", "text": "Search for 'AI assistant' found the line in every converted file", "state": "VERIFIED_LOCAL_RUN", "source": "F-M11" },
+    { "id": "C08", "text": "OWASP recommends permissions at the tool boundary and least privilege; review prompt doesn't itself stop an action", "state": "VERIFIED_SOURCE", "source": "S-OWASP-CS" },
+    { "id": "C09", "text": "Screening doesn't stop an injection that it fails to detect", "state": "VERIFIED_SOURCE", "source": "S-OWASP-CS" },
+    { "id": "C10", "text": "Prompt wording that the document is data helps but isn't a guarantee", "state": "EDITORIAL", "note": "Consistent with OWASP layered-defense guidance; no effectiveness rate claimed." }
+  ]
+}

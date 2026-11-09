@@ -1,0 +1,17 @@
+{
+  "article": "M11",
+  "checked": "2026-11-09",
+  "in_draft": [
+    { "url": "https://genai.owasp.org/llmrisk/llm01-prompt-injection/", "owner": "external", "status": "CHECKED_200" },
+    { "url": "https://arxiv.org/abs/2302.12173", "owner": "external", "status": "CHECKED_200" },
+    { "url": "https://cheatsheetseries.owasp.org/cheatsheets/LLM_Prompt_Injection_Prevention_Cheat_Sheet.html", "owner": "external", "status": "CHECKED_200" },
+    { "url": "/usecase", "owner": "USE", "status": "LIVE" },
+    { "url": "/", "owner": "HOME", "status": "LIVE", "placement": "CTA" }
+  ],
+  "planned_when_released": [
+    { "target": "M11-S1", "url": "/blog/untrusted-document-instructions", "status": "UNPUBLISHED", "placement": "3. Recognize suspicious language" },
+    { "target": "M11-S2", "url": "/blog/markdown-conversion-prompt-injection", "status": "UNPUBLISHED", "placement": "4. Why conversion does not establish trust" },
+    { "target": "M11-S3", "url": "/blog/ai-actions-external-documents", "status": "UNPUBLISHED", "placement": "5. Review and limited permissions" },
+    { "target": "M12", "url": "/blog/conflicting-document-versions-ai", "status": "UNPUBLISHED", "placement": "FAQ 6" }
+  ]
+}
