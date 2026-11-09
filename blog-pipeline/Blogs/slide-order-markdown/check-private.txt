@@ -1,0 +1,15 @@
+LLMiser PRIVATE draft check (adapter; staged visuals, not production validation): Blogs/slide-order-markdown/draft.md
+Date: 2026-11-09T08:41:26.768Z
+Words (app wordCount): 1418, read time 6 min
+Info: Intro: 81 words
+Info: H2 opening word counts: 40, 42, 37
+Info: Links: 3 (1 external)
+
+Errors (0):
+  none
+
+Warnings (2):
+  ! Three sentences in a row of similar length, starting "PowerPoint's section names didn't come through, so repeat th..."
+  ! draft: true. The post stays out of the Blog dialog until you set it to false.
+
+RESULT: PASS (private draft adapter)

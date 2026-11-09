@@ -1,0 +1,71 @@
+{
+  "slug": "slide-order-markdown",
+  "date": "2026-11-09T08:41:27.448Z",
+  "viewport": "2 x 375px columns, deviceScaleFactor 2",
+  "themes": [
+    "dark",
+    "light"
+  ],
+  "fontsLoaded": [
+    "LLMiser Inter",
+    "LLMiser JetBrains Mono",
+    "LLMiser Patrick Hand"
+  ],
+  "figures": [
+    {
+      "figure": "banner.svg",
+      "viewBox": [
+        1200,
+        400
+      ],
+      "renderedWidthPx": 343,
+      "minFontPxAt375": "4.0",
+      "texts": 18,
+      "issues": []
+    },
+    {
+      "figure": "sequence-map.svg",
+      "viewBox": [
+        600,
+        363
+      ],
+      "renderedWidthPx": 343,
+      "minFontPxAt375": "6.3",
+      "texts": 20,
+      "issues": []
+    },
+    {
+      "figure": "original-output.svg",
+      "viewBox": [
+        600,
+        538
+      ],
+      "renderedWidthPx": 343,
+      "minFontPxAt375": "6.3",
+      "texts": 25,
+      "issues": []
+    },
+    {
+      "figure": "headings-before-after.svg",
+      "viewBox": [
+        600,
+        348
+      ],
+      "renderedWidthPx": 343,
+      "minFontPxAt375": "6.3",
+      "texts": 18,
+      "issues": []
+    },
+    {
+      "figure": "order-checklist.svg",
+      "viewBox": [
+        600,
+        380
+      ],
+      "renderedWidthPx": 343,
+      "minFontPxAt375": "6.3",
+      "texts": 10,
+      "issues": []
+    }
+  ]
+}

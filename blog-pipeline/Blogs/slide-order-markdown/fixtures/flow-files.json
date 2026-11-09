@@ -1,0 +1,25 @@
+{
+  "label": "Synthetic troubleshooting deck, original and reviewed",
+  "sections": {
+    "Diagnosis": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "Resolution": [
+      6
+    ]
+  },
+  "files": {
+    "flow-original.pptx": {
+      "bytes": 33274,
+      "sha256": "6294f952a28658657e756c9215026e561b4ba4022ec4eaa3cbd1ca0aa25192cc"
+    },
+    "flow-reviewed.pptx": {
+      "bytes": 32931,
+      "sha256": "b85aec0025272e2f9dfca7006b275d817c89292d1acb2a50f16be7b7144e4c32"
+    }
+  }
+}

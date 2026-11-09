@@ -13,12 +13,13 @@ Updated 2026-11-09. Branch `claude/stoic-pasteur-raqnqy`. Owner decision on 2026
 | B1 | M01-S1 to M02-S3 | Blogs/project-zip-secret-review, dependency-files-ai-review, task-focused-code-bundle, rotated-scan-ocr-check, verify-ocr-numbers, mixed-pdf-ocr-coverage | READY_FOR_REVIEW |
 | B2 | M03-S1 to M03-S3 | Blogs/excel-leading-zeros-ai, excel-formula-results-conversion, merged-excel-headers-markdown | READY_FOR_REVIEW |
 | B3 | M04-S1 to M04-S3 | Blogs/word-heading-styles-markdown, nested-word-lists-markdown, word-revisions-ai-sharing | READY_FOR_REVIEW |
+| B4 | M05-S1 to M05-S3 | Blogs/powerpoint-speaker-notes-markdown, slide-chart-context-ai, slide-order-markdown | READY_FOR_REVIEW |
 
-Counts: mains 12/12 (Phase A complete), supports 12/36, posts 0/108. Run `node scripts/campaign/status.mjs build` for live counts; `python3 scripts/campaign/sync_state.py NEXT_ID "action"` copies them into STATE.json and manifest.json.
+Counts: mains 12/12 (Phase A complete), supports 15/36, posts 0/108. Run `node scripts/campaign/status.mjs build` for live counts; `python3 scripts/campaign/sync_state.py NEXT_ID "action"` copies them into STATE.json and manifest.json.
 
 ## Next action
 
-Phase B: M05-S1 "powerpoint-speaker-notes-markdown", then M05-S2 through M12-S3 in order. Reuse each cluster's fixtures (Blogs/{main-slug}/fixtures) and extend them for the support's narrow question. Per support: `node scripts/campaign/scaffold-support.mjs ID` writes metadata.json and a links.json skeleton. After all 36, revisit main links.json placements.
+Phase B: M06-S1 "csv-quoted-cells-markdown", then M06-S2 through M12-S3 in order. Reuse each cluster's fixtures (Blogs/{main-slug}/fixtures) and extend them for the support's narrow question. Per support: `node scripts/campaign/scaffold-support.mjs ID` writes metadata.json and a links.json skeleton. After all 36, revisit main links.json placements.
 
 ## How to work (per article)
 
@@ -60,6 +61,9 @@ Phase B: M05-S1 "powerpoint-speaker-notes-markdown", then M05-S2 through M12-S3 
 - M04-S1: Word's Title style and custom heading styles (even one based on Heading 2) convert as plain paragraphs; without an opening Heading 1 the output gets a title from the file name.
 - M04-S2: a paragraph between list items restarts Markdown numbering at 1; lettered sub-steps become numbers; style-based list levels (List Bullet 2) flatten. Phase D: the M04 parent's list section generalizes from a style-based list.
 - M04-S3: Word drafts convert as if every tracked change were accepted; text formatted as hidden appears in the output; comments are dropped.
+- M05-S1: slides-only and notes-pages PDF exports give no sign that speaker notes existed (notes missing or unlabeled).
+- M05-S2: chart number formats, axis titles and data labels are dropped (4.2% converts as 0.042).
+- M05-S3: PowerPoint sections are dropped; text above a slide title prints before its heading; decks get no RAG-ready chunk markers because slide titles are level-one headings.
 
 ## Blockers
 

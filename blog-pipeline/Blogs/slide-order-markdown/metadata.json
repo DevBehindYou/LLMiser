@@ -1,0 +1,51 @@
+{
+  "id": "M05-S3",
+  "role": "support",
+  "title": "Keep Slide Titles and Order Clear in Markdown",
+  "title_selection": "EDITORIAL_PROPOSAL (registry title kept unless qa.md records a change)",
+  "slug": "slide-order-markdown",
+  "canonical": "https://llmiser.devbehindyou.com/blog/slide-order-markdown",
+  "canonical_status": "RESERVED_NOT_LIVE",
+  "intent_key": "slide-order-markdown",
+  "reader_task": "How do I retain the sequence needed to interpret a deck?",
+  "scope_exclusions": [
+    "No artificial page/slide numbers unless traced to the source. Main checklist and sibling questions remain with their owners.",
+    "Parent M05 owns the full checklist or workflow"
+  ],
+  "primary_keyword": "PowerPoint slide order Markdown",
+  "secondary_keywords": [
+    "repeated slide titles",
+    "slide title placeholder"
+  ],
+  "keyword_metrics": "UNMEASURED",
+  "description": "Keep the PowerPoint slide order Markdown readers depend on: map the sequence, check each title sits above its own text, and fix repeated or missing titles.",
+  "description_change": "Registry proposal was a question template; rewritten as the procedure; 155 characters.",
+  "excerpt": "Our step labels printed above the wrong heading, one slide lost its title entirely and the deck's sections vanished. Every slide was still there, in order.",
+  "category": "GUIDE",
+  "tags": [
+    "PowerPoint",
+    "PPTX",
+    "Markdown",
+    "Document structure",
+    "AI context"
+  ],
+  "listicle_count": null,
+  "parent_id": "M05",
+  "nearest_ids": [
+    "M05-S1",
+    "M05-S2",
+    "M05"
+  ],
+  "author": "DevBehindYou",
+  "draft_date": "2026-11-09",
+  "publication_date": null,
+  "draft": true,
+  "banner": "/blog/slide-order-markdown/banner.svg",
+  "figures": [
+    "sequence-map",
+    "original-output",
+    "headings-before-after",
+    "order-checklist"
+  ],
+  "product_revision_checked": "d2834c4 (application code identical to 8eb8c509)"
+}

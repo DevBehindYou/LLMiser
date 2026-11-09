@@ -1,0 +1,74 @@
+{
+  "label": "LOCAL CODE-LEVEL RUN of repository backend code; not a live production conversion",
+  "date_utc": "2026-11-09T08:39:18+00:00",
+  "revision": "d2834c44a240a6da8835a31e76dd60f0691e8053",
+  "versions": {
+    "python": "3.13.18",
+    "markitdown": "0.1.9",
+    "tesseract": "tesseract 5.3.4"
+  },
+  "input": {
+    "file": "flow-original.pptx",
+    "bytes": 33274,
+    "sha256": "a3542f5c52d49933c672ce5d4aa66d7632540220c8f0c2006c4ceced3ebb5e66"
+  },
+  "mode": "profiles",
+  "runs": [
+    {
+      "profile": "Standard",
+      "kind": "doc",
+      "note": null,
+      "words": 125,
+      "estimated_tokens_backend": 166,
+      "outputs": [
+        {
+          "file": "flow-original.Standard.md",
+          "bytes": 704,
+          "sha256": "46cca56f49bb3620c82f6abcba489fbb32ee5ec19ec7ed652cd09bd251974b79"
+        }
+      ]
+    },
+    {
+      "profile": "Clean",
+      "kind": "doc",
+      "note": null,
+      "words": 117,
+      "estimated_tokens_backend": 156,
+      "outputs": [
+        {
+          "file": "flow-original.Clean.md",
+          "bytes": 632,
+          "sha256": "7e401ddfc5b0844578eff165ebad1d24cef16bcc66794d555fa64ee0f91efd1d"
+        }
+      ]
+    },
+    {
+      "profile": "Compact",
+      "kind": "doc",
+      "note": null,
+      "words": 125,
+      "estimated_tokens_backend": 166,
+      "outputs": [
+        {
+          "file": "flow-original.Compact.md",
+          "bytes": 696,
+          "sha256": "783576745ab3ab0d4ceac7c4fda9bad3ec699cbb493913f5069788ac95d533e8"
+        }
+      ]
+    },
+    {
+      "profile": "RAG-ready",
+      "kind": "doc",
+      "note": null,
+      "words": 133,
+      "estimated_tokens_backend": 177,
+      "outputs": [
+        {
+          "file": "flow-original.RAG-ready.md",
+          "bytes": 775,
+          "sha256": "17c4cabd9f6a3e658d78f08140cb1f6ae312b274171a798573ffefef9742ae91"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "article": "M05-S3",
+  "slug": "slide-order-markdown",
+  "checked": "2026-11-09",
+  "claims": [
+    { "id": "C01", "text": "Slides kept file order with slide number comments; PowerPoint section names did not appear (Resolution nowhere)", "state": "VERIFIED_LOCAL_RUN", "source": "F-M05S3 out-original" },
+    { "id": "C02", "text": "Text placed above the title printed before the title's heading", "state": "VERIFIED_LOCAL_RUN + VERIFIED_CODE", "source": "F-M05S3, S-CODE-PPTX" },
+    { "id": "C03", "text": "A slide using a text box as title got no heading; its content fell under the previous heading", "state": "VERIFIED_LOCAL_RUN", "source": "F-M05S3 out-original slide 6" },
+    { "id": "C04", "text": "Section Header layout text placeholder at 3.2 in sits above the title at 4.8 in; the divider description printed before the heading", "state": "VERIFIED_LOCAL_RUN", "source": "F-M05S3 out-reviewed-first-attempt, layout geometry" },
+    { "id": "C05", "text": "Reviewed copy: every slide had a unique heading with its step", "state": "VERIFIED_LOCAL_RUN", "source": "F-M05S3 out-reviewed" },
+    { "id": "C06", "text": "Microsoft: unique slide titles; Accessibility Checker finds missing titles; Reset restores placeholders", "state": "VERIFIED_SOURCE", "source": "S-MS-PPT-A11Y" },
+    { "id": "C07", "text": "Reading Order pane sets screen reader order", "state": "VERIFIED_SOURCE", "source": "S-MS-PPT-A11Y" },
+    { "id": "C08", "text": "That reading order does not control this conversion, which orders by position", "state": "VERIFIED_CODE", "source": "S-CODE-PPTX" },
+    { "id": "C09", "text": "RAG-ready added no chunk markers to the deck because slide titles are level-one headings", "state": "VERIFIED_LOCAL_RUN + VERIFIED_CODE", "source": "F-M05S3 out-profiles, S-CODE-PPTX" }
+  ],
+  "not_claimed": ["PowerPoint-saved template geometry", "how models handle repeated headings"]
+}
