@@ -16,6 +16,7 @@ import ThreeColumnWorkspace from '../components/converter/ThreeColumnWorkspace';
 import MobileWorkspace from '../components/converter/MobileWorkspace';
 import OfflineBanner from '../components/converter/OfflineBanner';
 import Toast from '../components/converter/Toast';
+import QuotaIndicator from '../components/converter/QuotaIndicator';
 import { useConverterScreenViewModel } from '../viewmodels/useConverterScreenViewModel';
 import { useMediaQuery } from '../viewmodels/useMediaQuery';
 import { ACCEPT_ATTRIBUTE } from '../lib/formats';
@@ -81,6 +82,7 @@ export default function ConverterClient({ children }) {
 
       <main className="flex-1 w-full max-w-7xl mx-auto p-3 sm:p-5 flex flex-col">
         <h1 className="sr-only">{uiText(HERO_TITLE)}</h1>
+        <QuotaIndicator quota={converter.quota} error={converter.quotaError} onRefresh={converter.refreshQuota} />
         {isDesktop !== false && (
           <div className="hidden md:flex flex-col flex-1">
             <LayoutToolbar

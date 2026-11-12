@@ -11,6 +11,7 @@ import {
   selectConvertingItem,
 } from '../lib/models/queueModel';
 import { MAX_QUEUE_FILES } from '../lib/formats';
+import { prepareUploads, readQuota } from '../lib/models/quotaClient';
 
 // Two requests in flight halves batch time without stacking many large
 // parses on a single self-hosted Node process.
@@ -40,6 +41,21 @@ export function useConverterViewModel({ onConverted, onResultRetained, onNetwork
   const [state, dispatch] = useReducer(queueReducer, initialQueueState);
   const [profile, setProfile] = useState('Standard');
   const [isRunning, setRunning] = useState(false);
+  const [quota, setQuota] = useState(null);
+  const [quotaError, setQuotaError] = useState('');
+  const reservedRef = useRef(new Map());
+  const batchRef = useRef(null);
+  const refreshQuota = useCallback(async () => {
+    try { setQuota(await readQuota()); setQuotaError(''); }
+    catch { setQuotaError('Could not refresh file limits. They will be checked before upload.'); }
+  }, []);
+  useEffect(() => {
+    refreshQuota();
+    window.addEventListener('focus', refreshQuota);
+    const channel = typeof BroadcastChannel !== 'undefined' ? new BroadcastChannel('llmiser-quota') : null;
+    if (channel) channel.onmessage = refreshQuota;
+    return () => { window.removeEventListener('focus', refreshQuota); channel?.close(); };
+  }, [refreshQuota]);
 
   // Latest values for async commands, so the commands themselves can stay
   // referentially stable and memoized views don't re-render.
@@ -75,6 +91,7 @@ export function useConverterViewModel({ onConverted, onResultRetained, onNetwork
 
     try {
       const options = {
+        reservation: reservedRef.current.get(item.id),
         signal: controller.signal,
         onProgress: (progress) => dispatch({ type: 'jobProgress', id: item.id, progress }),
         onResultReady: (result) => {
@@ -95,6 +112,20 @@ export function useConverterViewModel({ onConverted, onResultRetained, onNetwork
       if (err.network) callbacksRef.current.onNetworkFailure?.();
     } finally {
       controllersRef.current.delete(item.id);
+      refreshQuota();
+    }
+  }, [refreshQuota]);
+
+  const reserveItems = useCallback(async (items) => {
+    const fresh = items.filter(item => !item.recovery?.job_id && !reservedRef.current.has(item.id));
+    if (!fresh.length) return;
+    const identity = JSON.stringify([profileRef.current, fresh.map(item => item.id)]);
+    if (batchRef.current?.identity !== identity) batchRef.current = { identity, requestId: crypto.randomUUID(), fileIds: fresh.map(() => crypto.randomUUID()) };
+    const result = await prepareUploads(fresh.map(item => item.file), profileRef.current, batchRef.current);
+    result.reservations.forEach((reservation, index) => { if (reservation) reservedRef.current.set(fresh[index].id, reservation); });
+    setQuota(result.quota); setQuotaError('');
+    if (typeof BroadcastChannel !== 'undefined') {
+      const channel = new BroadcastChannel('llmiser-quota'); channel.postMessage('changed'); channel.close();
     }
   }, []);
 
@@ -114,19 +145,30 @@ export function useConverterViewModel({ onConverted, onResultRetained, onNetwork
       }
     };
     try {
+      await reserveItems(queue);
       await Promise.all(Array.from({ length: Math.min(CONCURRENCY, queue.length) }, worker));
+    } catch (error) {
+      if (error.quota?.limit) setQuota(error.quota);
+      setQuotaError(error.message);
+      callbacksRef.current.onNotice?.(error.message);
     } finally {
       runningRef.current = false;
       setRunning(false);
     }
-  }, [runJob]);
+  }, [runJob, reserveItems]);
 
   const retry = useCallback(
-    (id) => {
+    async (id) => {
+      if (runningRef.current) return;
       const item = stateRef.current.items.find((i) => i.id === id);
-      if (item && (item.file || item.recovery?.job_id)) runJob(item);
+      if (item && (item.file || item.recovery?.job_id)) {
+        runningRef.current = true; setRunning(true);
+        try { await reserveItems([item]); await runJob(item); }
+        catch (error) { setQuotaError(error.message); callbacksRef.current.onNotice?.(error.message); }
+        finally { runningRef.current = false; setRunning(false); }
+      }
     },
-    [runJob]
+    [runJob, reserveItems]
   );
 
   const cancel = useCallback((id) => {
@@ -167,6 +209,7 @@ export function useConverterViewModel({ onConverted, onResultRetained, onNetwork
   }, [state, isRunning]);
 
   return {
+    quota, quotaError, refreshQuota,
     items: state.items,
     results: state.results,
     activeResultId: derived.activeResult?.id ?? null,

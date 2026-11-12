@@ -1,7 +1,7 @@
 import { draftRecord, pendingJobRecord } from './model.js';
 import { UPLOAD_ORIGINS } from './uploads.js';
 import { aiSite, pasteIntoComposer } from './ai.js';
-export { convertUpload, resumeUpload } from './uploads.js';
+export { convertUpload, resumeUpload, prepareExtensionUploads as prepareUploads, readExtensionQuota as readQuota } from './uploads.js';
 export const authorizeUploads = () => chrome.permissions.request({ origins: UPLOAD_ORIGINS });
 export async function detectAI() {
   const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });

@@ -9,11 +9,11 @@ const output=signed('sign')+'output/result.md?token=test-only';
 const json=(value,status=200)=>Response.json(value,{status});
 const file=()=>new File(['synthetic fixture'], 'sample.txt', {type:'text/plain'});
 
-test('file conversion uses private signed storage and existing job APIs, with no cookies or redirects',async()=>{
+test('file conversion sends guest cookies only to the app, never Storage or redirects',async()=>{
   const calls=[];
   const result=await convertUpload(file(),'Clean',{fetchImpl:async(url,init)=>{
     calls.push({url,init});
-    assert.equal(init.credentials,'omit'); assert.equal(init.redirect,'error');
+    assert.equal(init.credentials,new URL(url).origin===APP_ORIGIN?'include':'omit'); assert.equal(init.redirect,'error');
     assert.equal(init.referrerPolicy,'no-referrer');
     assert.equal(new Headers(init.headers).has('authorization'),false);
     if(url.endsWith('/api/uploads/create')) return json({job_id:id,upload_url:upload},201);

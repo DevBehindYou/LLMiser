@@ -2,6 +2,7 @@ import { admitPublicRequest, admissionResponse, readBoundedBody } from '../../..
 import { NextResponse } from 'next/server';
 import { createSupabase, supabaseConfig } from '../../../../lib/server/supabaseRest';
 import { JobError, createUpload } from '../../../../lib/server/jobService';
+import { quotaPolicy, quotaUpload, quotaResponse } from '../../../../lib/server/quotaService';
 
 export const dynamic = 'force-dynamic';
 
@@ -29,14 +30,18 @@ export async function POST(request) {
   }
 
   try {
-    const result = await createUpload(createSupabase(config), {
+    const db = createSupabase(config);
+    const policy = await quotaPolicy(db);
+    const result = policy.enabled || input.request_id || input.file_id ? await quotaUpload(db, request, input) : await createUpload(db, {
       filename: String(input.filename || ''),
       size: Number(input.size),
       contentType: typeof input.content_type === 'string' ? input.content_type.slice(0, 200) : null,
       profile: String(input.profile || 'Standard'),
     });
-    return NextResponse.json(result, { status: 201 });
+    return NextResponse.json(result, { status: 201, headers: { 'Cache-Control': 'no-store' } });
   } catch (err) {
+    const quotaError = quotaResponse(err);
+    if (quotaError) return quotaError;
     if (err instanceof JobError) return NextResponse.json({ detail: err.message }, {
       status: err.status,
       headers: { 'Cache-Control': 'no-store', ...(err.retryAfter ? { 'Retry-After': String(err.retryAfter) } : {}) },

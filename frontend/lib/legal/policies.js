@@ -84,6 +84,7 @@ export const PRIVACY_POLICY = {
       id: 'device',
       title: '5. Data kept on your device',
       blocks: [
+        { p: 'When guest file limits are enabled, a secure service cookie identifies your browser for the rolling file allowance. It lasts up to 90 days and is not used for advertising. We retain a keyed hash and quota event identifiers and timestamps, not the raw cookie. Quota metadata is eligible for cleanup after seven days. Active-job records remain until recovery settles. Clearing the cookie creates a new guest identity and does not delete previously uploaded files.' },
         { p: 'LLMiser stores a few items in your browser\'s local storage. Saved Markdown text stays on your device when you reopen it:' },
         { ul: [
           'Your light or dark theme choice.',

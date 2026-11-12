@@ -99,6 +99,7 @@ jobs:
       - run: npm ci --no-audit --no-fund
         working-directory: frontend
       - run: node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON tests/integration/postgres_recovery.mjs
+      - run: node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON tests/integration/postgres_quota.mjs
   edge:
     runs-on: ubuntu-latest
     timeout-minutes: 5
