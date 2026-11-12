@@ -91,6 +91,7 @@ export default function LLMiserFooter({
             </button>
 
             <button
+              data-tip-export=""
               onClick={onDownloadMd}
               disabled={!activeResult}
               className="px-4 py-1.5 rounded-full aurora-btn font-sans text-[12.5px] font-semibold cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed shadow-2xs flex items-center gap-1.5"
@@ -102,6 +103,7 @@ export default function LLMiserFooter({
 
             {totalConverted > 1 && (
               <button
+                data-tip-export=""
                 onClick={onDownloadZip}
                 className="px-3 py-1.5 rounded-full border border-[var(--border-3)] hover:border-[var(--text)] text-[var(--muted)] hover:text-[var(--text)] text-[12px] font-tech cursor-pointer bg-[var(--surface)] transition-colors"
                 title={uiText("Download all converted documents as .zip")}
@@ -157,6 +159,7 @@ export default function LLMiserFooter({
             )}
             <li>
               <button
+                data-tip-export=""
                 onClick={onDownloadMd}
                 disabled={!activeResult}
                 className="hover:text-[var(--text)] transition-colors bg-transparent border-0 p-0 text-[13px] text-[var(--muted)] cursor-pointer disabled:opacity-40"
@@ -246,6 +249,7 @@ export default function LLMiserFooter({
                   <div><button onClick={onOpenApi} className="p-0 bg-transparent border-0 text-inherit cursor-pointer">API</button></div>
                   <div>
                     <button
+                      data-tip-export=""
                       onClick={onDownloadMd}
                       disabled={!activeResult}
                       className="p-0 bg-transparent border-0 text-inherit cursor-pointer disabled:opacity-40"

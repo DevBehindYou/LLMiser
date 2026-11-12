@@ -7,11 +7,11 @@ import { snapshotWithPendingEdits } from '../lib/models/editorExport';
 const COPIED_MS = 1800;
 
 /** Copy / .md / .zip commands for the active result and the whole batch. */
-export function useExportViewModel({ activeResult, results, onNotice }) {
+export function useExportViewModel({ activeResult, results, onNotice, onDownloaded }) {
   const [copied, setCopied] = useState(false);
   const timerRef = useRef(null);
-  const latestRef = useRef({ activeResult, results, onNotice });
-  latestRef.current = { activeResult, results, onNotice };
+  const latestRef = useRef({ activeResult, results, onNotice, onDownloaded });
+  latestRef.current = { activeResult, results, onNotice, onDownloaded };
 
   const editorsRef = useRef(new Set());
   const registerEditor = useCallback(takePending => {
@@ -38,12 +38,18 @@ export function useExportViewModel({ activeResult, results, onNotice }) {
   }, [snapshot]);
 
   const downloadActive = useCallback(() => {
-    downloadMarkdown(snapshot().activeResult);
+    const result = snapshot().activeResult;
+    if (!result) return;
+    downloadMarkdown(result);
+    latestRef.current.onDownloaded?.([result.id]);
   }, [snapshot]);
 
   const downloadAll = useCallback(async () => {
     try {
-      await downloadMarkdownZip(snapshot().results);
+      const results = snapshot().results;
+      if (!results.length) return;
+      await downloadMarkdownZip(results);
+      latestRef.current.onDownloaded?.(results.map(result => result.id));
     } catch (err) {
       console.error('ZIP export failed:', err);
       latestRef.current.onNotice?.('Could not build the ZIP file');
