@@ -43,6 +43,34 @@ test('invalid files and profiles make no requests; failed admission sends no byt
   await assert.rejects(convertUpload(file(),'Standard',{fetchImpl}),/Busy/);assert.equal(requests,1);
 });
 
+test('a reserved upload waits for short-term capacity and replays the same slot', async () => {
+  const reservation = { request_id: crypto.randomUUID(), file_id: crypto.randomUUID(), job_id: id };
+  const attempts = [], waits = [];
+  let uploads = 0;
+  const result = await convertUpload(file(), 'Standard', {
+    reservation,
+    sleepImpl: async ms => { waits.push(ms); },
+    fetchImpl: async (url, init) => {
+      if (url.endsWith('/api/uploads/create')) {
+        attempts.push(JSON.parse(init.body));
+        if (attempts.length === 1) return Response.json({ detail: 'Wait' }, { status: 429, headers: { 'Retry-After': '6' } });
+        return json({ job_id: id, upload_url: upload }, 201);
+      }
+      if (url === upload) { uploads++; return json({}); }
+      if (url.endsWith('/start')) return json({ status: 'COMPLETED', source_type: 'DOCUMENT', result: { download_url: output } });
+      assert.equal(url, output);
+      return new Response('# Converted');
+    },
+  });
+  assert.deepEqual(waits, [6000]);
+  assert.equal(attempts.length, 2);
+  assert.deepEqual(attempts[0], attempts[1]);
+  assert.equal(attempts[1].request_id, reservation.request_id);
+  assert.equal(attempts[1].file_id, reservation.file_id);
+  assert.equal(uploads, 1);
+  assert.equal(result.markdown, '# Converted');
+});
+
 test('archive parts are fetched in order',async()=>{
   const first=signed('sign')+'output/project-part-001.md?token=test-only';
   const second=signed('sign')+'output/project-part-002.md?token=test-only';

@@ -1,4 +1,4 @@
-import { startUploadedJob, waitForJob, fetchResultMarkdown } from '../../frontend/lib/models/conversionService.js';
+import { startUploadedJob, waitForJob, fetchResultMarkdown, retryReservedUpload } from '../../frontend/lib/models/conversionService.js';
 import { PROFILES, validateUpload } from '../../frontend/lib/formats.js';
 import { MAX_MARKDOWN, pendingJobRecord } from './model.js';
 import { prepareUploads, readQuota } from '../../frontend/lib/models/quotaClient.js';
@@ -75,11 +75,14 @@ async function runConversion(file, profile, { signal, onProgress, onCheckpoint, 
   };
   let job = resumeJob ? { job_id: resumeJob.jobId } : null;
   if (!resumeJob) {
-    const created = await send(`${APP_ORIGIN}/api/uploads/create`, {
-      method: 'POST', headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ filename: file.name, size: file.size, content_type: file.type || null, profile, ...reservation }),
-    });
-    job = await created.json().catch(() => ({}));
+    const { res: created, data } = await retryReservedUpload(async () => {
+      const res = await send(`${APP_ORIGIN}/api/uploads/create`, {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ filename: file.name, size: file.size, content_type: file.type || null, profile, ...reservation }),
+      });
+      return { res, data: await res.json().catch(() => ({})) };
+    }, { reservation, signal, sleepImpl, onWait: () => onProgress?.('Waiting for upload capacity…') });
+    job = data;
     if (!created.ok) throw new Error(String(job.detail || `Could not start upload (${created.status}).`).slice(0, 400));
     if (!UUID.test(job.job_id || '')) throw new Error('The converter returned an invalid job. Please retry.');
     if (job.upload_url) {

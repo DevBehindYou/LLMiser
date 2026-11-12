@@ -86,17 +86,12 @@ const failure = (res, data) =>
 let storageAvailable = null;
 
 async function convertViaStorage(file, profile, signal, onProgress, onResultReady, reservation) {
-  let created, job;
-  for (let attempt = 0; ; attempt++) {
-    ({ res: created, data: job } = await request('/api/uploads/create', {
+  const { res: created, data: job } = await retryReservedUpload(() => request('/api/uploads/create', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ filename: file.name, size: file.size, content_type: file.type || null, profile, ...reservation }),
       signal,
-    }));
-    if (!reservation || ![429, 503].includes(created.status) || job.code === 'DAILY_FILE_LIMIT' || attempt >= 3) break;
-    await sleep(retryDelay(created, 1000), signal);
-  }
+  }), { reservation, signal });
   if (created.status === 501) {
     storageAvailable = false;
     return null;
@@ -181,6 +176,16 @@ function retryDelay(res, fallback) {
   const value = res?.headers?.get('Retry-After');
   const seconds = value && /^\d+$/.test(value) ? Number(value) : 0;
   return Math.max(fallback, Math.min(330, seconds) * 1000);
+}
+
+/** A reserved upload can safely replay signing without creating a second job. */
+export async function retryReservedUpload(send, { reservation, signal, sleepImpl = sleep, onWait } = {}) {
+  for (let attempt = 0; ; attempt++) {
+    const result = await send();
+    if (!reservation || ![429, 503].includes(result.res.status) || result.data.code === 'DAILY_FILE_LIMIT' || attempt >= 3) return result;
+    onWait?.();
+    await sleepImpl(retryDelay(result.res, 1000), signal);
+  }
 }
 
 /** Retry an already uploaded job's idempotent start without uploading again. */
