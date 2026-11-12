@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { generateSampleSession } from '../lib/models/sessionRepository';
 import { useThemeViewModel } from './useThemeViewModel';
 import { useServerStatusViewModel } from './useServerStatusViewModel';
@@ -10,6 +10,7 @@ import { useConverterViewModel } from './useConverterViewModel';
 import { useExportViewModel } from './useExportViewModel';
 import { useKeyboardShortcuts } from './useKeyboardShortcuts';
 import { useConsentViewModel } from './useConsentViewModel';
+import { useTipPrompt } from './useTipPrompt';
 
 /**
  * ViewModel for the converter screen (app/page.js). Composes the feature
@@ -23,6 +24,9 @@ export function useConverterScreenViewModel({ openFilePicker }) {
   const { theme, toggleTheme } = useThemeViewModel();
   const { serverStatus, wakeCountdown, recheck } = useServerStatusViewModel();
   const { toast, showToast } = useToastViewModel();
+  const tipBlocked = useRef(false);
+  const tip = useTipPrompt(tipBlocked);
+  const { recordSuccess, cancel: cancelTip } = tip;
   const recent = useRecentSessionsViewModel();
   const { saveSession, setActiveSessionId, deleteSession: removeSession, clearSessions: wipeSessions } =
     recent;
@@ -45,7 +49,10 @@ export function useConverterScreenViewModel({ openFilePicker }) {
   );
 
   const converter = useConverterViewModel({
-    onConverted: handleConverted,
+    onConverted(result, meta) {
+      handleConverted(result, meta);
+      if (meta.item.file && !meta.item.recovery?.job_id) recordSuccess(result.id);
+    },
     onResultRetained: handleConverted,
     onNetworkFailure: recheck,
     onNotice: showToast,
@@ -54,6 +61,7 @@ export function useConverterScreenViewModel({ openFilePicker }) {
     activeResult: converter.activeResult,
     results: converter.results,
     onNotice: showToast,
+    onDownloaded: tip.onDownloaded,
   });
   const { loadSession } = converter;
 
@@ -88,6 +96,10 @@ export function useConverterScreenViewModel({ openFilePicker }) {
   const [blogOpen, setBlogOpen] = useState(false);
   const [apiOpen, setApiOpen] = useState(false);
   const [legalModal, setLegalModal] = useState(null); // 'privacy' | 'terms' | null
+  const blocked = !consentAccepted || converter.isBusy || Boolean(converter.quotaError) ||
+    converter.items.some(item => item.status === 'error') || sidebarOpen || menuOpen || blogOpen || apiOpen || Boolean(legalModal);
+  tipBlocked.current = blocked;
+  useEffect(() => { if (blocked) cancelTip(); }, [blocked, cancelTip]);
 
   const sidebarOpenRef = useRef(sidebarOpen);
   sidebarOpenRef.current = sidebarOpen;
@@ -175,6 +187,7 @@ export function useConverterScreenViewModel({ openFilePicker }) {
     wakeCountdown,
     recheck,
     toast,
+    tip: { ...tip, blocked },
     converter: { ...converter, convertAll, retry },
     exporter,
     recent: {

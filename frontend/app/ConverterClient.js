@@ -29,6 +29,7 @@ const ApiModal = dynamic(() => import('../components/ApiModal'), { ssr: false })
 const LegalModal = dynamic(() => import('../components/LegalModal'), { ssr: false });
 const RecentSessionsSidebar = dynamic(() => import('../components/RecentSessionsSidebar'), { ssr: false });
 const MobileMenu = dynamic(() => import('../components/converter/MobileMenu'), { ssr: false });
+const TipSupportCard = dynamic(() => import('../components/converter/TipSupportCard'), { ssr: false });
 
 export default function ConverterClient({ children }) {
   const { uiText } = useI18n();
@@ -54,6 +55,7 @@ export default function ConverterClient({ children }) {
         accept={ACCEPT_ATTRIBUTE}
         aria-label={uiText("Choose documents to optimize")}
         className="hidden"
+        onClick={vm.tip.cancel}
         onChange={(e) => {
           if (e.target.files?.length) {
             converter.addFiles(e.target.files);
@@ -167,6 +169,7 @@ export default function ConverterClient({ children }) {
       {ui.legalModal && <LegalModal isOpen onClose={ui.closeLegal} initialTab={ui.legalModal} />}
 
       <Toast message={vm.toast} />
+      {vm.tip.pending && !vm.tip.blocked && <TipSupportCard markShown={vm.tip.markShown} cancel={vm.tip.cancel} dismiss={vm.tip.dismiss} />}
     </div>
   );
 }

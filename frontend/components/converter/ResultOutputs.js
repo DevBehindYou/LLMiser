@@ -17,6 +17,7 @@ export default function ResultOutputs({ result }) {
         {reference.outputs.map((output, index) => (
           <li key={`${output.name}-${index}`} className="py-1 [overflow-wrap:anywhere]">
             <a
+              data-tip-export=""
               href={`/api/jobs/${reference.job_id}/download?output=${encodeURIComponent(output.name)}`}
               target="_blank" rel="noopener noreferrer"
               className="text-[#2a78d6] dark:text-[#60a5fa] underline"

@@ -48,6 +48,7 @@ function ExportActions({
           {style.separated && i > 0 && <span>·</span>}
           <button
             type="button"
+            data-tip-export={a.key === 'copy' ? undefined : ''}
             onClick={a.onClick}
             disabled={a.disabled}
             className={`tap-target ${style.button}`}
