@@ -9,10 +9,11 @@
 //     Supabase isn't configured): POST /api/convert with the file.
 
 export class ConversionError extends Error {
-  constructor(message, { status = null, network = false } = {}) {
+  constructor(message, { status = null, network = false, code = null } = {}) {
     super(message);
     this.name = 'ConversionError';
     this.status = status;
+    this.code = code;
     /** True when the backend could not be reached at all. */
     this.network = network;
   }
@@ -79,18 +80,18 @@ async function request(url, init, fallbackMessage) {
 }
 
 const failure = (res, data) =>
-  new ConversionError(data.detail || data.error || `Conversion failed (${res.status})`, { status: res.status });
+  new ConversionError(data.detail || data.error || `Conversion failed (${res.status})`, { status: res.status, code: data.code });
 
 // null = unknown until the first attempt; false = server has no Storage.
 let storageAvailable = null;
 
-async function convertViaStorage(file, profile, signal, onProgress, onResultReady) {
-  const { res: created, data: job } = await request('/api/uploads/create', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ filename: file.name, size: file.size, content_type: file.type || null, profile }),
-    signal,
-  });
+async function convertViaStorage(file, profile, signal, onProgress, onResultReady, reservation) {
+  const { res: created, data: job } = await retryReservedUpload(() => request('/api/uploads/create', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ filename: file.name, size: file.size, content_type: file.type || null, profile, ...reservation }),
+      signal,
+  }), { reservation, signal });
   if (created.status === 501) {
     storageAvailable = false;
     return null;
@@ -99,17 +100,19 @@ async function convertViaStorage(file, profile, signal, onProgress, onResultRead
   storageAvailable = true;
 
   // Same request shape as @supabase/storage-js uploadToSignedUrl.
-  const form = new FormData();
-  form.append('cacheControl', '3600');
-  form.append('', file);
-  let uploaded;
-  try {
-    uploaded = await fetch(job.upload_url, { method: 'PUT', body: form, signal });
-  } catch (err) {
-    if (err?.name === 'AbortError') throw err;
-    throw new ConversionError('Upload failed. Check your connection and retry.', { network: true });
+  if (job.upload_url) {
+    const form = new FormData();
+    form.append('cacheControl', '3600');
+    form.append('', file);
+    let uploaded;
+    try {
+      uploaded = await fetch(job.upload_url, { method: 'PUT', body: form, signal });
+    } catch (err) {
+      if (err?.name === 'AbortError') throw err;
+      throw new ConversionError('Upload failed. Check your connection and retry.', { network: true });
+    }
+    if (!uploaded.ok) throw new ConversionError(`Upload failed (${uploaded.status})`, { status: uploaded.status });
   }
-  if (!uploaded.ok) throw new ConversionError(`Upload failed (${uploaded.status})`, { status: uploaded.status });
 
   onProgress?.(UPLOADED_PROGRESS);
 
@@ -175,6 +178,16 @@ function retryDelay(res, fallback) {
   return Math.max(fallback, Math.min(330, seconds) * 1000);
 }
 
+/** A reserved upload can safely replay signing without creating a second job. */
+export async function retryReservedUpload(send, { reservation, signal, sleepImpl = sleep, onWait } = {}) {
+  for (let attempt = 0; ; attempt++) {
+    const result = await send();
+    if (!reservation || ![429, 503].includes(result.res.status) || result.data.code === 'DAILY_FILE_LIMIT' || attempt >= 3) return result;
+    onWait?.();
+    await sleepImpl(retryDelay(result.res, 1000), signal);
+  }
+}
+
 /** Retry an already uploaded job's idempotent start without uploading again. */
 export async function startUploadedJob(jobId, { signal, fetchImpl = fetch, sleepImpl = sleep, now = Date.now } = {}) {
   const deadline = now() + JOB_WAIT_LIMIT_MS;
@@ -189,6 +202,7 @@ export async function startUploadedJob(jobId, { signal, fetchImpl = fetch, sleep
       res = null;
     }
     if (res?.ok) return data;
+    if (data.code === 'DAILY_FILE_LIMIT') throw failure(res, data);
     if (res && res.status < 500 && res.status !== 429) throw failure(res, data);
     if (attempt >= 8 || now() >= deadline) {
       throw new ConversionError(data.detail || 'The uploaded file could not be started. Please try again later.', { status: res?.status, network: !res });
@@ -222,6 +236,7 @@ export async function waitForJob(jobId, first, { signal, onProgress, fetchImpl =
       if (err?.name === 'AbortError') throw err;
       res = null;
     }
+    if (data.code === 'DAILY_FILE_LIMIT') throw failure(res, data);
     if (res?.ok) {
       status = data;
       failures = 0;
@@ -243,9 +258,9 @@ export async function waitForJob(jobId, first, { signal, onProgress, fetchImpl =
  * a ConversionError for every other failure. `onProgress(percent)` reports
  * upload and processing progress for multi-part jobs.
  */
-export async function convertFile(file, profile, { signal, onProgress, onResultReady } = {}) {
+export async function convertFile(file, profile, { signal, onProgress, onResultReady, reservation } = {}) {
   if (storageAvailable !== false) {
-    const result = await convertViaStorage(file, profile, signal, onProgress, onResultReady);
+    const result = await convertViaStorage(file, profile, signal, onProgress, onResultReady, reservation);
     if (result) return result;
   }
 

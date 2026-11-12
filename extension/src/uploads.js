@@ -1,12 +1,16 @@
-import { startUploadedJob, waitForJob, fetchResultMarkdown } from '../../frontend/lib/models/conversionService.js';
+import { startUploadedJob, waitForJob, fetchResultMarkdown, retryReservedUpload } from '../../frontend/lib/models/conversionService.js';
 import { PROFILES, validateUpload } from '../../frontend/lib/formats.js';
 import { MAX_MARKDOWN, pendingJobRecord } from './model.js';
+import { prepareUploads, readQuota } from '../../frontend/lib/models/quotaClient.js';
 
 export const APP_ORIGIN = 'https://llmiser.devbehindyou.com';
 export const STORAGE_ORIGIN = 'https://ppmbqgecdbrezxedyeur.supabase.co';
 export const UPLOAD_ORIGINS = [`${APP_ORIGIN}/*`, `${STORAGE_ORIGIN}/*`];
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/;
 const BUCKET = 'mdify-pro-files'; // Existing production compatibility contract.
+
+export const prepareExtensionUploads = (files, profile, options = {}) => prepareUploads(files, profile, { ...options, origin: APP_ORIGIN });
+export const readExtensionQuota = () => readQuota({ origin: APP_ORIGIN });
 
 export function signedStorageUrl(value, jobId, upload = false) {
   let url;
@@ -39,7 +43,7 @@ async function boundedText(response, maxBytes) {
   } finally { reader.releaseLock(); }
 }
 
-// No cookies, authorization keys, arbitrary URLs or redirects. The permission
+// Guest cookies go only to APP_ORIGIN. No cookies or keys go to Storage.
 // is optional; it is requested only by the Convert files button in the popup.
 export const convertUpload = (file, profile, options) => runConversion(file, profile, options);
 export async function resumeUpload(checkpoint, options) {
@@ -48,7 +52,7 @@ export async function resumeUpload(checkpoint, options) {
   return runConversion({ name: record.filename }, null, options, record);
 }
 async function runConversion(file, profile, { signal, onProgress, onCheckpoint, fetchImpl = fetch,
-  sleepImpl, now } = {}, resumeJob = null) {
+  sleepImpl, now, reservation } = {}, resumeJob = null) {
   if (!resumeJob) {
     const invalid = validateUpload(file);
     if (invalid) throw new Error(invalid);
@@ -62,7 +66,7 @@ async function runConversion(file, profile, { signal, onProgress, onCheckpoint, 
     const timer = setTimeout(abort, 300_000);
     try {
       const response = await fetchImpl(url, { ...init, signal: controller.signal,
-        credentials: 'omit', redirect: 'error', cache: 'no-store', referrerPolicy: 'no-referrer' });
+        credentials: new URL(url).origin === APP_ORIGIN ? 'include' : 'omit', redirect: 'error', cache: 'no-store', referrerPolicy: 'no-referrer' });
       // Keep the timeout active while reading the body, not just the headers.
       const limit = new URL(url).origin === APP_ORIGIN ? 512_000 : 2_000_000;
       const text = await boundedText(response, limit);
@@ -71,19 +75,24 @@ async function runConversion(file, profile, { signal, onProgress, onCheckpoint, 
   };
   let job = resumeJob ? { job_id: resumeJob.jobId } : null;
   if (!resumeJob) {
-    const created = await send(`${APP_ORIGIN}/api/uploads/create`, {
-      method: 'POST', headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ filename: file.name, size: file.size, content_type: file.type || null, profile }),
-    });
-    job = await created.json().catch(() => ({}));
+    const { res: created, data } = await retryReservedUpload(async () => {
+      const res = await send(`${APP_ORIGIN}/api/uploads/create`, {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ filename: file.name, size: file.size, content_type: file.type || null, profile, ...reservation }),
+      });
+      return { res, data: await res.json().catch(() => ({})) };
+    }, { reservation, signal, sleepImpl, onWait: () => onProgress?.('Waiting for upload capacity…') });
+    job = data;
     if (!created.ok) throw new Error(String(job.detail || `Could not start upload (${created.status}).`).slice(0, 400));
     if (!UUID.test(job.job_id || '')) throw new Error('The converter returned an invalid job. Please retry.');
-    const uploadUrl = signedStorageUrl(job.upload_url, job.job_id, true);
-    await onCheckpoint?.({ jobId: job.job_id, filename: file.name, phase: 'uploading' });
-    const form = new FormData(); form.append('cacheControl', '3600'); form.append('', file);
-    onProgress?.('Uploading…');
-    const uploaded = await send(uploadUrl, { method: 'PUT', body: form });
-    if (!uploaded.ok) throw new Error(`Upload failed (${uploaded.status}). Please retry.`);
+    if (job.upload_url) {
+      const uploadUrl = signedStorageUrl(job.upload_url, job.job_id, true);
+      await onCheckpoint?.({ jobId: job.job_id, filename: file.name, phase: 'uploading' });
+      const form = new FormData(); form.append('cacheControl', '3600'); form.append('', file);
+      onProgress?.('Uploading…');
+      const uploaded = await send(uploadUrl, { method: 'PUT', body: form });
+      if (!uploaded.ok) throw new Error(`Upload failed (${uploaded.status}). Please retry.`);
+    }
     await onCheckpoint?.({ jobId: job.job_id, filename: file.name, phase: 'processing' });
   }
   const apiFetch = (url, init) => {

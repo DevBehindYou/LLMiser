@@ -14,6 +14,7 @@ export async function mountPanel(doc, api) {
   let targetRevision = 0;
   let activeItem = null;
   let clearFailed = false;
+  let batchAttempt = null;
   const status = (text, error = false) => { el('status').textContent = text; el('status').dataset.error = String(error); };
   const update = () => {
     const hasDraft = draft !== null;
@@ -100,18 +101,30 @@ export async function mountPanel(doc, api) {
     const signal = uploadAbort.signal;
     const profile = el('profile').value;
     let sessionSaveFailed = false;
+    let canReadQuota = false;
     try {
       // Called directly from the click gesture so Chrome can show its optional
       // permission prompt. Denial sends no file or job metadata.
       const granted = await api.authorizeUploads();
       if (attempt !== revision) return;
       if (!granted) { status('File-converter access was not granted. Your files were not uploaded.', true); return; }
+      canReadQuota = true;
+      const fresh = queue.filter(item => ['pending','retry'].includes(item.state) && !item.checkpoint && !item.reservation);
+      if (fresh.length && api.prepareUploads) {
+        const identity = JSON.stringify([profile, fresh.map(item => [item.name, item.file?.size])]);
+        if (batchAttempt?.identity !== identity) batchAttempt = { identity, requestId: crypto.randomUUID(), fileIds: fresh.map(() => crypto.randomUUID()) };
+        const prepared = await api.prepareUploads(fresh.map(item => item.file), profile, { ...batchAttempt, signal });
+        if (attempt !== revision) return;
+        prepared.reservations.forEach((reservation,index) => { fresh[index].reservation = reservation; });
+        const indicator = el('quota-status');
+        if (indicator) indicator.textContent = prepared.quota?.enabled ? `${prepared.quota.used} of ${prepared.quota.limit} used; ${prepared.quota.reserved} reserved; ${prepared.quota.remaining} remaining in the rolling 24-hour window.` : '';
+      }
       for (const item of queue.filter(value => ['pending','retry'].includes(value.state))) {
         if (attempt !== revision) break;
         item.state = 'running'; item.message = 'Starting…'; renderQueue();
         status(`Converting ${item.name}…`);
         try {
-          const options = { signal, onCheckpoint: async checkpoint => {
+          const options = { signal, reservation: item.reservation, onCheckpoint: async checkpoint => {
             if (attempt !== revision) throw new DOMException('Aborted','AbortError');
             await api.savePendingJob(checkpoint);
             if (attempt !== revision) throw new DOMException('Aborted','AbortError');
@@ -141,8 +154,17 @@ export async function mountPanel(doc, api) {
         const failed = queue.filter(item => ['error','retry'].includes(item.state)).length;
         status(sessionSaveFailed ? 'Converted results are available, but session saving failed. Export them before closing this popup.' : failed ? `${failed} file(s) could not finish. Resume uploaded jobs, or choose interrupted files again.` : 'Files converted. Review your Markdown, then download or paste.', sessionSaveFailed || failed > 0);
       }
-    } catch { if (attempt === revision) status('Chrome could not grant file-converter access. No new upload was started.', true); }
-    finally { if (attempt === revision) { busy = false; uploadAbort = null; renderQueue(); } }
+    } catch (error) { if (attempt === revision) status(error.message || 'Could not reserve this selection. No new upload was started.', true); }
+    finally {
+      if (canReadQuota && api.readQuota) {
+        try {
+          const quota = await api.readQuota();
+          if (attempt === revision && el('quota-status')) el('quota-status').textContent = quota.enabled
+            ? `${quota.used} of ${quota.limit} used; ${quota.reserved} reserved; ${quota.remaining} remaining in the rolling 24-hour window.` : '';
+        } catch { /* A failed refresh never hides a conversion result. */ }
+      }
+      if (attempt === revision) { busy = false; uploadAbort = null; renderQueue(); }
+    }
   });
   const detectTarget = async () => {
     const attempt = ++targetRevision;

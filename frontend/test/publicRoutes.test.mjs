@@ -98,15 +98,16 @@ test('upload JSON is bounded and rejects null/arrays before creating any rows',a
 }));
 
 test('multipart validation errors release their lease before returning',async()=>isolated(async()=>{
-  const calls=[]; globalThis.fetch=async(url)=>{calls.push(url);return json(url.endsWith('admit_public_request')?{allowed:true,lease_id:lease}:true);};
+  const calls=[]; globalThis.fetch=async(url)=>{calls.push(url);if(url.endsWith('quota_policy'))return json({enabled:false});return json(url.endsWith('admit_public_request')?{allowed:true,lease_id:lease}:true);};
   const response=await(await route('convert')).POST(uploadRequest('{}'));
-  assert.equal(response.status,400); assert.equal(calls.length,2); assert.match(calls[1],/release_public_multipart$/);
+  assert.equal(response.status,400); assert.equal(calls.length,3); assert.match(calls[2],/release_public_multipart$/);
 }));
 
 test('successful multipart dispatch releases the lease; timeout retains it for expiry',async()=>isolated(async()=>{
   const handler=await route('convert'); let timeout=false; const calls=[];
   globalThis.fetch=async(url)=>{
     calls.push(url);
+    if(url.endsWith('quota_policy'))return json({enabled:false});
     if(url.endsWith('admit_public_request'))return json({allowed:true,lease_id:lease});
     if(url.endsWith('release_public_multipart'))return json(true);
     assert.match(url,/internal\/convert$/);
@@ -115,7 +116,7 @@ test('successful multipart dispatch releases the lease; timeout retains it for e
   };
   assert.equal((await handler.POST(multipart())).status,200); assert.match(calls.at(-1),/release_public_multipart$/);
   calls.length=0; timeout=true;
-  assert.equal((await handler.POST(multipart())).status,504); assert.equal(calls.length,2);
+  assert.equal((await handler.POST(multipart())).status,504); assert.equal(calls.length,3);
   assert.ok(calls.every(url=>!url.endsWith('release_public_multipart')));
 }));
 
@@ -123,6 +124,7 @@ test('a successful peer retry conservatively retains the lease for the uncertain
   process.env.NORMAL_BACKEND_URLS='http://backend.test,http://peer.test';
   let attempts=0;let released=false;
   globalThis.fetch=async(url)=>{
+    if(url.endsWith('quota_policy'))return json({enabled:false});
     if(url.endsWith('admit_public_request'))return json({allowed:true,lease_id:lease});
     if(url.endsWith('release_public_multipart')){released=true;return json(true);}
     attempts++;return attempts===1?json({detail:'upstream failed'},502):json({filename:'fixture.md',content:'synthetic text'});
@@ -137,6 +139,7 @@ test('full or missing active-job admission returns safe Retry-After without sign
   const calls=[];
   globalThis.fetch=async(url)=>{
    calls.push(url);
+   if(url.endsWith('quota_policy'))return json({enabled:false});
    if(url.endsWith('admit_public_request'))return json({allowed:true,lease_id:null});
    if(url.endsWith('create_reserved_upload_job'))return unavailable?json({message:'private missing function'},404):json({allowed:false,retry_after:30});
    assert.fail('Unexpected Storage or database call: '+url);

@@ -3,6 +3,8 @@ import { NextResponse } from 'next/server';
 import { SUPPORTED_EXTENSIONS, maxFileSizeFor, poolForExtension, sizeLimitMessage, splitFileName } from '../../../lib/formats';
 import { dispatchConversion, getPoolConfig } from '../../../lib/server/dispatcher';
 import { routeDeadline } from '../../../lib/server/timeBudget';
+import { createSupabase, supabaseConfig } from '../../../lib/server/supabaseRest';
+import { quotaPolicy, quotaResponse } from '../../../lib/server/quotaService';
 
 // Interim transport: the browser still posts the file here and this route
 // forwards it to a backend. The Storage flow (/api/uploads/create, then
@@ -24,6 +26,12 @@ export async function POST(request) {
   let releaseLease = true;
 
   try {
+    const config = supabaseConfig();
+    if (config) {
+      try {
+        if ((await quotaPolicy(createSupabase(config))).enabled) return NextResponse.json({ code: 'USE_STORAGE_UPLOAD', detail: 'Refresh LLMiser or update the extension to use reserved uploads.' }, { status: 428 });
+      } catch (error) { return quotaResponse(error); }
+    }
     let formData;
     try {
       const bounded = await readBoundedBody(request, 16 * 1024 * 1024);
