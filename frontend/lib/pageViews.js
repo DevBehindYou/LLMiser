@@ -6,7 +6,7 @@ export function recordPixelView(origin, pathname) {
   if (origin !== 'https://llmiser.devbehindyou.com' || !pathname || isControllerPath(pathname)) return;
 
   // Request the pixel afresh on client-side navigation without disclosing the page URL.
-  return fetch('https://um2.us/p/sp7kC2aQv', {
+  return fetch('https://um2.us/p/Q0Svc620L', {
     mode: 'no-cors',
     credentials: 'omit',
     referrerPolicy: 'no-referrer',

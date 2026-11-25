@@ -15,7 +15,7 @@ test('only public production views load the Umami pixel', async (t) => {
   for (const path of ['/', '/blog', '/']) await recordPixelView(production, path);
   assert.equal(request.mock.callCount(), 3);
   for (const call of request.mock.calls) {
-    assert.deepEqual(call.arguments, ['https://um2.us/p/sp7kC2aQv', {
+    assert.deepEqual(call.arguments, ['https://um2.us/p/Q0Svc620L', {
       mode: 'no-cors', credentials: 'omit', referrerPolicy: 'no-referrer', cache: 'no-store',
     }]);
   }
