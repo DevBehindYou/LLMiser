@@ -534,6 +534,7 @@
   "We don't ask for your name, email address or any account. We don't use cookies for tracking or advertising.": "我们不要求提供姓名、邮箱或账户，也不使用跟踪或广告Cookie。",
   "We don't sell or share your data with anyone else. We would disclose data to authorities only where the law requires it.": "我们不出售数据，也不与其他任何方共享。仅在法律要求时向有关机关披露。",
   "We never use your files or their content for advertising, profiling or training machine learning models.": "我们绝不将文件及其内容用于广告、用户画像或机器学习模型训练。",
+  "We use Umami Cloud for cookie-free page-view analytics. We exclude the admin area, URL query parameters and fragments from page-view tracking.": "我们也使用 Umami Cloud 进行不使用 Cookie 的页面浏览统计。页面浏览追踪会排除管理区域、URL 查询参数和片段。",
   "We use a small number of service providers to run LLMiser. Each one processes data only on our instructions, under a data processing agreement:": "我们使用少量服务商运营LLMiser。各服务商均根据数据处理协议，仅按照我们的指示处理数据：",
   "We'll update the date at the top when these terms change. For changes that affect you, LLMiser asks you to accept the new version before your next conversion. If you don't accept, you can stop using LLMiser at any time.": "条款变更时会更新顶部日期。对于影响您的变更，LLMiser会在下次转换前请您接受新版。如不同意，您可随时停止使用。",
   "We'll update the date at the top when this policy changes. If a change affects how we use your data, LLMiser asks you to accept the new version before your next conversion.": "政策变更时会更新顶部日期。若变更影响数据使用方式，LLMiser会在下次转换前请您同意新版本。",

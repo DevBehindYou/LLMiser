@@ -10,7 +10,7 @@
 // category (Art. 13(1)(e) allows that) and available on request.
 
 export const LEGAL_VERSION = '2026-10-21';
-export const LEGAL_UPDATED_LABEL = '13 November 2026';
+export const LEGAL_UPDATED_LABEL = '25 November 2026';
 
 export const OPERATOR = {
   name: 'DevBehindYou',
@@ -43,6 +43,7 @@ export const PRIVACY_POLICY = {
       id: 'data',
       title: '2. What we process',
       blocks: [
+        { p: 'We use Umami Cloud for cookie-free page-view analytics. We exclude the admin area, URL query parameters and fragments from page-view tracking.' },
         { ul: [
           'The files you upload and everything inside them. Documents can contain personal data about you or other people, so please upload only what you need converted.',
           'File details: name, type and size.',

@@ -534,6 +534,7 @@
   "We don't ask for your name, email address or any account. We don't use cookies for tracking or advertising.": "氏名、メールアドレス、アカウントは求めません。追跡や広告のCookieも使用しません。",
   "We don't sell or share your data with anyone else. We would disclose data to authorities only where the law requires it.": "データを販売したり、他の第三者と共有したりしません。当局への開示は、法律上必要な場合に限ります。",
   "We never use your files or their content for advertising, profiling or training machine learning models.": "ファイルや内容を広告、プロファイリング、機械学習モデルの訓練に使用することはありません。",
+  "We use Umami Cloud for cookie-free page-view analytics. We exclude the admin area, URL query parameters and fragments from page-view tracking.": "Cookieを使わないページ閲覧の分析にUmami Cloudも使用します。管理画面、URLのクエリパラメーター、フラグメントはページ閲覧の計測から除外します。",
   "We use a small number of service providers to run LLMiser. Each one processes data only on our instructions, under a data processing agreement:": "LLMiserの運営には少数のサービス事業者を利用します。各事業者はデータ処理契約に基づき、当社の指示のみに従って処理します：",
   "We'll update the date at the top when these terms change. For changes that affect you, LLMiser asks you to accept the new version before your next conversion. If you don't accept, you can stop using LLMiser at any time.": "規約の変更時は冒頭の日付を更新します。利用者に影響する変更については、次の変換前に新版への同意を求めます。同意しない場合は、いつでも利用を中止できます。",
   "We'll update the date at the top when this policy changes. If a change affects how we use your data, LLMiser asks you to accept the new version before your next conversion.": "ポリシーを変更した際は冒頭の日付を更新します。データの利用方法に影響する変更の場合、次の変換前に新しい版への同意を求めます。",

@@ -1,5 +1,6 @@
 import './fonts.css';
 import './globals.css';
+import Script from 'next/script';
 import ConsentBanner from '../components/ConsentBanner';
 import WakeOnOpen from '../components/WakeOnOpen';
 import SiteAnalytics from '../components/SiteAnalytics';
@@ -97,6 +98,28 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en-US" className="h-full" data-theme="dark" suppressHydrationWarning>
       <head>
+        <script
+          dangerouslySetInnerHTML={{ __html: `window.llmiserUmamiBeforeSend = function(type, payload) {
+            try {
+              var url = new URL(payload.url, location.origin);
+              if (url.pathname === '/llmiser-controller' || url.pathname.startsWith('/llmiser-controller/')) return false;
+              var referrer = payload.referrer ? new URL(payload.referrer, location.origin) : null;
+              if (referrer) { referrer.search = ''; referrer.hash = ''; }
+              return Object.assign({}, payload, { url: url.pathname, referrer: referrer ? referrer.toString() : '' });
+            } catch (e) { return false; }
+          };` }}
+        />
+        <Script
+          id="umami-analytics"
+          strategy="beforeInteractive"
+          defer
+          src="https://cloud.umami.is/script.js"
+          data-website-id="c90780a6-2877-482a-be51-59f956bcc62c"
+          data-domains="llmiser.devbehindyou.com"
+          data-exclude-search="true"
+          data-exclude-hash="true"
+          data-before-send="llmiserUmamiBeforeSend"
+        />
         {/* Exact existing Latin subsets; other scripts load through unicode-range. */}
         <link rel="preload" href="/fonts/v1/inter-latin.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
         <link rel="preload" href="/fonts/v1/jetbrains-mono-latin.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
